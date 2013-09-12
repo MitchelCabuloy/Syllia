@@ -1,0 +1,10 @@
+*.pyc
+bin/
+include/
+lib/
+
+# Sass-cache
+*.sass-cache/
+
+# sqlite3 db
+*.db
