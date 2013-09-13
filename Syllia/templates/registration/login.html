@@ -11,7 +11,7 @@
             {% endif %}
 
 
-            <form action="{% url 'accounts:login' %}" method="POST">
+            <form action="{% url 'authtools:login' %}" method="POST">
                 {% csrf_token %}
 
                 <div class="row">
@@ -29,8 +29,11 @@
                 </div>
 
                 <div class="row">
-                    <div class="small-12 columns">
+                    <div class="small-6 columns">
                         <input type="submit" value="Login" class="button primary small">
+                    </div>
+                    <div class="small-6 columns">
+                        Don't have an account?&nbsp;<a href="{% url 'accounts:register' %}">Register</a>
                     </div>
                 </div>
 

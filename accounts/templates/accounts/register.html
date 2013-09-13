@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock title %}
+
+{% block content %}
+    <div class="row">
+        <div class="small-12 columns">
+            <h3>Register</h3>
+            {{ form.non_field_errors }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-4 columns">
+            <form action="{% url 'accounts:register' %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="small-12 columns">
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        {{ form.name.label_tag }}
+                        {{ form.name }}
+                        {{ form.name.errors }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        {{ form.password.label_tag }}
+                        {{ form.password }}
+                        {{ form.password.errors }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        {{ form.confirm_password.label_tag }}
+                        {{ form.confirm_password }}
+                        {{ form.confirm_password.errors }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <input type="submit" value="Register" class="button primary small">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
