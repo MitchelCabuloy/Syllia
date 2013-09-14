@@ -15,3 +15,12 @@ class RegisterForm(forms.Form):
             raise forms.ValidationError("The passwords do not match.")
 
         return password
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+
+        if not "@delasalle.ph" in email:
+            raise forms.ValidationError(
+                "You need to use a @delasalle.ph email address to sign up for this service.")
+
+        return email
