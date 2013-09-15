@@ -8,3 +8,6 @@ lib/
 
 # sqlite3 db
 *.db
+
+# sublime stuff
+*.sublime-workspace
