@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock title %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="large-12 columns">
+            <a href="{% url 'syllabus:add' %}" class="button primary">Add new</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-4 columns">
+            <ul>
+                {% for item in syllabus%}
+                    <li>{{ item.course_code }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock content %}
