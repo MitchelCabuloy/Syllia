@@ -1,0 +1,286 @@
+{% extends "base.html" %}
+
+{% block title %}New syllabus{% endblock title %}
+
+{% block content %}
+<div>
+    <div class="row">
+        <div class="large-12 columns">
+            <a href="#" id="stringify" class="button primary small">Stringify</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-4 columns">
+            <p>College</p>
+            <input type="text" data-bind="value: college">
+            <p>Department</p>
+            <input type="text" data-bind="value: department">
+            <p>Course code</p>
+            <input type="text" data-bind="value: courseCode">
+            <p>Course name</p>
+            <input type="text" data-bind="value: courseName">
+            <p>Course description</p>
+            <input type="text" data-bind="value: courseDescription">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="large-4 columns">
+            <p>Schedules</p>
+            <table>
+                <thead>
+                    <th>Days</th>
+                    <th>Start time</th>
+                    <th>End time</th>
+                    <th></th>
+                </thead>
+                <tbody data-bind="foreach: schedules">
+                    <td><input type="text" data-bind="value: days"></td>
+                    <td><input type="text" data-bind="value: startTime"></td>
+                    <td><input type="text" data-bind="value: endTime"></td>
+                    <td><a href="#" data-bind="click: $root.removeSchedule">Delete</a></td>
+                </tbody>
+            </table>
+            <a href="#" data-bind="click: addSchedule" class="button small primary">Add Row</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="large-4 columns">
+        <p>Instructors</p>
+        <table>
+            <thead>
+                <th>Last name</th>
+                <th>First name</th>
+                <th></th>
+            </thead>
+            <tbody data-bind="foreach: instructors">
+                <td><input type="text" data-bind="value: firstName"></td>
+                <td><input type="text" data-bind="value: lastName"></td>
+                <td><a href="#" data-bind="click: $root.removeInstructor">Delete</a></td>
+            </tbody>
+        </table>
+        <a href="#" data-bind="click: addInstructor" class="button small primary">Add Row</a>
+    </div>
+</div>
+</div>
+
+<!-- Learning Outcomes -->
+<div class="row">
+    <div class="large-12 columns">
+        <p>Learning Outcomes</p>
+        <div data-bind="foreach: elgas">
+            <div class="row">
+                <div class="large-6 columns">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <span>Lasallian Value</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-10 columns">
+                            <input type="text" data-bind="value: elgaName">
+                        </div>
+                        <div class="large-2 columns">
+                            <a href="#" data-bind="click: $root.removeElga">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="large-6 columns">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <span>Learning Outcomes</span>
+                        </div>
+                    </div>
+                    <div data-bind="foreach: learningOutcomes">
+                        <div class="row">
+                            <div class="large-10 columns">
+                                <input type="text" data-bind="value: description">
+                            </div>
+                            <div class="large-2 columns">
+                                <a href="#" data-bind="click: $parent.removeLearningOutcome">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" data-bind="click: addLearningOutcome">Add LO</a>
+                </div>
+            </div>
+
+        </div>
+        <a href="#" data-bind="click: addElga" class="button primary small">Add ELGA</a>
+    </div>
+</div>
+
+<!-- Final Course Output -->
+<div class="row">
+    <div class="large-12 columns">
+        <div class="row">
+            <div class="large-12 columns">
+                <p>Final Course Output</p>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <p>Final Course Output Description</p>
+                <textarea data-bind="value: finalCourseOutputDescription"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <div data-bind="foreach: requiredOutputs">
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <p>Required Output</p>
+                            <input type="text" data-bind="value: description">
+                        </div>
+                        <div class="large-4 columns left">
+                            <p>Week Due</p>
+                            <input type="text" data-bind="value: weekDue">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>Learning Outcomes</p>
+                        <div data-bind="foreach: $root.elgas">
+                            <div data-bind="foreach: learningOutcomes">
+                                <input type="checkbox" data-bind="value: description, checked: $parents[1].los">&nbsp;<span data-bind="text: description"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" data-bind="click: addRequiredOutput" class="button primary small">Add Required Output</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Other Outputs-->
+<div class="row">
+    <div class="large-4 columns">
+        <p>Other Outputs</p>
+        <div data-bind="foreach: otherOutputs">
+            <div class="row collapse">
+                <div class="large-9 columns">
+                    <input type="text" data-bind="value: requirementName">
+                </div>
+                <div class="large-3 columns">
+                    <a href="#" class="button primary alert postfix" data-bind="click: $root.removeOtherOutput">Delete</a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="button primary small" data-bind="click: addOtherOutput">Add Other Output</a>
+    </div>
+</div>
+
+<!-- Grading System -->
+<div class="row">
+    <div class="large-4 columns">
+        <p>Grading System</p>
+        <div data-bind="foreach: gradingSystems">
+            <div class="row">
+                <div class="large-5 columns">
+                    <input type="text" data-bind="value: itemName">
+                </div>
+                <div class="large-5 columns">
+                    <input type="text" data-bind="value: percentage">
+                </div>
+                <div class="large-2 columns">
+                    <a href="#" class="button primary alert small" data-bind="click: $root.removeGradingSystem">Delete</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-6 columns">
+                <a href="#" class="button primary small" data-bind="click: addGradingSystem">Add Row</a>
+            </div>
+            <div class="large-6 columns">
+                <span data-bind="text: totalGradingSystem"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Learning plan -->
+<div class="row">
+    <div class="large-12 columns">
+        <p>Learning Plan</p>
+        <div data-bind="foreach: learningPlans">
+            <div class="row">
+                <div class="large-12 columns">
+                    <p>Learning Outcomes</p>
+                    <div data-bind="foreach: $root.elgas">
+                        <div data-bind="foreach: learningOutcomes">
+                            <input type="checkbox" data-bind="value: description, checked: $parents[1].los">&nbsp;<span data-bind="text: description"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-6 columns">
+                    <input type="text" data-bind="value: topic">
+                </div>
+                <div class="large-2 columns">
+                    <input type="text" data-bind="value: weekNumber">
+                </div>
+                <div class="large-4 columns">
+                    <div data-bind="foreach: learningActivities">
+                        <input type="text" data-bind="value: description">
+                        <a href="#" data-bind="click: $parent.removeLearningActivity" class="button alert small">Delete</a>
+                    </div>
+                    <a href="#" data-bind="click: addLearningActivity" class="button primary small">Add new</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <a href="#" data-bind="click: $root.removeLearningPlan" class="button alert small">Remove</a>
+                </div>
+            </div>
+        </div>
+        <a href="#" data-bind="click: addLearningPlan" class="button primary small">Add Learning Plan</a>
+    </div>
+</div>
+
+<!-- References-->
+<div class="row">
+    <div class="large-4 columns">
+        <p>References</p>
+        <div data-bind="foreach: references">
+            <div class="row collapse">
+                <div class="large-9 columns">
+                    <input type="text" data-bind="value: referenceText">
+                </div>
+                <div class="large-3 columns">
+                    <a href="#" class="button primary alert postfix" data-bind="click: $root.removeReference">Delete</a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="button primary small" data-bind="click: addReference">Add Reference</a>
+    </div>
+</div>
+
+<!-- Class Policies-->
+<div class="row">
+    <div class="large-4 columns">
+        <p>Class Policies</p>
+        <div data-bind="foreach: classPolicies">
+            <div class="row collapse">
+                <div class="large-9 columns">
+                    <input type="text" data-bind="value: policy">
+                </div>
+                <div class="large-3 columns">
+                    <a href="#" class="button primary alert postfix" data-bind="click: $root.removeClassPolicy">Delete</a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="button primary small" data-bind="click: addClassPolicy">Add Class Policy</a>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+{% load staticfiles %}
+<script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
+<script src="{% static "javascripts/syllabus-creation.js" %}"></script>
+{% endblock scripts %}

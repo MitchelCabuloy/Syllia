@@ -12,6 +12,7 @@ very_long_length = 400
 
 class Rubric(models.Model):
     id = models.AutoField(primary_key=True)
+    rubric_name = models.CharField(max_length=medium_length)
     total_rating = models.IntegerField()
 
 
