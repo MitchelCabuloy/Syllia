@@ -9,6 +9,26 @@ very_long_length = 400
 
 # Create your models here.
 
+def clear_database():
+    Rubric.objects.all().delete()
+    College.objects.all().delete()
+    Department.objects.all().delete()
+    Syllabus.objects.all().delete()
+    ClassSchedule.objects.all().delete()
+    Room.objects.all().delete()
+    Instructor.objects.all().delete()
+    ELGA.objects.all().delete()
+    LearningOutcome.objects.all().delete()
+    FinalCourseOutput.objects.all().delete()
+    RequiredOutput.objects.all().delete()
+    Criteria.objects.all().delete()
+    OtherRequirement.objects.all().delete()
+    GradingSystem.objects.all().delete()
+    LearningPlan.objects.all().delete()
+    LearningActivity.objects.all().delete()
+    Reference.objects.all().delete()
+    ClassPolicy.objects.all().delete()
+
 
 class Rubric(models.Model):
     id = models.AutoField(primary_key=True)
@@ -35,6 +55,16 @@ class Syllabus(models.Model):
     course_description = models.CharField(max_length=very_long_length)
     rubric = models.ForeignKey(Rubric)
 
+    def json(self):
+        return {
+            "college": str(self.department.college.college_name),
+            "department": str(self.department.department_name),
+            "courseCode": str(self.course_code),
+            "courseName": str(self.course_code),
+            "courseDescription": str(self.course_description),
+            "schedules": [s.json() for s in self.classschedule_set.all()]
+        }
+
 
 class ClassSchedule(models.Model):
     id = models.AutoField(primary_key=True)
@@ -42,6 +72,13 @@ class ClassSchedule(models.Model):
     days = models.CharField(max_length=5)
     start_time = models.TimeField()
     end_time = models.TimeField()
+
+    def json(self):
+        return {
+            "days": str(self.days),
+            "startTime": str(self.start_time.strftime("%H%M")),
+            "endTime": str(self.end_time.strftime("%H%M"))
+        }
 
 
 class Room(models.Model):
@@ -93,7 +130,7 @@ class Criteria(models.Model):
     rating = models.IntegerField()
 
 
-class OtherRequirements(models.Model):
+class OtherRequirement(models.Model):
     id = models.AutoField(primary_key=True)
     syllabus = models.ForeignKey(Syllabus)
     requirement_name = models.CharField(max_length=medium_length)
@@ -111,12 +148,13 @@ class LearningPlan(models.Model):
     syllabus = models.ForeignKey(Syllabus)
     topic = models.CharField(max_length=medium_length)
     week_number = models.IntegerField()
-
-
-class LearningActivities(models.Model):
-    id = models.AutoField(primary_key=True)
-    description = models.CharField(max_length=medium_length)
     learning_outcomes = models.ManyToManyField(LearningOutcome)
+
+
+class LearningActivity(models.Model):
+    id = models.AutoField(primary_key=True)
+    learning_plan = models.ForeignKey(LearningPlan)
+    description = models.CharField(max_length=medium_length)
 
 
 class Reference(models.Model):
