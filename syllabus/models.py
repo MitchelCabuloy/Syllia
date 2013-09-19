@@ -19,7 +19,6 @@ def clear_database():
     Instructor.objects.all().delete()
     ELGA.objects.all().delete()
     LearningOutcome.objects.all().delete()
-    FinalCourseOutput.objects.all().delete()
     RequiredOutput.objects.all().delete()
     Criteria.objects.all().delete()
     OtherRequirement.objects.all().delete()
@@ -54,6 +53,8 @@ class Syllabus(models.Model):
     course_code = models.CharField(max_length=7)
     course_description = models.CharField(max_length=very_long_length)
     rubric = models.ForeignKey(Rubric)
+    final_course_output_description = models.CharField(
+        max_length=very_long_length)
 
     def json(self):
         return {
@@ -62,7 +63,16 @@ class Syllabus(models.Model):
             "courseCode": str(self.course_code),
             "courseName": str(self.course_code),
             "courseDescription": str(self.course_description),
-            "schedules": [s.json() for s in self.classschedule_set.all()]
+            "schedules": [s.json() for s in self.classschedule_set.all()],
+            "instructors": [instructor.json() for instructor in self.instructor_set.all()],
+            "elgas": [elga.json() for elga in self.elga_set.all()],
+            "finalCourseOutputDescription": str(self.final_course_output_description),
+            "requiredOutputs": [required_output.json() for required_output in self.requiredoutput_set.all()],
+            "otherOutputs": [other_output.json() for other_output in self.otherrequirement_set.all()],
+            "gradingSystems": [grading_system.json() for grading_system in self.gradingsystem_set.all()],
+            "learningPlans": [learning_plan.json() for learning_plan in self.learningplan_set.all()],
+            "references": [reference.json() for reference in self.reference_set.all()],
+            "classPolicies": [class_policy.json() for class_policy in self.classpolicy_set.all()]
         }
 
 
@@ -92,11 +102,23 @@ class Instructor(models.Model):
     syllabus = models.ForeignKey(Syllabus)
     instructor_name = models.CharField(max_length=medium_length)
 
+    def json(self):
+        return {
+            "firstName": "",
+            "lastName": str(self.instructor_name)
+        }
+
 
 class ELGA(models.Model):
     id = models.AutoField(primary_key=True)
     syllabus = models.ForeignKey(Syllabus)
     elga_name = models.CharField(max_length=medium_length)
+
+    def json(self):
+        return {
+            "elgaName": str(self.elga_name),
+            "learningOutcomes": [lo.json() for lo in self.learningoutcome_set.all()]
+        }
 
 
 class LearningOutcome(models.Model):
@@ -104,19 +126,25 @@ class LearningOutcome(models.Model):
     elga = models.ForeignKey(ELGA)
     description = models.CharField(max_length=long_length)
 
-
-class FinalCourseOutput(models.Model):
-    id = models.AutoField(primary_key=True)
-    syllabus = models.ForeignKey(Syllabus)
-    description = models.CharField(max_length=very_long_length)
+    def json(self):
+        return {
+            "description": str(self.description)
+        }
 
 
 class RequiredOutput(models.Model):
     id = models.AutoField(primary_key=True)
-    final_course_output = models.ForeignKey(FinalCourseOutput)
+    syllabus = models.ForeignKey(Syllabus)
     description = models.CharField(max_length=long_length)
     week_due = models.IntegerField()
     learning_outcomes = models.ManyToManyField(LearningOutcome)
+
+    def json(self):
+        return {
+            "description": str(self.description),
+            "weekDue": str(self.week_due),
+            "los": [str(lo.description) for lo in self.learning_outcomes.all()]
+        }
 
 
 class Criteria(models.Model):
@@ -135,12 +163,23 @@ class OtherRequirement(models.Model):
     syllabus = models.ForeignKey(Syllabus)
     requirement_name = models.CharField(max_length=medium_length)
 
+    def json(self):
+        return {
+            "requirementName": str(self.requirement_name)
+        }
+
 
 class GradingSystem(models.Model):
     id = models.AutoField(primary_key=True)
     syllabus = models.ForeignKey(Syllabus)
     item_name = models.CharField(max_length=medium_length)
     percentage = models.IntegerField()
+
+    def json(self):
+        return {
+            "itemName": str(self.item_name),
+            "percentage": str(self.percentage)
+        }
 
 
 class LearningPlan(models.Model):
@@ -150,11 +189,24 @@ class LearningPlan(models.Model):
     week_number = models.IntegerField()
     learning_outcomes = models.ManyToManyField(LearningOutcome)
 
+    def json(self):
+        return {
+            "topic": str(self.topic),
+            "weekNumber": str(self.week_number),
+            "learningActivities": [learning_activity.json() for learning_activity in self.learningactivity_set.all()],
+            "los": [str(lo.description) for lo in self.learning_outcomes.all()]
+        }
+
 
 class LearningActivity(models.Model):
     id = models.AutoField(primary_key=True)
     learning_plan = models.ForeignKey(LearningPlan)
     description = models.CharField(max_length=medium_length)
+
+    def json(self):
+        return {
+            "description": str(self.description)
+        }
 
 
 class Reference(models.Model):
@@ -162,8 +214,18 @@ class Reference(models.Model):
     syllabus = models.ForeignKey(Syllabus)
     reference_text = models.CharField(max_length=very_long_length)
 
+    def json(self):
+        return {
+            "referenceText": str(self.reference_text)
+        }
+
 
 class ClassPolicy(models.Model):
     id = models.AutoField(primary_key=True)
     syllabus = models.ForeignKey(Syllabus)
     policy_text = models.CharField(max_length=very_long_length)
+
+    def json(self):
+        return {
+            "policy": str(self.policy_text)
+        }
