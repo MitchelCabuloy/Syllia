@@ -6,7 +6,8 @@
 <div>
     <div class="row">
         <div class="large-12 columns">
-            <a href="#" id="stringify" class="button primary small">Stringify</a>
+            <a href="#" id="stringifyBtn" class="button primary small">Stringify</a>
+            <a href="#" id="postBtn" class="button primary small">Post</a>
             <form action="{% url 'syllabus:add' %}" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="syllabus_json" id="syllabus_json">

@@ -28,14 +28,12 @@ class AddSyllabusView(View):
         return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
-        self.process_json(request)
-        # parsed_json = simplejson.loads('{"college":"College of Computer Studies","department":"Computer Technology","courseCode":"LBYFORE","courseName":"LBYFORE","courseDescription":"LBYFORE is a course that ahds-on laboratory component of FORENSC.","schedules":[{"days":"S","startTime":"1440","endTime":"1740"},{"days":"TH","startTime":"1300","endTime":"1600"}],"instructors":[{"firstName":"Cu","lastName":"Gregory"},{"firstName":"Pantola","lastName":"Alexi"}],"elgas":[{"elgaName":"Effective Communicator","learningOutcomes":[{"description":"LO 1: Be able to discuss different digital blah."}]},{"elgaName":"Critical/creative thinker","learningOutcomes":[{"description":"LO 2: Be able to gather artifact from different blah"},{"description":"LO 3: Be able to gather artifact from different operating systems"}]}],"finalCourseOutputDescription":"Final course output description here","requiredOutputs":[{"description":"Forensic Platform Preparation Report","weekDue":"4","los":["LO 1: Be able to discuss different digital blah."]},{"description":"Windows System and Artifacts Report","weekDue":"5","los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"]}],"otherOutputs":[{"requirementName":"Laboratory Exam"},{"requirementName":"Group Project"}],"gradingSystems":[{"itemName":"Laboratory Report Average","percentage":"60"},{"itemName":"Group Project","percentage":"20"},{"itemName":"Laboratory Exam","percentage":"20"}],"totalGradingSystem":100,"learningPlans":[{"topic":"Introduction / Orientation","weekNumber":"1","learningActivities":[{"description":"Course introduction"},{"description":"Classroom policies discussion"}],"los":[]},{"topic":"1.0 Forensic Platform Preparation","weekNumber":"3","learningActivities":[{"description":"Hands-on"}],"los":["LO 1: Be able to discuss different digital blah."]},{"topic":"2.0 Windows Systems and Artifacts","weekNumber":"4","learningActivities":[{"description":"Hands-on"}],"los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"]}],"references":[{"referenceText":"Reference, First"},{"referenceText":"Reference, Second"},{"referenceText":"Reference, Third"}],"classPolicies":[{"policy":"No eating"},{"policy":"No cheating"}]} ')
-        # do stuff
-        # return HttpResponseRedirect(reverse('syllabus:dashboard'))
-        return HttpResponse("Done")
+        # self.process_json(request.POST['syllabus_json'])
 
-    def process_json(self, request):
-        json = simplejson.loads(request.POST['syllabus_json'])
+        return HttpResponse(request.POST['syllabus_json'])
+
+    def process_json(self, post_data):
+        json = simplejson.loads(post_data)
 
         # Save Rubric (temporary)
         rubric = None
