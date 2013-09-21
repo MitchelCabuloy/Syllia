@@ -286,6 +286,13 @@
 
 {% block scripts %}
 {% load staticfiles %}
+
+    {% if jsonString %}
+        <script>
+            var jsonString = '{{ jsonString|safe }}';
+        </script>
+    {% endif %}
+
 <script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
 <script src="{% static "javascripts/syllabus-creation.js" %}"></script>
 {% endblock scripts %}

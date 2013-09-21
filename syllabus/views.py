@@ -4,8 +4,8 @@ from datetime import datetime
 
 from django.contrib.auth import get_user_model
 from django.views.generic.base import View
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.utils import simplejson
 
@@ -25,6 +25,18 @@ class AddSyllabusView(View):
     template_name = 'syllabus/add.html'
 
     def get(self, request, *args, **kwargs):
+        if(len(args)):
+            current_user = get_user_model().objects.get(email=request.user.email)
+            # syllabus = current_user.syllabus_set.get(pk=args[0])
+
+            try:
+                syllabus = current_user.syllabus_set.get(pk=args[0])
+                context = {'jsonString': simplejson.dumps(syllabus.json())}
+                return render(request, self.template_name, context)
+            except Exception:
+                raise Http404
+
+        # If reached here, no arguments. Return empty form
         return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
