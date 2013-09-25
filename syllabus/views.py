@@ -26,7 +26,8 @@ class AddSyllabusView(View):
 
     def get(self, request, *args, **kwargs):
         if(len(args)):
-            current_user = get_user_model().objects.get(email=request.user.email)
+            current_user = get_user_model().objects.get(
+                email=request.user.email)
             # syllabus = current_user.syllabus_set.get(pk=args[0])
 
             try:
@@ -79,29 +80,48 @@ class AddSyllabusView(View):
 
         # Get Current User
         current_user = get_user_model().objects.get(email=request.user.email)
-        syllabus = Syllabus.objects.create(
-            user=current_user,
-            department=department,
-            course_code=json['courseCode'],
-            course_description=json['courseDescription'],
-            rubric=rubric,
-            final_course_output_description=json[
-                'finalCourseOutputDescription']
-        )
+
+        # Save syllabus
+        syllabus = None
+        try:
+            syllabus = Syllabus.objects.get(json['pk'])
+        except Exception:
+            syllabus = Syllabus.objects.create()
+
+        syllabus.user = current_user
+        syllabus.department = department
+        syllabus.course_code = json['courseCode']
+        syllabus.course_description = json['courseDescription']
+        syllabus.rubric = rubric
+        syllabus.final_course_output_description = json[
+            'finalCourseOutputDescription']
+        syllabus.save()
 
         # Save schedules
         for schedule in json['schedules']:
-            ClassSchedule.objects.create(
-                syllabus=syllabus,
-                days=schedule['days'],
-                start_time=datetime.strptime(schedule['startTime'], "%H%M"),
-                end_time=datetime.strptime(schedule['endTime'], "%H%M"))
+            class_schedule = None
+            try:
+                class_schedule = ClassSchedule.objects.get(schedule['pk'])
+            except Exception:
+                class_schedule = ClassSchedule.objects.create(syllabus=syllabus)
+
+            class_schedule.days = schedule['days']
+            class_schedule.start_time = datetime.strptime(
+                schedule['startTime'], "%H%M")
+            class_schedule.end_time = datetime.strptime(
+                schedule['endTime'], "%H%M")
+            class_schedule.save()
 
         # Save instructors
         for instructor in json['instructors']:
-            Instructor.objects.create(
-                syllabus=syllabus,
-                instructor_name=instructor['lastName'])
+            # If except, not found
+            try:
+                saved_instructor = Instructor.objects.get(pk=instructor['pk'])
+            except Exception:
+                saved_instructor = Instructor.objects.create(syllabus=syllabus)
+
+            saved_instructor.instructor_name = instructor['lastName']
+            saved_instructor.save()
 
         # Save learning outcomes for later use
         learning_outcomes = []

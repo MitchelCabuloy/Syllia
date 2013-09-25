@@ -1,6 +1,3 @@
-// var jsonString = '{"college":"College of Computer Studies","department":"Computer Technology","courseCode":"LBYFORE","courseName":"LBYFORE","courseDescription":"LBYFORE is a course that ahds-on laboratory component of FORENSC.","schedules":[{"days":"S","startTime":"1440","endTime":"1740"},{"days":"TH","startTime":"1300","endTime":"1600"}],"instructors":[{"firstName":"Cu","lastName":"Gregory"},{"firstName":"Pantola","lastName":"Alexi"}],"elgas":[{"elgaName":"Effective Communicator","learningOutcomes":[{"description":"LO 1: Be able to discuss different digital blah."}]},{"elgaName":"Critical/creative thinker","learningOutcomes":[{"description":"LO 2: Be able to gather artifact from different blah"},{"description":"LO 3: Be able to gather artifact from different operating systems"}]}],"finalCourseOutputDescription":"Final course output description here","requiredOutputs":[{"description":"Forensic Platform Preparation Report","weekDue":"4","los":["LO 1: Be able to discuss different digital blah."]},{"description":"Windows System and Artifacts Report","weekDue":"5","los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"]}],"otherOutputs":[{"requirementName":"Laboratory Exam"},{"requirementName":"Group Project"}],"gradingSystems":[{"itemName":"Laboratory Report Average","percentage":"60"},{"itemName":"Group Project","percentage":"20"},{"itemName":"Laboratory Exam","percentage":"20"}],"totalGradingSystem":100,"learningPlans":[{"topic":"Introduction / Orientation","weekNumber":"1","learningActivities":[{"description":"Course introduction"},{"description":"Classroom policies discussion"}],"los":[]},{"topic":"1.0 Forensic Platform Preparation","weekNumber":"3","learningActivities":[{"description":"Hands-on"}],"los":["LO 1: Be able to discuss different digital blah."]},{"topic":"2.0 Windows Systems and Artifacts","weekNumber":"4","learningActivities":[{"description":"Hands-on"}],"los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"]}],"references":[{"referenceText":"Reference, First"},{"referenceText":"Reference, Second"},{"referenceText":"Reference, Third"}],"classPolicies":[{"policy":"No eating"},{"policy":"No cheating"}]}';
-// var data = {"college":"College of Computer Studies","department":"Computer Technology Department","courseCode":"NTCOR01","courseName":"Networking CCNA3","courseDescription":"The third blah of network blah cisco rocks","schedules":[{"days":"MW","startTime":"8","endTime":"11"},{"days":"TH","startTime":"13","endTime":"16"}],"instructors":[{"firstName":"Ong","lastName":"Arlyn"},{"firstName":"Sabas","lastName":"Mr"}],"elgas":[{"elgaName":"Critical Thinking","learningOutcomes":[{"description":"Learning O"},{"description":"Learning O 2"}]},{"elgaName":"Filipino Citizen","learningOutcomes":[{"description":"Learning Outcome 3"}]}],"finalCourseOutputDescription":"Final output will be blah","requiredOutputs":[{"description":"RQ1","weekDue":"1","los":["Learning O"]},{"description":"RQ2","weekDue":"2","los":["Learning O 2","Learning Outcome 3"]}]}
-
 var viewModel,
     SyllabusModel,
     ElgaModel,
@@ -23,25 +20,23 @@ var viewModel,
         defineModels: function() {
             SyllabusModel = function() {
                 var self = this;
-                self.college = ko.observable();
-                self.department = ko.observable();
-                self.courseCode = ko.observable();
-                self.courseName = ko.observable();
-                self.courseDescription = ko.observable();
+                self.college = "";
+                self.department = "";
+                self.courseCode = "";
+                self.courseName = "";
+                self.courseDescription = "";
 
 
-                self.schedules = ko.observableArray([{
-                    days: ko.observable(),
-                    startTime: ko.observable(),
-                    endTime: ko.observable()
-                }]);
+                var schedule = function() {
+                    this.days = "";
+                    this.startTime = "";
+                    this.endTime = "";
+                };
+
+                self.schedules = ko.observableArray([new schedule()]);
 
                 self.addSchedule = function() {
-                    self.schedules.push({
-                        days: ko.observable(),
-                        startTime: ko.observable(),
-                        endTime: ko.observable()
-                    });
+                    self.schedules.push(new schedule());
                 };
 
                 self.removeSchedule = function(schedule) {
@@ -275,7 +270,7 @@ var viewModel,
                 $("form").submit();
             });
 
-            $('#stringifyBtn').click(function(){
+            $('#stringifyBtn').click(function() {
                 console.log(ko.toJSON(viewModel));
             });
         }
