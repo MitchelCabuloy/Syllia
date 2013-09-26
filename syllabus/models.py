@@ -58,7 +58,7 @@ class Syllabus(models.Model):
 
     def json(self):
         return {
-            "pk": str(self.id),
+            "pk": self.id,
             "college": str(self.department.college.college_name),
             "department": str(self.department.department_name),
             "courseCode": str(self.course_code),
@@ -86,7 +86,7 @@ class ClassSchedule(models.Model):
 
     def json(self):
         return {
-            "pk": str(self.id),
+            "pk": self.id,
             "days": str(self.days),
             "startTime": str(self.start_time.strftime("%H%M")),
             "endTime": str(self.end_time.strftime("%H%M"))
@@ -106,7 +106,7 @@ class Instructor(models.Model):
 
     def json(self):
         return {
-            "pk": str(self.id),
+            "pk": self.id,
             "firstName": "",
             "lastName": str(self.instructor_name)
         }
@@ -119,7 +119,7 @@ class ELGA(models.Model):
 
     def json(self):
         return {
-            "pk": str(self.id),
+            "pk": self.id,
             "elgaName": str(self.elga_name),
             "learningOutcomes": [lo.json() for lo in self.learningoutcome_set.all()]
         }
@@ -132,7 +132,7 @@ class LearningOutcome(models.Model):
 
     def json(self):
         return {
-            "pk": str(self.id),
+            "pk": self.id,
             "description": str(self.description)
         }
 
@@ -146,7 +146,7 @@ class RequiredOutput(models.Model):
 
     def json(self):
         return {
-            "pk": str(self.id),
+            "pk": self.id,
             "description": str(self.description),
             "weekDue": str(self.week_due),
             "los": [str(lo.description) for lo in self.learning_outcomes.all()]
@@ -171,7 +171,7 @@ class OtherRequirement(models.Model):
 
     def json(self):
         return {
-            "pk": str(self.id),
+            "pk": self.id,
             "requirementName": str(self.requirement_name)
         }
 
@@ -184,7 +184,7 @@ class GradingSystem(models.Model):
 
     def json(self):
         return {
-            "pk": str(self.id),
+            "pk": self.id,
             "itemName": str(self.item_name),
             "percentage": str(self.percentage)
         }
@@ -199,7 +199,7 @@ class LearningPlan(models.Model):
 
     def json(self):
         return {
-            "pk": str(self.id),
+            "pk": self.id,
             "topic": str(self.topic),
             "weekNumber": str(self.week_number),
             "learningActivities": [learning_activity.json() for learning_activity in self.learningactivity_set.all()],
@@ -214,7 +214,7 @@ class LearningActivity(models.Model):
 
     def json(self):
         return {
-            "pk": str(self.id),
+            "pk": self.id,
             "description": str(self.description)
         }
 
@@ -226,7 +226,7 @@ class Reference(models.Model):
 
     def json(self):
         return {
-            "pk": str(self.id),
+            "pk": self.id,
             "referenceText": str(self.reference_text)
         }
 
@@ -238,6 +238,6 @@ class ClassPolicy(models.Model):
 
     def json(self):
         return {
-            "pk": str(self.id),
+            "pk": self.id,
             "policy": str(self.policy_text)
         }

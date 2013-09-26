@@ -84,9 +84,9 @@ class AddSyllabusView(View):
         # Save syllabus
         syllabus = None
         try:
-            syllabus = Syllabus.objects.get(json['pk'])
+            syllabus = Syllabus.objects.get(pk=json['pk'])
         except Exception:
-            syllabus = Syllabus.objects.create()
+            syllabus = Syllabus()
 
         syllabus.user = current_user
         syllabus.department = department
@@ -99,18 +99,20 @@ class AddSyllabusView(View):
 
         # Save schedules
         for schedule in json['schedules']:
-            class_schedule = None
+            class_schedule_instance = None
             try:
-                class_schedule = ClassSchedule.objects.get(schedule['pk'])
+                class_schedule_instance = ClassSchedule.objects.get(
+                    pk=schedule['pk'])
             except Exception:
-                class_schedule = ClassSchedule.objects.create(syllabus=syllabus)
+                class_schedule_instance = ClassSchedule()
 
-            class_schedule.days = schedule['days']
-            class_schedule.start_time = datetime.strptime(
+            class_schedule_instance.syllabus = syllabus
+            class_schedule_instance.days = schedule['days']
+            class_schedule_instance.start_time = datetime.strptime(
                 schedule['startTime'], "%H%M")
-            class_schedule.end_time = datetime.strptime(
+            class_schedule_instance.end_time = datetime.strptime(
                 schedule['endTime'], "%H%M")
-            class_schedule.save()
+            class_schedule_instance.save()
 
         # Save instructors
         for instructor in json['instructors']:
@@ -118,8 +120,9 @@ class AddSyllabusView(View):
             try:
                 saved_instructor = Instructor.objects.get(pk=instructor['pk'])
             except Exception:
-                saved_instructor = Instructor.objects.create(syllabus=syllabus)
+                saved_instructor = Instructor()
 
+            saved_instructor.syllabus = syllabus
             saved_instructor.instructor_name = instructor['lastName']
             saved_instructor.save()
 
@@ -127,21 +130,47 @@ class AddSyllabusView(View):
         learning_outcomes = []
 
         for elga in json['elgas']:
-            elga_instance = ELGA.objects.create(
-                syllabus=syllabus,
-                elga_name=elga['elgaName'])
+
+            elga_instance = None
+            try:
+                elga_instance = ELGA.objects.get(pk=elga['pk'])
+            except Exception:
+                elga_instance = ELGA()
+
+            elga_instance.syllabus = syllabus
+            elga_instance.elga_name = elga['elgaName']
+            elga_instance.save()
 
             for learning_outcome in elga['learningOutcomes']:
-                learning_outcomes.append(LearningOutcome.objects.create(
-                    elga=elga_instance,
-                    description=learning_outcome['description']))
+
+                learning_outcome_instance = None
+                try:
+                    learning_outcome_instance = LearningOutcome.objects.get(
+                        pk=learning_outcome['pk'])
+                except Exception:
+                    learning_outcome_instance = LearningOutcome()
+
+                learning_outcome_instance.elga = elga_instance
+                learning_outcome_instance.description = learning_outcome[
+                    'description']
+                learning_outcome_instance.save()
+
+                learning_outcomes.append(learning_outcome_instance)
 
         # Save required outputs
         for required_output in json['requiredOutputs']:
-            required_output_instance = RequiredOutput.objects.create(
-                syllabus=syllabus,
-                description=required_output['description'],
-                week_due=required_output['weekDue'])
+
+            required_output_instance = None
+            try:
+                required_output_instance = RequiredOutput.objects.get(
+                    required_output['pk'])
+            except Exception:
+                required_output_instance = RequiredOutput()
+
+            required_output_instance.syllabus = syllabus
+            required_output_instance.description = required_output[
+                'description']
+            required_output_instance.week_due = required_output['weekDue']
 
             for learning_outcome in required_output['los']:
                 for learning_outcome_instance in learning_outcomes:
@@ -149,45 +178,97 @@ class AddSyllabusView(View):
                         required_output_instance.learning_outcomes.add(
                             learning_outcome_instance)
 
+            required_output_instance.save()
+
         # Save other outputs
         for other_requirement in json['otherOutputs']:
-            OtherRequirement.objects.create(
-                syllabus=syllabus,
-                requirement_name=other_requirement['requirementName'])
+
+            other_requirement_instance = None
+            try:
+                other_requirement_instance = OtherRequirement.objects.get(
+                    pk=other_requirement['pk'])
+            except Exception:
+                other_requirement_instance = OtherRequirement()
+
+            other_requirement_instance.syllabus = syllabus
+            other_requirement_instance.requirement_name = other_requirement[
+                'requirementName']
+            other_requirement_instance.save()
 
         # Save grading system,
         for grading_system in json['gradingSystems']:
-            GradingSystem.objects.create(
-                syllabus=syllabus,
-                item_name=grading_system['itemName'],
-                percentage=int(grading_system['percentage']))
+            grading_system_instance = None
+            try:
+                grading_system_instance = GradingSystem.objects.get(
+                    pk=grading_system['pk'])
+            except Exception:
+                grading_system_instance = GradingSystem()
+
+            grading_system_instance.syllabus = syllabus
+            grading_system_instance.item_name = grading_system['itemName']
+            grading_system_instance.percentage = int(
+                grading_system['percentage'])
+            grading_system_instance.save()
 
         # Save learning plans
         for learning_plan in json['learningPlans']:
-            saved_learning_plan = LearningPlan.objects.create(
-                syllabus=syllabus,
-                topic=learning_plan['topic'],
-                week_number=int(learning_plan['weekNumber']))
+            learning_plan_instance = None
+            try:
+                learning_plan_instance = LearningPlan.objects.get(
+                    pk=learning_plan['pk'])
+            except Exception:
+                learning_plan_instance = LearningPlan()
+
+            learning_plan_instance.syllabus = syllabus
+            learning_plan_instance.topic = learning_plan['topic']
+            learning_plan_instance.week_number = int(
+                learning_plan['weekNumber'])
 
             for learning_outcome in learning_plan['los']:
                 for learning_outcome_instance in learning_outcomes:
                     if learning_outcome_instance.description == learning_outcome:
-                        saved_learning_plan.learning_outcomes.add(
+                        learning_plan_instance.learning_outcomes.add(
                             learning_outcome_instance)
 
+            learning_plan_instance.save()
+
             for learning_activity in learning_plan['learningActivities']:
-                LearningActivity.objects.create(
-                    learning_plan=saved_learning_plan,
-                    description=learning_activity['description'])
+
+                learning_activity_instance = None
+                try:
+                    learning_activity_instance = LearningActivity.objects.get(
+                        pk=learning_activity['pk'])
+                except Exception:
+                    learning_activity_instance = LearningActivity()
+
+                learning_activity_instance.learning_plan = learning_plan_instance
+                learning_activity_instance.description = learning_activity[
+                    'description']
+                learning_activity_instance.save()
 
         # Save references
         for reference in json['references']:
-            Reference.objects.create(
-                syllabus=syllabus,
-                reference_text=reference['referenceText'])
+
+            reference_instance = None
+            try:
+                reference_instance = Reference.objects.get(pk=reference['pk'])
+            except Exception:
+                reference_instance = Reference()
+
+            reference_instance.syllabus = syllabus
+            reference_instance.reference_text = reference['referenceText']
+            reference_instance.save()
 
         # Save Class Policies
         for class_policy in json['classPolicies']:
-            ClassPolicy.objects.create(
-                syllabus=syllabus,
-                policy_text=class_policy['policy'])
+
+            class_policy_instance = None
+            try:
+                class_policy_instance = ClassPolicy.objects.get(
+                    pk=class_policy['pk'])
+            except Exception:
+                class_policy_instance = ClassPolicy()
+
+            class_policy_instance.syllabus = syllabus
+            class_policy_instance.policy_text = class_policy['policy']
+            class_policy_instance.save()
