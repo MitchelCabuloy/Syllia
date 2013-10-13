@@ -41,11 +41,14 @@ class AddSyllabusView(View):
         return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
-        # self.process_json(request.POST['syllabus_json'])
+        # Get Current User
+        current_user = get_user_model().objects.get(email=request.user.email)
+
+        self.process_json(request.POST['syllabus_json'], current_user)
 
         return HttpResponse(request.POST['syllabus_json'])
 
-    def process_json(self, post_data):
+    def process_json(self, post_data, current_user):
         json = simplejson.loads(post_data)
 
         # Save Rubric (temporary)
@@ -78,13 +81,10 @@ class AddSyllabusView(View):
                 college=college
             )
 
-        # Get Current User
-        current_user = get_user_model().objects.get(email=request.user.email)
-
         # Save syllabus
         syllabus = None
         try:
-            syllabus = Syllabus.objects.get(pk=json['pk'])
+            syllabus = Syllabus.objects.get(pk=int(json['pk']))
         except Exception:
             syllabus = Syllabus()
 
@@ -172,6 +172,9 @@ class AddSyllabusView(View):
                 'description']
             required_output_instance.week_due = required_output['weekDue']
 
+            # Write to database so we can add stuff to it.
+            required_output_instance.save()
+
             for learning_outcome in required_output['los']:
                 for learning_outcome_instance in learning_outcomes:
                     if learning_outcome_instance.description == learning_outcome:
@@ -223,6 +226,9 @@ class AddSyllabusView(View):
             learning_plan_instance.topic = learning_plan['topic']
             learning_plan_instance.week_number = int(
                 learning_plan['weekNumber'])
+
+            # Write to database so we can add stuff to it
+            learning_plan_instance.save()
 
             for learning_outcome in learning_plan['los']:
                 for learning_outcome_instance in learning_outcomes:
