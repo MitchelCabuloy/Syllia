@@ -104,96 +104,96 @@ input {
 .footer {
 	border-top: 1px solid $grey_lighter;
 	padding-top: 30px;
-		a {
-			font-size: 15px;
-			color: $green;
-			text-transform: uppercase;
-			margin-right: 10px;
+	a {
+		font-size: 15px;
+		color: $green;
+		text-transform: uppercase;
+		margin-right: 10px;
 
-		}
+	}
 
-		p {
-			font-size:  13px;
-			color: $grey_highlight;
-		}
+	p {
+		font-size:  13px;
+		color: $grey_highlight;
+	}
 }
 
 
 
 /* generic elements */
-	body,html {
-		font-family: 'PT Sans', sans-serif;
-		color: $grey;
-	}
+body,html {
+	font-family: 'PT Sans', sans-serif;
+	color: $grey;
+}
 
-	h4,h3,h2,h1 {
-		font-weight: normal;
-		color: $grey;
-	}
+h4,h3,h2,h1 {
+	font-weight: normal;
+	color: $grey;
+}
 
-	.center {
-		text-align: center;
-	}
+.center {
+	text-align: center;
+}
 
-	/* 	to be inserted in an <a> tag
-		padding / size to be declared in id */
-	.clear-button {
-		border: 1px solid $grey_lighter;
-		color: $green !important;
-	}
+/* 	to be inserted in an <a> tag
+padding / size to be declared in id */
+.clear-button {
+	border: 1px solid $grey_lighter;
+	color: $green !important;
+}
 
-	.green-button {
-		background-color: $green;
-		color: #fff !important;
-	}
+.green-button {
+	background-color: $green;
+	color: #fff !important;
+}
 
-	.grey-button {
-		background-color: $grey_lighter;
-		color: #fff;
-	}
+.grey-button {
+	background-color: $grey_lighter;
+	color: #fff;
+}
 
-	.grey-button2 {
-		background-color: $grey_lighter;
+.grey-button2 {
+	background-color: $grey_lighter;
+	color: $grey_highlight;
+
+	&:hover {
 		color: $grey_highlight;
 	}
+}
 
-	.grey-button2:hover {
-		color: $grey_highlight;
-	}
+.underline {
+	border-bottom: 1px solid $grey_lighter;
+}
 
-	.underline {
-		border-bottom: 1px solid $grey_lighter;
-	}
+.divider {
+	margin-top: 45px !important;
+	border-top: 1px solid $grey_lighter;
+	margin-bottom: -10px !important;
+}
 
-	.divider {
-		margin-top: 45px !important;
-		border-top: 1px solid $grey_lighter;
-		margin-bottom: -10px !important;
-	}
+.adjust-spacing {
+	margin-left: -30px !important;
+}
 
-	.adjust-spacing {
-		margin-left: -30px !important;
-	}
+.top-spacing {
+	margin-top: 40px !important;
+}
 
-	.top-spacing {
-		margin-top: 40px !important;
-	}
+.top-spacing-more {
+	margin-top: 80px !important;
+}
 
-	.top-spacing-more {
-		margin-top: 80px !important;
-	}
+.bottom-spacing-small {
+	margin-bottom: 10px !important;
+}
 
-	.bottom-spacing-small {
-		margin-bottom: 10px !important;
-	}
+.right-spacing {
+	margin-right: 10px;
+}
 
-	.right-spacing {
-		margin-right: 10px;
-	}
-
-	.invisible {
-		visibility: hidden;
-	}
+.invisible {
+	visibility: hidden;
+}
 
 /* actual declarations (finally) */
 
@@ -300,12 +300,13 @@ input {
 		border: 1px solid $grey_lighter;
 		padding: 10px;
 		height: 40px;
+
+		&:hover, &:focus {
+			box-shadow: none !important;
+			border: 1px solid $grey_lighter;
+		}
 	}
 
-	input:hover, input:focus {
-		box-shadow: none !important;
-		border: 1px solid $grey_lighter;
-	}
 	a {
 		color: $grey_highlight;
 		text-align: center;
@@ -372,59 +373,44 @@ input {
 		color: $green;
 	}
 
-	li:after {
-		content: '>';
-		margin-left: 15px;
-		margin-right: 15px;
-	}
-
-	li:last-child:after {
-		display: none;
-	}
-
 	li {
 		float: left;
+
+		&:after {
+			content: '>';
+			margin-left: 15px;
+			margin-right: 15px;
+		}
+
+		&:last-child {
+
+			&:after {
+				display: none;
+			}
+
+			a {
+				color: $grey;
+			}
+
+			.active-tab {
+				color: $grey_highlight;
+
+				&:before {
+					content: '(';
+						margin-right: 5px;
+					}
+
+					&:after {
+						content: ')';
+					margin-left: 5px;
+				}
+			}
+		}
 	}
 
 	li:last-child {
-		a {
-			color: $grey;
-		}
 
-		.active-tab {
-			color: $grey_highlight;
-		}
-
-		.active-tab:before{
-			content: '(';
-			margin-right: 5px;
-		}
-
-		.active-tab:after  {
-			content: ')';
-			margin-left: 5px;
-		}
 	}
-}
-
-.navigation:before {
-	content: '';
-	position: absolute;
-	height: 80px;
-	width: 1px;
-	background-color: $grey_lighter;
-	left: -1px;
-	top: 37px;
-}
-
-.navigation:after {
-	content: '';
-	position: absolute;
-	height: 80px;
-	width: 1px;
-	background-color: $grey_lighter;
-	right: 1px;
-	top: 37px;
 }
 
 .navigation {
@@ -436,6 +422,26 @@ input {
 	text-transform: uppercase;
 	font-size: 14px;
 	position: relative;
+
+	&:before{
+		content: '';
+		position: absolute;
+		height: 80px;
+		width: 1px;
+		background-color: $grey_lighter;
+		left: -1px;
+		top: 37px;
+	}
+
+	&:after{
+		content: '';
+		position: absolute;
+		height: 80px;
+		width: 1px;
+		background-color: $grey_lighter;
+		right: 1px;
+		top: 37px;
+	}
 
 	li {
 		float: left;
@@ -631,9 +637,9 @@ form.custom .custom.checkbox.checked:before {
 }
 
 .error-message {
-	//background-color: $error_bg;
-	//border: 1px solid $error_border;
-	//padding: 7px;
+//background-color: $error_bg;
+//border: 1px solid $error_border;
+//padding: 7px;
 	color: $error_text;
 	margin-top: 15px;
 	margin-bottom: 0px;
@@ -667,12 +673,12 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 	border-left: 3px solid $error_border;
 	padding-top: 10px;
 	padding-bottom: 10px;
-}
 
-.error-required:before {
-	content: "This field is required!" !important;
-	color: $error_text;
-	display: block;
-	margin-bottom: 10px;
-	font-size: 13px;
+	&:before{
+		content: "This field is required!" !important;
+		color: $error_text;
+		display: block;
+		margin-bottom: 10px;
+		font-size: 13px;
+	}
 }
