@@ -56,26 +56,7 @@
 
 /* Syllia (v2, since I accidentally deleted the first one - Olsson) by Netcentric.Web */
 /* Variable declarations */
-$green: #27ae60;
-$green_lighter: #3ac575;
-$green_darker: #219352;
 
-$grey: #575e65;
-$grey_lighter: #ededed;
-$grey_lightest: #f5f5f5;
-$grey_highlight: #bbbbbb;
-
-$light: 300;
-$normal: 400;
-$bold: 500;
-
-$error_red: #ff8989;
-$error_border: #ff0000;
-$error_text: #ff0000;
-$error_bg: #ffd7d0;
-
-
-$breakpoint: 768px;
 
 /* footer by http://ryanfait.com */
 * {
@@ -171,9 +152,11 @@ padding / size to be declared in id */
 	margin-bottom: -10px !important;
 }
 
+/*
 .adjust-spacing {
 	margin-left: -30px !important;
 }
+*/
 
 .top-spacing {
 	margin-top: 40px !important;
@@ -363,7 +346,7 @@ padding / size to be declared in id */
 	width: 170px;
 	margin-top: 30px;
 }
-
+/*
 .breadcrumb {
 	font-size: 13px;
 	margin-top: 60px;
@@ -500,7 +483,7 @@ padding / size to be declared in id */
 .active-pane {
 	display: block;
 }
-
+*/
 
 .syllabus-form {
 	h5 {
@@ -533,19 +516,14 @@ padding / size to be declared in id */
 .syllabus-title {
 	float: left;
 	position: relative;
-	margin-left: -10px;
+	margin-left: 0px !important;
+	padding-left: 0px !important;
 
 }
 
-.syllabus-title2 {
-	float: left;
-	margin-bottom: 0px;
-}
 
 .syllabus-subtitle {
-	margin-top: 45px;
 	color: $grey_highlight;
-	width: 70%;
 }
 
 .syllabus-title-input {
@@ -610,13 +588,13 @@ form.custom .custom.dropdown.open ul {
 }
 
 .form-button {
-	padding: 10px 13px 10px 13px;
+	padding: 13px 13px 13px 13px;
 	text-transform: uppercase;
-	position: relative;
-	top: 5px;
 	font-size: 14px;
 	display: inline-block;
-	margin-bottom: 10px;
+	position: relative;
+	top: -1px;
+
 }
 
 form.custom .custom.checkbox.checked:before {
@@ -680,5 +658,18 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 		display: block;
 		margin-bottom: 10px;
 		font-size: 13px;
+	}
+}
+
+.vertical-tabs {
+	.title {
+		border-right: 2px solid $grey_lighter !important;
+		text-transform: uppercase;
+	}
+
+	.active {
+		.title {
+			border-right: 2px solid $green !important;
+		}
 	}
 }

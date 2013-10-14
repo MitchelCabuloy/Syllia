@@ -1,10 +1,12 @@
 //
 // Foundation Variables
-//
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
 $base-font-size: 100% !default;
+
+
 
 // $base-line-height is 24px while $base-font-size is 16px
 // $base-line-height: 150%;
@@ -50,6 +52,27 @@ $em-base: 16 !default;
 // Various global styles
 
 $default-float: left;
+
+$green: #27ae60;
+$green_lighter: #3ac575;
+$green_darker: #219352;
+
+$grey: #575e65;
+$grey_lighter: #ededed;
+$grey_lightest: #f5f5f5;
+$grey_highlight: #bbbbbb;
+
+$light: 300;
+$normal: 400;
+$bold: 500;
+
+$error_red: #ff8989;
+$error_border: #ff0000;
+$error_text: #ff0000;
+$error_bg: #ffd7d0;
+
+
+$breakpoint: 768px;
 
 // $body-bg: #fff;
 // $body-font-color: #222;
@@ -1023,22 +1046,22 @@ $default-float: left;
 
 // We use these to set padding and hover factor
 
-// $section-title-padding: emCalc(15);
-// $section-content-padding: emCalc(15);
+$section-title-padding: 15px 15px 15px 15px;
+ $section-content-padding: 5px 15px 15px 35px;
 // $section-function-factor: 10%;
 
 // These style the titles
 
-// $section-title-color: #333;
-// $section-title-color-active: #333;
-// $section-title-bg: #efefef;
-// $section-title-bg-active: darken($section-title-bg, $section-function-factor);
+ $section-title-color: $grey_highlight;
+ $section-title-color-active: $green;
+ $section-title-bg: #fff;
+ $section-title-bg-active: #fff;
 // $section-title-bg-active-tabs: #fff;
-// $section-title-bg-hover: darken($section-title-bg, $section-function-factor / 2);
+ $section-title-bg-hover: #fff;
 
 // Want to control border size, here ya go!
 
-// $section-border-size: 1px;
+ $section-border-size: 0px;
 // $section-border-style: solid;
 // $section-border-color: #ccc;
 
