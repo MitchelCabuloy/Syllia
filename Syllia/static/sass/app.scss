@@ -140,6 +140,10 @@ padding / size to be declared in id */
 	&:hover {
 		color: $grey_highlight;
 	}
+
+	&:focus {
+		color: $grey_highlight;
+	}
 }
 
 .underline {

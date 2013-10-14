@@ -319,7 +319,7 @@
                             </div>
                             <div class="row top-spacing nested">
                                 <div class="large-6 columns left">
-                                    <div class="row">
+                                    <div class="row bottom-spacing-small">
                                         <div class="large-12 columns">
                                             <h5>Learning Outcomes</h5>
                                         </div>
@@ -496,6 +496,150 @@
                         <!-- End of Grading System content -->
                     </div>
                 </section>
+                <section>
+                    <p class="title" data-section-title>
+                        <a href="#">Learning Plan</a>
+                    </p>
+                    <div class="content" data-section-content>
+                        <!-- Start of Learning Plan content -->
+                        <div class="row nested">
+                            <div class="large-6 columns left">
+                                <div class="row bottom-spacing-small">
+                                    <div class="large-12 columns">
+                                        <h5>Learning Outcomes</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="large-10 columns" data-bind="foreach: $root.elgas">  
+                                        <div data-bind="foreach: learningOutcomes">
+                                            <span class="lo-co-cb">
+                                                <input type="checkbox" data-bind="value: description, checked: $parents[1].los">&nbsp;<span data-bind="text: description"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row  top-spacing nested">
+                            <div class="large-6 columns">
+
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <h5>Topic</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="large-12 columns ">
+                                        <textarea data-bind="value: topic" class="form-fill form-textarea lp-textarea" name="description" placeholder="Introduction / Orientation"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-2 columns left">
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <h5>Week No.</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="large-12 columns ">
+                                        <input type="text"  data-bind="value: weekNumber" placeholder="1" class=" bottom-spacing-small"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-4 columns left">
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <h5>Learning Activites</h5>
+                                    </div>
+                                </div>
+                                <div data-bind="foreach: learningActivities">
+                                <div class="row bottom-spacing-small">
+                                    <div class="large-10 columns ">
+                                        <input type="text"  data-bind="value: description" placeholder="Course Introduction" class=" bottom-spacing-small"/>
+                                    </div>
+                                    <div class="large-2 columns">
+                                        <a href="#" class="grey-button2 form-button">
+                                        <i class="icon-remove"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                </div>
+                                <a href="#" class="green-button right-spacing form-button">
+                                <i class="icon-plus button-icon"></i>
+                                    Add an activity
+                                </a>
+
+                            </div>
+                        </div>
+
+
+
+
+<div class="row">
+    <div class="large-12 columns">
+        <p>Learning Plan</p>
+        <div data-bind="foreach: learningPlans">
+            <div class="row">
+                <div class="large-12 columns">
+                    <p>Learning Outcomes</p>
+                    <div data-bind="foreach: $root.elgas">
+                        <div data-bind="foreach: learningOutcomes">
+                            <input type="checkbox" data-bind="value: description, checked: $parents[1].los">&nbsp;<span data-bind="text: description"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-6 columns">
+                    <input type="text" data-bind="value: topic">
+                </div>
+                <div class="large-2 columns">
+                    <input type="text" data-bind="value: weekNumber">
+                </div>
+                <div class="large-4 columns">
+                    <div data-bind="foreach: learningActivities">
+                        <input type="text" data-bind="value: description">
+                        <a href="#" data-bind="click: $parent.removeLearningActivity" class="button alert small">Delete</a>
+                    </div>
+                    <a href="#" data-bind="click: addLearningActivity" class="button primary small">Add new</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <a href="#" data-bind="click: $root.removeLearningPlan" class="button alert small">Remove</a>
+                </div>
+            </div>
+        </div>
+        <a href="#" data-bind="click: addLearningPlan" class="button primary small">Add Learning Plan</a>
+    </div>
+</div>
+                        <!-- Start of Learning Plan content -->
+                    </div>
+                </section>
+                <section>
+                    <p class="title" data-section-title>
+                        <a href="#">References and Policies</a>
+                    </p>
+                    <div class="content" data-section-content>
+                        <!-- End of References and Policies content -->
+
+
+
+                        <!-- Start of References and Policies content -->
+                    </div>
+                  </section>
+                  <section>
+                    <p class="title" data-section-title>
+                        <a href="#">Review and Publish</a>
+                    </p>
+                    <div class="content" data-section-content>
+                        <!-- End of Review and Publish content -->
+
+
+
+                        <!-- Start of Review and Publish content -->
+                    </div>
+                  </section>
             </div>
         </div>
     </form>
@@ -708,8 +852,8 @@
         </div>
     </div>
 </div>
--->
-<!-- Learning plan -->
+
+/* Learning plan */
 <div class="row">
     <div class="large-12 columns">
         <p>Learning Plan</p>
@@ -748,7 +892,7 @@
         <a href="#" data-bind="click: addLearningPlan" class="button primary small">Add Learning Plan</a>
     </div>
 </div>
-
+-->
 <!-- References-->
 <div class="row">
     <div class="large-4 columns">

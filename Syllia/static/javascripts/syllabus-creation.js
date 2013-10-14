@@ -215,7 +215,7 @@
                     };
 
                     self.removeLearningActivity = function(learningActivity) {
-                        self.learningActivities.remove(learningActivity);;
+                        self.learningActivities.remove(learningActivity);
                     };
 
                 };
