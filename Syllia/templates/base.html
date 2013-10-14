@@ -10,18 +10,62 @@
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static "stylesheets/app.css" %}">
 
-
+    <!-- Place this in the css -->
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
     <script src="{% static "javascripts/vendor/custom.modernizr.js" %}"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
     {% block head %}{% endblock head %}
 
 </head>
 <body>
 
+    <div class="wrapper">
+        <div class="row">
+            <div class="large-12 columns">
+                <img src="{% static "images/syllia_big.jpg" %}" class="logo-small" />
+                <ul class="h-nav">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li class="account-wrapper"><a class="clear-button" id="account-button" href="#">Account</a>
+                        <!-- TODO: Do the login panel-->
+                        <div class="account-pane">
+                            {% if user.is_authenticated %}
+                            <p>
+                                <strong>{{ user.get_full_name }}</strong>
+                                {{ user.email }}
+                            </p>
 
-    <div class="main_content row">
-        <div class="small-12 columns">
-            {% block content %}{% endblock content %}
+                            <p>
+                                <!-- TODO: Add Department and College in profiles -->
+                                <strong>Computer Technology Department</strong>
+                                College of Computer Studies
+                            </p>
+
+                            <a class="account-option" href="{% url "accounts:profile" %}">Edit User Profile</a>
+                            <a class="account-option" href="accounts/password_change">Change Password</a>
+
+                            <a href="{% url 'authtools:logout' %}" class="grey-button" id="sign-out">Sign out</a>
+
+                            {% else %}
+                            <p>TODO: Login form</p>
+                            {% endif %}
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {% block content %}{% endblock content %}
+
+        <div class="push"></div>
+    </div>
+
+    <div class="row footer">
+        <div class="large-12 columns center">
+<p>&copy; Syllia 2013 - Created by DLSU NetCentric Laboratory,
+for the professors of De La Salle University</p>
         </div>
     </div>
 
@@ -64,9 +108,7 @@
     <script src="{% static "javascripts/foundation/foundation.dropdown.js" %}"></script>
 
 
-    <script>
-    $(document).foundation();
-    </script>
+    <script src="{% static "javascripts/app.js" %}"></script>
 
     {% block scripts %}{% endblock scripts %}
 </body>

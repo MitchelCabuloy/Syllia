@@ -602,11 +602,11 @@ $default-float: left;
 // We use these to style the custom select form element.
 
 // $custom-select-bg: #fff;
-// $custom-select-fade-to-color: #f3f3f3;
+ $custom-select-fade-to-color: #fff;
 // $custom-select-border-color: #ddd;
 // $custom-select-triangle-color: #aaa;
 // $custom-select-triangle-color-open: #222;
-// $custom-select-height: emCalc(13) + ($form-spacing * 1.5);
+ $custom-select-height: emCalc(13) + (1.4 * 1.5);
 // $custom-select-margin-bottom: emCalc(20);
 // $custom-select-font-color-selected: #141414;
 // $custom-select-disabled-color: #888;
@@ -614,7 +614,7 @@ $default-float: left;
 // We use these to control the style of the custom select dropdown element.
 
 // $custom-dropdown-height: 200px;
-// $custom-dropdown-bg: #fff;
+ $custom-dropdown-bg: #fff;
 // $custom-dropdown-border-color: darken(#fff, 20%);
 // $custom-dropdown-border-width: 1px;
 // $custom-dropdown-border-style: solid;
@@ -622,7 +622,7 @@ $default-float: left;
 // $custom-dropdown-font-size: emCalc(14);
 // $custom-dropdown-color-selected: #eeeeee;
 // $custom-dropdown-font-color-selected: #000;
-// $custom-dropdown-shadow: 0 2px 2px 0px rgba(0,0,0,0.1);
+ $custom-dropdown-shadow: none;
 // $custom-dropdown-offset-top: auto;
 // $custom-dropdown-list-padding: emCalc(4);
 // $custom-dropdown-default-float-padding: emCalc(6);
