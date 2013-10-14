@@ -27,10 +27,11 @@
                 <ul class="h-nav">
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li class="account-wrapper"><a class="clear-button" id="account-button" href="#">Account</a>
+                    {% if user.is_authenticated %}
+                    <li class="account-wrapper"><a class="clear-button" id="account-button" href="#">My Account</a>
                         <!-- TODO: Do the login panel-->
                         <div class="account-pane">
-                            {% if user.is_authenticated %}
+
                             <p>
                                 <strong>{{ user.get_full_name }}</strong>
                                 {{ user.email }}
@@ -46,13 +47,47 @@
                             <a class="account-option" href="accounts/password_change">Change Password</a>
 
                             <a href="{% url 'authtools:logout' %}" class="grey-button" id="sign-out">Sign out</a>
-
-                            {% else %}
-                            <p>TODO: Login form</p>
-                            {% endif %}
-
                         </div>
                     </li>
+                    {% else %}
+                    <li class="account-wrapper"><a class="clear-button" id="account-button" href="#">Login</a>
+                        <!-- TODO: Do the login panel-->
+                        <div class="account-pane">
+
+                            <form action="{% url 'authtools:login' %}" method="POST">
+                                {% csrf_token %}
+
+                                <div class="row">
+                                    <div class="small-12 columns">
+                                        <label for="username">Email Address</label>
+                                        <input type="text" name="username">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="small-12 columns">
+                                        <label for="password">Password</label>
+                                        <input type="password" name="password">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    {% comment %}
+                                    <div class="small-6 columns">
+                                        <a href="">Forgot your password?</a><br>
+                                        Don't have an account?&nbsp;<a href="{% url 'accounts:register' %}">Register</a>
+                                    </div>
+                                    {% endcomment %}
+
+                                    <div class="small-6 columns">
+                                        <input type="submit" value="Login" class="green-button">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -64,52 +99,52 @@
 
     <div class="row footer">
         <div class="large-12 columns center">
-<p>&copy; Syllia 2013 - Created by DLSU NetCentric Laboratory,
-for the professors of De La Salle University</p>
+            <p>&copy; Syllia 2013 - Created by DLSU NetCentric Laboratory,
+                for the professors of De La Salle University</p>
+            </div>
         </div>
-    </div>
 
-    <script>
-    document.write('<script src=' +
-        ('__proto__' in {} ? '{% static "javascripts/vendor/zepto" %}' : '{% static "javascripts/vendor/jquery" %}') +
-        '.js><\/script>')
-    </script>
+        <script>
+        document.write('<script src=' +
+            ('__proto__' in {} ? '{% static "javascripts/vendor/zepto" %}' : '{% static "javascripts/vendor/jquery" %}') +
+            '.js><\/script>')
+        </script>
 
-    <script src="{% static "javascripts/foundation/foundation.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.orbit.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.orbit.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.joyride.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.joyride.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.clearing.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.clearing.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.tooltips.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.tooltips.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.topbar.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.topbar.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.alerts.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.alerts.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.interchange.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.interchange.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.placeholder.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.placeholder.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.forms.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.forms.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.magellan.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.magellan.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.section.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.section.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.cookie.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.cookie.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.reveal.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.reveal.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.abide.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.abide.js" %}"></script>
 
-    <script src="{% static "javascripts/foundation/foundation.dropdown.js" %}"></script>
+        <script src="{% static "javascripts/foundation/foundation.dropdown.js" %}"></script>
 
 
-    <script src="{% static "javascripts/app.js" %}"></script>
+        <script src="{% static "javascripts/app.js" %}"></script>
 
-    {% block scripts %}{% endblock scripts %}
-</body>
-</html>
+        {% block scripts %}{% endblock scripts %}
+    </body>
+    </html>
