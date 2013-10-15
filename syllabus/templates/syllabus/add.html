@@ -26,12 +26,12 @@
         </div>
 
         <div class="row top-spacing">
-            <div class="section-container vertical-tabs" data-section="vertical-tabs">
+            <div class="section-container vertical-tabs" data-section="vertical-tabs" data-options="deep_linking: true">
                 <section class="active">
                     <p class="title" data-section-title>
                         <a href="#">Basic Details</a>
                     </p>
-                    <div class="content" data-section-content>
+                    <div class="content" data-slug="section1" data-section-content>
                         <!-- Basic Details content -->
 
                         <div class="row">
@@ -171,7 +171,7 @@
                         </div>
                         <div class="row  top-spacing">
                             <div class="large-12 columns">
-                                <a href="#" class="green-button continue-button">
+                                <a href="#section2" class="green-button continue-button">
                                     <i class="icon-chevron-right button-icon"></i> To Learning Outcomes
                                 </a>
                             </div>          
@@ -184,7 +184,7 @@
                     <p class="title" data-section-title>
                         <a href="#">Learning Outcomes</a>
                     </p>
-                    <div class="content" data-section-content>
+                    <div class="content" data-slug="section2" data-section-content>
                     <!-- Start of Learning Outcomes content -->
                         <p class="syllabus-subtitle">On completion of the course, the student is expected to be able to do the following:</p>
 
@@ -254,10 +254,10 @@
                             </div>
                             <div class="large-5 columns">
 
-                                <a href="#" onClick="pane(3)" class="green-button continue-button">
+                                <a href="#section3" class="green-button continue-button">
                                     <i class="icon-chevron-right button-icon"></i> To Course Output
                                 </a>
-                                <a href="#" onClick="pane(1)" class="grey-button previous-button">
+                                <a href="#section1" onClick="pane(1)" class="grey-button previous-button">
                                     <i class="icon-chevron-left button-icon"></i>
                                 </a>
                             </div>          
@@ -269,7 +269,7 @@
                     <p class="title" data-section-title>
                         <a href="#">Course Output</a>
                     </p>
-                    <div class="content" data-section-content>
+                    <div class="content" data-slug="section3" data-section-content>
                     <!-- Start of Course Output content -->
                         <h4>Final Course Output</h4>
                         <p class="syllabus-subtitle">As evidence of attaining the prescribed learning outcomes, the student is required to do and submit the following during the indicated dates of the term.</p>
@@ -388,10 +388,10 @@
                         <div class="row divider"></div>
                         <div class="row  top-spacing">
                             <div class="large-12 columns">
-                                <a href="#" onClick="pane(4)" class="green-button continue-button">
+                                <a href="#section4" class="green-button continue-button">
                                     <i class="icon-chevron-right button-icon"></i> To Rubric
                                 </a>
-                                <a href="#" onClick="pane(2)" class="grey-button previous-button">
+                                <a href="#section2" class="grey-button previous-button">
                                     <i class="icon-chevron-left button-icon"></i>
                                 </a>
                             </div>          
@@ -404,7 +404,7 @@
                     <p class="title" data-section-title>
                         <a href="#">Rubric</a>
                     </p>
-                    <div class="content" data-section-content>
+                    <div class="content" data-slug="section4" data-section-content>
                     <!-- Start of Rubric content -->
                         <h4>Attach a Rubric</h4>
                         <p class="syllabus-subtitle">Rubrics are created separately from the actual Syllabus so they can be attached to multiple / different Syllabuses without having to retype them each time. Simply select below which Rubric you would like to attach. Alternatively, you can proceed to create a new one (progress here would not be lost).</p>
@@ -427,10 +427,10 @@
                             </div>
                             <div class="large-5 columns">
 
-                                <a href="#" onClick="pane(5)" class="green-button continue-button">
+                                <a href="#section5" class="green-button continue-button">
                                     <i class="icon-chevron-right button-icon"></i> To Grading System
                                 </a>
-                                <a href="#" onClick="pane(3)" class="grey-button previous-button">
+                                <a href="#section3" class="grey-button previous-button">
                                     <i class="icon-chevron-left button-icon"></i>
                                 </a>
                             </div>          
@@ -440,7 +440,7 @@
                 </section>
                 <section>
                     <p class="title" data-section-title><a href="#">Grading System</a></p>
-                    <div class="content" data-section-content>
+                    <div class="content" data-slug="section5" data-section-content>
                         <!-- Start of Grading System content -->
                         <p class="syllabus-subtitle">The student will be graded according to the following:</p>
                         <div class="row  top-spacing nested">
@@ -485,10 +485,10 @@
                         <div class="row  top-spacing">
                             <div class="large-12 columns right">
 
-                                <a href="#" onClick="pane(6)" class="green-button continue-button">
+                                <a href="#section6" class="green-button continue-button">
                                     <i class="icon-chevron-right button-icon"></i> To Learning Plan
                                 </a>
-                                <a href="#" onClick="pane(4)" class="grey-button previous-button">
+                                <a href="#section4" class="grey-button previous-button">
                                     <i class="icon-chevron-left button-icon"></i>
                                 </a>
                             </div>          
@@ -500,7 +500,7 @@
                     <p class="title" data-section-title>
                         <a href="#">Learning Plan</a>
                     </p>
-                    <div class="content" data-section-content>
+                    <div class="content" data-slug="section6" data-section-content>
                         <!-- Start of Learning Plan content -->
                         <p class="syllabus-subtitle">
                             Plot weekly topics and coressponding activites that will be performed while discussing said topics.
@@ -594,10 +594,10 @@
                             </div>
                             <div class="large-6 columns">
 
-                                <a href="#" onClick="pane(7)" class="green-button continue-button">
+                                <a href="#section7" class="green-button continue-button">
                                     <i class="icon-chevron-right button-icon"></i> To References and Policies
                                 </a>
-                                <a href="#" onClick="pane(5)" class="grey-button previous-button">
+                                <a href="#section5" class="grey-button previous-button">
                                     <i class="icon-chevron-left button-icon"></i>
                                 </a>
                             </div>          
@@ -609,7 +609,7 @@
                     <p class="title" data-section-title>
                         <a href="#">References and Policies</a>
                     </p>
-                    <div class="content" data-section-content>
+                    <div class="content" data-slug="section7" data-section-content>
                         <!-- End of References and Policies content -->
 
 
@@ -621,7 +621,7 @@
                     <p class="title" data-section-title>
                         <a href="#">Review and Publish</a>
                     </p>
-                    <div class="content" data-section-content>
+                    <div class="content" data-slug="section8" data-section-content>
                         <!-- End of Review and Publish content -->
 
 
