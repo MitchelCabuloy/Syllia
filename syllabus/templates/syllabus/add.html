@@ -4,17 +4,6 @@
 
 {% block content %}
 <div>
-    <div class="row">
-        <div class="large-12 columns">
-            <a href="#" id="stringifyBtn" class="button primary small">Stringify</a>
-            <a href="#" id="postBtn" class="button primary small">Post</a>
-            <form action="{% url 'syllabus:add' %}" method="post">
-                {% csrf_token %}
-                <input type="hidden" name="syllabus_json" id="syllabus_json">
-            </form>
-        </div>
-    </div>
-
     <form class="custom syllabus-form">
         <div class="row top-spacing underline">
             <div class="large-12 column">
@@ -611,21 +600,90 @@
                     </p>
                     <div class="content" data-slug="section7" data-section-content>
                         <!-- End of References and Policies content -->
-
-
-
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <h4>References</h4>
+                            </div>
+                        </div>
+                        <div data-bind="foreach: references">
+                            <div class="row bottom-spacing-small">
+                                <div class="small-11 columns">
+                                    <input type="text" data-bind="value: referenceText"placeholder="Lewis, W. (2008). LAN Switching and Wireless - CCNA Exploration Companion Guide. Cisco Press"/>
+                                </div>
+                                <div class="small-1 columns">
+                                    <a href="#" data-bind="click: $root.removeReference" class="grey-button2 form-button">
+                                        <i class="icon-remove"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="large-12 columns left">
+                                <a href="#" data-bind="click: addReference" class="green-button right-spacing form-button">
+                                    <i class="icon-plus button-icon"></i>
+                                         Add a reference
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row top-spacing-more">
+                            <div class="large-12 columns">
+                                <h4 class="syllabus-title2">
+                                    Class Policies
+                                </h4>
+                                <!--<span class="syllabus-modified">Modified 53 minutes ago</span>-->
+                                    <p class="syllabus-subtitle">Student should follow the standard classroom policies and procedures indicated in Section 4.3 of the Student Handbook. However, these additional policies will be applied:</p>
+                            </div>
+                        </div>
+                        <div data-bind="foreach: classPolicies">
+                            <div class="row bottom-spacing-small">
+                                <div class="small-11 columns">
+                                    <input type="text" data-bind="value: policy" placeholder="A Chapter exam shall be taken during the first 20 minutes, every Tuesday."/>
+                                </div>
+                                <div class="small-1 columns">
+                                    <a href="#" data-bind="click: $root.removeClassPolicy" class="grey-button2 form-button">
+                                        <i class="icon-remove"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="large-12 columns left">
+                                <a href="#" data-bind="click: addClassPolicy" class="green-button right-spacing form-button">
+                                    <i class="icon-plus button-icon"></i>
+                                         Add a policy
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row divider"></div>
+                        <div class="row  top-spacing">
+                            <div class="large-12 columns">
+                                <a href="#section8" class="green-button continue-button">
+                                    <i class="icon-chevron-right button-icon"></i> Publish Syllabus
+                                </a>
+                                <a href="#section6" class="grey-button previous-button">
+                                    <i class="icon-chevron-left button-icon"></i>
+                                </a>
+                            </div>          
+                        </div>
                         <!-- Start of References and Policies content -->
                     </div>
                   </section>
                   <section>
                     <p class="title" data-section-title>
-                        <a href="#">Review and Publish</a>
+                        <a href="#">Publish Syllabus</a>
                     </p>
                     <div class="content" data-slug="section8" data-section-content>
                         <!-- End of Review and Publish content -->
-
-
-
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <a href="#" id="stringifyBtn" class="button primary small">Stringify</a>
+                                <a href="#" id="postBtn" class="button primary small">Post</a>
+                                <form action="{% url 'syllabus:add' %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="syllabus_json" id="syllabus_json">
+                                </form>
+                            </div>
+                        </div>
                         <!-- Start of Review and Publish content -->
                     </div>
                   </section>
@@ -633,6 +691,7 @@
         </div>
     </form>
 </div>
+
 
 <!--
 <div>
@@ -881,8 +940,8 @@
         <a href="#" data-bind="click: addLearningPlan" class="button primary small">Add Learning Plan</a>
     </div>
 </div>
--->
-<!-- References-->
+
+/* references */
 <div class="row">
     <div class="large-4 columns">
         <p>References</p>
@@ -900,7 +959,7 @@
     </div>
 </div>
 
-<!-- Class Policies-->
+/* Class Policies */
 <div class="row">
     <div class="large-4 columns">
         <p>Class Policies</p>
@@ -917,7 +976,7 @@
         <a href="#" class="button primary small" data-bind="click: addClassPolicy">Add Class Policy</a>
     </div>
 </div>
-
+-->
 {% endblock content %}
 
 {% block scripts %}
