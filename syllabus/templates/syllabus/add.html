@@ -307,14 +307,14 @@
                                 </div>
                             </div>
                             <div class="row top-spacing nested">
-                                <div class="large-6 columns left">
+                                <div class="large-12 columns left">
                                     <div class="row bottom-spacing-small">
                                         <div class="large-12 columns">
                                             <h5>Learning Outcomes</h5>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="large-10 columns" data-bind="foreach: $root.elgas">  
+                                        <div class="large-12 columns" data-bind="foreach: $root.elgas">  
                                             <div data-bind="foreach: learningOutcomes">
                                                 <span class="lo-co-cb">
                                                     <input type="checkbox" data-bind="value: description, checked: $parents[1].los">&nbsp;<span data-bind="text: description"></span>
@@ -578,7 +578,7 @@
                             <div class="large-6 columns left">
                                 <a href="#" data-bind="click: addLearningPlan" class="green-button right-spacing form-button">
                                 <i class="icon-plus button-icon"></i>
-                                    Add a Learning Plan Week
+                                    Add another topic
                                 </a>
                             </div>
                             <div class="large-6 columns">
