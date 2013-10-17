@@ -5,10 +5,40 @@
 {% block content %}
 
 <div class="row">
-    <div class="small-12 columns">
-        <h1>Home page</h1>
-        <p>Hi guys</p>
+        <div class="large-7 columns large-centered center">
+            {% load staticfiles %}
+            <img src="{% static "images/syllia_big.jpg" %}" class="logo_big" alt="" />
+            <h4 class="logo_sub">Create and manage DLSU standard syllbuses in a
+            fraction of a time it normally does.</h4>
+        </div>
     </div>
-</div>
+    <div class="row">
+        <div class="large-12 columns center">
+            <a href="{% url "accounts:register" %}" class="green-button" id="h-reg-button">Register Now</a>
+            <span class="h-reg-notice">* A valid DLSU email is required</span>
+        </div>
+    </div>
+    <div class="row features">
+        <div class="feature large-4 columns">
+            <h4>A sample key feature</h4>
+            <p>
+            ristique magnis sit, nunc pulvinar dignissim cum, natoque sit enim eros rhoncus porta ut. Lacus vel velit, magnis tincidunt proin velit sit rhoncus
+            </p>
+        </div>
+        <div class="feature large-4 columns">
+            <h4>A sample key feature</h4>
+            <p>
+            ristique magnis sit, nunc pulvinar dignissim cum, natoque sit enim eros rhoncus porta ut. Lacus vel velit, magnis tincidunt proin velit sit rhoncus
+            </p>
+
+        </div>
+        <div class="feature large-4 columns">
+            <h4>A sample key feature</h4>
+            <p>
+            ristique magnis sit, nunc pulvinar dignissim cum, natoque sit enim eros rhoncus porta ut. Lacus vel velit, magnis tincidunt proin velit sit rhoncus
+            </p>
+
+        </div>
+    </div>
 
 {% endblock content %}
