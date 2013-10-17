@@ -11,7 +11,7 @@
     </div>
     <div class="row">
         <div class="large-4 columns">
-            <form action="{% url 'accounts:register' %}" method="POST">
+            <form action="{% url "accounts:register" %}" method="POST">
                 {% csrf_token %}
                 <div class="row">
                     <div class="small-12 columns">
