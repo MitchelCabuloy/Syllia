@@ -12,10 +12,6 @@ from django.utils import simplejson
 from syllabus.models import *
 
 
-class TestView(View):
-    def get(self, request, *args, **kwargs):
-        return HttpResponse("Hello, world")
-
 class DashboardView(View):
     template_name = 'syllabus/dashboard.html'
 
