@@ -23,9 +23,11 @@
     <div class="wrapper">
         <div class="row">
             <div class="large-12 columns">
+                {% if not current_path == "/" %}
                 <a href="{% url "index" %}">
                     <img src="{% static "images/syllia_big.jpg" %}" class="logo-small" />
                 </a>
+                {% endif %}
                 <ul class="h-nav">
                     <li><a href="{% url "about" %}">About</a></li>
                     <li><a href="{% url "contact" %}">Contact</a></li>
