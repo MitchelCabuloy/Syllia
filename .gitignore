@@ -11,3 +11,6 @@ lib/
 
 # sublime stuff
 *.sublime-workspace
+
+# Virtual env
+venv/
