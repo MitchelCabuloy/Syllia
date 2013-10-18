@@ -7375,7 +7375,7 @@ padding / size to be declared in id */
 }
 
 /* line 126, ../sass/app.scss */
-.green-button, .register-button {
+.green-button, .register-button, .login-button {
   background-color: #27ae60;
   color: #fff !important;
 }
@@ -7433,24 +7433,29 @@ padding / size to be declared in id */
 }
 
 /* line 177, ../sass/app.scss */
+.reduce-bottom {
+  margin-bottom: -20px !important;
+}
+
+/* line 181, ../sass/app.scss */
 .right-spacing {
   margin-right: 10px;
 }
 
-/* line 181, ../sass/app.scss */
+/* line 185, ../sass/app.scss */
 .invisible {
   visibility: hidden;
 }
 
 /* actual declarations (finally) */
-/* line 187, ../sass/app.scss */
+/* line 191, ../sass/app.scss */
 .h-nav {
   float: right;
   list-style: none;
   margin-top: 40px;
   margin-right: -15px;
 }
-/* line 193, ../sass/app.scss */
+/* line 197, ../sass/app.scss */
 .h-nav li {
   float: left;
   font-size: 1em;
@@ -7458,24 +7463,24 @@ padding / size to be declared in id */
   text-transform: uppercase;
   margin-right: 15px;
 }
-/* line 201, ../sass/app.scss */
+/* line 205, ../sass/app.scss */
 .h-nav a {
   color: #575e65;
 }
 
-/* line 206, ../sass/app.scss */
+/* line 210, ../sass/app.scss */
 #h-login-button {
   padding: 8px;
   padding-left: 30px;
   padding-right: 30px;
 }
 
-/* line 213, ../sass/app.scss */
+/* line 217, ../sass/app.scss */
 .logo_big {
   margin-top: 85px;
 }
 
-/* line 217, ../sass/app.scss */
+/* line 221, ../sass/app.scss */
 .logo_sub {
   color: #575e65;
   font-weight: 400;
@@ -7483,7 +7488,7 @@ padding / size to be declared in id */
   margin-top: 10px;
 }
 
-/* line 225, ../sass/app.scss */
+/* line 229, ../sass/app.scss */
 #h-reg-button {
   display: inline-block;
   font-size: 20px;
@@ -7495,20 +7500,20 @@ padding / size to be declared in id */
   text-transform: uppercase;
 }
 
-/* line 237, ../sass/app.scss */
+/* line 241, ../sass/app.scss */
 .h-reg-notice {
   color: #bbbbbb;
   display: block;
   font-size: 15px;
 }
 
-/* line 244, ../sass/app.scss */
+/* line 248, ../sass/app.scss */
 .features {
   margin-top: 30px;
   text-align: center;
 }
 
-/* line 250, ../sass/app.scss */
+/* line 254, ../sass/app.scss */
 .h-login-pane:before, .account-pane:before {
   content: '';
   position: absolute;
@@ -7519,17 +7524,17 @@ padding / size to be declared in id */
   right: 0px;
 }
 
-/* line 260, ../sass/app.scss */
+/* line 264, ../sass/app.scss */
 .account-pane:before {
-  width: 107px !important;
+  width: 133px !important;
 }
 
-/* line 264, ../sass/app.scss */
+/* line 268, ../sass/app.scss */
 .h-login-wrapper, .account-wrapper {
   position: relative;
 }
 
-/* line 268, ../sass/app.scss */
+/* line 272, ../sass/app.scss */
 .h-login-pane, .account-pane {
   display: none;
   width: 270px;
@@ -7542,25 +7547,25 @@ padding / size to be declared in id */
   border: 1px solid #ededed;
   text-transform: none;
 }
-/* line 279, ../sass/app.scss */
+/* line 283, ../sass/app.scss */
 .h-login-pane span, .account-pane span {
   color: #575e65;
   font-weight: 500;
   font-size: 14px;
 }
-/* line 285, ../sass/app.scss */
+/* line 289, ../sass/app.scss */
 .h-login-pane input, .account-pane input {
   box-shadow: none;
   border: 1px solid #ededed;
   padding: 10px;
   height: 40px;
 }
-/* line 291, ../sass/app.scss */
+/* line 295, ../sass/app.scss */
 .h-login-pane input:hover, .h-login-pane input:focus, .account-pane input:hover, .account-pane input:focus {
   box-shadow: none !important;
   border: 1px solid #ededed;
 }
-/* line 297, ../sass/app.scss */
+/* line 301, ../sass/app.scss */
 .h-login-pane a, .account-pane a {
   color: #bbbbbb;
   text-align: center;
@@ -7571,33 +7576,33 @@ padding / size to be declared in id */
   text-transform: uppercase;
 }
 
-/* line 308, ../sass/app.scss */
+/* line 312, ../sass/app.scss */
 #h-login-submit {
   width: 110px;
   margin-left: 53px;
   text-align: center;
 }
 
-/* line 314, ../sass/app.scss */
+/* line 318, ../sass/app.scss */
 #account-button {
   padding: 8px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-/* line 321, ../sass/app.scss */
+/* line 325, ../sass/app.scss */
 .account-pane {
   font-size: 13px;
   color: #bbbbbb;
 }
-/* line 324, ../sass/app.scss */
+/* line 328, ../sass/app.scss */
 .account-pane strong {
   font-size: 14px;
   color: #575e65;
   display: block;
 }
 
-/* line 331, ../sass/app.scss */
+/* line 335, ../sass/app.scss */
 .account-option {
   color: #27ae60 !important;
   text-transform: none !important;
@@ -7606,7 +7611,7 @@ padding / size to be declared in id */
   margin-bottom: 1px !important;
 }
 
-/* line 340, ../sass/app.scss */
+/* line 344, ../sass/app.scss */
 #sign-out {
   margin-top: -45px;
   float: right;
@@ -7616,7 +7621,7 @@ padding / size to be declared in id */
   padding-right: 17px;
 }
 
-/* line 349, ../sass/app.scss */
+/* line 353, ../sass/app.scss */
 .logo-small {
   width: 170px;
   margin-top: 30px;
@@ -7760,33 +7765,37 @@ padding / size to be declared in id */
 	display: block;
 }
 */
-/* line 493, ../sass/app.scss */
+/* line 497, ../sass/app.scss */
 .syllabus-form h5 {
   font-size: 15px;
   color: #575e65;
   margin-top: 10px;
 }
-/* line 499, ../sass/app.scss */
+/* line 503, ../sass/app.scss */
 .syllabus-form input, .syllabus-form input:focus, .syllabus-form input:hover {
   box-shadow: none;
   margin: 0;
   height: 40px !important;
 }
-/* line 505, ../sass/app.scss */
+/* line 509, ../sass/app.scss */
 .syllabus-form #customDropdown {
   background-color: #fff !important;
 }
-/* line 509, ../sass/app.scss */
+/* line 513, ../sass/app.scss */
 .syllabus-form .form-fill {
   width: 100%;
   border: 1px solid #ededed;
 }
-/* line 514, ../sass/app.scss */
+/* line 518, ../sass/app.scss */
 .syllabus-form .form-fill a {
   color: #a9a9a9 !important;
 }
+/* line 522, ../sass/app.scss */
+.syllabus-form a {
+  color: #27ae60;
+}
 
-/* line 520, ../sass/app.scss */
+/* line 530, ../sass/app.scss */
 .syllabus-title {
   float: left;
   position: relative;
@@ -7794,22 +7803,22 @@ padding / size to be declared in id */
   padding-left: 0px !important;
 }
 
-/* line 529, ../sass/app.scss */
+/* line 539, ../sass/app.scss */
 .syllabus-subtitle {
   color: lighter(#575e65, 20%);
 }
 
-/* line 534, ../sass/app.scss */
+/* line 544, ../sass/app.scss */
 .syllabus-title-input {
   border: none !important;
 }
 
-/* line 538, ../sass/app.scss */
+/* line 548, ../sass/app.scss */
 .syllabus-title:hover {
   cursor: pointer;
 }
 
-/* line 543, ../sass/app.scss */
+/* line 553, ../sass/app.scss */
 .syllabus-modified {
   float: right;
   color: #27ae60;
@@ -7817,25 +7826,25 @@ padding / size to be declared in id */
   margin-top: 25px;
 }
 
-/* line 550, ../sass/app.scss */
+/* line 560, ../sass/app.scss */
 form.custom .custom.dropdown.open ul {
   border: 1px solid #ededed;
 }
 
-/* line 554, ../sass/app.scss */
+/* line 564, ../sass/app.scss */
 .form-textarea {
   box-shadow: none !important;
   height: 120px;
 }
 
-/* line 559, ../sass/app.scss */
+/* line 569, ../sass/app.scss */
 .continue-button {
   float: right;
   padding: 15px 20px 15px 20px;
   text-transform: uppercase;
 }
 
-/* line 565, ../sass/app.scss */
+/* line 575, ../sass/app.scss */
 .previous-button {
   float: right;
   padding: 15px 20px 15px 20px;
@@ -7844,18 +7853,18 @@ form.custom .custom.dropdown.open ul {
   left: -10px;
 }
 
-/* line 573, ../sass/app.scss */
+/* line 583, ../sass/app.scss */
 .previous-button:hover {
   color: #fff;
 }
 
-/* line 577, ../sass/app.scss */
+/* line 587, ../sass/app.scss */
 .button-icon {
   position: relative;
   top: 1px;
 }
 
-/* line 582, ../sass/app.scss */
+/* line 592, ../sass/app.scss */
 .lo-block {
   padding: 14px 17px 14px 17px;
   background-color: #ededed;
@@ -7863,14 +7872,14 @@ form.custom .custom.dropdown.open ul {
   font-size: 12px;
 }
 
-/* line 589, ../sass/app.scss */
+/* line 599, ../sass/app.scss */
 .lo-form {
   display: inline-block;
   box-shadow: none !important;
   height: 80px;
 }
 
-/* line 595, ../sass/app.scss */
+/* line 605, ../sass/app.scss */
 .form-button {
   padding: 13px 13px 13px 13px;
   text-transform: uppercase;
@@ -7880,56 +7889,56 @@ form.custom .custom.dropdown.open ul {
   top: -1px;
 }
 
-/* line 605, ../sass/app.scss */
+/* line 615, ../sass/app.scss */
 form.custom .custom.checkbox.checked:before {
   color: #27ae60;
   font-size: 22px;
   margin-top: 2px;
 }
 
-/* line 611, ../sass/app.scss */
+/* line 621, ../sass/app.scss */
 .lo-co-cb {
   margin-right: 25px;
   display: inline-block;
   margin-bottom: 15px;
 }
 
-/* line 617, ../sass/app.scss */
+/* line 627, ../sass/app.scss */
 .lp-textarea {
   min-height: 40px !important;
   width: 100% !important;
 }
 
-/* line 636, ../sass/app.scss */
+/* line 646, ../sass/app.scss */
 .error-tab {
   background-color: #ef3636 !important;
   color: #fff;
 }
 
-/* line 641, ../sass/app.scss */
+/* line 651, ../sass/app.scss */
 .tab-active-error {
   color: red;
   background-color: #fff !important;
 }
 
-/* line 646, ../sass/app.scss */
+/* line 656, ../sass/app.scss */
 .error-input {
   border: 2px solid #ef3636 !important;
 }
 
-/* line 650, ../sass/app.scss */
+/* line 660, ../sass/app.scss */
 form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus-form input:hover {
   border: 1px solid #ededed;
   margin: 0px !important;
 }
 
-/* line 655, ../sass/app.scss */
+/* line 665, ../sass/app.scss */
 .error-required {
   border-left: 3px solid red;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-/* line 660, ../sass/app.scss */
+/* line 670, ../sass/app.scss */
 .error-required:before {
   content: "This field is required!" !important;
   color: red;
@@ -7938,17 +7947,17 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
   font-size: 13px;
 }
 
-/* line 670, ../sass/app.scss */
+/* line 680, ../sass/app.scss */
 .vertical-tabs .title {
   border-right: 2px solid #ededed !important;
   text-transform: uppercase;
 }
-/* line 676, ../sass/app.scss */
+/* line 686, ../sass/app.scss */
 .vertical-tabs .active .title {
   border-right: 2px solid #27ae60 !important;
 }
 
-/* line 682, ../sass/app.scss */
+/* line 692, ../sass/app.scss */
 .highlight {
   display: inline-block;
   background-color: #ededed;
@@ -7957,24 +7966,32 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
   font-size: 12px;
 }
 
-/* line 690, ../sass/app.scss */
-.register-button {
+/* line 700, ../sass/app.scss */
+.register-button, .login-button {
   padding: 5px 30px 5px 30px;
   text-transform: uppercase;
 }
 
-/* line 696, ../sass/app.scss */
-.errorlist {
+/* line 706, ../sass/app.scss */
+.errorlist, .error-generic {
   margin-top: 5px;
   border-left: 3px solid #ef3636;
   padding: 5px 5px 5px 0px;
-  font-size: 12px;
 }
-/* line 702, ../sass/app.scss */
-.errorlist li {
+/* line 712, ../sass/app.scss */
+.errorlist li, .error-generic li {
   list-style: none;
   color: #ef3636;
   padding-left: 10px;
+  font-size: 12px;
+}
+
+/* line 720, ../sass/app.scss */
+.error-generic {
+  color: #ef3636;
+  margin-top: 20px;
+  display: block;
+  padding: 10px !important;
 }
 
 /*

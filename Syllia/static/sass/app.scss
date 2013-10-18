@@ -174,6 +174,10 @@ padding / size to be declared in id */
 	margin-bottom: 10px !important;
 }
 
+.reduce-bottom {
+	margin-bottom: -20px !important;
+}
+
 .right-spacing {
 	margin-right: 10px;
 }
@@ -258,7 +262,7 @@ padding / size to be declared in id */
 }
 
 .account-pane:before {
-	width: 107px !important;
+	width: 133px !important;
 }
 
 .h-login-wrapper, .account-wrapper {
@@ -515,6 +519,12 @@ padding / size to be declared in id */
 		color: #a9a9a9 !important;
 	}
 
+	 a{
+	 	color: $green;
+	 }
+
+
+
 }
 
 .syllabus-title {
@@ -687,7 +697,7 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 	font-size: 12px;
 }
 
-.register-button {
+.register-button, .login-button {
 	@extend .green-button;
 	padding: 5px 30px 5px 30px; 
 	text-transform: uppercase;
@@ -697,13 +707,23 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 	margin-top: 5px;
 	border-left: 3px solid $error_red;
 	padding: 5px 5px 5px 0px;
-	font-size: 12px;
+	
 
 	li {
 		list-style: none;
 		color: $error_red;
 		padding-left: 10px;
+		font-size: 12px;
 	}
+}
+
+.error-generic {
+	@extend .errorlist;
+		color: $error_red;
+		margin-top: 20px;
+		display: block;
+		padding: 10px !important;
+	
 }
 
 /*

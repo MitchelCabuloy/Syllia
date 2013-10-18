@@ -46,9 +46,11 @@
                                 <strong>Computer Technology Department</strong>
                                 College of Computer Studies
                             </p>
-
-                            <a class="account-option" href="{% url "accounts:profile" %}">Edit User Profile</a>
-                            <a class="account-option" href="accounts/password_change">Change Password</a>
+                            
+                            <a class="account-option" href="{% url "accounts:profile" %}">Account Dashboard</a>
+                            <a class="account-option" href="{% url "syllabus:add" %}">Create a Syllabus</a>
+                            
+                            <!--<a class="account-option" href="accounts/password_change">Change Password</a>-->
 
                             <a href="{% url "authtools:logout" %}" class="grey-button" id="sign-out">Sign out</a>
                         </div>
