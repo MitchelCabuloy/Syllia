@@ -123,7 +123,7 @@ class AddSyllabusView(View):
                 saved_instructor = Instructor()
 
             saved_instructor.syllabus = syllabus
-            saved_instructor.instructor_name = instructor['lastName']
+            saved_instructor.instructor_name = instructor['fullName']
             saved_instructor.save()
 
         # Save learning outcomes for later use

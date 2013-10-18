@@ -107,8 +107,7 @@ class Instructor(models.Model):
     def json(self):
         return {
             "pk": self.id,
-            "firstName": "",
-            "lastName": str(self.instructor_name)
+            "fullName": str(self.instructor_name)
         }
 
 

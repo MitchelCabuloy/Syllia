@@ -49,14 +49,12 @@
 
 
                     self.instructors = ko.observableArray([{
-                        firstName: ko.observable(),
-                        lastName: ko.observable()
+                        fullName: ko.observable()
                     }]);
 
                     self.addInstructor = function() {
                         self.instructors.push({
-                            firstName: ko.observable(),
-                            lastName: ko.observable()
+                            fullName: ko.observable()
                         });
                     };
 

@@ -125,11 +125,13 @@
                         <div data-bind="foreach: instructors">
                             <div class="row nested">
                                 <div class="large-4 columns bottom-spacing-small">
-                                    <input type="text" data-bind="value: lastName" placeholder="de La Salle">
+                                    <input type="text" data-bind="value: fullName" placeholder="John Smith">
                                 </div>
+                                {% comment %}
                                 <div class="large-4 columns bottom-spacing-small left">
                                     <input type="text" data-bind="value: firstName" placeholder="Jeane Baptiste">
                                 </div>
+                                {% endcomment %}
                                 <div class="large-4 columns bottom-spacing-small">
                                     <a href="#" data-bind="click: $root.removeInstructor" class="grey-button2 form-button">
                                         <i class="icon-remove"></i>
