@@ -142,6 +142,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'south',
     'authtools',
     'accounts',
     'syllabus',
