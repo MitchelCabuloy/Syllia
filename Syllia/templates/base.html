@@ -54,9 +54,9 @@
                         </div>
                     </li>
                     {% else %}
-                    <li class="account-wrapper"><a class="clear-button" id="account-button" href="#">Login</a>
+                    <li class="h-login-wrapper"><a class="clear-button" id="h-login-button" href="#">Login</a>
                         <!-- TODO: Do the login panel-->
-                        <div class="account-pane">
+                        <div class="h-login-pane">
 
                             <form action="{% url "authtools:login" %}" method="POST">
                                 {% csrf_token %}
@@ -83,8 +83,10 @@
                                     </div>
                                     {% endcomment %}
 
-                                    <div class="small-6 columns">
-                                        <input type="submit" value="Login" class="green-button">
+                                    <div class="small-12 columns">
+                                        <input type="submit" class="green-button" id="h-login-submit" value="SIGN IN"/> 
+                                        <a href="#">Forgot password?</a>    
+                                        <!--<input type="submit" value="Login" class="green-button">-->
                                     </div>
                                 </div>
 

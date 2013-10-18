@@ -298,7 +298,7 @@ padding / size to be declared in id */
 		color: $grey_highlight;
 		text-align: center;
 		display: block;
-		font-size: 13px;
+		font-size: 12px;
 		margin-top: 7px;
 		margin-bottom: -23px;
 		text-transform: uppercase;
@@ -527,8 +527,9 @@ padding / size to be declared in id */
 
 
 .syllabus-subtitle {
-	color: $grey_highlight;
+	color: lighter($grey,20%);
 }
+
 
 .syllabus-title-input {
 	border: none !important;
@@ -617,7 +618,7 @@ form.custom .custom.checkbox.checked:before {
 	min-height: 40px !important;
 	width: 100% !important;
 }
-
+/*
 .error-message {
 //background-color: $error_bg;
 //border: 1px solid $error_border;
@@ -631,7 +632,7 @@ form.custom .custom.checkbox.checked:before {
 	padding-left: 10px;
 	border-left: 3px solid $error_border;
 }
-
+*/
 .error-tab {
 	background-color: $error_red !important;
 	color: #fff;
@@ -676,4 +677,41 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 			border-right: 2px solid $green !important;
 		}
 	}
+}			
+
+.highlight {
+	display: inline-block;
+	background-color: $grey_lighter;
+	color: lighter($grey,20%);
+	padding: 2px 5px 2px 5px;
+	font-size: 12px;
 }
+
+.register-button {
+	@extend .green-button;
+	padding: 5px 30px 5px 30px; 
+	text-transform: uppercase;
+}
+
+.errorlist {
+	margin-top: 5px;
+	border-left: 3px solid $error_red;
+	padding: 5px 5px 5px 0px;
+	font-size: 12px;
+
+	li {
+		list-style: none;
+		color: $error_red;
+		padding-left: 10px;
+	}
+}
+
+/*
+.errorlist:before {
+	content: '';
+	display: block;
+	width: 3px;
+	background-color: $error_red;
+	position: absolute;
+}
+*/
