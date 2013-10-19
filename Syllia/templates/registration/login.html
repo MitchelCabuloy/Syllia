@@ -3,6 +3,64 @@
 {% block title %}Login{% endblock title %}
 
 {% block content %}
+    <div class="row top-spacing underline">
+        <div class="large-12 column">
+            <h3 class="syllabus-title">
+                Login to proceed
+            </h3>
+        </div>
+    </div>
+    <form action="{% url 'authtools:login' %}" method="POST" class="custom syllabus-form">
+    {% csrf_token %}
+    
+        {% if form.errors %}
+        <div class="row reduce-bottom">
+            <div class="large-12 columns">
+                <span class="error-generic">Your username and password didn't match. Please try again.</span>
+            </div>            
+        </div>
+        {% endif %}
+    
+        <div class="row top-spacing">
+            <div class="large-4 columns">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <h5>Email Address</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        {{ form.username }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <h5>Password</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        {{ form.password }}
+                    </div>
+                </div>
+                <div class="row top-spacing bottom-spacing-small">
+                    <div class="small-12 columns">
+                        <input type="submit" value="SIGN IN" class="login-button">
+                    </div>
+                </div>
+                <div class="row bottom-spacing-small">
+                    <div class="large-12 columns">
+                        Don't have an account?&nbsp;<a href="{% url 'accounts:register' %}">Register</a><br/>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+<!--
+
     <div class="row">
         <div class="large-4 columns">
 
@@ -40,4 +98,5 @@
             </form>
         </div>
     </div>
+    -->
 {% endblock content %}
