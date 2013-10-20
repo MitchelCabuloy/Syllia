@@ -515,16 +515,23 @@ padding / size to be declared in id */
 		border: 1px solid $grey_lighter;
 	}
 
+	.rubric-textarea, .rubric-textarea:focus, .rubric-textarea:hover {
+		border: 1px solid $grey_lighter;
+		width: 100%;
+		max-width: 100%;
+		min-height: 200px;
+		box-shadow: none;
+	}
+
 	.form-fill a  {
 		color: #a9a9a9 !important;
 	}
+}
 
+.has-links {
 	 a{
 	 	color: $green;
 	 }
-
-
-
 }
 
 .syllabus-title {

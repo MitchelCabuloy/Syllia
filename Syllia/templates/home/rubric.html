@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}New Rubric{% endblock title %}
+
+{% block content %}
+<div>
+    <form class="custom syllabus-form">
+        <div class="row top-spacing underline">
+            <div class="large-12 column">
+                <h3 class="syllabus-title">
+                    Untitled Rubric
+                </h3>
+                <span class="syllabus-modified">Modified x minutes ago</span>
+            </div>
+        </div>
+
+
+        <div><!--  FOREACH BIND ON THIS DIV -->
+            <div class="row top-spacing">
+                <div class="large-4 columns">
+                    <h5>Criteria</h5>
+                </div>
+            </div>
+            <div class="row bottom-spacing-small">
+                <div class="large-4 columns">
+                    <input type="text" placeholder="Equipment and Resources"/>
+                </div>
+                <div class="large-2 columns left">
+                    <!-- REMOVE BIND ON THIS HREF -->
+                    <a href="#" class="grey-button2 form-button">
+                        <i class="icon-remove"></i>
+                        Remove
+                    </a>
+                </div>    
+            </div>
+            <div class="row">
+                <div class="large-3 columns">
+                    <h5>Exemplary</h5>
+                    <textarea class="rubric-textarea" placeholder="Resource allocation is sufficient with room for expansion. Cost of resources is kept within reasonable limits."></textarea>
+                </div>
+                <div class="large-3 columns">
+                    <h5>Satisfactory</h5>
+                    <textarea class="rubric-textarea" placeholder="Resource allocation is sufficient with room for reasonable expansion."></textarea>
+                </div>
+                <div class="large-3 columns">
+                    <h5>Developing</h5>
+                    <textarea class="rubric-textarea" placeholder="Resource allocation is sufficient but expansion is limited."></textarea>
+                </div>
+                <div class="large-3 columns">
+                    <h5>Beginning</h5>
+                    <textarea class="rubric-textarea" placeholder="Network resources are grossly under or over allocated"></textarea>
+                </div>
+            </div>
+        <div class="row divider top-spacing"></div>
+        </div><!-- END OF FOREACH BIND ON THIS DIV -->
+
+
+        
+        <div class="row top-spacing">
+            <div class="large-12 columns">
+                <!-- ADD BIND ON THIS HREF -->
+                <a href="#" data-bind="click: addSchedule" class="green-button right-spacing form-button">
+                    <i class="icon-plus button-icon"></i>
+                    Add Criteria
+                </a>
+            </div>
+        </div>
+    </form>
+    <!-- json submit form -->
+    <form id="syllabus_json_form" action="{% url "syllabus:add" %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="syllabus_json" id="syllabus_json">
+    </form>
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+{% load staticfiles %}
+
+{% if jsonString %}
+<script>
+var jsonString = '{{ jsonString|safe }}';
+</script>
+{% endif %}
+
+<script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
+<script src="{% static "javascripts/syllabus-creation.js" %}"></script>
+{% endblock scripts %}

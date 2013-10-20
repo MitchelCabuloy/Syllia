@@ -10,7 +10,7 @@
             </h3>
         </div>
     </div>
-    <form action="{% url 'authtools:login' %}" method="POST" class="custom syllabus-form">
+    <form action="{% url 'authtools:login' %}" method="POST" class="custom syllabus-form has-links">
     {% csrf_token %}
     
         {% if form.errors %}
