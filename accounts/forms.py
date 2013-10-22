@@ -19,8 +19,8 @@ class RegisterForm(forms.Form):
     def clean_email(self):
         email = self.cleaned_data['email']
 
-        if not "@delasalle.ph" in email:
+        if not "@dlsu.edu.ph" in email:
             raise forms.ValidationError(
-                "You need to use a @delasalle.ph email address to sign up for this service.")
+                "You need to use a valid @dlu.edu.ph email address to sign up for this service.")
 
         return email
