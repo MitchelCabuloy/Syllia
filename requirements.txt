@@ -4,5 +4,6 @@ argparse==1.2.1
 behave==1.2.3
 distribute==0.6.34
 django-authtools==0.2.1
+jsonfield==0.9.19
 parse==1.6.2
 wsgiref==0.1.2
