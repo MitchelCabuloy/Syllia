@@ -24,6 +24,7 @@
             defineModels: function() {
                 SyllabusModel = function() {
                     var self = this;
+                    self.pk = null;
                     self.college = ko.observable();
                     self.department = ko.observable();
                     self.courseCode = ko.observable();
