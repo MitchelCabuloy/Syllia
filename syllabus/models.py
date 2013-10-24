@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from jsonfield import JSONField
-
-
 # Create your models here.
+
+
 class Rubric(models.Model):
     id = models.AutoField(primary_key=True)
     rubric_name = models.CharField(max_length=50)
@@ -30,8 +30,9 @@ class Syllabus(models.Model):
     json_data = JSONField(default={"pk": 0})
 
     def save(self, *args, **kwargs):
+        if self.id == None:
+            super(Syllabus, self).save(*args, **kwargs)
+            self.json_data = self.json_data.replace(
+                '"pk":null', '"pk":%d' % self.id)
+
         super(Syllabus, self).save(*args, **kwargs)
-
-        # self.json_data.replace('"pk":null', '"pk":%d' % self.id)
-
-
