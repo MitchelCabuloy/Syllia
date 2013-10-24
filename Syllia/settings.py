@@ -180,3 +180,6 @@ LOGGING = {
         },
     }
 }
+
+LOGIN_REDIRECT_URL = '/dashboard'
+# LOGIN_URL = '/path_to_the_page'
