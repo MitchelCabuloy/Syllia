@@ -9,16 +9,25 @@ class Rubric(models.Model):
     rubric_name = models.CharField(max_length=50)
     total_rating = models.IntegerField()
 
+    def __unicode__(self):
+        return self.rubric_name
+
 
 class College(models.Model):
     id = models.AutoField(primary_key=True)
     college_name = models.CharField(max_length=50)
+
+    def __unicode__(self):
+        return self.college_name
 
 
 class Department(models.Model):
     id = models.AutoField(primary_key=True)
     department_name = models.CharField(max_length=50)
     college = models.ForeignKey(College)
+
+    def __unicode__(self):
+        return self.department_name
 
 
 class Syllabus(models.Model):
@@ -36,3 +45,6 @@ class Syllabus(models.Model):
                 '"pk":null', '"pk":%d' % self.id)
 
         super(Syllabus, self).save(*args, **kwargs)
+
+    def __unicode__(self):
+        return self.course_code
