@@ -32,7 +32,8 @@ class AddSyllabusView(View):
 
             try:
                 syllabus = current_user.syllabus_set.get(pk=args[0])
-                context = {'jsonString': simplejson.dumps(syllabus.json())}
+                # context = {'jsonString': simplejson.dumps(syllabus.json_data)}
+                context = {'jsonString': syllabus.json_data}
                 return render(request, self.template_name, context)
             except Exception:
                 raise Http404
