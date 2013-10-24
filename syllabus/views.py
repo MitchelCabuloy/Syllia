@@ -98,6 +98,18 @@ class RubricView(View):
     template_name = 'syllabus/rubric.html'
 
     def get(self, request, *args, **kwargs):
+        if(len(args)):
+            current_user = get_user_model().objects.get(
+                email=request.user.email)
+
+            try:
+                rubric = current_user.rubric_set.get(pk=args[0])
+                context = {'jsonString': rubric.json_data}
+                return render(request, self.template_name, context)
+            except Exception:
+                raise Http404
+
+        # If reached here, no arguments. Return empty form
         return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
