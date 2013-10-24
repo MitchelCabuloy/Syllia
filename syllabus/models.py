@@ -37,6 +37,8 @@ class Syllabus(models.Model):
     course_code = models.CharField(max_length=7)
     rubric = models.ForeignKey(Rubric)
     json_data = JSONField(default={"pk": 0})
+    created = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if self.id == None:
