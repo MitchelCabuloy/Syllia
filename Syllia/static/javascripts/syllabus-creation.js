@@ -17,7 +17,7 @@
                     this.loadData(jsonData);
                 } else {
                     // Uncomment for test data
-                    // this.loadData($.parseJSON('{"college":"College of Computer Studies","department":"Computer Technology","courseCode":"LBYFORE","courseName":"LBYFORE","courseDescription":"LBYFORE is a course that ahds-on laboratory component of FORENSC.","schedules":[{"endTime":"1740","days":"S","startTime":"1440"},{"endTime":"1600","days":"TH","startTime":"1300"}],"instructors":[{"firstName":"","lastName":"Gregory"},{"firstName":"","lastName":"Alexi"}],"elgas":[{"elgaName":"Effective Communicator","learningOutcomes":[{"description":"LO 1: Be able to discuss different digital blah."}]},{"elgaName":"Critical/creative thinker","learningOutcomes":[{"description":"LO 2: Be able to gather artifact from different blah"},{"description":"LO 3: Be able to gather artifact from different operating systems"}]}],"finalCourseOutputDescription":"Final course output description here","requiredOutputs":[{"los":["LO 1: Be able to discuss different digital blah."],"description":"Forensic Platform Preparation Report","weekDue":"4"},{"los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"],"description":"Windows System and Artifacts Report","weekDue":"5"}],"otherOutputs":[{"requirementName":"Laboratory Exam"},{"requirementName":"Group Project"}],"gradingSystems":[{"percentage":"60","itemName":"Laboratory Report Average"},{"percentage":"20","itemName":"Group Project"},{"percentage":"20","itemName":"Laboratory Exam"}],"totalGradingSystem":100,"learningPlans":[{"topic":"Introduction / Orientation","weekNumber":"1","learningActivities":[{"description":"Course introduction"},{"description":"Classroom policies discussion"}],"los":[]},{"topic":"1.0 Forensic Platform Preparation","weekNumber":"3","learningActivities":[{"description":"Hands-on"}],"los":["LO 1: Be able to discuss different digital blah."]},{"topic":"2.0 Windows Systems and Artifacts","weekNumber":"4","learningActivities":[{"description":"Hands-on"}],"los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"]}],"references":[{"referenceText":"Reference, First"},{"referenceText":"Reference, Second"},{"referenceText":"Reference, Third"},{"referenceText":"Test reference. Saved from shell."}],"classPolicies":[{"policy":"No eating"},{"policy":"No cheating"}]}'));
+                    // this.loadData($.parseJSON('{"college":"College of Computer Studies","department":"Computer Technology","courseCode":"LBYFORE","courseName":"LBYFORE","courseDescription":"LBYFORE is a course that is the hands-on laboratory component of FORENSC.","schedules":[{"endTime":"1740","days":"S","startTime":"1440"},{"endTime":"1600","days":"TH","startTime":"1300"}],"instructors":[{"fullName":"Alexis Pantola"},{"fullName":"Gregory Cu"}],"elgas":[{"elgaName":"Effective Communicator","learningOutcomes":[{"description":"LO 1: Be able to discuss different digital blah."}]},{"elgaName":"Critical/creative thinker","learningOutcomes":[{"description":"LO 2: Be able to gather artifact from different blah"},{"description":"LO 3: Be able to gather artifact from different operating systems"}]}],"finalCourseOutputDescription":"Final course output description here","requiredOutputs":[{"los":["LO 1: Be able to discuss different digital blah."],"description":"Forensic Platform Preparation Report","weekDue":"4"},{"los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"],"description":"Windows System and Artifacts Report","weekDue":"5"}],"otherOutputs":[{"requirementName":"Laboratory Exam"},{"requirementName":"Group Project"}],"gradingSystems":[{"percentage":"60","itemName":"Laboratory Report Average"},{"percentage":"20","itemName":"Group Project"},{"percentage":"20","itemName":"Laboratory Exam"}],"totalGradingSystem":100,"learningPlans":[{"topic":"Introduction / Orientation","weekNumber":"1","learningActivities":[{"description":"Course introduction"},{"description":"Classroom policies discussion"}],"los":[]},{"topic":"1.0 Forensic Platform Preparation","weekNumber":"3","learningActivities":[{"description":"Hands-on"}],"los":["LO 1: Be able to discuss different digital blah."]},{"topic":"2.0 Windows Systems and Artifacts","weekNumber":"4","learningActivities":[{"description":"Hands-on"}],"los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"]}],"references":[{"referenceText":"Reference, First"},{"referenceText":"Reference, Second"},{"referenceText":"Reference, Third"},{"referenceText":"Test reference. Saved from shell."}],"classPolicies":[{"policy":"No eating"},{"policy":"No cheating"}]}'));
                 }
             },
 
@@ -221,7 +221,7 @@
             },
 
             loadData: function(json) {
-                viewModel.pk = parseInt(json.pk)
+                viewModel.pk = parseInt(json.pk);
                 viewModel.college(json.college);
                 viewModel.department(json.department);
                 viewModel.courseCode(json.courseCode);
@@ -234,13 +234,13 @@
                 $.each(json.elgas, function(index, data) {
                     elga = new ElgaModel();
 
-                    elga.pk = parseInt(data.pk)
+                    // elga.pk = parseInt(data.pk)
                     elga.elgaName(data.elgaName);
 
                     elga.learningOutcomes.removeAll();
                     $.each(data.learningOutcomes, function(index, lo) {
                         elga.learningOutcomes.push({
-                            pk: parseInt(lo.pk),
+                            // pk: parseInt(lo.pk),
                             description: ko.observable(lo.description)
                         });
                     });
@@ -257,7 +257,7 @@
                 $.each(json.learningPlans, function(index, data) {
                     lp = new LearningPlanModel();
 
-                    lp.pk = parseInt(data.pk)
+                    // lp.pk = parseInt(data.pk)
                     lp.topic(data.topic);
                     lp.weekNumber(data.weekNumber);
                     lp.learningActivities(data.learningActivities);
