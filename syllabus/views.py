@@ -48,6 +48,7 @@ class AddSyllabusView(View):
         # Load or create new syllabus
         syllabus = None
         try:
+            # TODO: Get only from syllabus_set
             syllabus = Syllabus.objects.get(pk=int(json_data['pk']))
         except Exception:
             syllabus = Syllabus()
@@ -91,3 +92,30 @@ class AddSyllabusView(View):
         syllabus.save()
 
         return HttpResponse(syllabus.json_data)
+
+
+class RubricView(View):
+    template_name = 'syllabus/rubric.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        # Deserialize
+        json_data = simplejson.loads(request.POST['rubric_json'])
+
+        current_user = get_user_model().objects.get(email=request.user.email)
+
+        rubric = None
+        try:
+            rubric = current_user.rubric_set.get(pk=int(json_data['pk']))
+        except Exception:
+            rubric = Rubric()
+
+        rubric.user = current_user
+        rubric.rubric_name = json_data['rubricName']
+        rubric.json_data = request.POST['rubric_json']
+
+        rubric.save()
+
+        return HttpResponse(rubric.json_data)

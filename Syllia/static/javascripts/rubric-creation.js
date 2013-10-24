@@ -14,6 +14,7 @@
             defineModels: function() {
                 RubricModel = function() {
                     var self = this;
+                    self.pk = null;
                     self.rubricName = "";
 
                     var criteriaObject = function() {
@@ -40,6 +41,11 @@
                 $('#postBtn').click(function() {
                     $('#rubric_json').val(ko.toJSON(viewModel));
                     $('#rubric_json_form').submit();
+                });
+
+                $('#stringifyBtn').click(function() {
+                    console.log("KO Data:");
+                    console.log(ko.toJSON(viewModel));
                 });
             }
         };

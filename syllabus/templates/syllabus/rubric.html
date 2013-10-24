@@ -3,41 +3,86 @@
 {% block title %}Rubric{% endblock title %}
 
 {% block content %}
-<div class="row">
-	<div class="small-12 columns">
-		<label for="rubricName">Rubric Name</label>
-		<input type="text" name="rubricName" data-bind="value: rubricName">
-	</div>
-	<form action="{% url "syllabus:rubric" %}" id="rubric_json_form" style="display: none;">
-		<input type="hidden" id="rubric_json">
+<div>
+	<form class="custom syllabus-form">
+		<div class="row top-spacing underline">
+			<div class="large-12 column">
+				<h3 class="syllabus-title">
+					Untitled Rubric
+				</h3>
+				<span class="syllabus-modified">Modified x minutes ago</span>
+			</div>
+		</div>
+
+		<div class="row top-spacing">
+			<div class="large-4 columns">
+				<h5>Rubric name</h5>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-4 columns">
+				<input data-bind="value: rubricName" type="text" placeholder="NTCORE03_Rubric01" />
+			</div>
+		</div>
+
+		<div data-bind="foreach: criterias"><!--  FOREACH BIND ON THIS DIV -->
+			<div class="row top-spacing">
+				<div class="large-4 columns">
+					<h5>Criteria</h5>
+				</div>
+			</div>
+			<div class="row bottom-spacing-small">
+				<div class="large-4 columns">
+					<input data-bind="value: criteriaName" type="text" placeholder="Equipment and Resources"/>
+				</div>
+				<div class="large-2 columns left">
+					<!-- REMOVE BIND ON THIS HREF -->
+					<a href="#" class="grey-button2 form-button" data-bind="click: $root.removeCriteria">
+						<i class="icon-remove"></i>
+						Remove
+					</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-3 columns">
+					<h5>Exemplary</h5>
+					<textarea data-bind="value: exemplary" class="rubric-textarea" placeholder="Resource allocation is sufficient with room for expansion. Cost of resources is kept within reasonable limits."></textarea>
+				</div>
+				<div class="large-3 columns">
+					<h5>Satisfactory</h5>
+					<textarea data-bind="value: satisfactory" class="rubric-textarea" placeholder="Resource allocation is sufficient with room for reasonable expansion."></textarea>
+				</div>
+				<div class="large-3 columns">
+					<h5>Developing</h5>
+					<textarea data-bind="value: developing" class="rubric-textarea" placeholder="Resource allocation is sufficient but expansion is limited."></textarea>
+				</div>
+				<div class="large-3 columns">
+					<h5>Beginning</h5>
+					<textarea data-bind="value: beginning" class="rubric-textarea" placeholder="Network resources are grossly under or over allocated"></textarea>
+				</div>
+			</div>
+			<div class="row divider top-spacing"></div>
+		</div><!-- END OF FOREACH BIND ON THIS DIV -->
+
+
+
+		<div class="row top-spacing">
+			<div class="large-12 columns">
+				<!-- ADD BIND ON THIS HREF -->
+				<a href="#" data-bind="click: addCriteria" class="green-button right-spacing form-button">
+					<i class="icon-plus button-icon"></i>
+					Add Criteria
+				</a>
+				<a href="#" id="postBtn" class="green-button right-spacing form-button">Save</a>
+				<a href="#" id="stringifyBtn" class="green-button right-spacing form-button">Stringify</a>
+			</div>
+		</div>
 	</form>
-</div>
-<div class="row">
-	<div data-bind="foreach: criterias">
-		<div class="small-4 columns">
-			<label for="criteriaName"></label>
-			<input type="text" name="criteriaName" data-bind="value: criteriaName"><br>
-			<a href="#" class="green-button" data-bind="click: $root.removeCriteria">Remove</a>
-		</div>
-		<div class="small-2 columns">
-			<label for="exemplary"></label>
-			<input type="text" name="exemplary" data-bind="value: exemplary">
-		</div>
-		<div class="small-2 columns">
-			<label for="satisfactory"></label>
-			<input type="text" name="satisfactory" data-bind="value: satisfactory">
-		</div>
-		<div class="small-2 columns">
-			<label for="developing"></label>
-			<input type="text" name="developing" data-bind="value: rubricName">
-		</div>
-		<div class="small-2 columns">
-			<label for="beginning"></label>
-			<input type="text" name="beginning" data-bind="value: beginning">
-		</div>
-	</div>
-	<a href="#" class="green-button" data-bind="click: addCriteria">Add</a>
-	<a href="#" class="green-button" id="postBtn">Submit</a>
+	<!-- json submit form -->
+	<form id="rubric_json_form" action="{% url "syllabus:rubric" %}" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="rubric_json" id="rubric_json">
+	</form>
 </div>
 {% endblock content %}
 
@@ -52,5 +97,5 @@ var jsonString = '{{ jsonString|safe }}';
 
 <script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
 <script src="{% static "javascripts/rubric-creation.js" %}"></script>
-	
+
 {% endblock scripts %}
