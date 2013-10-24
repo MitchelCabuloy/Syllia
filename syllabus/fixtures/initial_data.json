@@ -1,0 +1,62 @@
+[{
+    "pk": 1,
+    "model": "syllabus.college",
+    "fields": {
+        "college_name": "Br.Andrew Gonzalez College of Education"
+    }
+}, {
+    "pk": 2,
+    "model": "syllabus.college",
+    "fields": {
+        "college_name": "College of Computer Studies"
+    }
+}, {
+    "pk": 3,
+    "model": "syllabus.college",
+    "fields": {
+        "college_name": "College of Law"
+    }
+}, {
+    "pk": 4,
+    "model": "syllabus.college",
+    "fields": {
+        "college_name": "College of Liberal Arts"
+    }
+}, {
+    "pk": 5,
+    "model": "syllabus.college",
+    "fields": {
+        "college_name": "College of Science"
+    }
+}, {
+    "pk": 6,
+    "model": "syllabus.college",
+    "fields": {
+        "college_name": "Gokongwei College of Engineering"
+    }
+}, {
+    "pk": 7,
+    "model": "syllabus.college",
+    "fields": {
+        "college_name": "Ramon V.Del Rosario College of Business"
+    }
+}, {
+    "pk": 8,
+    "model": "syllabus.college",
+    "fields": {
+        "college_name": "School of Economics"
+    }
+}, {
+    "pk": 9,
+    "model": "syllabus.college",
+    "fields": {
+        "college_name": "Science And Technology Complex(Canlubang)"
+    }
+}, {
+    "pk": 1,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 2,
+        "department_name": "Computer Technology"
+    }
+}]
