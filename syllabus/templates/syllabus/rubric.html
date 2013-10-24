@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Rubric{% endblock title %}
+
+{% block content %}
+<div class="row">
+	<div class="small-12 columns">
+		<label for="rubricName">Rubric Name</label>
+		<input type="text" name="rubricName" data-bind="value: rubricName">
+	</div>
+	<form action="{% url "syllabus:rubric" %}" id="rubric_json_form" style="display: none;">
+		<input type="hidden" id="rubric_json">
+	</form>
+</div>
+<div class="row">
+	<div data-bind="foreach: criterias">
+		<div class="small-4 columns">
+			<label for="criteriaName"></label>
+			<input type="text" name="criteriaName" data-bind="value: criteriaName"><br>
+			<a href="#" class="green-button" data-bind="click: $root.removeCriteria">Remove</a>
+		</div>
+		<div class="small-2 columns">
+			<label for="exemplary"></label>
+			<input type="text" name="exemplary" data-bind="value: exemplary">
+		</div>
+		<div class="small-2 columns">
+			<label for="satisfactory"></label>
+			<input type="text" name="satisfactory" data-bind="value: satisfactory">
+		</div>
+		<div class="small-2 columns">
+			<label for="developing"></label>
+			<input type="text" name="developing" data-bind="value: rubricName">
+		</div>
+		<div class="small-2 columns">
+			<label for="beginning"></label>
+			<input type="text" name="beginning" data-bind="value: beginning">
+		</div>
+	</div>
+	<a href="#" class="green-button" data-bind="click: addCriteria">Add</a>
+	<a href="#" class="green-button" id="postBtn">Submit</a>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{% load staticfiles %}
+
+{% if jsonString %}
+<script>
+var jsonString = '{{ jsonString|safe }}';
+</script>
+{% endif %}
+
+<script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
+<script src="{% static "javascripts/rubric-creation.js" %}"></script>
+	
+{% endblock scripts %}
