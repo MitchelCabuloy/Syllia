@@ -24,11 +24,13 @@
             defineModels: function() {
                 SyllabusModel = function() {
                     var self = this;
+                    self.pk = null;
                     self.college = ko.observable();
                     self.department = ko.observable();
                     self.courseCode = ko.observable();
                     self.courseName = ko.observable();
                     self.courseDescription = ko.observable();
+                    self.rubric = ko.observable();
 
 
                     var schedule = function() {
@@ -286,6 +288,13 @@
 
     $(document).ready(function() {
         SyllabusModule.init();
+
+        $.each(rubricList, function(index, value) {
+            $("<option>").text(value.rubricName).val(value.pk).appendTo('#rubricSelect');
+        });
+
+        // Refresh foundation
+        Foundation.libs.forms.refresh_custom_select($('#rubricSelect'), true);
     });
 
 })();

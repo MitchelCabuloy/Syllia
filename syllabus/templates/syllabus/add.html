@@ -129,12 +129,6 @@
                                     <input data-bind="value: fullName" placeholder="John Smith" type="text">
                                 </div>
 
-                                {% comment %}
-                                <div class="large-4 columns bottom-spacing-small left">
-                                    <input data-bind="value: firstName" placeholder="Jeane Baptiste" type="text">
-                                </div>
-                                {% endcomment %}
-
                                 <div class="large-4 columns bottom-spacing-small left">
                                     <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeInstructor" href="#" style="font-style: italic"></a>
                                 </div>
@@ -380,18 +374,8 @@
 
                         <div class="row nested">
                             <div class="large-4 column left">
-                                <select class="form-fill" id="customDropdown">
-                                    <option>
-                                        Rubric_NTCOR03_revision5
-                                    </option>
-
-                                    <option>
-                                        Rubric_NTCOR03_revision3
-                                    </option>
-
-                                    <option>
-                                        test_rubric423
-                                    </option>
+                                <select class="form-fill" id="rubricSelect" data-bind="value: rubric">
+                                    <option value="null" disabled="disabled">Choose one...</option>
                                 </select>
                             </div>
                         </div>
@@ -648,6 +632,7 @@
     <form action="{% url "syllabus:add" %}" id="syllabus_json_form" method="post" name="syllabus_json_form">
         {% csrf_token %}
         <input id="syllabus_json" name="syllabus_json" type="hidden">
+        <input type="hidden" id="syllabus_rubric" name="syllabus_rubric">
     </form>
 </div>
 
@@ -661,6 +646,11 @@
 var jsonString = '{{ jsonString|safe }}';
 </script>
 {% endif %}
+
+
+<script>
+var rubricList = $.parseJSON('{{ rubricList|safe}}');
+</script>
 
 <script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
 <script src="{% static "javascripts/syllabus-creation.js" %}"></script>

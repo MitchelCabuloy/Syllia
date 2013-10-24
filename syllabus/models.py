@@ -23,6 +23,9 @@ class Rubric(models.Model):
     def __unicode__(self):
         return self.rubric_name
 
+    def json(self):
+        return {"pk": self.id, "rubricName": self.rubric_name}
+
 
 class College(models.Model):
     id = models.AutoField(primary_key=True)
