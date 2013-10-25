@@ -2,7 +2,7 @@
     "pk": 1,
     "model": "syllabus.college",
     "fields": {
-        "college_name": "Br.Andrew Gonzalez College of Education"
+        "college_name": "Br. Andrew Gonzalez College of Education"
     }
 }, {
     "pk": 2,
@@ -38,7 +38,7 @@
     "pk": 7,
     "model": "syllabus.college",
     "fields": {
-        "college_name": "Ramon V.Del Rosario College of Business"
+        "college_name": "Ramon V. Del Rosario College of Business"
     }
 }, {
     "pk": 8,
@@ -50,13 +50,258 @@
     "pk": 9,
     "model": "syllabus.college",
     "fields": {
-        "college_name": "Science And Technology Complex(Canlubang)"
+        "college_name": "Science and Technology Complex (Canlubang)"
     }
 }, {
     "pk": 1,
     "model": "syllabus.department",
     "fields": {
+        "college": 1,
+        "department_name": "Counseling and Educational Psychology Department"
+    }
+}, {
+    "pk": 2,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 1,
+        "department_name": "Department of English and Applied Linguistics"
+    }
+}, {
+    "pk": 3,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 1,
+        "department_name": "Educational Leadership and Management Department"
+    }
+}, {
+    "pk": 4,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 1,
+        "department_name": "Physical Education Department"
+    }
+}, {
+    "pk": 5,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 1,
+        "department_name": "Science Education Department"
+    }
+}, {
+    "pk": 6,
+    "model": "syllabus.department",
+    "fields": {
         "college": 2,
         "department_name": "Computer Technology"
+    }
+}, {
+    "pk": 7,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 2,
+        "department_name": "Information Technology"
+    }
+}, {
+    "pk": 8,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 2,
+        "department_name": "Software Technology"
+    }
+}, {
+    "pk": 9,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 3,
+        "department_name": "Law"
+    }
+}, {
+    "pk": 10,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 4,
+        "department_name": "Behavioral Sciences"
+    }
+}, {
+    "pk": 11,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 4,
+        "department_name": "Communication"
+    }
+}, {
+    "pk": 12,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 4,
+        "department_name": "Literature"
+    }
+}, {
+    "pk": 13,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 4,
+        "department_name": "Filipino"
+    }
+}, {
+    "pk": 14,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 4,
+        "department_name": "History"
+    }
+}, {
+    "pk": 15,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 4,
+        "department_name": "International Studies"
+    }
+}, {
+    "pk": 16,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 4,
+        "department_name": "Philosophy"
+    }
+}, {
+    "pk": 17,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 4,
+        "department_name": "Political Science"
+    }
+}, {
+    "pk": 18,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 4,
+        "department_name": "Psychology"
+    }
+}, {
+    "pk": 19,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 4,
+        "department_name": "Theology and Religious Education"
+    }
+}, {
+    "pk": 20,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 5,
+        "department_name": "Biology"
+    }
+}, {
+    "pk": 21,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 5,
+        "department_name": "Chemistry"
+    }
+}, {
+    "pk": 22,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 5,
+        "department_name": "Mathematics"
+    }
+}, {
+    "pk": 23,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 5,
+        "department_name": "Physics"
+    }
+}, {
+    "pk": 24,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 6,
+        "department_name": "Chemical Engineering"
+    }
+}, {
+    "pk": 25,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 6,
+        "department_name": "Civil Engineering"
+    }
+}, {
+    "pk": 26,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 6,
+        "department_name": "Electronics and Communications Engineering"
+    }
+}, {
+    "pk": 27,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 6,
+        "department_name": "Industrial Engineering"
+    }
+}, {
+    "pk": 28,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 6,
+        "department_name": "Manufacturing Engineering and Management"
+    }
+}, {
+    "pk": 29,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 6,
+        "department_name": "Mechanical Engineering"
+    }
+}, {
+    "pk": 30,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 7,
+        "department_name": "Accountancy"
+    }
+}, {
+    "pk": 31,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 7,
+        "department_name": "Commercial Law"
+    }
+}, {
+    "pk": 32,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 7,
+        "department_name": "Decision Sciences and Innovation Department"
+    }
+}, {
+    "pk": 33,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 7,
+        "department_name": "Management of Financial Institutions"
+    }
+}, {
+    "pk": 34,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 7,
+        "department_name": "Management and Organization Department"
+    }
+}, {
+    "pk": 35,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 7,
+        "department_name": "Marketing Management"
+    }
+}, {
+    "pk": 36,
+    "model": "syllabus.department",
+    "fields": {
+        "college": 8,
+        "department_name": "Economics"
     }
 }]
