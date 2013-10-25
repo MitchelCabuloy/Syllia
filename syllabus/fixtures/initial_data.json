@@ -47,12 +47,6 @@
         "college_name": "School of Economics"
     }
 }, {
-    "pk": 9,
-    "model": "syllabus.college",
-    "fields": {
-        "college_name": "Science and Technology Complex (Canlubang)"
-    }
-}, {
     "pk": 1,
     "model": "syllabus.department",
     "fields": {
