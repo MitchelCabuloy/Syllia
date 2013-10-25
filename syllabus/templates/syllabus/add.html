@@ -647,9 +647,11 @@ var jsonString = '{{ jsonString|safe }}';
 </script>
 {% endif %}
 
-
+<!-- Static data from the server -->
 <script>
-var rubricList = $.parseJSON('{{ rubricList|safe}}');
+var rubricList = $.parseJSON('{{ rubricList|safe }}');
+var collegeList = $.parseJSON('{{ collegeList|safe }}');
+var departmentList = $.parseJSON('{{ departmentList|safe }}');
 </script>
 
 <script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>

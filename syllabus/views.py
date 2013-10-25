@@ -34,26 +34,39 @@ class AddSyllabusView(View):
         for rubric in rubrics:
             rubricList.append(rubric.json())
 
-        # to json
-        rubricList = simplejson.dumps(rubricList)
+        # Create dictionary
+        context = {
+            'rubricList': simplejson.dumps(rubricList)
+        }
+
+        collegeList = []
+        colleges = College.objects.all()
+        for college in colleges:
+            collegeList.append(college.json())
+
+        context['collegeList'] = simplejson.dumps(collegeList)
+
+        departmentList = []
+        departments = Department.objects.all()
+        for department in departments:
+            departmentList.append(department.json())
+
+        context['departmentList'] = simplejson.dumps(departmentList)
 
         # If edit mode, load syllabus data
         if(len(args)):
             try:
                 syllabus = current_user.syllabus_set.get(pk=args[0])
 
-                context = {
-                    'jsonString': syllabus.json_data,
-                    'rubricList': rubricList
-                }
+                context['jsonString'] = syllabus.json_data
 
-                return render(request, self.template_name, context)
+                # return render(request, self.template_name, context)
 
             except Exception:
                 raise Http404
 
         # If reached here, no arguments. Return empty form
-        return render(request, self.template_name, {'rubricList': rubricList})
+        return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
         # Deserialize to dictionary

@@ -20,16 +20,19 @@ class Rubric(models.Model):
 
         super(Rubric, self).save(*args, **kwargs)
 
-    def __unicode__(self):
-        return self.rubric_name
-
     def json(self):
         return {"pk": self.id, "rubricName": self.rubric_name}
+
+    def __unicode__(self):
+        return self.rubric_name
 
 
 class College(models.Model):
     id = models.AutoField(primary_key=True)
     college_name = models.CharField(max_length=50)
+
+    def json(self):
+        return {"pk": self.id, "collegeName": self.college_name}
 
     def __unicode__(self):
         return self.college_name
@@ -39,6 +42,9 @@ class Department(models.Model):
     id = models.AutoField(primary_key=True)
     department_name = models.CharField(max_length=50)
     college = models.ForeignKey(College)
+
+    def json(self):
+        return {"pk": self.id, "departmentName": self.department_name, "college": self.college.id}
 
     def __unicode__(self):
         return self.department_name
