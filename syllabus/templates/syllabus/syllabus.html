@@ -30,7 +30,7 @@
                                 <select id="collegeSelect" data-bind="options: collegeList,
                                                                       optionsText: 'collegeName',
                                                                       optionsValue: 'pk',
-                                                                      value: college, 
+                                                                      value: college,
                                                                       optionsCaption: 'Choose one...'">
                                 </select>
                             </div>
@@ -642,7 +642,7 @@
         </div>
     </form><!-- json submit form -->
 
-    <form action="{% url "syllabus:add" %}" id="syllabus_json_form" method="post" name="syllabus_json_form">
+    <form action="{% url "syllabus:syllabus" %}" id="syllabus_json_form" method="post" name="syllabus_json_form">
         {% csrf_token %}
         <input id="syllabus_json" name="syllabus_json" type="hidden">
         <input type="hidden" id="syllabus_rubric" name="syllabus_rubric">

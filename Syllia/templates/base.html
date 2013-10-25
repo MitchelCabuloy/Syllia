@@ -46,10 +46,10 @@
                                 <strong>Computer Technology Department</strong>
                                 College of Computer Studies
                             </p>
-                            
+
                             <a class="account-option" href="{% url "accounts:profile" %}">Account Dashboard</a>
-                            <a class="account-option" href="{% url "syllabus:add" %}">Create a Syllabus</a>
-                            
+                            <a class="account-option" href="{% url "syllabus:syllabus" %}">Create a Syllabus</a>
+
                             <!--<a class="account-option" href="accounts/password_change">Change Password</a>-->
 
                             <a href="{% url "authtools:logout" %}" class="grey-button" id="sign-out">Sign out</a>
@@ -78,16 +78,9 @@
                                 </div>
 
                                 <div class="row">
-                                    {% comment %}
-                                    <div class="small-6 columns">
-                                        <a href="">Forgot your password?</a><br>
-                                        Don't have an account?&nbsp;<a href="{% url "accounts:register" %}">Register</a>
-                                    </div>
-                                    {% endcomment %}
-
                                     <div class="small-12 columns">
-                                        <input type="submit" class="green-button" id="h-login-submit" value="SIGN IN"/> 
-                                        <a href="#">Forgot password?</a>    
+                                        <input type="submit" class="green-button" id="h-login-submit" value="SIGN IN"/>
+                                        <a href="#">Forgot password?</a>
                                         <!--<input type="submit" value="Login" class="green-button">-->
                                     </div>
                                 </div>

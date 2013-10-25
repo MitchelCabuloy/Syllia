@@ -16,13 +16,17 @@ class DashboardView(View):
     template_name = 'syllabus/dashboard.html'
 
     def get(self, request, *args, **kwargs):
+        # If not authenticated, show home page
+        if not request.user.is_authenticated():
+            return render(request, 'home/index.html')
+
         syllabus = Syllabus.objects.all()
         context = {'syllabus': syllabus}
         return render(request, self.template_name, context)
 
 
-class AddSyllabusView(View):
-    template_name = 'syllabus/add.html'
+class SyllabusView(View):
+    template_name = 'syllabus/syllabus.html'
 
     def get(self, request, *args, **kwargs):
         current_user = get_user_model().objects.get(
@@ -87,7 +91,8 @@ class AddSyllabusView(View):
 
         # Load foreign keys
         # These will throw an exception if invalid
-        syllabus.department = Department.objects.get(pk=json_data['department'])
+        syllabus.department = Department.objects.get(
+            pk=json_data['department'])
         syllabus.rubric = current_user.rubric_set.get(pk=json_data['rubric'])
 
         syllabus.save()

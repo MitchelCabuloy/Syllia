@@ -181,5 +181,5 @@ LOGGING = {
     }
 }
 
-LOGIN_REDIRECT_URL = '/dashboard'
+LOGIN_REDIRECT_URL = '/'
 # LOGIN_URL = '/path_to_the_page'
