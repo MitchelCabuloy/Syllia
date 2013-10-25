@@ -384,8 +384,11 @@
 
                         <div class="row nested">
                             <div class="large-4 column left">
-                                <select class="form-fill" id="rubricSelect" data-bind="value: rubric">
-                                    <option value="null" disabled="disabled">Choose one...</option>
+                                <select class="form-fill" id="rubricSelect" data-bind="options: rubricList,
+                                                                                       optionsText: 'rubricName',
+                                                                                       optionsValue: 'pk',
+                                                                                       value: rubric,
+                                                                                       optionsCaption: 'Choose one...'">
                                 </select>
                             </div>
                         </div>

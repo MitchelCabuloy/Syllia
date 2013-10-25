@@ -22,6 +22,7 @@
 
                 Foundation.libs.forms.refresh_custom_select($('#collegeSelect'), true);
                 Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
+                Foundation.libs.forms.refresh_custom_select($('#rubricSelect'), true);
             },
 
             defineModels: function() {
@@ -54,6 +55,7 @@
                         Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
                     });
 
+                    self.rubricList = ko.observableArray(window.rubricList);
 
                     var schedule = function() {
                         this.days = "";
@@ -253,6 +255,7 @@
                 viewModel.courseDescription(json.courseDescription);
                 viewModel.schedules(json.schedules);
                 viewModel.instructors(json.instructors);
+                viewModel.rubric(json.rubric);
 
                 viewModel.elgas.removeAll();
                 $.each(json.elgas, function(index, data) {
@@ -301,6 +304,7 @@
                         switch (key) {
                             case "collegeList":
                             case "departmentList":
+                            case "rubricList":
                                 return;
                             default:
                                 return value;
@@ -317,6 +321,7 @@
                         switch (key) {
                             case "collegeList":
                             case "departmentList":
+                            case "rubricList":
                                 return;
                             default:
                                 return value;
@@ -331,13 +336,6 @@
 
     $(document).ready(function() {
         SyllabusModule.init();
-
-        $.each(rubricList, function(index, value) {
-            $("<option>").text(value.rubricName).val(value.pk).appendTo('#rubricSelect');
-        });
-
-        // Refresh foundation
-        Foundation.libs.forms.refresh_custom_select($('#rubricSelect'), true);
     });
 
 })();
