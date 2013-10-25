@@ -27,7 +27,12 @@
 
                         <div class="row">
                             <div class="large-4 columns">
-                                <input data-bind="value: college" placeholder="College of Computer Studies" type="text">
+                                <select id="collegeSelect" data-bind="options: collegeList,
+                                                                      optionsText: 'collegeName',
+                                                                      optionsValue: 'pk',
+                                                                      value: college, 
+                                                                      optionsCaption: 'Choose one...'">
+                                </select>
                             </div>
                         </div>
 
@@ -39,7 +44,12 @@
 
                         <div class="row">
                             <div class="large-4 columns">
-                                <input data-bind="value: department" placeholder="Computer Technology Department" type="text">
+                                <select id="departmentSelect" data-bind="options: departmentList,
+                                                                         optionsText: 'departmentName',
+                                                                         optionsValue: 'pk',
+                                                                         value: department,
+                                                                         optionsCaption: 'Choose one...'">
+                                </select>
                             </div>
                         </div>
 

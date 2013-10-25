@@ -75,42 +75,20 @@ class AddSyllabusView(View):
         current_user = get_user_model().objects.get(email=request.user.email)
 
         # Load or create new syllabus
-        syllabus = None
         try:
             syllabus = current_user.syllabus_set.get(pk=int(json_data['pk']))
         except Exception:
             syllabus = Syllabus()
 
-        # Set user
-        syllabus.user = get_user_model().objects.get(email=request.user.email)
-        # Set course code
+        # Initialize
+        syllabus.user = current_user
         syllabus.course_code = json_data['courseCode']
-
-        # Save Department (temporary)
-        try:
-            syllabus.department = Department.objects.get(
-                department_name=json_data['department'])
-        except Exception:
-            department = Department()
-            department.department_name = json_data['department']
-
-            try:
-                department.college = College.objects.get(
-                    college_name=json_data['college'])
-            except Exception:
-                department.college = College.objects.create(
-                    college_name=json_data['college']
-                )
-
-            department.save()
-
-            syllabus.department = department
-
-        # Save Rubric (This will throw an exception if entered rubric is
-        # invalid)
-        syllabus.rubric = current_user.rubric_set.get(pk=json_data['rubric'])
-
         syllabus.json_data = request.POST['syllabus_json']
+
+        # Load foreign keys
+        # These will throw an exception if invalid
+        syllabus.department = Department.objects.get(pk=json_data['department'])
+        syllabus.rubric = current_user.rubric_set.get(pk=json_data['rubric'])
 
         syllabus.save()
 
