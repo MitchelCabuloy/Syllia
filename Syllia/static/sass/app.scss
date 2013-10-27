@@ -698,7 +698,7 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 			border-right: 2px solid $green !important;
 		}
 	}
-}			
+}
 
 .highlight {
 	display: inline-block;
@@ -710,7 +710,7 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 
 .register-button, .login-button {
 	@extend .green-button;
-	padding: 5px 30px 5px 30px; 
+	padding: 5px 30px 5px 30px;
 	text-transform: uppercase;
 }
 
@@ -718,7 +718,7 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 	margin-top: 5px;
 	border-left: 3px solid $error_red;
 	padding: 5px 5px 5px 0px;
-	
+
 
 	li {
 		list-style: none;
@@ -734,7 +734,7 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 		margin-top: 20px;
 		display: block;
 		padding: 10px !important;
-	
+
 }
 
 /*
@@ -778,7 +778,12 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 		padding-left: 10px !important;
 		padding-right: 10px !important;
 		border-bottom: 1px solid $grey_lighter;
-		span {
+
+		span.itemName {
+			padding-left: 5px;
+		}
+
+		span.lastModified {
 			float: right;
 		}
 
