@@ -67,7 +67,8 @@
                         <div class="large-12 columns">
                             <ul data-bind="foreach: pagedList">
                                 <li>
-                                    <i class="icon-check-empty"></i>
+                                    <!-- <i class="icon-check-empty"></i> -->
+                                    <input type="checkbox" data-bind="checked: isSelected">
                                     <span class="itemName" data-bind="text: itemName"></span>
                                     <span class="lastModified" data-bind="text: lastModified"></span>
                                 </li>
@@ -133,7 +134,8 @@
                         <div class="large-12 columns">
                             <ul data-bind="foreach: pagedList">
                                 <li>
-                                    <i class="icon-check-empty"></i>
+                                    <!-- <i class="icon-check-empty"></i> -->
+                                    <input type="checkbox" data-bind="checked: isSelected">
                                     <span class="itemName" data-bind="text: itemName"></span>
                                     <span class="lastModified" data-bind="text: lastModified"></span>
                                 </li>

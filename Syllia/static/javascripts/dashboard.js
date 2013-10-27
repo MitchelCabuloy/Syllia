@@ -81,7 +81,6 @@ var Dashboard = (function($, ko) {
 
         models.DashboardModel = function(items) {
             var self = this;
-            console.log(items);
             self.listItems = ko.observableArray(items);
 
             self.pageIndex = ko.observable(1);
@@ -114,7 +113,7 @@ var Dashboard = (function($, ko) {
             self.url = "/" + value.url + "/" + value.pk;
 
             // Observables for things that change
-            self.isSelected = ko.observable();
+            self.isSelected = ko.observable(false);
         };
 
         return models;
