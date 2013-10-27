@@ -221,7 +221,7 @@ html, body {
 
 }
 
-// multiple page declarations
+// Navigation and Login / My account pane declaration
 .navigation {
 	margin-top: 30px;
 	ul {
@@ -298,6 +298,9 @@ html, body {
 	padding: 8px 20px 8px 20px
 }
 
+/*	Login button is the 'LOGIN' button found in the navigation, while
+	Login Submit is the button found in the login form itself */
+
 #login-button {
 	@extend .clear-button;
 	padding: 8px 30px 8px 30px;
@@ -318,6 +321,9 @@ html, body {
 	margin-top: 20px;
 }
 
+
+// Everything else 
+
 .content-header {
 	border-bottom: 1px solid $grey-border;
 	margin-top: 40px;
@@ -333,7 +339,6 @@ html, body {
 	margin-top: 40px;
 }
 
-/* each page content is wrapper around this */
 .content {
 	.row:first-child {
 		margin-top: 40px;
@@ -354,16 +359,27 @@ html, body {
 		display: block;
 	}
 
-	// custom dropdown
 	form.custom .custom.dropdown.open ul {
 		border: 1px solid $grey-border;
 	}
 	input {
 		height: 38px;
 	}
+
+
+	.highlight {
+		display: inline-block;
+		background-color: $grey-button;
+		color: lighter($grey-lighter);
+		padding: 2px 5px 2px 5px;
+		font-size: 12px;
+	}
+
+	.foreach-header {
+		margin-bottom: -40px;
+	}
 }
 
-// declarations on the section / tabs
 .vertical-tabs {
 	.title {
 		border-right: 2px solid $grey-border !important;
@@ -375,19 +391,6 @@ html, body {
 			border-right: 2px solid $green !important;
 		}
 	}
-}
-
-
-.highlight {
-	display: inline-block;
-	background-color: $grey-button;
-	color: lighter($grey-lighter);
-	padding: 2px 5px 2px 5px;
-	font-size: 12px;
-}
-
-.foreach-header {
-	margin-bottom: -40px;
 }
 
 .learning-outcomes {

@@ -7507,12 +7507,14 @@ html, body {
   padding: 8px 20px 8px 20px;
 }
 
-/* line 301, ../sass/app.scss */
+/*	Login button is the 'LOGIN' button found in the navigation, while
+	Login Submit is the button found in the login form itself */
+/* line 304, ../sass/app.scss */
 #login-button {
   padding: 8px 30px 8px 30px;
 }
 
-/* line 306, ../sass/app.scss */
+/* line 309, ../sass/app.scss */
 #login-submit, #register-button {
   padding: 8px 30px 8px 30px;
   display: block;
@@ -7520,19 +7522,19 @@ html, body {
   margin-bottom: 10px;
 }
 
-/* line 314, ../sass/app.scss */
+/* line 317, ../sass/app.scss */
 #logout-button {
   padding: 8px 30px 8px 30px;
   color: #646464;
   margin-top: 20px;
 }
 
-/* line 321, ../sass/app.scss */
+/* line 327, ../sass/app.scss */
 .content-header {
   border-bottom: 1px solid #e3e3e3;
   margin-top: 40px;
 }
-/* line 324, ../sass/app.scss */
+/* line 330, ../sass/app.scss */
 .content-header span {
   float: right;
   color: #27ae60;
@@ -7540,83 +7542,80 @@ html, body {
   margin-top: 25px;
 }
 
-/* line 332, ../sass/app.scss */
+/* line 338, ../sass/app.scss */
 .tab-wrapper {
   margin-top: 40px;
 }
 
-/* each page content is wrapper around this */
-/* line 338, ../sass/app.scss */
+/* line 343, ../sass/app.scss */
 .content .row:first-child, .content .dashboard-table-content:first-child {
   margin-top: 40px;
 }
-/* line 342, ../sass/app.scss */
+/* line 347, ../sass/app.scss */
 .content .row, .content .dashboard-table-content {
   margin-bottom: 5px;
 }
-/* line 346, ../sass/app.scss */
+/* line 351, ../sass/app.scss */
 .content label {
   font-weight: normal;
 }
-/* line 351, ../sass/app.scss */
+/* line 356, ../sass/app.scss */
 .content p {
   margin-bottom: 15px;
   margin-top: 10px;
   display: block;
 }
-/* line 358, ../sass/app.scss */
+/* line 362, ../sass/app.scss */
 .content form.custom .custom.dropdown.open ul {
   border: 1px solid #e3e3e3;
 }
-/* line 361, ../sass/app.scss */
+/* line 365, ../sass/app.scss */
 .content input {
   height: 38px;
 }
-
-/* line 368, ../sass/app.scss */
-.vertical-tabs .title {
-  border-right: 2px solid #e3e3e3 !important;
-  text-transform: uppercase;
-}
-/* line 374, ../sass/app.scss */
-.vertical-tabs .active .title {
-  border-right: 2px solid #27ae60 !important;
-}
-
-/* line 381, ../sass/app.scss */
-.highlight {
+/* line 370, ../sass/app.scss */
+.content .highlight {
   display: inline-block;
   background-color: #dadada;
   color: lighter(#646464);
   padding: 2px 5px 2px 5px;
   font-size: 12px;
 }
-
-/* line 389, ../sass/app.scss */
-.foreach-header {
+/* line 378, ../sass/app.scss */
+.content .foreach-header {
   margin-bottom: -40px;
 }
 
-/* line 393, ../sass/app.scss */
+/* line 384, ../sass/app.scss */
+.vertical-tabs .title {
+  border-right: 2px solid #e3e3e3 !important;
+  text-transform: uppercase;
+}
+/* line 390, ../sass/app.scss */
+.vertical-tabs .active .title {
+  border-right: 2px solid #27ae60 !important;
+}
+
+/* line 396, ../sass/app.scss */
 .learning-outcomes {
   margin-bottom: 25px;
 }
-/* line 395, ../sass/app.scss */
+/* line 398, ../sass/app.scss */
 .learning-outcomes .row:first-child, .learning-outcomes .dashboard-table-content:first-child {
   margin-top: 0px !important;
   margin-bottom: 10px;
 }
-/* line 399, ../sass/app.scss */
+/* line 402, ../sass/app.scss */
 .learning-outcomes .row, .learning-outcomes .dashboard-table-content {
   margin-top: 20px;
 }
-/* line 402, ../sass/app.scss */
+/* line 405, ../sass/app.scss */
 .learning-outcomes .lo-block {
   background-color: #dadada;
   color: #fff;
   padding: 11px;
 }
-/* line 407, ../sass/app.scss */
+/* line 410, ../sass/app.scss */
 .learning-outcomes textarea {
   min-height: 80px !important;
   width: 100%;
@@ -7624,26 +7623,26 @@ html, body {
 
 /* OLD SCSS FILE, JUST NOT TO ENTIRELY FUCK UP 
 THE SITE WHILE IM REDOING THE SCSS */
-/* line 425, ../sass/app.scss */
+/* line 428, ../sass/app.scss */
 .dashboard-button-grey {
   font-size: 11px !important;
 }
 
-/* line 433, ../sass/app.scss */
+/* line 436, ../sass/app.scss */
 .dashboard-button-green {
   font-size: 11px !important;
   margin-right: 3px !important;
 }
 
-/* line 441, ../sass/app.scss */
+/* line 444, ../sass/app.scss */
 .dashboard-table-content {
   padding-top: 20px;
 }
-/* line 446, ../sass/app.scss */
+/* line 449, ../sass/app.scss */
 .dashboard-table-content ul {
   list-style: none;
 }
-/* line 450, ../sass/app.scss */
+/* line 453, ../sass/app.scss */
 .dashboard-table-content li {
   display: block;
   padding: 3px;
@@ -7651,42 +7650,42 @@ THE SITE WHILE IM REDOING THE SCSS */
   padding-right: 10px !important;
   border-bottom: 1px solid #646464;
 }
-/* line 457, ../sass/app.scss */
+/* line 460, ../sass/app.scss */
 .dashboard-table-content li span.itemName {
   padding-left: 5px;
 }
-/* line 461, ../sass/app.scss */
+/* line 464, ../sass/app.scss */
 .dashboard-table-content li span.lastModified {
   float: right;
 }
-/* line 465, ../sass/app.scss */
+/* line 468, ../sass/app.scss */
 .dashboard-table-content li i {
   font-size: 13px !important;
   color: #646464 !important;
 }
-/* line 471, ../sass/app.scss */
+/* line 474, ../sass/app.scss */
 .dashboard-table-content li:last-child {
   border-bottom: none;
 }
-/* line 475, ../sass/app.scss */
+/* line 478, ../sass/app.scss */
 .dashboard-table-content li:hover {
   background-color: #27ae60;
   cursor: pointer;
   color: #fff;
   border-bottom: 1px solid #27ae60;
 }
-/* line 480, ../sass/app.scss */
+/* line 483, ../sass/app.scss */
 .dashboard-table-content li:hover i {
   color: #fff !important;
 }
 
-/* line 486, ../sass/app.scss */
+/* line 489, ../sass/app.scss */
 .dashboard-icon {
   color: #646464 !important;
   font-size: 13px;
 }
 
-/* line 491, ../sass/app.scss */
+/* line 494, ../sass/app.scss */
 .align-right {
   text-align: right;
 }
