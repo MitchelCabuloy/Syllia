@@ -131,23 +131,17 @@
 
                     <div class="dashboard-table-content">
                         <div class="large-12 columns">
-                            <ul>
+                            <ul data-bind="foreach: pagedList">
                                 <li>
-                                    <i class="icon-check-empty"></i>&nbsp;
-                                    TestRubric-001
-                                    <span>11:59 PM</span>
-                                </li>
-                                <li>
-                                    <i class="icon-check-empty"></i>&nbsp;
-                                    TestRubric-002
-                                    <span>11:27 PM</span>
-                                </li>
-                                <li>
-                                    <i class="icon-check-empty"></i>&nbsp;
-                                    TestRubric-003
-                                    <span>9:42 PM</span>
+                                    <i class="icon-check-empty"></i>
+                                    <span class="itemName" data-bind="text: itemName"></span>
+                                    <span class="lastModified" data-bind="text: lastModified"></span>
                                 </li>
                             </ul>
+                            <div data-bind="visible: hasMoreThanOnePage">
+                                <a class="green-button right-spacing form-button" data-bind="click: previousPage">Previous</a>
+                                <a class="green-button right-spacing form-button" data-bind="click: nextPage">Next</a>
+                            </div>
                         </div>
                     </div>
 

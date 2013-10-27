@@ -60,8 +60,17 @@ var Dashboard = (function($, ko) {
         $.each(jsonData.syllabusList, function(index, value) {
             syllabusList.push(new MODELS.ListItemModel(value));
         });
-        // ko.applyBindings(new MODELS.DashboardModel(syllabusList));
         ko.applyBindings(new MODELS.DashboardModel(syllabusList), $("[data-slug='syllabus']")[0]);
+
+        // Rubric
+        var rubricList = [];
+
+        // Change to rubricList once the serverside is implemented
+        // $.each(jsonData.rubricList, function(index, value) {
+        $.each(jsonData.syllabusList, function(index, value) {
+            rubricList.push(new MODELS.ListItemModel(value));
+        });
+        ko.applyBindings(new MODELS.DashboardModel(rubricList), $("[data-slug='rubric']")[0]);
 
     };
 
