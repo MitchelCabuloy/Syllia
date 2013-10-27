@@ -49,40 +49,59 @@ $em-base: 16 !default;
 // Change whether or not you include browser prefixes
 // $experimental: true;
 
-// Various global styles
+/*  Declarations not part of the original foundation setting stylesheet
+    are indented (for easy identifications) */
 
-$default-float: left;
+  // Various global styles
+  $default-float: left;
 
-$green: #27ae60;
-$green_lighter: #3ac575;
-$green_darker: #219352;
+  // Green Declarations
+  $green: #27ae60;
+  $green-lighter: lighten($green,10%);
+  $green-darker: darken($green,10%);
 
-$grey: #575e65;
-$grey_lighter: #ededed;
-$grey_lightest: #f5f5f5;
-$grey_highlight: #bbbbbb;
+  // Grey declarations 
+  $grey: #3d3d3d;
+  $grey-lighter: lighten($grey,10%);
 
-$light: 300;
-$normal: 400;
-$bold: 500;
+  $grey-border: lighten($grey,60%);
+  $grey-border-darker: darken($grey-border,10%);
 
-$error_red: #ef3636;
-$error_border: #ff0000;
-$error_text: #ff0000;
-$error_bg: #ffd7d0;
+  $grey-button: #dadada;
+  $grey-button-border: darken($grey-button,10%);
+
+  // Red declarations
+  $red: #ef3636;
+  $red-lighter: lighten($red,20%);
+  $red-darker: darken($red,20%);
+
+  // PT Sans font-weights
+  $light: 300;
+  $normal: 400;
+  $bold: 500;
+
+  // General global declarations
+
+  input {
+    padding-left: 10px;
+  }
+
+  h1,h2,h3,h4,h5 {
+    font-weight: normal;
+  }
 
 
-$breakpoint: 768px;
+  $breakpoint: 768px;
 
 // $body-bg: #fff;
-// $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $body-font-weight: normal;
-// $body-font-style: normal;
+ $body-font-color: $grey;
+ $body-font-family: 'PT Sans', Arial, sans-serif;
+ $body-font-weight: normal;
+ $body-font-style: normal;
 
 // Font-smoothing
 
-// $font-smoothing: antialiased;
+ $font-smoothing: antialiased;
 
 // Text direction settings
 
@@ -1052,7 +1071,7 @@ $section-title-padding: 15px 15px 15px 15px;
 
 // These style the titles
 
- $section-title-color: $grey_highlight;
+ $section-title-color: $grey-lighter;
  $section-title-color-active: $green;
  $section-title-bg: #fff;
  $section-title-bg-active: #fff;

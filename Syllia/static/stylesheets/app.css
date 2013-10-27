@@ -1,4 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+/*  Declarations not part of the original foundation setting stylesheet
+    are indented (for easy identifications) */
+/* line 85, ../sass/_settings.scss */
+input {
+  padding-left: 10px;
+}
+
+/* line 89, ../sass/_settings.scss */
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+
 /*! normalize.css v2.1.1 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
@@ -449,10 +461,10 @@ body {
 /* line 300, ../../../../../.rvm/gems/ruby-2.0.0-p247@global/gems/zurb-foundation-4.3.2/scss/foundation/components/_global.scss */
 body {
   background: white;
-  color: #222222;
+  color: #3d3d3d;
   padding: 0;
   margin: 0;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-family: "PT Sans", Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1;
@@ -2216,7 +2228,7 @@ abbr,
 acronym {
   text-transform: uppercase;
   font-size: 90%;
-  color: #222222;
+  color: #3d3d3d;
   border-bottom: 1px dotted #dddddd;
   cursor: help;
 }
@@ -3794,7 +3806,7 @@ label.error {
 .section-container.accordion > section > .title a,
 .section-container.accordion > .section > .title a {
   padding: 15px 15px 15px 15px;
-  color: #bbbbbb;
+  color: #575757;
   font-size: 0.875em;
   background: none;
 }
@@ -3963,7 +3975,7 @@ label.error {
 /* line 211, ../../../../../.rvm/gems/ruby-2.0.0-p247@global/gems/zurb-foundation-4.3.2/scss/foundation/components/_section.scss */
 .section-container.tabs > section > .title a, .section-container.tabs > .section > .title a {
   padding: 15px 15px 15px 15px;
-  color: #bbbbbb;
+  color: #575757;
   font-size: 0.875em;
   background: none;
 }
@@ -4061,7 +4073,7 @@ label.error {
   /* line 211, ../../../../../.rvm/gems/ruby-2.0.0-p247@global/gems/zurb-foundation-4.3.2/scss/foundation/components/_section.scss */
   .section-container.auto > section > .title a, .section-container.auto > .section > .title a {
     padding: 15px 15px 15px 15px;
-    color: #bbbbbb;
+    color: #575757;
     font-size: 0.875em;
     background: none;
   }
@@ -4179,7 +4191,7 @@ label.error {
   /* line 211, ../../../../../.rvm/gems/ruby-2.0.0-p247@global/gems/zurb-foundation-4.3.2/scss/foundation/components/_section.scss */
   .section-container.vertical-tabs > section > .title a, .section-container.vertical-tabs > .section > .title a {
     padding: 15px 15px 15px 15px;
-    color: #bbbbbb;
+    color: #575757;
     font-size: 0.875em;
     background: none;
   }
@@ -4308,7 +4320,7 @@ label.error {
   /* line 211, ../../../../../.rvm/gems/ruby-2.0.0-p247@global/gems/zurb-foundation-4.3.2/scss/foundation/components/_section.scss */
   .section-container.vertical-nav > section > .title a, .section-container.vertical-nav > .section > .title a {
     padding: 15px 15px 15px 15px;
-    color: #bbbbbb;
+    color: #575757;
     font-size: 0.875em;
     background: none;
   }
@@ -4431,7 +4443,7 @@ label.error {
   /* line 211, ../../../../../.rvm/gems/ruby-2.0.0-p247@global/gems/zurb-foundation-4.3.2/scss/foundation/components/_section.scss */
   .section-container.horizontal-nav > section > .title a, .section-container.horizontal-nav > .section > .title a {
     padding: 15px 15px 15px 15px;
-    color: #bbbbbb;
+    color: #575757;
     font-size: 0.875em;
     background: none;
   }
@@ -4533,7 +4545,7 @@ label.error {
 /* line 211, ../../../../../.rvm/gems/ruby-2.0.0-p247@global/gems/zurb-foundation-4.3.2/scss/foundation/components/_section.scss */
 .no-js .section-container > section > .title a, .no-js .section-container > .section > .title a {
   padding: 15px 15px 15px 15px;
-  color: #bbbbbb;
+  color: #575757;
   font-size: 0.875em;
   background: none;
 }
@@ -7307,25 +7319,17 @@ a.th {
   max-width: 800px;
 }
 
-/* Syllia (v2, since I accidentally deleted the first one - Olsson) by Netcentric.Web */
-/* Variable declarations */
-/* footer by http://ryanfait.com */
-/* line 62, ../sass/app.scss */
+/* line 59, ../sass/app.scss */
 * {
   margin: 0;
 }
 
-/* line 65, ../sass/app.scss */
+/* line 62, ../sass/app.scss */
 html, body {
   height: 100%;
 }
 
-/* line 70, ../sass/app.scss */
-input {
-  padding-left: 10px;
-}
-
-/* line 75, ../sass/app.scss */
+/* line 66, ../sass/app.scss */
 .wrapper {
   min-height: 100%;
   height: auto !important;
@@ -7334,202 +7338,172 @@ input {
   /* the bottom margin is the negative value of the footer's height */
 }
 
-/* line 81, ../sass/app.scss */
+/* line 72, ../sass/app.scss */
 .footer, .push {
   height: 155px;
   /* .push must be the same height as .footer */
 }
 
-/* line 85, ../sass/app.scss */
+/* line 76, ../sass/app.scss */
 .footer {
-  border-top: 1px solid #ededed;
+  border-top: 1px solid #d6d6d6;
   padding-top: 30px;
 }
-/* line 88, ../sass/app.scss */
+/* line 79, ../sass/app.scss */
 .footer a {
   font-size: 15px;
   color: #27ae60;
   text-transform: uppercase;
   margin-right: 10px;
 }
-/* line 96, ../sass/app.scss */
+/* line 87, ../sass/app.scss */
 .footer p {
   font-size: 13px;
-  color: #bbbbbb;
+  color: #575757;
 }
 
-/* generic elements */
-/* line 105, ../sass/app.scss */
-body, html {
-  font-family: 'PT Sans', sans-serif;
-  color: #575e65;
+/*	-- Syllia stylesheet V3 (Re-created from ground up for a easier understanding) -- 
+	Hello stylesheet reader! I hope you enjoy reading these declarations as I have enjoyed
+	creating (and recreating) it :)
+*/
+/* line 101, ../sass/app.scss */
+.green-button, .call-to-action a, #login-submit, .register-button, .login-button, .dashboard-button-green, .clear-button, #account-button, #login-button, .negative-button, #logout-button {
+  transition: background-color 0.5s, border 0.5s, color 0.5s;
+  text-transform: uppercase;
 }
 
-/* line 110, ../sass/app.scss */
-h4, h3, h2, h1 {
-  font-weight: normal;
-  color: #575e65;
-}
-
-/* line 115, ../sass/app.scss */
-.center {
-  text-align: center;
-}
-
-/* 	to be inserted in an <a> tag
-padding / size to be declared in id */
-/* line 121, ../sass/app.scss */
-.clear-button {
-  border: 1px solid #ededed;
-  color: #27ae60 !important;
-}
-
-/* line 126, ../sass/app.scss */
-.green-button, .register-button, .login-button, .dashboard-button-green {
+/* line 106, ../sass/app.scss */
+.green-button, .call-to-action a, #login-submit, .register-button, .login-button, .dashboard-button-green {
   background-color: #27ae60;
   color: #fff !important;
 }
+/* line 110, ../sass/app.scss */
+.green-button:hover, .call-to-action a:hover, #login-submit:hover, .register-button:hover, .login-button:hover, .dashboard-button-green:hover {
+  background-color: #36d278;
+}
 
-/* line 131, ../sass/app.scss */
-.grey-button {
-  background-color: #ededed;
+/* line 116, ../sass/app.scss */
+.clear-button, #account-button, #login-button {
+  border: 1px solid #d6d6d6;
+  color: #27ae60 !important;
+}
+/* line 119, ../sass/app.scss */
+.clear-button:hover, #account-button:hover, #login-button:hover {
+  border: 1px solid #bdbdbd;
+  color: #1e8449;
+}
+
+/* line 125, ../sass/app.scss */
+.negative-button, #logout-button {
+  background-color: #dadada;
+}
+/* line 128, ../sass/app.scss */
+.negative-button:hover, #logout-button:hover {
+  background-color: #ef3636;
   color: #fff;
 }
 
-/* line 136, ../sass/app.scss */
-.grey-button2, .dashboard-button-grey {
-  background-color: #ededed;
-  color: #bbbbbb;
+/* line 138, ../sass/app.scss */
+.index-main {
+  padding-top: 75px;
 }
 /* line 140, ../sass/app.scss */
-.grey-button2:hover, .dashboard-button-grey:hover {
-  color: #bbbbbb;
+.index-main h4, .index-main div {
+  text-align: center;
 }
-/* line 144, ../sass/app.scss */
-.grey-button2:focus, .dashboard-button-grey:focus {
-  color: #bbbbbb;
-}
-
-/* line 149, ../sass/app.scss */
-.underline {
-  border-bottom: 1px solid #ededed;
+/* line 143, ../sass/app.scss */
+.index-main div:last-child {
+  margin-bottom: 30px;
 }
 
-/* line 153, ../sass/app.scss */
-.divider {
-  margin-top: 45px !important;
-  border-top: 1px solid #ededed;
-  margin-bottom: -10px !important;
+/* line 147, ../sass/app.scss */
+.index-features {
+  padding-top: 30px;
+  text-align: center;
+}
+/* line 150, ../sass/app.scss */
+.index-features div {
+  padding-bottom: 20px;
 }
 
-/*
-.adjust-spacing {
-	margin-left: -30px !important;
+/* line 156, ../sass/app.scss */
+.call-to-action a {
+  padding: 10px 30px 10px 30px;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
-*/
-/* line 165, ../sass/app.scss */
-.top-spacing {
-  margin-top: 40px !important;
-}
-
-/* line 169, ../sass/app.scss */
-.top-spacing-more {
-  margin-top: 80px !important;
-}
-
-/* line 173, ../sass/app.scss */
-.bottom-spacing-small {
-  margin-bottom: 10px !important;
+/* line 163, ../sass/app.scss */
+.call-to-action span {
+  color: #575757;
+  margin-top: 20px;
+  display: block;
 }
 
-/* line 177, ../sass/app.scss */
-.bottom-padding-small {
-  padding-bottom: 10px !important;
+/* line 172, ../sass/app.scss */
+.navigation {
+  margin-top: 30px;
 }
-
-/* line 181, ../sass/app.scss */
-.reduce-bottom {
-  margin-bottom: -20px !important;
-}
-
-/* line 185, ../sass/app.scss */
-.right-spacing {
-  margin-right: 10px;
-}
-
-/* line 189, ../sass/app.scss */
-.invisible {
-  visibility: hidden;
-}
-
-/* actual declarations (finally) */
-/* line 195, ../sass/app.scss */
-.h-nav {
+/* line 174, ../sass/app.scss */
+.navigation ul {
   float: right;
   list-style: none;
-  margin-top: 40px;
-  margin-right: -15px;
 }
-/* line 201, ../sass/app.scss */
-.h-nav li {
+/* line 178, ../sass/app.scss */
+.navigation li {
   float: left;
   font-size: 1em;
-  font-weight: 400;
   text-transform: uppercase;
   margin-right: 15px;
+  position: relative;
 }
-/* line 209, ../sass/app.scss */
-.h-nav a {
-  color: #575e65;
-}
-
-/* line 214, ../sass/app.scss */
-#h-login-button {
-  padding: 8px;
-  padding-left: 30px;
-  padding-right: 30px;
+/* line 186, ../sass/app.scss */
+.navigation a {
+  color: #3d3d3d;
 }
 
-/* line 221, ../sass/app.scss */
-.logo_big {
-  margin-top: 85px;
+/* line 191, ../sass/app.scss */
+.login-pane, .account-pane {
+  display: none;
+  width: 270px;
+  padding: 25px;
+  background-color: #fff;
+  position: absolute;
+  z-index: 2;
+  right: 0px;
+  top: 29px;
+  border: 1px solid #d6d6d6;
+  text-transform: none;
+}
+
+/* line 204, ../sass/app.scss */
+.account-pane {
+  font-size: 13px;
+}
+/* line 206, ../sass/app.scss */
+.account-pane strong {
+  font-size: 14px;
+  display: block;
+}
+/* line 210, ../sass/app.scss */
+.account-pane ul {
+  margin-left: 15px;
+  float: none;
+  list-style: circle;
+  margin-bottom: 20px;
+}
+/* line 216, ../sass/app.scss */
+.account-pane li {
+  text-transform: none;
+  float: none;
+}
+/* line 220, ../sass/app.scss */
+.account-pane a {
+  color: #27ae60;
 }
 
 /* line 225, ../sass/app.scss */
-.logo_sub {
-  color: #575e65;
-  font-weight: 400;
-  line-height: 150%;
-  margin-top: 10px;
-}
-
-/* line 233, ../sass/app.scss */
-#h-reg-button {
-  display: inline-block;
-  font-size: 20px;
-  margin-top: 30px;
-  margin-bottom: 10px;
-  padding: 12px;
-  padding-left: 30px;
-  padding-right: 30px;
-  text-transform: uppercase;
-}
-
-/* line 245, ../sass/app.scss */
-.h-reg-notice {
-  color: #bbbbbb;
-  display: block;
-  font-size: 15px;
-}
-
-/* line 252, ../sass/app.scss */
-.features {
-  margin-top: 30px;
-  text-align: center;
-}
-
-/* line 258, ../sass/app.scss */
-.h-login-pane:before, .account-pane:before {
+.login-pane:before, .account-pane:before {
   content: '';
   position: absolute;
   width: 104px;
@@ -7539,107 +7513,115 @@ padding / size to be declared in id */
   right: 0px;
 }
 
-/* line 268, ../sass/app.scss */
+/* line 235, ../sass/app.scss */
 .account-pane:before {
   width: 133px !important;
 }
 
-/* line 272, ../sass/app.scss */
-.h-login-wrapper, .account-wrapper {
-  position: relative;
+/* line 240, ../sass/app.scss */
+#account-button {
+  padding: 8px 20px 8px 20px;
 }
 
-/* line 276, ../sass/app.scss */
-.h-login-pane, .account-pane {
-  display: none;
-  width: 270px;
-  padding: 25px;
-  background-color: #fff;
-  position: absolute;
-  z-index: 2;
-  right: 0px;
-  top: 29px;
-  border: 1px solid #ededed;
-  text-transform: none;
+/* line 245, ../sass/app.scss */
+#login-button {
+  padding: 8px 30px 8px 30px;
+}
+
+/* line 250, ../sass/app.scss */
+#login-submit {
+  padding: 8px 30px 8px 30px;
+  display: block;
+  border: none;
+}
+
+/* line 257, ../sass/app.scss */
+#logout-button {
+  padding: 8px 30px 8px 30px;
+  color: #575757;
+  margin-top: 20px;
+}
+
+/* crap scss after this line */
+/* Syllia (v2, since I accidentally deleted the first one - Olsson) by Netcentric.Web */
+/* Variable declarations */
+/* line 270, ../sass/app.scss */
+.center {
+  text-align: center;
+}
+
+/* 	to be inserted in an <a> tag
+padding / size to be declared in id */
+/* line 278, ../sass/app.scss */
+.grey-button {
+  background-color: #dadada;
+  color: #fff;
+}
+
+/* line 283, ../sass/app.scss */
+.grey-button2, .dashboard-button-grey {
+  background-color: #dadada;
+  color: #575757;
 }
 /* line 287, ../sass/app.scss */
-.h-login-pane span, .account-pane span {
-  color: #575e65;
-  font-weight: 500;
-  font-size: 14px;
+.grey-button2:hover, .dashboard-button-grey:hover {
+  color: #575757;
 }
-/* line 293, ../sass/app.scss */
-.h-login-pane input, .account-pane input {
-  box-shadow: none;
-  border: 1px solid #ededed;
-  padding: 10px;
-  height: 40px;
+/* line 291, ../sass/app.scss */
+.grey-button2:focus, .dashboard-button-grey:focus {
+  color: #575757;
 }
-/* line 299, ../sass/app.scss */
-.h-login-pane input:hover, .h-login-pane input:focus, .account-pane input:hover, .account-pane input:focus {
-  box-shadow: none !important;
-  border: 1px solid #ededed;
+
+/* line 296, ../sass/app.scss */
+.underline {
+  border-bottom: 1px solid #575757;
 }
-/* line 305, ../sass/app.scss */
-.h-login-pane a, .account-pane a {
-  color: #bbbbbb;
-  text-align: center;
-  display: block;
-  font-size: 12px;
-  margin-top: 7px;
-  margin-bottom: -23px;
-  text-transform: uppercase;
+
+/* line 300, ../sass/app.scss */
+.divider {
+  margin-top: 45px !important;
+  border-top: 1px solid #575757;
+  margin-bottom: -10px !important;
+}
+
+/*
+.adjust-spacing {
+	margin-left: -30px !important;
+}
+*/
+/* line 312, ../sass/app.scss */
+.top-spacing {
+  margin-top: 40px !important;
 }
 
 /* line 316, ../sass/app.scss */
-#h-login-submit {
-  width: 110px;
-  margin-left: 53px;
-  text-align: center;
+.top-spacing-more {
+  margin-top: 80px !important;
 }
 
-/* line 322, ../sass/app.scss */
-#account-button {
-  padding: 8px;
-  padding-left: 20px;
-  padding-right: 20px;
+/* line 320, ../sass/app.scss */
+.bottom-spacing-small {
+  margin-bottom: 10px !important;
 }
 
-/* line 329, ../sass/app.scss */
-.account-pane {
-  font-size: 13px;
-  color: #bbbbbb;
+/* line 324, ../sass/app.scss */
+.bottom-padding-small {
+  padding-bottom: 10px !important;
 }
+
+/* line 328, ../sass/app.scss */
+.reduce-bottom {
+  margin-bottom: -20px !important;
+}
+
 /* line 332, ../sass/app.scss */
-.account-pane strong {
-  font-size: 14px;
-  color: #575e65;
-  display: block;
+.right-spacing {
+  margin-right: 10px;
 }
 
-/* line 339, ../sass/app.scss */
-.account-option {
-  color: #27ae60 !important;
-  text-transform: none !important;
-  text-align: left !important;
-  display: block;
-  margin-bottom: 1px !important;
-}
-
-/* line 348, ../sass/app.scss */
-#sign-out {
-  margin-top: -45px;
-  float: right;
-  font-size: 15px;
-  padding: 8px;
-  padding-left: 17px;
-  padding-right: 17px;
-}
-
-/* line 357, ../sass/app.scss */
-.logo-small {
-  width: 170px;
-  margin-top: 30px;
+/* line 336, ../sass/app.scss */
+.invisible {
+  visibility: hidden;
 }
 
 /*
@@ -7672,7 +7654,7 @@ padding / size to be declared in id */
 			}
 
 			.active-tab {
-				color: $grey_highlight;
+				color: $grey-lighter;
 
 				&:before {
 					content: '(';
@@ -7780,46 +7762,46 @@ padding / size to be declared in id */
 	display: block;
 }
 */
-/* line 501, ../sass/app.scss */
+/* line 480, ../sass/app.scss */
 .syllabus-form h5 {
   font-size: 15px;
-  color: #575e65;
+  color: #3d3d3d;
   margin-top: 10px;
 }
-/* line 507, ../sass/app.scss */
+/* line 486, ../sass/app.scss */
 .syllabus-form input, .syllabus-form input:focus, .syllabus-form input:hover {
   box-shadow: none;
   margin: 0;
   height: 40px !important;
 }
-/* line 513, ../sass/app.scss */
+/* line 492, ../sass/app.scss */
 .syllabus-form #customDropdown {
   background-color: #fff !important;
 }
-/* line 517, ../sass/app.scss */
+/* line 496, ../sass/app.scss */
 .syllabus-form .form-fill {
   width: 100%;
-  border: 1px solid #ededed;
+  border: 1px solid #575757;
 }
-/* line 522, ../sass/app.scss */
+/* line 501, ../sass/app.scss */
 .syllabus-form .rubric-textarea, .syllabus-form .rubric-textarea:focus, .syllabus-form .rubric-textarea:hover {
-  border: 1px solid #ededed;
+  border: 1px solid #575757;
   width: 100%;
   max-width: 100%;
   min-height: 200px;
   box-shadow: none;
 }
-/* line 530, ../sass/app.scss */
+/* line 509, ../sass/app.scss */
 .syllabus-form .form-fill a {
   color: #a9a9a9 !important;
 }
 
-/* line 536, ../sass/app.scss */
+/* line 515, ../sass/app.scss */
 .has-links a {
   color: #27ae60;
 }
 
-/* line 541, ../sass/app.scss */
+/* line 520, ../sass/app.scss */
 .syllabus-title {
   float: left;
   position: relative;
@@ -7827,22 +7809,22 @@ padding / size to be declared in id */
   padding-left: 0px !important;
 }
 
-/* line 550, ../sass/app.scss */
+/* line 529, ../sass/app.scss */
 .syllabus-subtitle {
-  color: lighter(#575e65, 20%);
+  color: lighter(#3d3d3d, 20%);
 }
 
-/* line 555, ../sass/app.scss */
+/* line 534, ../sass/app.scss */
 .syllabus-title-input {
   border: none !important;
 }
 
-/* line 559, ../sass/app.scss */
+/* line 538, ../sass/app.scss */
 .syllabus-title:hover {
   cursor: pointer;
 }
 
-/* line 564, ../sass/app.scss */
+/* line 543, ../sass/app.scss */
 .syllabus-modified {
   float: right;
   color: #27ae60;
@@ -7850,25 +7832,25 @@ padding / size to be declared in id */
   margin-top: 25px;
 }
 
-/* line 571, ../sass/app.scss */
+/* line 550, ../sass/app.scss */
 form.custom .custom.dropdown.open ul {
-  border: 1px solid #ededed;
+  border: 1px solid #575757;
 }
 
-/* line 575, ../sass/app.scss */
+/* line 554, ../sass/app.scss */
 .form-textarea {
   box-shadow: none !important;
   height: 120px;
 }
 
-/* line 580, ../sass/app.scss */
+/* line 559, ../sass/app.scss */
 .continue-button {
   float: right;
   padding: 15px 20px 15px 20px;
   text-transform: uppercase;
 }
 
-/* line 586, ../sass/app.scss */
+/* line 565, ../sass/app.scss */
 .previous-button {
   float: right;
   padding: 15px 20px 15px 20px;
@@ -7877,33 +7859,33 @@ form.custom .custom.dropdown.open ul {
   left: -10px;
 }
 
-/* line 594, ../sass/app.scss */
+/* line 573, ../sass/app.scss */
 .previous-button:hover {
   color: #fff;
 }
 
-/* line 598, ../sass/app.scss */
+/* line 577, ../sass/app.scss */
 .button-icon {
   position: relative;
   top: 1px;
 }
 
-/* line 603, ../sass/app.scss */
+/* line 582, ../sass/app.scss */
 .lo-block {
   padding: 14px 17px 14px 17px;
-  background-color: #ededed;
+  background-color: #575757;
   display: inline-block;
   font-size: 12px;
 }
 
-/* line 610, ../sass/app.scss */
+/* line 589, ../sass/app.scss */
 .lo-form {
   display: inline-block;
   box-shadow: none !important;
   height: 80px;
 }
 
-/* line 616, ../sass/app.scss */
+/* line 595, ../sass/app.scss */
 .form-button, .dashboard-button-grey, .dashboard-button-green {
   padding: 13px 13px 13px 13px;
   text-transform: uppercase;
@@ -7913,96 +7895,96 @@ form.custom .custom.dropdown.open ul {
   top: -1px;
 }
 
-/* line 626, ../sass/app.scss */
+/* line 605, ../sass/app.scss */
 form.custom .custom.checkbox.checked:before {
   color: #27ae60;
   font-size: 22px;
   margin-top: 2px;
 }
 
-/* line 632, ../sass/app.scss */
+/* line 611, ../sass/app.scss */
 .lo-co-cb {
   margin-right: 25px;
   display: inline-block;
   margin-bottom: 15px;
 }
 
-/* line 638, ../sass/app.scss */
+/* line 617, ../sass/app.scss */
 .lp-textarea {
   min-height: 40px !important;
   width: 100% !important;
 }
 
-/* line 657, ../sass/app.scss */
+/* line 636, ../sass/app.scss */
 .error-tab {
   background-color: #ef3636 !important;
   color: #fff;
 }
 
-/* line 662, ../sass/app.scss */
+/* line 641, ../sass/app.scss */
 .tab-active-error {
-  color: red;
+  color: #ef3636;
   background-color: #fff !important;
 }
 
-/* line 667, ../sass/app.scss */
+/* line 646, ../sass/app.scss */
 .error-input {
   border: 2px solid #ef3636 !important;
 }
 
-/* line 671, ../sass/app.scss */
+/* line 650, ../sass/app.scss */
 form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus-form input:hover {
-  border: 1px solid #ededed;
+  border: 1px solid #575757;
   margin: 0px !important;
 }
 
-/* line 676, ../sass/app.scss */
+/* line 655, ../sass/app.scss */
 .error-required {
-  border-left: 3px solid red;
+  border-left: 3px solid #ef3636;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-/* line 681, ../sass/app.scss */
+/* line 660, ../sass/app.scss */
 .error-required:before {
   content: "This field is required!" !important;
-  color: red;
+  color: #ef3636;
   display: block;
   margin-bottom: 10px;
   font-size: 13px;
 }
 
-/* line 691, ../sass/app.scss */
+/* line 670, ../sass/app.scss */
 .vertical-tabs .title {
-  border-right: 2px solid #ededed !important;
+  border-right: 2px solid #575757 !important;
   text-transform: uppercase;
 }
-/* line 697, ../sass/app.scss */
+/* line 676, ../sass/app.scss */
 .vertical-tabs .active .title {
   border-right: 2px solid #27ae60 !important;
 }
 
-/* line 703, ../sass/app.scss */
+/* line 682, ../sass/app.scss */
 .highlight {
   display: inline-block;
-  background-color: #ededed;
-  color: lighter(#575e65, 20%);
+  background-color: #575757;
+  color: lighter(#3d3d3d, 20%);
   padding: 2px 5px 2px 5px;
   font-size: 12px;
 }
 
-/* line 711, ../sass/app.scss */
+/* line 690, ../sass/app.scss */
 .register-button, .login-button {
   padding: 5px 30px 5px 30px;
   text-transform: uppercase;
 }
 
-/* line 717, ../sass/app.scss */
+/* line 696, ../sass/app.scss */
 .errorlist, .error-generic {
   margin-top: 5px;
   border-left: 3px solid #ef3636;
   padding: 5px 5px 5px 0px;
 }
-/* line 723, ../sass/app.scss */
+/* line 702, ../sass/app.scss */
 .errorlist li, .error-generic li {
   list-style: none;
   color: #ef3636;
@@ -8010,7 +7992,7 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
   font-size: 12px;
 }
 
-/* line 731, ../sass/app.scss */
+/* line 710, ../sass/app.scss */
 .error-generic {
   color: #ef3636;
   margin-top: 20px;
@@ -8027,69 +8009,69 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 	position: absolute;
 }
 */
-/* line 750, ../sass/app.scss */
+/* line 729, ../sass/app.scss */
 .dashboard-button-grey {
   font-size: 11px !important;
 }
 
-/* line 758, ../sass/app.scss */
+/* line 737, ../sass/app.scss */
 .dashboard-button-green {
   font-size: 11px !important;
   margin-right: 3px !important;
 }
 
-/* line 766, ../sass/app.scss */
+/* line 745, ../sass/app.scss */
 .dashboard-table-content {
   padding-top: 20px;
 }
-/* line 771, ../sass/app.scss */
+/* line 750, ../sass/app.scss */
 .dashboard-table-content ul {
   list-style: none;
 }
-/* line 775, ../sass/app.scss */
+/* line 754, ../sass/app.scss */
 .dashboard-table-content li {
   display: block;
   padding: 3px;
   padding-left: 10px !important;
   padding-right: 10px !important;
-  border-bottom: 1px solid #ededed;
+  border-bottom: 1px solid #575757;
 }
-/* line 782, ../sass/app.scss */
+/* line 761, ../sass/app.scss */
 .dashboard-table-content li span.itemName {
   padding-left: 5px;
 }
-/* line 786, ../sass/app.scss */
+/* line 765, ../sass/app.scss */
 .dashboard-table-content li span.lastModified {
   float: right;
 }
-/* line 790, ../sass/app.scss */
+/* line 769, ../sass/app.scss */
 .dashboard-table-content li i {
   font-size: 13px !important;
-  color: #bbbbbb !important;
+  color: #575757 !important;
 }
-/* line 796, ../sass/app.scss */
+/* line 775, ../sass/app.scss */
 .dashboard-table-content li:last-child {
   border-bottom: none;
 }
-/* line 800, ../sass/app.scss */
+/* line 779, ../sass/app.scss */
 .dashboard-table-content li:hover {
   background-color: #27ae60;
   cursor: pointer;
   color: #fff;
   border-bottom: 1px solid #27ae60;
 }
-/* line 805, ../sass/app.scss */
+/* line 784, ../sass/app.scss */
 .dashboard-table-content li:hover i {
   color: #fff !important;
 }
 
-/* line 811, ../sass/app.scss */
+/* line 790, ../sass/app.scss */
 .dashboard-icon {
-  color: #bbbbbb !important;
+  color: #575757 !important;
   font-size: 13px;
 }
 
-/* line 816, ../sass/app.scss */
+/* line 795, ../sass/app.scss */
 .align-right {
   text-align: right;
 }

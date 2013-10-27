@@ -22,20 +22,20 @@
 
     <div class="wrapper">
         <div class="row">
-            <div class="large-12 columns">
+            <div class="large-12 columns navigation">
                 {% if not current_path == "/" %}
                 <a href="{% url "index" %}">
-                    <img src="{% static "images/syllia_big.jpg" %}" class="logo-small" />
+                    <img src="{% static "images/syllia_small.jpg" %}" />
                 </a>
                 {% endif %}
-                <ul class="h-nav">
+                <ul>
                     <li><a href="{% url "about" %}">About</a></li>
                     <li><a href="{% url "contact" %}">Contact</a></li>
                     {% if user.is_authenticated %}
-                    <li class="account-wrapper"><a class="clear-button" id="account-button" href="#">My Account</a>
+                    <li>
+                        <a id="account-button" href="#">My Account</a>
                         <!-- TODO: Do the login panel-->
                         <div class="account-pane">
-
                             <p>
                                 <strong>{{ user.get_full_name }}</strong>
                                 {{ user.email }}
@@ -47,19 +47,21 @@
                                 College of Computer Studies
                             </p>
 
-                            <a class="account-option" href="{% url "accounts:profile" %}">Account Dashboard</a>
-                            <a class="account-option" href="{% url "syllabus:syllabus" %}">Create a Syllabus</a>
-
+                            <ul>
+                                <li><a href="{% url "accounts:profile" %}">Account Dashboard</a></li>
+                                <li><a href="{% url "syllabus:syllabus" %}">Create a Syllabus</a></li>
+                                <li><a href="{% url "syllabus:rubric" %}">Create a Rubric</a></li>
+                            </ul>
                             <!--<a class="account-option" href="accounts/password_change">Change Password</a>-->
 
-                            <a href="{% url "authtools:logout" %}" class="grey-button" id="sign-out">Sign out</a>
+                            <a href="{% url "authtools:logout" %}" id="logout-button">Sign out</a>
                         </div>
                     </li>
                     {% else %}
-                    <li class="h-login-wrapper"><a class="clear-button" id="h-login-button" href="#">Login</a>
+                    <li>
+                        <a id="login-button" href="#">Login</a>
                         <!-- TODO: Do the login panel-->
-                        <div class="h-login-pane">
-
+                        <div class="login-pane">
                             <form action="{% url "authtools:login" %}" method="POST">
                                 {% csrf_token %}
 
@@ -79,7 +81,7 @@
 
                                 <div class="row">
                                     <div class="small-12 columns">
-                                        <input type="submit" class="green-button" id="h-login-submit" value="SIGN IN"/>
+                                        <input type="submit" id="login-submit" value="SIGN IN"/>
                                         <a href="#">Forgot password?</a>
                                         <!--<input type="submit" value="Login" class="green-button">-->
                                     </div>
