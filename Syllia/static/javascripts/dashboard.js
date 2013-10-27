@@ -114,6 +114,14 @@ var Dashboard = (function($, ko) {
 
             // Observables for things that change
             self.isSelected = ko.observable(false);
+
+            self.select = function(data, event) {
+                if (event.target.tagName != "INPUT") {
+                    window.location.href = data.url;
+                }
+
+                return true;
+            };
         };
 
         return models;

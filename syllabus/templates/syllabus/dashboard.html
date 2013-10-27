@@ -66,7 +66,7 @@
                     <div class="dashboard-table-content">
                         <div class="large-12 columns">
                             <ul data-bind="foreach: pagedList">
-                                <li>
+                                <li data-bind="click: select">
                                     <!-- <i class="icon-check-empty"></i> -->
                                     <input type="checkbox" data-bind="checked: isSelected">
                                     <span class="itemName" data-bind="text: itemName"></span>
@@ -133,7 +133,7 @@
                     <div class="dashboard-table-content">
                         <div class="large-12 columns">
                             <ul data-bind="foreach: pagedList">
-                                <li>
+                                <li data-bind="click: select">
                                     <!-- <i class="icon-check-empty"></i> -->
                                     <input type="checkbox" data-bind="checked: isSelected">
                                     <span class="itemName" data-bind="text: itemName"></span>
