@@ -160,7 +160,7 @@
 
 <!-- Server side json data -->
 <script>
-    var jsonData = $.parseJSON('{{ jsonData|safe }}');
+    var jsonData = $.parseJSON('{{ jsonData|escapejs }}');
 </script>
 
 {% load staticfiles %}

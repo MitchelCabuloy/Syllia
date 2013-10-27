@@ -91,7 +91,7 @@
 
 {% if jsonString %}
 <script>
-var jsonString = '{{ jsonString|safe }}';
+var jsonString = '{{ jsonString|escapejs }}';
 </script>
 {% endif %}
 
