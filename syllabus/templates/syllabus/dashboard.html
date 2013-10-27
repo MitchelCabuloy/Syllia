@@ -4,20 +4,162 @@
 
 {% block content %}
 
-    <div class="row">
-        <div class="large-12 columns">
-            <a href="{% url "syllabus:syllabus" %}" class="button primary">Add new</a>
+<div>
+    <!--<form class="custom syllabus-form">-->
+    <div class="row top-spacing underline">
+        <div class="large-12 column">
+            <h3 class="syllabus-title">
+                Account Dashboard
+            </h3>
         </div>
     </div>
+    <div id="thing"></div>
+    <div class="row top-spacing">
+        <div class="section-container vertical-tabs" data-section="vertical-tabs" data-options="deep_linking: true">
+            <section class="active">
+                <p class="title" data-section-title>
+                    <a href="#">Syllabus</a>
+                </p>
+                <div class="content" data-slug="syllabus" data-section-content>
+                    <!-- Content -->
+                    <div class="row">
+                        <div class="large-12 columns bottom-spacing-small">
+                            <a href="#" class="dashboard-button-grey">
+                                <i class="icon-check-empty"></i>
+                                <i class="icon-caret-down"></i>
+                            </a>
+                            <a href="#" class="dashboard-button-grey">
+                                <i class="icon-check-minus"></i>
+                                <i class="icon-caret-down"></i>
+                            </a>
+                            <a href="#" class="dashboard-button-grey">
+                                <i class="icon-check"></i>
+                                <i class="icon-caret-down"></i>
+                            </a>
 
-    <div class="row">
-        <div class="large-4 columns">
-            <ul>
-                {% for item in syllabus%}
-                    <li>{{ item.course_code }}</li>
-                {% endfor %}
-            </ul>
+                            <a href="#" class="dashboard-button-grey">
+                                <i class="icon-refresh"></i>
+                            </a>
+                            <a href="#" class="dashboard-button-grey">
+                                <i class="icon-remove"></i>
+                                delete
+                            </a>
+
+                            <a href="#" class="dashboard-button-green">
+                                <i class="icon-download-alt button-icon"></i>
+                                download
+                            </a>
+
+                            <a href="#" class="dashboard-button-green">
+                                <i class="icon-edit button-icon"></i>
+                                Edit
+                            </a>
+
+                            <a href="#" class="dashboard-button-green">
+                                <i class="icon-plus button-icon"></i>
+                                New Syllabus
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="dashboard-table-content">
+                        <div class="large-12 columns">
+                            <ul data-bind="foreach: pagedList">
+                                <li>
+                                    <i class="icon-check-empty"></i>
+                                    <span class="itemName" data-bind="text: itemName"></span>
+                                    <span class="lastModified" data-bind="text: lastModified"></span>
+                                </li>
+                            </ul>
+                            <a class="green-button right-spacing form-button" data-bind="click: previousPage">Previous</a>
+                            <a class="green-button right-spacing form-button" data-bind="click: nextPage">Next</a>
+                        </div>
+                    </div>
+
+                            <!-- End of content -->
+                </div>
+            </section>
+            <section>
+                <p class="title" data-section-title>
+                    <a href="#">Rubric</a>
+                </p>
+                <div class="content" data-slug="rubric" data-section-content>
+                    <!-- Content -->
+                    <div class="row">
+                        <div class="large-12 columns bottom-spacing-small">
+                            <a href="#" class="dashboard-button-grey">
+                                <i class="icon-check-empty"></i>
+                                <i class="icon-caret-down"></i>
+                            </a>
+                            <a href="#" class="dashboard-button-grey">
+                                <i class="icon-check-minus"></i>
+                                <i class="icon-caret-down"></i>
+                            </a>
+                            <a href="#" class="dashboard-button-grey">
+                                <i class="icon-check"></i>
+                                <i class="icon-caret-down"></i>
+                            </a>
+
+                            <a href="#" class="dashboard-button-grey">
+                                <i class="icon-refresh"></i>
+                            </a>
+                            <a href="#" class="dashboard-button-grey">
+                                <i class="icon-remove"></i>
+                                delete
+                            </a>
+
+                            <a href="#" class="dashboard-button-green">
+                                <i class="icon-download-alt button-icon"></i>
+                                download
+                            </a>
+
+                            <a href="#" class="dashboard-button-green">
+                                <i class="icon-edit button-icon"></i>
+                                Edit
+                            </a>
+
+                            <a href="#" class="dashboard-button-green">
+                                <i class="icon-plus button-icon"></i>
+                                New Rubric
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="dashboard-table-content">
+                        <div class="large-12 columns">
+                            <ul>
+                                <li>
+                                    <i class="icon-check-empty"></i>&nbsp;
+                                    TestRubric-001
+                                    <span>11:59 PM</span>
+                                </li>
+                                <li>
+                                    <i class="icon-check-empty"></i>&nbsp;
+                                    TestRubric-002
+                                    <span>11:27 PM</span>
+                                </li>
+                                <li>
+                                    <i class="icon-check-empty"></i>&nbsp;
+                                    TestRubric-003
+                                    <span>9:42 PM</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- End of content -->
+                </div>
+            </section>
         </div>
     </div>
+    <!--</form>-->
+</div>
 
 {% endblock content %}
+{% block scripts %}
+{% load staticfiles %}
+<script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
+<script src="{% static "javascripts/dashboard.js" %}"></script>
+{% endblock scripts %}
