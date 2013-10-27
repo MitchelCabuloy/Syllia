@@ -157,6 +157,12 @@
 
 {% endblock content %}
 {% block scripts %}
+
+<!-- Server side json data -->
+<script>
+    var jsonData = $.parseJSON('{{ jsonData|safe }}');
+</script>
+
 {% load staticfiles %}
 <script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
 <script src="{% static "javascripts/dashboard.js" %}"></script>

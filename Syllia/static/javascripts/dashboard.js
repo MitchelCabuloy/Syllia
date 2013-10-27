@@ -1,51 +1,51 @@
-var jsonData = {
-    syllabusList: [{
-        pk: 1,
-        url: "syllabus",
-        itemName: "Test data 1",
-        lastModified: "11:58 PM"
-    }, {
-        pk: 2,
-        url: "syllabus",
-        itemName: "Test data 2",
-        lastModified: "11:58 PM"
-    }, {
-        pk: 3,
-        url: "syllabus",
-        itemName: "Test data 3",
-        lastModified: "11:58 PM"
-    }, {
-        pk: 4,
-        url: "syllabus",
-        itemName: "Test data 4",
-        lastModified: "11:58 PM"
-    }, {
-        pk: 5,
-        url: "syllabus",
-        itemName: "Test data 5",
-        lastModified: "11:58 PM"
-    }, {
-        pk: 6,
-        url: "syllabus",
-        itemName: "Test data 6",
-        lastModified: "11:58 PM"
-    }, {
-        pk: 7,
-        url: "syllabus",
-        itemName: "Test data 7",
-        lastModified: "11:58 PM"
-    }, {
-        pk: 8,
-        url: "syllabus",
-        itemName: "Test data 8",
-        lastModified: "11:58 PM"
-    }, {
-        pk: 9,
-        url: "syllabus",
-        itemName: "Test data 9",
-        lastModified: "11:58 PM"
-    }]
-};
+// var jsonData = {
+//     syllabusList: [{
+//         pk: 1,
+//         url: "syllabus",
+//         itemName: "Test data 1",
+//         lastModified: "11:58 PM"
+//     }, {
+//         pk: 2,
+//         url: "syllabus",
+//         itemName: "Test data 2",
+//         lastModified: "11:58 PM"
+//     }, {
+//         pk: 3,
+//         url: "syllabus",
+//         itemName: "Test data 3",
+//         lastModified: "11:58 PM"
+//     }, {
+//         pk: 4,
+//         url: "syllabus",
+//         itemName: "Test data 4",
+//         lastModified: "11:58 PM"
+//     }, {
+//         pk: 5,
+//         url: "syllabus",
+//         itemName: "Test data 5",
+//         lastModified: "11:58 PM"
+//     }, {
+//         pk: 6,
+//         url: "syllabus",
+//         itemName: "Test data 6",
+//         lastModified: "11:58 PM"
+//     }, {
+//         pk: 7,
+//         url: "syllabus",
+//         itemName: "Test data 7",
+//         lastModified: "11:58 PM"
+//     }, {
+//         pk: 8,
+//         url: "syllabus",
+//         itemName: "Test data 8",
+//         lastModified: "11:58 PM"
+//     }, {
+//         pk: 9,
+//         url: "syllabus",
+//         itemName: "Test data 9",
+//         lastModified: "11:58 PM"
+//     }]
+// };
 
 var Dashboard = (function($, ko) {
     var MODULE = {};
@@ -65,9 +65,7 @@ var Dashboard = (function($, ko) {
         // Rubric
         var rubricList = [];
 
-        // Change to rubricList once the serverside is implemented
-        // $.each(jsonData.rubricList, function(index, value) {
-        $.each(jsonData.syllabusList, function(index, value) {
+        $.each(jsonData.rubricList, function(index, value) {
             rubricList.push(new MODELS.ListItemModel(value));
         });
         ko.applyBindings(new MODELS.DashboardModel(rubricList), $("[data-slug='rubric']")[0]);

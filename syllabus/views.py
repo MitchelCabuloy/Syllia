@@ -20,8 +20,50 @@ class DashboardView(View):
         if not request.user.is_authenticated():
             return render(request, 'home/index.html')
 
-        syllabus = Syllabus.objects.all()
-        context = {'syllabus': syllabus}
+        # Else. Dashboard
+        current_user = get_user_model().objects.get(
+            email=request.user.email)
+
+
+        # TODO: Make more DRY
+        syllabus_set = current_user.syllabus_set.all()
+        syllabusList = [];
+
+        for syllabus in syllabus_set:
+            if syllabus.last_modified.date() == datetime.today().date():
+                lastModified = syllabus.last_modified.strftime('%I:%M %p')
+            else:
+                lastModified = syllabus.last_modified.strftime('%b %d')
+
+            syllabusList.append({
+                "pk": syllabus.id,
+                "url": 'syllabus',
+                "itemName": syllabus.course_code,
+                "lastModified": lastModified
+                })
+
+        rubric_set = current_user.rubric_set.all()
+        rubricList = []
+
+        for rubric in rubric_set:
+            if rubric.last_modified.date() == datetime.today().date():
+                lastModified = rubric.last_modified.strftime('%I:%M %p')
+            else:
+                lastModified = rubric.last_modified.strftime('%b %d')
+
+            rubricList.append({
+                "pk": rubric.id,
+                "url": 'rubric',
+                "itemName": rubric.rubric_name,
+                "lastModified": lastModified
+                })
+
+        jsonData = {
+            "syllabusList": syllabusList,
+            "rubricList": rubricList
+        }
+
+        context = {'jsonData': simplejson.dumps(jsonData)}
         return render(request, self.template_name, context)
 
 
