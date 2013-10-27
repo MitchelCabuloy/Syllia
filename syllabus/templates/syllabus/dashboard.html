@@ -72,8 +72,10 @@
                                     <span class="lastModified" data-bind="text: lastModified"></span>
                                 </li>
                             </ul>
-                            <a class="green-button right-spacing form-button" data-bind="click: previousPage">Previous</a>
-                            <a class="green-button right-spacing form-button" data-bind="click: nextPage">Next</a>
+                            <div data-bind="visible: hasMoreThanOnePage">
+                                <a class="green-button right-spacing form-button" data-bind="click: previousPage">Previous</a>
+                                <a class="green-button right-spacing form-button" data-bind="click: nextPage">Next</a>
+                            </div>
                         </div>
                     </div>
 

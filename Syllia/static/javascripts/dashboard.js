@@ -1,43 +1,48 @@
 var jsonData = {
     syllabusList: [{
         pk: 1,
+        url: "syllabus",
         itemName: "Test data 1",
         lastModified: "11:58 PM"
     }, {
         pk: 2,
+        url: "syllabus",
         itemName: "Test data 2",
         lastModified: "11:58 PM"
     }, {
         pk: 3,
+        url: "syllabus",
         itemName: "Test data 3",
         lastModified: "11:58 PM"
     }, {
         pk: 4,
+        url: "syllabus",
         itemName: "Test data 4",
         lastModified: "11:58 PM"
     }, {
         pk: 5,
+        url: "syllabus",
         itemName: "Test data 5",
         lastModified: "11:58 PM"
     }, {
         pk: 6,
+        url: "syllabus",
         itemName: "Test data 6",
         lastModified: "11:58 PM"
     }, {
         pk: 7,
+        url: "syllabus",
         itemName: "Test data 7",
         lastModified: "11:58 PM"
     }, {
         pk: 8,
+        url: "syllabus",
         itemName: "Test data 8",
         lastModified: "11:58 PM"
     }, {
         pk: 9,
+        url: "syllabus",
         itemName: "Test data 9",
-        lastModified: "11:58 PM"
-    }, {
-        pk: 10,
-        itemName: "Test data 10",
         lastModified: "11:58 PM"
     }]
 };
@@ -47,12 +52,13 @@ var Dashboard = (function($, ko) {
     var PAGE_SIZE = 5;
 
     // Init method
+    // public
     MODULE.init = function() {
         // Syllabus
         var syllabusList = [];
 
         $.each(jsonData.syllabusList, function(index, value) {
-            syllabusList.push(new MODELS.ListItemModel(value.itemName, value.lastModified));
+            syllabusList.push(new MODELS.ListItemModel(value));
         });
         // ko.applyBindings(new MODELS.DashboardModel(syllabusList));
         ko.applyBindings(new MODELS.DashboardModel(syllabusList), $("[data-slug='syllabus']")[0]);
@@ -60,7 +66,8 @@ var Dashboard = (function($, ko) {
     };
 
     // Model declaration
-    var MODELS = (function Models() {
+
+    var MODELS = (function() {
         var models = {};
 
         models.DashboardModel = function(items) {
@@ -76,6 +83,7 @@ var Dashboard = (function($, ko) {
             }, self);
 
 
+            // TODO: Disable buttons on first and last pages.
             self.nextPage = function() {
                 self.pageIndex(self.pageIndex() + 1);
             };
@@ -83,13 +91,18 @@ var Dashboard = (function($, ko) {
             self.previousPage = function() {
                 self.pageIndex(self.pageIndex() - 1);
             };
+
+            self.hasMoreThanOnePage = ko.computed(function() {
+                return self.listItems().length / PAGE_SIZE >= 1 ? true : false;
+            }, self);
         };
 
-        models.ListItemModel = function(itemName, lastModified) {
+        models.ListItemModel = function(value) {
             var self = this;
             // Quotes for static things
-            self.itemName = itemName;
-            self.lastModified = lastModified;
+            self.itemName = value.itemName;
+            self.lastModified = value.lastModified;
+            self.url = "/" + value.url + "/" + value.pk;
 
             // Observables for things that change
             self.isSelected = ko.observable();
