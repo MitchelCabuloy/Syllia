@@ -54,23 +54,14 @@
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
 
-/* Syllia (v2, since I accidentally deleted the first one - Olsson) by Netcentric.Web */
-/* Variable declarations */
 
-
-/* footer by http://ryanfait.com */
+// footer by http://ryanfait.com 
 * {
 	margin: 0;
 }
 html, body {
 	height: 100%;
 }
-
-
-input {
-	padding-left: 10px;
-}
-
 
 .wrapper {
 	min-height: 100%;
@@ -83,7 +74,7 @@ input {
 }
 
 .footer {
-	border-top: 1px solid $grey_lighter;
+	border-top: 1px solid $grey-border;
 	padding-top: 30px;
 	a {
 		font-size: 15px;
@@ -95,22 +86,186 @@ input {
 
 	p {
 		font-size:  13px;
-		color: $grey_highlight;
+		color: $grey-lighter;
+	}
+}
+
+//  end of footer declarations */
+
+/*	-- Syllia stylesheet V3 (Re-created from ground up for a easier understanding) -- 
+	Hello stylesheet reader! I hope you enjoy reading these declarations as I have enjoyed
+	creating (and recreating) it :)
+*/	
+
+// general declarations (to @extend from)
+.green-button, .clear-button, .negative-button {
+	transition: background-color 0.5s, border 0.5s, color 0.5s;
+	text-transform: uppercase;
+}
+
+.green-button {
+	//border: 1px solid $green-darker;
+	background-color: $green;
+	color: #fff !important;	
+	&:hover {
+		background-color: $green-lighter;
+		//border: 1px solid $green;
+	}
+}
+
+.clear-button {
+	border: 1px solid $grey-border;
+	color: $green !important;
+	&:hover {
+		border: 1px solid $grey-border-darker;
+		color: $green-darker;
+	}
+}
+
+.negative-button {
+	background-color: $grey-button;
+	//border:1px solid $grey-button-border;
+	&:hover {
+		background-color: $red;
+		//border: 1px solid $red-darker;
+		color: #fff;
 	}
 }
 
 
 
-/* generic elements */
-body,html {
-	font-family: 'PT Sans', sans-serif;
-	color: $grey;
+// index page declarations
+.index-main {
+	padding-top: 75px;
+	h4, div {
+		text-align: center;
+	}
+	div:last-child {
+		margin-bottom: 30px;
+	}
+}
+.index-features {
+	padding-top: 30px;
+	text-align: center;
+	div {
+		padding-bottom: 20px;
+	}
 }
 
-h4,h3,h2,h1 {
-	font-weight: normal;
-	color: $grey;
+.call-to-action {
+	a {
+		@extend .green-button;
+		padding: 10px 30px 10px 30px;
+		text-transform: uppercase;
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+	span {
+		color: $grey-lighter;
+		margin-top: 20px;
+		display: block;
+	}
+
+
 }
+
+.navigation {
+	margin-top: 30px;
+	ul {
+		float: right;
+		list-style: none;
+	}
+	li {
+		float: left;
+		font-size: 1em;
+		text-transform: uppercase;
+		margin-right: 15px;
+		position: relative;
+	}
+
+	a {
+		color: $grey;
+	}
+}
+
+.login-pane, .account-pane {
+	display: none;
+	width: 270px;
+	padding: 25px;
+	background-color: #fff;
+	position: absolute;
+	z-index: 2;
+	right: 0px;
+	top: 29px;
+	border: 1px solid $grey-border;
+	text-transform: none;
+}
+
+.account-pane {
+	font-size: 13px;
+	strong {
+		font-size: 14px;
+		display: block;
+	}
+	ul {
+		margin-left: 15px;
+		float: none;
+		list-style: circle;
+		margin-bottom: 20px;
+	}
+	li {
+		text-transform: none;
+		float: none;
+	}
+	a {
+		color: $green;
+	}
+}
+
+.login-pane:before {
+	content: '';
+	position: absolute;
+	width: 104px;
+	height: 1px;
+	background-color: #fff;
+	top: -1px;
+	right: 0px;
+}
+
+.account-pane:before {
+	@extend .login-pane:before;
+	width: 133px !important;
+}
+
+#account-button {
+	@extend .clear-button;
+	padding: 8px 20px 8px 20px
+}
+
+#login-button {
+	@extend .clear-button;
+	padding: 8px 30px 8px 30px;
+}
+
+#login-submit {
+	@extend .green-button;
+	padding: 8px 30px 8px 30px;
+	display: block;
+	border: none;
+}
+
+#logout-button {
+	@extend .negative-button;
+	padding: 8px 30px 8px 30px;
+	color: $grey-lighter;
+	margin-top: 20px;
+}
+
+/* crap scss after this line */
+
+
+/* Syllia (v2, since I accidentally deleted the first one - Olsson) by Netcentric.Web */
+/* Variable declarations */
 
 .center {
 	text-align: center;
@@ -118,31 +273,23 @@ h4,h3,h2,h1 {
 
 /* 	to be inserted in an <a> tag
 padding / size to be declared in id */
-.clear-button {
-	border: 1px solid $grey_lighter;
-	color: $green !important;
-}
 
-.green-button {
-	background-color: $green;
-	color: #fff !important;
-}
 
 .grey-button {
-	background-color: $grey_lighter;
+	background-color: $grey-button;
 	color: #fff;
 }
 
 .grey-button2 {
-	background-color: $grey_lighter;
-	color: $grey_highlight;
+	background-color: $grey-button;
+	color: $grey-lighter;
 
 	&:hover {
-		color: $grey_highlight;
+		color: $grey-lighter;
 	}
 
 	&:focus {
-		color: $grey_highlight;
+		color: $grey-lighter;
 	}
 }
 
@@ -190,174 +337,6 @@ padding / size to be declared in id */
 	visibility: hidden;
 }
 
-/* actual declarations (finally) */
-
-.h-nav {
-	float: right;
-	list-style: none;
-	margin-top: 40px;
-	margin-right: -15px;
-
-	li {
-		float: left;
-		font-size: 1em;
-		font-weight: $normal;
-		text-transform: uppercase;
-		margin-right: 15px;
-	}
-
-	a {
-		color: $grey;
-	}
-}
-
-#h-login-button {
-	padding: 8px;
-	padding-left: 30px;
-	padding-right: 30px;
-
-}
-
-.logo_big {
-	margin-top: 85px;
-}
-
-.logo_sub {
-	color: $grey;
-	font-weight: $normal;
-	line-height: 150%;
-	margin-top: 10px;
-
-}
-
-#h-reg-button {
-	display: inline-block;
-	font-size: 20px;
-	margin-top: 30px;
-	margin-bottom: 10px;
-	padding: 12px;
-	padding-left: 30px;
-	padding-right: 30px;
-	text-transform: uppercase;
-
-}
-
-.h-reg-notice {
-	color: $grey_highlight;
-	display: block;
-	font-size: 15px;
-
-}
-
-.features {
-	margin-top: 30px;
-	text-align: center;
-
-}
-
-.h-login-pane:before, .account-pane:before {
-	content: '';
-	position: absolute;
-	width: 104px;
-	height: 1px;
-	background-color: #fff;
-	top: -1px;
-	right: 0px;
-}
-
-.account-pane:before {
-	width: 133px !important;
-}
-
-.h-login-wrapper, .account-wrapper {
-	position: relative;
-}
-
-.h-login-pane, .account-pane {
-	display: none;
-	width: 270px;
-	padding: 25px;
-	background-color: #fff;
-	position: absolute;
-	z-index: 2;
-	right: 0px;
-	top: 29px;
-	border: 1px solid $grey_lighter;
-	text-transform: none;
-	span {
-		color: $grey;
-		font-weight: $bold;
-		font-size: 14px;
-	}
-
-	input {
-		box-shadow: none;
-		border: 1px solid $grey_lighter;
-		padding: 10px;
-		height: 40px;
-
-		&:hover, &:focus {
-			box-shadow: none !important;
-			border: 1px solid $grey_lighter;
-		}
-	}
-
-	a {
-		color: $grey_highlight;
-		text-align: center;
-		display: block;
-		font-size: 12px;
-		margin-top: 7px;
-		margin-bottom: -23px;
-		text-transform: uppercase;
-	}
-}
-
-#h-login-submit {
-	width: 110px;
-	margin-left: 53px;
-	text-align: center;
-}
-
-#account-button {
-	padding: 8px;
-	padding-left: 20px;
-	padding-right: 20px;
-
-}
-
-.account-pane {
-	font-size: 13px;
-	color: $grey_highlight;
-	strong {
-		font-size: 14px;
-		color: $grey;
-		display: block;
-	}
-}
-
-.account-option {
-	color: $green !important;
-	text-transform: none !important;
-	text-align: left !important;
-	display: block;
-	margin-bottom: 1px !important;
-
-}
-
-#sign-out {
-	margin-top: -45px;
-	float: right;
-	font-size: 15px;
-	padding: 8px;
-	padding-left: 17px;
-	padding-right: 17px;
-}
-
-.logo-small {
-	width: 170px;
-	margin-top: 30px;
-}
 /*
 .breadcrumb {
 	font-size: 13px;
@@ -388,7 +367,7 @@ padding / size to be declared in id */
 			}
 
 			.active-tab {
-				color: $grey_highlight;
+				color: $grey-lighter;
 
 				&:before {
 					content: '(';
@@ -655,17 +634,17 @@ form.custom .custom.checkbox.checked:before {
 }
 */
 .error-tab {
-	background-color: $error_red !important;
+	background-color: $red !important;
 	color: #fff;
 }
 
 .tab-active-error {
-	color: $error_text;
+	color: $red;
 	background-color: #fff !important;
 }
 
 .error-input {
-	border: 2px solid $error_red !important;
+	border: 2px solid $red !important;
 }
 
 form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus-form input:hover {
@@ -674,13 +653,13 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 }
 
 .error-required {
-	border-left: 3px solid $error_border;
+	border-left: 3px solid $red;
 	padding-top: 10px;
 	padding-bottom: 10px;
 
 	&:before{
 		content: "This field is required!" !important;
-		color: $error_text;
+		color: $red;
 		display: block;
 		margin-bottom: 10px;
 		font-size: 13px;
@@ -716,13 +695,13 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 
 .errorlist {
 	margin-top: 5px;
-	border-left: 3px solid $error_red;
+	border-left: 3px solid $red;
 	padding: 5px 5px 5px 0px;
 	
 
 	li {
 		list-style: none;
-		color: $error_red;
+		color: $red;
 		padding-left: 10px;
 		font-size: 12px;
 	}
@@ -730,7 +709,7 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 
 .error-generic {
 	@extend .errorlist;
-		color: $error_red;
+		color: $red;
 		margin-top: 20px;
 		display: block;
 		padding: 10px !important;
@@ -784,7 +763,7 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 
 		i {
 			font-size: 13px !important;
-			color: $grey_highlight !important;
+			color: $grey-lighter !important;
 		}
 
 	}
@@ -804,7 +783,7 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 }
 
 .dashboard-icon {
-	color: $grey_highlight !important;
+	color: $grey-lighter !important;
 	font-size: 13px;
 }
 

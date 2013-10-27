@@ -4,7 +4,7 @@
     $("#account-button").click(function() {
         $(".account-pane").toggle();
     });
-    $("#h-login-button").click(function() {
-        $(".h-login-pane").toggle();
+    $("#login-button").click(function() {
+        $(".login-pane").toggle();
     });
 })();
