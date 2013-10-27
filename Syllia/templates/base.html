@@ -48,13 +48,15 @@
                             </p>
 
                             <ul>
-                                <li><a href="{% url "accounts:profile" %}">Account Dashboard</a></li>
+                                <li><a href="{% url "index" %}">Account Dashboard</a></li>
                                 <li><a href="{% url "syllabus:syllabus" %}">Create a Syllabus</a></li>
                                 <li><a href="{% url "syllabus:rubric" %}">Create a Rubric</a></li>
                             </ul>
                             <!--<a class="account-option" href="accounts/password_change">Change Password</a>-->
 
-                            <a href="{% url "authtools:logout" %}" id="logout-button">Sign out</a>
+                            <a href="{% url "authtools:logout" %}" id="logout-button">
+                                Sign out
+                            </a>
                         </div>
                     </li>
                     {% else %}
@@ -82,7 +84,8 @@
                                 <div class="row">
                                     <div class="small-12 columns">
                                         <input type="submit" id="login-submit" value="SIGN IN"/>
-                                        <a href="#">Forgot password?</a>
+                                        <a href="{% url 'accounts:register' %}">Create a new account!</a><br/>
+                                        <a href="#">Forgot Password?</a>
                                         <!--<input type="submit" value="Login" class="green-button">-->
                                     </div>
                                 </div>

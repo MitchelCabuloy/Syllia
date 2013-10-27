@@ -4,649 +4,604 @@
 
 {% block content %}
 <div>
-    <form class="custom syllabus-form">
-        <div class="row top-spacing underline">
-            <div class="large-12 column">
-                <h3 class="syllabus-title">Untitled Syllabus</h3><span class="syllabus-modified">Modified x minutes ago</span>
-            </div>
+
+    <div class="row content-header">
+        <div class="large-12 column">
+            <h3 class="left">Create a new syllabus</h3>
+            <span>Modified x minutes ago</span>
         </div>
+    </div>
 
-        <div class="row top-spacing">
-            <div class="section-container vertical-tabs" data-options="deep_linking: true" data-section="vertical-tabs">
-                <section class="active">
-                    <p class="title" data-section-title=""><a href="#">Basic Details</a></p>
+    <div class="row tab-wrapper">
+        <div class="section-container vertical-tabs" data-options="deep_linking: true" data-section="vertical-tabs">
+            <section class="active">
+                <p class="title"><a href="#">Basic Details</a></p>
 
-                    <div class="content" data-section-content="" data-slug="section1">
-                        <!-- Basic Details content -->
+                <div class="content" data-slug="section1">
+                    <!-- Basic Details content -->
 
-                        <div class="row">
-                            <div class="large-12 columns">
-                                <h5>College</h5>
-                            </div>
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <label>Syllabus Name</label>
+                            <input type="text" placeholder="NewSyllabus-class-01"/>
                         </div>
+                    </div>
 
+                    <hr>
+
+                    <form class="custom">
                         <div class="row">
                             <div class="large-4 columns">
-                                <select id="collegeSelect" data-bind="options: collegeList,
-                                                                      optionsText: 'collegeName',
-                                                                      optionsValue: 'pk',
-                                                                      value: college,
-                                                                      optionsCaption: 'Choose one...'">
+                                <label>College</label>
+                                <select id="collegeSelect" data-bind="options: collegeList,optionsText: 'collegeName',optionsValue: 'pk',value: college,optionsCaption: 'Choose one...'">
                                 </select>
                             </div>
                         </div>
-
-                        <div class="row top-spacing">
-                            <div class="large-12 columns">
-                                <h5>Department</h5>
-                            </div>
-                        </div>
-
                         <div class="row">
                             <div class="large-4 columns">
-                                <select id="departmentSelect" data-bind="options: departmentList,
-                                                                         optionsText: 'departmentName',
-                                                                         optionsValue: 'pk',
-                                                                         value: department,
-                                                                         optionsCaption: 'Choose one...'">
+                                <label>Department</label>
+                                <select id="departmentSelect" data-bind="options: departmentList,optionsText: 'departmentName',
+                                optionsValue: 'pk',value: department,optionsCaption: 'Choose one...'">
                                 </select>
                             </div>
                         </div>
+                    </form>
 
-                        <div class="row top-spacing nested">
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <label>Course Code</label>
+                            <input data-bind="value: courseCode" placeholder="NTCOR03" type="text">
+                        </div>
+                        <div class="large-8 columns">
+                            <label>Course Name</label>
+                            <input data-bind="value: courseName" placeholder="LAN Switching and Wireless - Lecture" type="text">
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="foreach-header">
+                        <div class="row">
                             <div class="large-4 columns">
-                                <div class="row">
-                                    <div class="large-12 columns">
-                                        <h5>Course Code</h5>
-                                    </div>
-                                </div>
+                                <label>Days</label>
+                            </div>
+                            <div class="large-4 columns left">
+                                <label>Class time</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div  data-bind="foreach: schedules">
+                        <div class="row">
+                            <div class="large-4 columns">
+                                <input data-bind="value: days" placeholder="Mondays and Wednesdays" type="text">
+                            </div>
+                            <div class="large-3 columns">
+                                <input data-bind="value: startTime" placeholder="13:00" type="text">
+                            </div>
+                            <div class="large-3 columns">
+                                <input data-bind="value: endTime" placeholder="14:30" type="text">
+                            </div>
+                            <div class="large-2 columns">
+                                <a class="icon-remove ir-multiple" data-bind="click: $root.removeSchedule" href="#"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <a class="add-row" data-bind="click: addSchedule" href="#"><i class="icon-plus"></i> Add row</a>
+                        </div>
+                    </div>
 
-                                <div class="row">
-                                    <div class="large-12 columns">
-                                        <input data-bind="value: courseCode" placeholder="NTCOR03" type="text">
-                                    </div>
-                                </div>
+                    <hr>
+
+                    <div class="foreach-header">
+                        <div class="row">
+                            <div class="large-4 columns">
+                                <label>Instructors</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div  data-bind="foreach: instructors">
+                        <div class="row">
+                            <div class="large-4 columns">
+                                <input data-bind="value: fullName" placeholder="John Smith" type="text">
+                            </div>
+                            <div class="large-4 columns left">
+                                <a class="icon-remove ir-multiple" data-bind="click: $root.removeInstructor" href="#"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <a class="add-row" data-bind="click: addInstructor" href="#"><i class="icon-plus"></i> Add row</a>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row top-spacing">
+                        <div class="large-12 columns">
+                            <label>Course Description</label>
+                            <textarea class="form-fill form-textarea" data-bind="value: courseDescription" name="description">
+                            </textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <a class="continue-button" href="#section2">
+                                <i class="icon-chevron-right"></i> To Learning Outcomes
+                            </a>
+                        </div>
+                    </div><!-- End of Basic Details content -->
+                </div>
+            </section>
+
+            <section>
+                <p class="title"><a href="#">Learning Outcomes</a></p>
+                <div class="content" data-slug="section2">
+                    <!-- Start of Learning Outcomes content -->
+
+                    <!--<p>On completion of the course, the student is expected to be able to do the following:</p>-->
+
+                    <div  data-bind="foreach: elgas">
+
+                        <div class="row">
+
+                            <div class="large-4 columns">
+                                <label>Lasallian Value</label>
+                                <input type="text" data-bind="value: elgaName" placeholder="Service Driven Citizen"> <a class="icon-remove" data-bind="click: $root.removeElga" href="#"></a>
                             </div>
 
                             <div class="large-8 columns left">
-                                <div class="row">
-                                    <div class="large-12 columns">
-                                        <h5>Course Name</h5>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="large-12 columns">
-                                        <input data-bind="value: courseName" placeholder="LAN Switching and Wireless - Lecture" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row divider"></div>
-
-                        <div class="row top-spacing nested">
-                            <div class="large-4 columns">
-                                <h5>Days</h5>
-                            </div>
-
-                            <div class="large-4 columns left">
-                                <h5>Class Time</h5>
-                            </div>
-                        </div>
-
-                        <div data-bind="foreach: schedules">
-                            <div class="row nested">
-                                <div class="large-4 columns bottom-spacing-small">
-                                    <input data-bind="value: days" placeholder="Mondays and Wednesdays" type="text">
-                                </div>
-
-                                <div class="large-8 columns left">
+                                <label>Learning Outcome</label>
+                                <div class="learning-outcomes" data-bind="foreach: learningOutcomes">
                                     <div class="row">
-                                        <div class="large-4 columns bottom-spacing-small">
-                                            <input data-bind="value: startTime" placeholder="13:00" type="text">
+                                        <div class="large-2 columns">
+                                            <div class="lo-block">LO 1</div>
                                         </div>
-
-                                        <div class="large-4 columns bottom-spacing-small">
-                                            <input data-bind="value: endTime" placeholder="14:30" type="text">
-                                        </div>
-
-                                        <div class="large-4 columns bottom-spacing-small">
-                                            <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeSchedule" href="#" style="font-style: italic"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="large-4 columns">
-                                <a class="green-button right-spacing form-button" data-bind="click: addSchedule" href="#"><i class="icon-plus button-icon"></i> Add row</a>
-                            </div>
-                        </div>
-
-                        <div class="row divider"></div>
-
-                        <div class="row top-spacing nested">
-                            <div class="large-4 columns">
-                                <h5>Intructors</h5>
-                            </div>
-                        </div>
-
-                        <div data-bind="foreach: instructors">
-                            <div class="row nested">
-                                <div class="large-4 columns bottom-spacing-small">
-                                    <input data-bind="value: fullName" placeholder="John Smith" type="text">
-                                </div>
-
-                                <div class="large-4 columns bottom-spacing-small left">
-                                    <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeInstructor" href="#" style="font-style: italic"></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="large-4 columns">
-                                <a class="green-button right-spacing form-button" data-bind="click: addInstructor" href="#"><i class="icon-plus button-icon"></i> Add row</a>
-                            </div>
-                        </div>
-
-                        <div class="row divider"></div>
-
-                        <div class="row top-spacing">
-                            <div class="large-12 columns">
-                                <h5>Course Description</h5>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="large-12 columns">
-                                <textarea class="form-fill form-textarea" data-bind="value: courseDescription" name="description">
-                                </textarea>
-                            </div>
-                        </div>
-
-                        <div class="row top-spacing">
-                            <div class="large-12 columns">
-                                <a class="green-button continue-button" href="#section2"><i class="icon-chevron-right button-icon"></i> To Learning Outcomes</a>
-                            </div>
-                        </div><!-- End of Basic Details content -->
-                    </div>
-                </section>
-
-                <section>
-                    <p class="title" data-section-title=""><a href="#">Learning Outcomes</a></p>
-
-                    <div class="content" data-section-content="" data-slug="section2">
-                        <!-- Start of Learning Outcomes content -->
-
-                        <p class="syllabus-subtitle">On completion of the course, the student is expected to be able to do the following:</p>
-
-                        <div data-bind="foreach: elgas">
-                            <div class="row top-spacing nested">
-                                <div class="large-4 columns">
-                                    <div class="row">
-                                        <div class="large-12 columns">
-                                            <h5>Lasallian Value</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="row bottom-spacing-small">
-                                        <div class=" small-12 columns">
-                                            <input data-bind="value: elgaName" placeholder="Service Driven Citizen"> <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeElga" href="#" style="font-style: italic"></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="large-8 columns left">
-                                    <div class="row">
-                                        <div class="large-12 column">
-                                            <h5>Learning Outcomes</h5>
-                                        </div>
-                                    </div><!-- LO block -->
-
-                                    <div data-bind="foreach: learningOutcomes">
-                                        <div class="row bottom-spacing-small">
-                                            <div class="large-2 columns">
-                                                <span class="lo-block">LO 1</span>
-                                            </div>
-
-                                            <div class="large-10 columns">
-                                                <textarea class="lo-form form-fill" data-bind="value: description" placeholder="Design an efficient, fault tolerant, and scalable network based on the principles of hiearchical LAN design.">
-                                                </textarea> <a class="grey-button2 form-button" data-bind="click: $parent.removeLearningOutcome" href="#"><i class="icon-remove"></i> Remove LO</a>
-                                            </div>
-                                        </div>
-                                    </div><!-- end of LO block -->
-
-                                    <div class="row top-spacing">
-                                        <div class="large-2 columns"></div>
-
                                         <div class="large-10 columns">
-                                            <a class="green-button right-spacing form-button" data-bind="click: addLearningOutcome" href="#"><i class="icon-plus button-icon"></i> Add Learning Outcome</a>
+                                            <textarea class="lo-form form-fill" data-bind="value: description" placeholder="Design an efficient, fault tolerant, and scalable network based on the principles of hiearchical LAN design.">
+                                            </textarea>
+                                            <a class="icon-remove" data-bind="click: $parent.removeLearningOutcome" href="#">
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="large-10 columns">
+                                        <a class="add-row" data-bind="click: addLearningOutcome" href="#">
+                                            <i class="icon-plus"></i> Add Learning Outcome
+                                        </a>
+                                    </div>
+                                </div>
+
                             </div>
 
-                            <div class="row divider"></div>
                         </div>
-
-                        <div class="row top-spacing">
-                            <div class="large-7 columns left">
-                                <a class="green-button right-spacing form-button" data-bind="click: addElga" href="#"><i class="icon-plus button-icon"></i> Add A Lasallian Value</a>
-                            </div>
-
-                            <div class="large-5 columns">
-                                <a class="green-button continue-button" href="#section3"><i class="icon-chevron-right button-icon"></i> To Course Output</a> <a class="grey-button previous-button icon-chevron-left button-icon" href="#section1" onclick="pane(1)" style="font-style: italic"></a>
-                            </div>
-                        </div><!-- End of Learning Outcomes content -->
+                        <hr>
                     </div>
-                </section>
 
-                <section>
-                    <p class="title" data-section-title=""><a href="#">Course Output</a></p>
 
-                    <div class="content" data-section-content="" data-slug="section3">
-                        <!-- Start of Course Output content -->
 
-                        <h4>Final Course Output</h4>
-
-                        <p class="syllabus-subtitle">As evidence of attaining the prescribed learning outcomes, the student is required to do and submit the following during the indicated dates of the term.</p>
-
-                        <div class="row top-spacing">
-                            <div class="large-12 columns">
-                                <h5>Final Course Output Description</h5>
-                            </div>
+                    <div class="row">
+                        <div class="large-7 columns left">
+                            <a class="add-row" data-bind="click: addElga" href="#"><i class="icon-plus"></i> Add A Lasallian Value</a>
                         </div>
 
-                        <div class="row">
-                            <div class="large-12 columns">
-                                <textarea class="form-fill form-textarea" data-bind="value: finalCourseOutputDescription" placeholder="The final case study requires students to work in groups of 3-4 members in designing, implementing, and verifying a hypothetical network based on a set of given requirement. Further details and specifications of the case study will be given at a later date.">
-                                </textarea>
-                            </div>
+                        <div class="large-5 columns">
+                            <a class="continue-button" href="#section3"><i class="icon-chevron-right"></i> To Course Output</a> <a class="previous-button icon-chevron-left" href="#section1" onclick="pane(1)"></a>
                         </div>
+                    </div><!-- End of Learning Outcomes content -->
+                </div>
+            </section>
 
-                        <div data-bind="foreach: requiredOutputs">
-                            <div class="row tops-spacing">
-                                <div class="large-4 columns">
-                                    <div class="row">
-                                        <div class="large-12 columns">
-                                            <h5>Required Output</h5>
-                                        </div>
-                                    </div>
+        <section>
+            <p class="title" data-section-title=""><a href="#">Course Output</a></p>
 
-                                    <div class="row">
-                                        <div class="large-12 columns">
-                                            <input data-bind="value: description" placeholder="Case Study" type="text">
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="content" data-section-content="" data-slug="section3">
+                <!-- Start of Course Output content -->
 
-                                <div class="large-4 columns left">
-                                    <div class="row">
-                                        <div class="large-12 columns">
-                                            <h5>Due Date</h5>
-                                        </div>
-                                    </div>
+                <h4>Final Course Output</h4>
 
-                                    <div class="row">
-                                        <div class="large-10 columns">
-                                            <input data-bind="value: weekDue" placeholder="Week 13" type="text">
-                                        </div>
+                <p class="syllabus-subtitle">As evidence of attaining the prescribed learning outcomes, the student is required to do and submit the following during the indicated dates of the term.</p>
 
-                                        <div class="small-2 columns">
-                                            <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeRequiredOutput" href="#" style="font-style: italic"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row top-spacing nested">
-                                <div class="large-12 columns left">
-                                    <div class="row bottom-spacing-small">
-                                        <div class="large-12 columns">
-                                            <h5>Learning Outcomes</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="large-12 columns" data-bind="foreach: $root.elgas">
-                                            <div data-bind="foreach: learningOutcomes">
-                                                <span class="lo-co-cb"><input data-bind="value: description, checked: $parents[1].los" type="checkbox">&nbsp;<span data-bind="text: description"></span></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="divider bottom-spacing-small"></div>
-                        </div>
-
-                        <div class="row top-spacing">
-                            <div class="large-12 columns">
-                                <a class="green-button right-spacing form-button" data-bind="click: addRequiredOutput" href="#"><i class="icon-plus button-icon"></i> Add Required Output</a>
-                            </div>
-                        </div>
-
-                        <div class="row top-spacing-more">
-                            <h4 class="syllabus-title2">Other Requirements and Assesments</h4><!--<span class="syllabus-modified">Modified 53 minutes ago</span>-->
-
-                            <p class="syllabus-subtitle">Aside from the final output, the student will be assessed at other times during the term by the following:</p>
-                        </div>
-
-                        <div class="row top-spacing">
-                            <div class="large-12 columns">
-                                <h5>Requirement / Assessment</h5>
-                            </div>
-                        </div>
-
-                        <div data-bind="foreach: otherOutputs">
-                            <div class="row bottom-spacing-small">
-                                <div class="large-6 columns">
-                                    <div class="row bottom-spacing-small">
-                                        <div class="small-8 columns">
-                                            <input data-bind="value: requirementName" placeholder="Online Practical Exam" type="text">
-                                        </div>
-
-                                        <div class="small-4 columns">
-                                            <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeOtherOutput" href="#" style="font-style: italic"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="large-12 columns">
-                                <a class="green-button right-spacing form-button" data-bind="click: addOtherOutput" href="#"><i class="icon-plus button-icon"></i> Add row</a>
-                            </div>
-                        </div>
-
-                        <div class="row divider"></div>
-
-                        <div class="row top-spacing">
-                            <div class="large-12 columns">
-                                <a class="green-button continue-button" href="#section4"><i class="icon-chevron-right button-icon"></i> To Rubric</a> <a class="grey-button previous-button icon-chevron-left button-icon" href="#section2" style="font-style: italic"></a>
-                            </div>
-                        </div><!-- End of Course Output content -->
+                <div class="row top-spacing">
+                    <div class="large-12 columns">
+                        <h5>Final Course Output Description</h5>
                     </div>
-                </section>
+                </div>
 
-                <section>
-                    <p class="title" data-section-title=""><a href="#">Rubric</a></p>
-
-                    <div class="content" data-section-content="" data-slug="section4">
-                        <!-- Start of Rubric content -->
-
-                        <h4>Attach a Rubric</h4>
-
-                        <p class="syllabus-subtitle">Rubrics are created separately from the actual Syllabus so they can be attached to multiple / different Syllabuses without having to retype them each time. Simply select below which Rubric you would like to attach. Alternatively, you can proceed to create a new one (progress here would not be lost).</p>
-
-                        <div class="row nested">
-                            <div class="large-4 column left">
-                                <select class="form-fill" id="rubricSelect" data-bind="options: rubricList,
-                                                                                       optionsText: 'rubricName',
-                                                                                       optionsValue: 'pk',
-                                                                                       value: rubric,
-                                                                                       optionsCaption: 'Choose one...'">
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row divider"></div>
-
-                        <div class="row top-spacing">
-                            <div class="large-7 columns left">
-                                <a class="green-button right-spacing form-button" href="#"><i class="icon-plus button-icon"></i> Create new Rubric</a>
-                            </div>
-
-                            <div class="large-5 columns">
-                                <a class="green-button continue-button" href="#section5"><i class="icon-chevron-right button-icon"></i> To Grading System</a> <a class="grey-button previous-button icon-chevron-left button-icon" href="#section3" style="font-style: italic"></a>
-                            </div>
-                        </div><!-- End of Rubric content -->
+                <div class="row">
+                    <div class="large-12 columns">
+                        <textarea class="form-fill form-textarea" data-bind="value: finalCourseOutputDescription" placeholder="The final case study requires students to work in groups of 3-4 members in designing, implementing, and verifying a hypothetical network based on a set of given requirement. Further details and specifications of the case study will be given at a later date.">
+                        </textarea>
                     </div>
-                </section>
+                </div>
 
-                <section>
-                    <p class="title" data-section-title=""><a href="#">Grading System</a></p>
-
-                    <div class="content" data-section-content="" data-slug="section5">
-                        <!-- Start of Grading System content -->
-
-                        <p class="syllabus-subtitle">The student will be graded according to the following:</p>
-
-                        <div class="row top-spacing nested">
-                            <div class="large-4 columns">
-                                <h5>Assessment Items</h5>
-                            </div>
-
-                            <div class="large-3 columns left">
-                                <h5>Weight</h5>
-                            </div>
-                        </div>
-
-                        <div data-bind="foreach: gradingSystems">
-                            <div class="row bottom-spacing-small">
-                                <div class="large-4 columns">
-                                    <input data-bind="value: itemName" placeholder="Chapter Exam" type="text">
-                                </div>
-
-                                <div class="large-3 columns left">
-                                    <input data-bind="value: percentage" placeholder="15" type="text">
-                                </div>
-
-                                <div class="large-2 columns left">
-                                    <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeGradingSystem" href="#" style="font-style: italic"></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="large-4 columns">
-                                <a class="green-button right-spacing form-button" data-bind="click: addGradingSystem" href="#"><i class="icon-plus button-icon"></i> Add row</a>
-                            </div>
-
-                            <div class="large-4 columns left">
-                                <p>Total grade of: <strong data-bind="text: totalGradingSystem"></strong>%</p>
-                            </div>
-                        </div>
-
-                        <div class="row divider"></div>
-
-                        <div class="row top-spacing">
-                            <div class="large-12 columns right">
-                                <a class="green-button continue-button" href="#section6"><i class="icon-chevron-right button-icon"></i> To Learning Plan</a> <a class="grey-button previous-button icon-chevron-left button-icon" href="#section4" style="font-style: italic"></a>
-                            </div>
-                        </div><!-- End of Grading System content -->
-                    </div>
-                </section>
-
-                <section>
-                    <p class="title" data-section-title=""><a href="#">Learning Plan</a></p>
-
-                    <div class="content" data-section-content="" data-slug="section6">
-                        <!-- Start of Learning Plan content -->
-
-                        <p class="syllabus-subtitle">Plot weekly topics and coressponding activites that will be performed while discussing said topics.</p>
-
-                        <div class="no-spacing-first" data-bind="foreach: learningPlans">
-                            <div class="row top-spacing nested bottom-spacing-small">
-                                <div class="large-12 columns left">
-                                    <div class="row bottom-spacing-small">
-                                        <div class="large-12 columns">
-                                            <h5>Learning Outcomes</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="large-10 columns" data-bind="foreach: $root.elgas">
-                                            <div data-bind="foreach: learningOutcomes">
-                                                <span class="lo-co-cb"><input data-bind="value: description, checked: $parents[1].los" type="checkbox">&nbsp;<span data-bind="text: description"></span></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row nested">
-                                <div class="large-6 columns">
-                                    <div class="row">
-                                        <div class="large-12 columns">
-                                            <h5>Topic</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="large-12 columns">
-                                            <input data-bind="value: topic" placeholder="Introduction / Orientation" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="large-2 columns left">
-                                    <div class="row">
-                                        <div class="large-12 columns">
-                                            <h5>Week No.</h5>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="large-12 columns">
-                                            <input class=" bottom-spacing-small" data-bind="value: weekNumber" placeholder="1" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="large-4 columns left">
-                                    <div class="row">
-                                        <div class="large-12 columns">
-                                            <h5>Learning Activites</h5>
-                                        </div>
-                                    </div>
-
-                                    <div data-bind="foreach: learningActivities">
-                                        <div class="row bottom-spacing-small">
-                                            <div class="large-10 columns">
-                                                <input class=" bottom-spacing-small" data-bind="value: description" placeholder="Course Introduction" type="text">
-                                            </div>
-
-                                            <div class="large-2 columns">
-                                                <a class="grey-button2 form-button icon-remove" data-bind="click: $parent.removeLearningActivity" href="#" style="font-style: italic"></a>
-                                            </div>
-                                        </div>
-                                    </div><a class="green-button right-spacing form-button" data-bind="click: addLearningActivity" href="#"><i class="icon-plus button-icon"></i> Add an activity</a>
-                                </div>
-                            </div>
-
-                            <div class="row top-spacing">
+                <div data-bind="foreach: requiredOutputs">
+                    <div class="row tops-spacing">
+                        <div class="large-4 columns">
+                            <div class="row">
                                 <div class="large-12 columns">
-                                    <a class="grey-button2 form-button" data-bind="click: $root.removeLearningPlan" href="#"><i class="icon-remove"></i> Remove Topic</a>
+                                    <h5>Required Output</h5>
                                 </div>
                             </div>
 
-                            <div class="row divider"></div>
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <input data-bind="value: description" placeholder="Case Study" type="text">
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="row top-spacing">
-                            <div class="large-6 columns left">
-                                <a class="green-button right-spacing form-button" data-bind="click: addLearningPlan" href="#"><i class="icon-plus button-icon"></i> Add another topic</a>
+                        <div class="large-4 columns left">
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <h5>Due Date</h5>
+                                </div>
                             </div>
 
-                            <div class="large-6 columns">
-                                <a class="green-button continue-button" href="#section7"><i class="icon-chevron-right button-icon"></i> To References and Policies</a> <a class="grey-button previous-button icon-chevron-left button-icon" href="#section5" style="font-style: italic"></a>
+                            <div class="row">
+                                <div class="large-10 columns">
+                                    <input data-bind="value: weekDue" placeholder="Week 13" type="text">
+                                </div>
+
+                                <div class="small-2 columns">
+                                    <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeRequiredOutput" href="#" style="font-style: italic"></a>
+                                </div>
                             </div>
-                        </div><!-- Start of Learning Plan content -->
+                        </div>
                     </div>
-                </section>
 
-                <section>
-                    <p class="title" data-section-title=""><a href="#">References and Policies</a></p>
-
-                    <div class="content" data-section-content="" data-slug="section7">
-                        <!-- End of References and Policies content -->
-
-                        <div class="row">
-                            <div class="large-12 columns">
-                                <h4>References</h4>
-                            </div>
-                        </div>
-
-                        <div data-bind="foreach: references">
+                    <div class="row top-spacing nested">
+                        <div class="large-12 columns left">
                             <div class="row bottom-spacing-small">
-                                <div class="small-11 columns">
-                                    <input data-bind="value: referenceText" placeholder="Lewis, W. (2008). LAN Switching and Wireless - CCNA Exploration Companion Guide. Cisco Press" type="text">
-                                </div>
-
-                                <div class="small-1 columns">
-                                    <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeReference" href="#" style="font-style: italic"></a>
+                                <div class="large-12 columns">
+                                    <h5>Learning Outcomes</h5>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="large-12 columns left">
-                                <a class="green-button right-spacing form-button" data-bind="click: addReference" href="#"><i class="icon-plus button-icon"></i> Add a reference</a>
+                            <div class="row">
+                                <div class="large-12 columns" data-bind="foreach: $root.elgas">
+                                    <div data-bind="foreach: learningOutcomes">
+                                        <span class="lo-co-cb"><input data-bind="value: description, checked: $parents[1].los" type="checkbox">&nbsp;<span data-bind="text: description"></span></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="row top-spacing-more">
-                            <div class="large-12 columns">
-                                <h4 class="syllabus-title2">Class Policies</h4><!--<span class="syllabus-modified">Modified 53 minutes ago</span>-->
+                    <div class="divider bottom-spacing-small"></div>
+                </div>
 
-                                <p class="syllabus-subtitle">Student should follow the standard classroom policies and procedures indicated in Section 4.3 of the Student Handbook. However, these additional policies will be applied:</p>
-                            </div>
-                        </div>
+                <div class="row top-spacing">
+                    <div class="large-12 columns">
+                        <a class="green-button right-spacing form-button" data-bind="click: addRequiredOutput" href="#"><i class="icon-plus button-icon"></i> Add Required Output</a>
+                    </div>
+                </div>
 
-                        <div data-bind="foreach: classPolicies">
+                <div class="row top-spacing-more">
+                    <h4 class="syllabus-title2">Other Requirements and Assesments</h4><!--<span class="syllabus-modified">Modified 53 minutes ago</span>-->
+
+                    <p class="syllabus-subtitle">Aside from the final output, the student will be assessed at other times during the term by the following:</p>
+                </div>
+
+                <div class="row top-spacing">
+                    <div class="large-12 columns">
+                        <h5>Requirement / Assessment</h5>
+                    </div>
+                </div>
+
+                <div data-bind="foreach: otherOutputs">
+                    <div class="row bottom-spacing-small">
+                        <div class="large-6 columns">
                             <div class="row bottom-spacing-small">
-                                <div class="small-11 columns">
-                                    <input data-bind="value: policy" placeholder="A Chapter exam shall be taken during the first 20 minutes, every Tuesday." type="text">
+                                <div class="small-8 columns">
+                                    <input data-bind="value: requirementName" placeholder="Online Practical Exam" type="text">
                                 </div>
 
-                                <div class="small-1 columns">
-                                    <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeClassPolicy" href="#" style="font-style: italic"></a>
+                                <div class="small-4 columns">
+                                    <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeOtherOutput" href="#" style="font-style: italic"></a>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="large-12 columns left">
-                                <a class="green-button right-spacing form-button" data-bind="click: addClassPolicy" href="#"><i class="icon-plus button-icon"></i> Add a policy</a>
-                            </div>
-                        </div>
-
-                        <div class="row divider"></div>
-
-                        <div class="row top-spacing">
-                            <div class="large-12 columns">
-                                <a class="green-button continue-button" href="#section8"><i class="icon-chevron-right button-icon"></i> Publish Syllabus</a> <a class="grey-button previous-button icon-chevron-left button-icon" href="#section6" style="font-style: italic"></a>
-                            </div>
-                        </div><!-- Start of References and Policies content -->
                     </div>
-                </section>
+                </div>
 
-                <section>
-                    <p class="title" data-section-title=""><a href="#">Publish Syllabus</a></p>
-
-                    <div class="content" data-section-content="" data-slug="section8">
-                        <!-- End of Review and Publish content -->
-
-                        <div class="row">
-                            <div class="large-12 columns">
-                                <a class="button primary small" href="#" id="stringifyBtn">Stringify</a> <a class="button primary small" href="#" id="postBtn">Post</a>
-                            </div>
-                        </div><!-- Start of Review and Publish content -->
+                <div class="row">
+                    <div class="large-12 columns">
+                        <a class="green-button right-spacing form-button" data-bind="click: addOtherOutput" href="#"><i class="icon-plus button-icon"></i> Add row</a>
                     </div>
-                </section>
+                </div>
+
+                <div class="row divider"></div>
+
+                <div class="row top-spacing">
+                    <div class="large-12 columns">
+                        <a class="green-button continue-button" href="#section4"><i class="icon-chevron-right button-icon"></i> To Rubric</a> <a class="grey-button previous-button icon-chevron-left button-icon" href="#section2" style="font-style: italic"></a>
+                    </div>
+                </div><!-- End of Course Output content -->
             </div>
-        </div>
-    </form><!-- json submit form -->
+        </section>
 
-    <form action="{% url "syllabus:syllabus" %}" id="syllabus_json_form" method="post" name="syllabus_json_form">
-        {% csrf_token %}
-        <input id="syllabus_json" name="syllabus_json" type="hidden">
-        <input type="hidden" id="syllabus_rubric" name="syllabus_rubric">
-    </form>
+        <section>
+            <p class="title" data-section-title=""><a href="#">Rubric</a></p>
+
+            <div class="content" data-section-content="" data-slug="section4">
+                <!-- Start of Rubric content -->
+
+                <h4>Attach a Rubric</h4>
+
+                <p class="syllabus-subtitle">Rubrics are created separately from the actual Syllabus so they can be attached to multiple / different Syllabuses without having to retype them each time. Simply select below which Rubric you would like to attach. Alternatively, you can proceed to create a new one (progress here would not be lost).</p>
+
+                <div class="row nested">
+                    <div class="large-4 column left">
+                        <select class="form-fill" id="rubricSelect" data-bind="options: rubricList,
+                        optionsText: 'rubricName',
+                        optionsValue: 'pk',
+                        value: rubric,
+                        optionsCaption: 'Choose one...'">
+                    </select>
+                </div>
+            </div>
+
+            <div class="row divider"></div>
+
+            <div class="row top-spacing">
+                <div class="large-7 columns left">
+                    <a class="green-button right-spacing form-button" href="#"><i class="icon-plus button-icon"></i> Create new Rubric</a>
+                </div>
+
+                <div class="large-5 columns">
+                    <a class="green-button continue-button" href="#section5"><i class="icon-chevron-right button-icon"></i> To Grading System</a> <a class="grey-button previous-button icon-chevron-left button-icon" href="#section3" style="font-style: italic"></a>
+                </div>
+            </div><!-- End of Rubric content -->
+        </div>
+    </section>
+
+    <section>
+        <p class="title" data-section-title=""><a href="#">Grading System</a></p>
+
+        <div class="content" data-section-content="" data-slug="section5">
+            <!-- Start of Grading System content -->
+
+            <p class="syllabus-subtitle">The student will be graded according to the following:</p>
+
+            <div class="row top-spacing nested">
+                <div class="large-4 columns">
+                    <h5>Assessment Items</h5>
+                </div>
+
+                <div class="large-3 columns left">
+                    <h5>Weight</h5>
+                </div>
+            </div>
+
+            <div data-bind="foreach: gradingSystems">
+                <div class="row bottom-spacing-small">
+                    <div class="large-4 columns">
+                        <input data-bind="value: itemName" placeholder="Chapter Exam" type="text">
+                    </div>
+
+                    <div class="large-3 columns left">
+                        <input data-bind="value: percentage" placeholder="15" type="text">
+                    </div>
+
+                    <div class="large-2 columns left">
+                        <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeGradingSystem" href="#" style="font-style: italic"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-4 columns">
+                    <a class="green-button right-spacing form-button" data-bind="click: addGradingSystem" href="#"><i class="icon-plus button-icon"></i> Add row</a>
+                </div>
+
+                <div class="large-4 columns left">
+                    <p>Total grade of: <strong data-bind="text: totalGradingSystem"></strong>%</p>
+                </div>
+            </div>
+
+            <div class="row divider"></div>
+
+            <div class="row top-spacing">
+                <div class="large-12 columns right">
+                    <a class="green-button continue-button" href="#section6"><i class="icon-chevron-right button-icon"></i> To Learning Plan</a> <a class="grey-button previous-button icon-chevron-left button-icon" href="#section4" style="font-style: italic"></a>
+                </div>
+            </div><!-- End of Grading System content -->
+        </div>
+    </section>
+
+    <section>
+        <p class="title" data-section-title=""><a href="#">Learning Plan</a></p>
+
+        <div class="content" data-section-content="" data-slug="section6">
+            <!-- Start of Learning Plan content -->
+
+            <p class="syllabus-subtitle">Plot weekly topics and coressponding activites that will be performed while discussing said topics.</p>
+
+            <div class="no-spacing-first" data-bind="foreach: learningPlans">
+                <div class="row top-spacing nested bottom-spacing-small">
+                    <div class="large-12 columns left">
+                        <div class="row bottom-spacing-small">
+                            <div class="large-12 columns">
+                                <h5>Learning Outcomes</h5>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-10 columns" data-bind="foreach: $root.elgas">
+                                <div data-bind="foreach: learningOutcomes">
+                                    <span class="lo-co-cb"><input data-bind="value: description, checked: $parents[1].los" type="checkbox">&nbsp;<span data-bind="text: description"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row nested">
+                    <div class="large-6 columns">
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <h5>Topic</h5>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <input data-bind="value: topic" placeholder="Introduction / Orientation" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="large-2 columns left">
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <h5>Week No.</h5>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <input class=" bottom-spacing-small" data-bind="value: weekNumber" placeholder="1" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="large-4 columns left">
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <h5>Learning Activites</h5>
+                            </div>
+                        </div>
+
+                        <div data-bind="foreach: learningActivities">
+                            <div class="row bottom-spacing-small">
+                                <div class="large-10 columns">
+                                    <input class=" bottom-spacing-small" data-bind="value: description" placeholder="Course Introduction" type="text">
+                                </div>
+
+                                <div class="large-2 columns">
+                                    <a class="grey-button2 form-button icon-remove" data-bind="click: $parent.removeLearningActivity" href="#" style="font-style: italic"></a>
+                                </div>
+                            </div>
+                        </div><a class="green-button right-spacing form-button" data-bind="click: addLearningActivity" href="#"><i class="icon-plus button-icon"></i> Add an activity</a>
+                    </div>
+                </div>
+
+                <div class="row top-spacing">
+                    <div class="large-12 columns">
+                        <a class="grey-button2 form-button" data-bind="click: $root.removeLearningPlan" href="#"><i class="icon-remove"></i> Remove Topic</a>
+                    </div>
+                </div>
+
+                <div class="row divider"></div>
+            </div>
+
+            <div class="row top-spacing">
+                <div class="large-6 columns left">
+                    <a class="green-button right-spacing form-button" data-bind="click: addLearningPlan" href="#"><i class="icon-plus button-icon"></i> Add another topic</a>
+                </div>
+
+                <div class="large-6 columns">
+                    <a class="green-button continue-button" href="#section7"><i class="icon-chevron-right button-icon"></i> To References and Policies</a> <a class="grey-button previous-button icon-chevron-left button-icon" href="#section5" style="font-style: italic"></a>
+                </div>
+            </div><!-- Start of Learning Plan content -->
+        </div>
+    </section>
+
+    <section>
+        <p class="title" data-section-title=""><a href="#">References and Policies</a></p>
+
+        <div class="content" data-section-content="" data-slug="section7">
+            <!-- End of References and Policies content -->
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <h4>References</h4>
+                </div>
+            </div>
+
+            <div data-bind="foreach: references">
+                <div class="row bottom-spacing-small">
+                    <div class="small-11 columns">
+                        <input data-bind="value: referenceText" placeholder="Lewis, W. (2008). LAN Switching and Wireless - CCNA Exploration Companion Guide. Cisco Press" type="text">
+                    </div>
+
+                    <div class="small-1 columns">
+                        <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeReference" href="#" style="font-style: italic"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns left">
+                    <a class="green-button right-spacing form-button" data-bind="click: addReference" href="#"><i class="icon-plus button-icon"></i> Add a reference</a>
+                </div>
+            </div>
+
+            <div class="row top-spacing-more">
+                <div class="large-12 columns">
+                    <h4 class="syllabus-title2">Class Policies</h4><!--<span class="syllabus-modified">Modified 53 minutes ago</span>-->
+
+                    <p class="syllabus-subtitle">Student should follow the standard classroom policies and procedures indicated in Section 4.3 of the Student Handbook. However, these additional policies will be applied:</p>
+                </div>
+            </div>
+
+            <div data-bind="foreach: classPolicies">
+                <div class="row bottom-spacing-small">
+                    <div class="small-11 columns">
+                        <input data-bind="value: policy" placeholder="A Chapter exam shall be taken during the first 20 minutes, every Tuesday." type="text">
+                    </div>
+
+                    <div class="small-1 columns">
+                        <a class="grey-button2 form-button icon-remove" data-bind="click: $root.removeClassPolicy" href="#" style="font-style: italic"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns left">
+                    <a class="green-button right-spacing form-button" data-bind="click: addClassPolicy" href="#"><i class="icon-plus button-icon"></i> Add a policy</a>
+                </div>
+            </div>
+
+            <div class="row divider"></div>
+
+            <div class="row top-spacing">
+                <div class="large-12 columns">
+                    <a class="green-button continue-button" href="#section8"><i class="icon-chevron-right button-icon"></i> Publish Syllabus</a> <a class="grey-button previous-button icon-chevron-left button-icon" href="#section6" style="font-style: italic"></a>
+                </div>
+            </div><!-- Start of References and Policies content -->
+        </div>
+    </section>
+
+    <section>
+        <p class="title" data-section-title=""><a href="#">Publish Syllabus</a></p>
+
+        <div class="content" data-section-content="" data-slug="section8">
+            <!-- End of Review and Publish content -->
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <a class="button primary small" href="#" id="stringifyBtn">Stringify</a> <a class="button primary small" href="#" id="postBtn">Post</a>
+                </div>
+            </div><!-- Start of Review and Publish content -->
+        </div>
+    </section>
+</div>
+</div>
+</form><!-- json submit form -->
+
+<form action="{% url "syllabus:syllabus" %}" id="syllabus_json_form" method="post" name="syllabus_json_form">
+    {% csrf_token %}
+    <input id="syllabus_json" name="syllabus_json" type="hidden">
+    <input type="hidden" id="syllabus_rubric" name="syllabus_rubric">
+</form>
 </div>
 
 {% endblock content %}
@@ -656,15 +611,15 @@
 
 {% if jsonString %}
 <script>
-var jsonString = '{{ jsonString|escapejs }}';
+    var jsonString = '{{ jsonString|escapejs }}';
 </script>
 {% endif %}
 
 <!-- Static data from the server -->
 <script>
-var rubricList = $.parseJSON('{{ rubricList|escapejs }}');
-var collegeList = $.parseJSON('{{ collegeList|escapejs }}');
-var departmentList = $.parseJSON('{{ departmentList|escapejs }}');
+    var rubricList = $.parseJSON('{{ rubricList|escapejs }}');
+    var collegeList = $.parseJSON('{{ collegeList|escapejs }}');
+    var departmentList = $.parseJSON('{{ departmentList|escapejs }}');
 </script>
 
 <script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>

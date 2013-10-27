@@ -3,81 +3,63 @@
 {% block title %}Register{% endblock title %}
 
 {% block content %}
-    <div class="row top-spacing underline">
-        <div class="large-12 column">
-            <h3 class="syllabus-title">
-                Register a new account
-
-            </h3>
-        </div>
+<div class="row content-header">
+    <div class="large-12 column">
+        <h3>
+            Register a new account
+        </h3>
     </div>
-    <form action="{% url "accounts:register" %}" method="POST" class="custom syllabus-form">
+</div>
+
+<form action="{% url "accounts:register" %}" method="POST">
+   
     {% csrf_token %}
-        {{ form.non_field_errors }}
-        <div class="row top-spacing">
+    {{ form.non_field_errors }}
+
+    <div class="content">
+        <div class="row">
             <div class="large-4 columns">
-                <div class="row">
-                    <div class="small-12 columns">
-                        <h5>Email Addres</h5>
-                    </div>
-                </div>
-                <div class="row bottom-spacing-small">
-                    <div class="small-12 columns">
-                        {{ form.email }}
-                        {{ form.email.errors }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="large-12 columns ">
-                        <p class="syllabus-subtitle">
-                            A valid DLSU <span class="highlight">@dlsu.edu.ph</span> email is required.
-                        </p>                        
-                        <p class="syllabus-subtitle">
-                            You will need to confirm your account through the confirmation email that will be sent after registration.
-                        </p>
-                    </div>
-                </div>
-                <div class="row top-spacing">
-                    <div class="small-12 columns">
-                        <h5>Password</h5>
-                    </div>
-                </div>
-                <div class="row bottom-spacing-small">
-                    <div class="small-12 columns">
-                        {{ form.password }}
-                        {{ form.password.errors }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="small-12 columns">
-                        <h5>Confirm Password</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="small-12 columns">
-                        {{ form.confirm_password}}
-                        {{ form.cofirm_password.errors}}
-                    </div>
-                </div>
-                <div class="row top-spacing">
-                    <div class="small-12 columns">
-                        <h5>Full name</h5>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="small-12 columns">
-                        {{ form.name}}
-                        {{ form.name.errors}}
-                    </div>
-                </div>
-                <div class="row top-spacing bottom-spacing-small">
-                    <div class="small-12 columns">
-                        <input type="submit" value="Create account" class="register-button">
-                    </div>
-                </div>
+                <label>Email Addres</label>
+                {{ form.email }}
+                {{ form.email.errors }}
+                <p>
+                    A valid DLSU <span class="highlight">@dlsu.edu.ph</span> email is required.
+                </p>                        
+                <p>
+                    You will need to confirm your account through the confirmation email that will be sent after registration.
+                </p>
             </div>
         </div>
-    </form>
+        <div class="row">
+            <div class="large-4 columns">
+                <label>Password</label>
+                {{ form.password }}
+                {{ form.password.errors }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-4 columns">
+                <label>Confirm Password</label>
+                {{ form.confirm_password}}
+                {{ form.confirm_password.errors}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-4 columns">
+                <label>Full name</label>
+                {{ form.name}}
+                {{ form.name.errors}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-4 columns">
+                <input type="submit" value="Create account" id="register-button">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</form>
     <!--
     <div class="row">
         <div class="small-12 columns">
@@ -125,5 +107,5 @@
             </form>
         </div>
     </div>
-    -->
+-->
 {% endblock content %}

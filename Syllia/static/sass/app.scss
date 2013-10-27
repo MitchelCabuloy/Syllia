@@ -132,7 +132,59 @@ html, body {
 	}
 }
 
+.icon-remove {
+	@extend .negative-button;
+	padding: 11px;
+	color: #fff;
+}
 
+.ir-multiple {
+	@extend .icon-remove;
+	position: relative;
+	top: 10px;
+}
+
+.continue-button {
+	@extend .green-button;
+	float: right;
+	padding: 15px 20px 15px 20px;
+	text-transform: uppercase;
+}
+
+.previous-button {
+	@extend .negative-button;
+	float: right;
+	padding: 15px;
+	color: #fff;
+	margin-right: 10px;
+}
+
+.add-row {
+	@extend .green-button;
+	padding: 8px 12px 8px 10px;
+	margin-bottom: 15px;
+	display: inline-block;
+}
+
+
+.a-error {
+	color: $red;
+	margin-bottom: 40px;
+	border-left: 3px solid $red;
+	display: block;
+	padding: 10px;
+}
+
+.errorlist {
+	margin-top: 5px;
+	border-left: 3px solid $red;
+	padding: 5px 5px 5px 0px;
+	li {
+		list-style: none;
+		color: $red;
+		padding-left: 10px;
+	}
+}
 
 // index page declarations
 .index-main {
@@ -169,6 +221,7 @@ html, body {
 
 }
 
+// multiple page declarations
 .navigation {
 	margin-top: 30px;
 	ul {
@@ -199,6 +252,9 @@ html, body {
 	top: 29px;
 	border: 1px solid $grey-border;
 	text-transform: none;
+	a {
+		color: $green;
+	}
 }
 
 .account-pane {
@@ -247,11 +303,12 @@ html, body {
 	padding: 8px 30px 8px 30px;
 }
 
-#login-submit {
+#login-submit, #register-button {
 	@extend .green-button;
 	padding: 8px 30px 8px 30px;
 	display: block;
 	border: none;
+	margin-bottom: 10px;
 }
 
 #logout-button {
@@ -261,414 +318,55 @@ html, body {
 	margin-top: 20px;
 }
 
-/* crap scss after this line */
-
-
-/* Syllia (v2, since I accidentally deleted the first one - Olsson) by Netcentric.Web */
-/* Variable declarations */
-
-.center {
-	text-align: center;
-}
-
-/* 	to be inserted in an <a> tag
-padding / size to be declared in id */
-
-
-.grey-button {
-	background-color: $grey-button;
-	color: #fff;
-}
-
-.grey-button2 {
-	background-color: $grey-button;
-	color: $grey-lighter;
-
-	&:hover {
-		color: $grey-lighter;
-	}
-
-	&:focus {
-		color: $grey-lighter;
-	}
-}
-
-.underline {
-	border-bottom: 1px solid $grey_lighter;
-}
-
-.divider {
-	margin-top: 45px !important;
-	border-top: 1px solid $grey_lighter;
-	margin-bottom: -10px !important;
-}
-
-/*
-.adjust-spacing {
-	margin-left: -30px !important;
-}
-*/
-
-.top-spacing {
-	margin-top: 40px !important;
-}
-
-.top-spacing-more {
-	margin-top: 80px !important;
-}
-
-.bottom-spacing-small {
-	margin-bottom: 10px !important;
-}
-
-.bottom-padding-small {
-	padding-bottom: 10px !important;
-}
-
-.reduce-bottom {
-	margin-bottom: -20px !important;
-}
-
-.right-spacing {
-	margin-right: 10px;
-}
-
-.invisible {
-	visibility: hidden;
-}
-
-/*
-.breadcrumb {
-	font-size: 13px;
-	margin-top: 60px;
-	text-transform: uppercase;
-	list-style: none;
-	a {
+.content-header {
+	border-bottom: 1px solid $grey-border;
+	margin-top: 40px;
+	span {
+		float: right;
 		color: $green;
-	}
-
-	li {
-		float: left;
-
-		&:after {
-			content: '>';
-			margin-left: 15px;
-			margin-right: 15px;
-		}
-
-		&:last-child {
-
-			&:after {
-				display: none;
-			}
-
-			a {
-				color: $grey;
-			}
-
-			.active-tab {
-				color: $grey-lighter;
-
-				&:before {
-					content: '(';
-						margin-right: 5px;
-					}
-
-					&:after {
-						content: ')';
-					margin-left: 5px;
-				}
-			}
-		}
-	}
-
-	li:last-child {
-
+		font-size: 14px;
+		margin-top: 25px;
 	}
 }
 
-.navigation {
-	height: 38px;
-	list-style: none;
-	margin-top: 25px;
-	border-top: 1px solid $grey_lighter;
-	border-left: 1px solid $grey_lighter;
-	text-transform: uppercase;
-	font-size: 14px;
-	position: relative;
-
-	&:before{
-		content: '';
-		position: absolute;
-		height: 80px;
-		width: 1px;
-		background-color: $grey_lighter;
-		left: -1px;
-		top: 37px;
-	}
-
-	&:after{
-		content: '';
-		position: absolute;
-		height: 80px;
-		width: 1px;
-		background-color: $grey_lighter;
-		right: 1px;
-		top: 37px;
-	}
-
-	li {
-		float: left;
-		text-align: center;
-		line-height: 38px;
-		border-right: 1px solid #fff;
-		background-color: $grey_lighter;
-	}
-
-	li:last-child {
-		border-right: 1px solid $grey_lighter;
-	}
-
-	li:hover {
-		cursor: pointer;
-		background-color: #f5f5f5;
-	}
-
-	.tab-active {
-		background-color: #fff;
-		color: $green;
-	}
-	.tab-active:hover {
-		background-color: #fff;
-		color: $green;
-	}
-
-	#tab1 {
-		width: 12.5%;
-	}
-	#tab2 {
-		width: 17%;
-	}
-	#tab3 {
-		width: 14%;
-	}
-	#tab4 {
-		width: 9%;
-	}
-	#tab5 {
-		width: 14%;
-	}
-	#tab6 {
-		width: 12.5%;
-	}
-	#tab7 {
-		width: 21%;
-	}
+.tab-wrapper {
+	margin-top: 40px;
 }
 
-.pane {
-	display: none;
-	padding-bottom: 60px;
-}
+/* each page content is wrapper around this */
+.content {
+	.row:first-child {
+		margin-top: 40px;
+	}
+	
+	.row {
+		margin-bottom: 5px;
+	}
 
-.active-pane {
-	display: block;
-}
-*/
+	label {
+		@extend h5;
+		font-weight: normal;
+	}
 
-.syllabus-form {
-	h5 {
-		font-size: 15px;
-		color: $grey;
+	p {
+		margin-bottom: 15px;
 		margin-top: 10px;
-	}
-
-	input, input:focus, input:hover {
-		box-shadow: none;
-		margin: 0;
-		height: 40px !important;
-	}
-
-	#customDropdown {
-		background-color: #fff !important;
-	}
-
-	.form-fill {
-		width: 100%;
-		border: 1px solid $grey_lighter;
-	}
-
-	.rubric-textarea, .rubric-textarea:focus, .rubric-textarea:hover {
-		border: 1px solid $grey_lighter;
-		width: 100%;
-		max-width: 100%;
-		min-height: 200px;
-		box-shadow: none;
-	}
-
-	.form-fill a  {
-		color: #a9a9a9 !important;
-	}
-}
-
-.has-links {
-	 a{
-	 	color: $green;
-	 }
-}
-
-.syllabus-title {
-	float: left;
-	position: relative;
-	margin-left: 0px !important;
-	padding-left: 0px !important;
-
-}
-
-
-.syllabus-subtitle {
-	color: lighter($grey,20%);
-}
-
-
-.syllabus-title-input {
-	border: none !important;
-}
-
-.syllabus-title:hover {
-	cursor: pointer;
-
-}
-
-.syllabus-modified {
-	float: right;
-	color: $green;
-	font-size: 14px;
-	margin-top: 25px;
-}
-
-form.custom .custom.dropdown.open ul {
-	border: 1px solid $grey_lighter;
-}
-
-.form-textarea {
-	box-shadow: none !important;
-	height: 120px;
-}
-
-.continue-button {
-	float: right;
-	padding: 15px 20px 15px 20px;
-	text-transform: uppercase;
-}
-
-.previous-button {
-	float: right;
-	padding: 15px 20px 15px 20px;
-	text-transform: uppercase;
-	position: relative;
-	left: -10px;
-}
-
-.previous-button:hover {
-	color: #fff;
-}
-
-.button-icon {
-	position: relative;
-	top: 1px;
-}
-
-.lo-block {
-	padding: 14px 17px 14px 17px;
-	background-color: $grey_lighter;
-	display: inline-block;
-	font-size: 12px;
-}
-
-.lo-form {
-	display: inline-block;
-	box-shadow: none !important;
-	height: 80px;
-}
-
-.form-button {
-	padding: 13px 13px 13px 13px;
-	text-transform: uppercase;
-	font-size: 14px;
-	display: inline-block;
-	position: relative;
-	top: -1px;
-
-}
-
-form.custom .custom.checkbox.checked:before {
-	color: $green;
-	font-size: 22px;
-	margin-top: 2px;
-}
-
-.lo-co-cb {
-	margin-right: 25px;
-	display: inline-block;
-	margin-bottom: 15px;
-}
-
-.lp-textarea {
-	min-height: 40px !important;
-	width: 100% !important;
-}
-/*
-.error-message {
-//background-color: $error_bg;
-//border: 1px solid $error_border;
-//padding: 7px;
-	color: $error_text;
-	margin-top: 15px;
-	margin-bottom: 0px;
-	font-size: 18px;
-	padding-bottom: 6px;
-	padding-top: 6px;
-	padding-left: 10px;
-	border-left: 3px solid $error_border;
-}
-*/
-.error-tab {
-	background-color: $red !important;
-	color: #fff;
-}
-
-.tab-active-error {
-	color: $red;
-	background-color: #fff !important;
-}
-
-.error-input {
-	border: 2px solid $red !important;
-}
-
-form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus-form input:hover {
-	border: 1px solid $grey_lighter;
-	margin: 0px !important;
-}
-
-.error-required {
-	border-left: 3px solid $red;
-	padding-top: 10px;
-	padding-bottom: 10px;
-
-	&:before{
-		content: "This field is required!" !important;
-		color: $red;
 		display: block;
-		margin-bottom: 10px;
-		font-size: 13px;
+	}
+
+	// custom dropdown
+	form.custom .custom.dropdown.open ul {
+		border: 1px solid $grey-border;
+	}
+	input {
+		height: 38px;
 	}
 }
 
+// declarations on the section / tabs
 .vertical-tabs {
 	.title {
-		border-right: 2px solid $grey_lighter !important;
+		border-right: 2px solid $grey-border !important;
 		text-transform: uppercase;
 	}
 
@@ -679,52 +377,50 @@ form.custom .custom, .syllabus-form input, .syllabus-form input:focus, .syllabus
 	}
 }
 
+
 .highlight {
 	display: inline-block;
-	background-color: $grey_lighter;
-	color: lighter($grey,20%);
+	background-color: $grey-button;
+	color: lighter($grey-lighter);
 	padding: 2px 5px 2px 5px;
 	font-size: 12px;
 }
 
-.register-button, .login-button {
-	@extend .green-button;
-	padding: 5px 30px 5px 30px;
-	text-transform: uppercase;
+.foreach-header {
+	margin-bottom: -40px;
 }
 
-.errorlist {
-	margin-top: 5px;
-	border-left: 3px solid $red;
-	padding: 5px 5px 5px 0px;
-
-
-	li {
-		list-style: none;
-		color: $red;
-		padding-left: 10px;
-		font-size: 12px;
+.learning-outcomes {
+	margin-bottom: 25px;
+	.row:first-child {
+		margin-top: 0px !important;
+		margin-bottom: 10px;
+	}
+	.row {
+		margin-top: 20px;
+	}
+	.lo-block {
+		background-color: $grey-button;
+		color: #fff;
+		padding: 11px;
+	}
+	textarea {
+		min-height: 80px !important;
+		width: 100%;
 	}
 }
 
-.error-generic {
-	@extend .errorlist;
-		color: $red;
-		margin-top: 20px;
-		display: block;
-		padding: 10px !important;
 
-}
 
-/*
-.errorlist:before {
-	content: '';
-	display: block;
-	width: 3px;
-	background-color: $error_red;
-	position: absolute;
-}
-*/
+
+
+
+
+
+
+/* OLD SCSS FILE, JUST NOT TO ENTIRELY FUCK UP 
+THE SITE WHILE IM REDOING THE SCSS */
+
 
 .dashboard-button-grey {
 	@extend .grey-button2;

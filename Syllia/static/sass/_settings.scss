@@ -61,7 +61,7 @@ $em-base: 16 !default;
   $green-darker: darken($green,10%);
 
   // Grey declarations 
-  $grey: #3d3d3d;
+  $grey: #4a4a4a;
   $grey-lighter: lighten($grey,10%);
 
   $grey-border: lighten($grey,60%);
@@ -89,7 +89,6 @@ $em-base: 16 !default;
   h1,h2,h3,h4,h5 {
     font-weight: normal;
   }
-
 
   $breakpoint: 768px;
 
@@ -254,8 +253,8 @@ $em-base: 16 !default;
 // Style anchors
 
 // $anchor-text-decoration: none;
-// $anchor-font-color: $primary-color;
-// $anchor-font-color-hover: darken($primary-color, 5%);
+ $anchor-font-color: $green;
+ $anchor-font-color-hover: $green-darker;
 
 // Style the <hr> element
 
