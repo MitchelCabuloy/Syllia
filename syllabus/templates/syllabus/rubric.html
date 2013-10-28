@@ -32,11 +32,11 @@
 		<div class="row">
 			<div class="small-4 columns">
 				<input data-bind="value: criteriaName" type="text" placeholder="Equipment and Resources"/>
-			</div>  
+			</div>
 			<div class="small-2 columns left">
 				<a href="#" data-bind="click: $root.removeCriteria"><i class="icon-remove-multiple"></i>
 				</a>
-			</div>	      	
+			</div>
 		</div>
 
 		<div class="row">
@@ -57,7 +57,7 @@
 				<textarea data-bind="value: beginning" placeholder="Network resources are grossly under or over allocated"></textarea>
 			</div>
 		</div>
-		
+
 	</div><!-- END OF FOREACH BIND ON THIS DIV -->
 
 
@@ -98,6 +98,6 @@
 {% endif %}
 
 <script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
-<script src="{% static "javascripts/rubric-creation.js" %}"></script>
+<script src="{% static "javascripts/rubric.js" %}"></script>
 
 {% endblock scripts %}
