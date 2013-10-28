@@ -1,6 +1,6 @@
 # Create your views here.
 
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from django.contrib.auth import get_user_model
 from django.views.generic.base import View
@@ -8,6 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.utils import simplejson
+from django.utils.timezone import utc
 
 from syllabus.models import Rubric, College, Department, Syllabus
 
@@ -24,10 +25,9 @@ class DashboardView(View):
         current_user = get_user_model().objects.get(
             email=request.user.email)
 
-
         # TODO: Make more DRY
         syllabus_set = current_user.syllabus_set.all()
-        syllabusList = [];
+        syllabusList = []
 
         for syllabus in syllabus_set:
             if syllabus.last_modified.date() == datetime.today().date():
@@ -40,7 +40,7 @@ class DashboardView(View):
                 "url": 'syllabus',
                 "itemName": syllabus.syllabus_name,
                 "lastModified": lastModified
-                })
+            })
 
         rubric_set = current_user.rubric_set.all()
         rubricList = []
@@ -56,7 +56,7 @@ class DashboardView(View):
                 "url": 'rubric',
                 "itemName": rubric.rubric_name,
                 "lastModified": lastModified
-                })
+            })
 
         jsonData = {
             "syllabusList": syllabusList,
@@ -74,26 +74,49 @@ class SyllabusView(View):
         current_user = get_user_model().objects.get(
             email=request.user.email)
 
+        # Create dictionary
+        jsonData = {}
+
+        # If edit mode, load syllabus data
+        if(len(args)):
+            try:
+                syllabus = current_user.syllabus_set.get(pk=args[0])
+                jsonData['syllabusData'] = simplejson.loads(syllabus.json_data)
+
+                # Load modified time data
+                time_since_modified = datetime.utcnow().replace(tzinfo=utc) - syllabus.last_modified
+                s = time_since_modified.total_seconds()
+                days, remainder = divmod(s, 86400)
+                hours, remainder = divmod(remainder, 3600)
+                minutes, seconds = divmod(remainder, 60)
+
+                # If less than an hour, show minutes ago
+                if time_since_modified < timedelta(minutes=60):
+                    timeSinceModified = "%d minutes" % minutes
+                elif time_since_modified < timedelta(hours=24):
+                    timeSinceModified = "%d hours" % hours
+                else:
+                    timeSinceModified = "%d days ago" % days
+
+                jsonData['timeSinceModified'] = timeSinceModified
+
+            except Exception, e:
+                print e.message
+                raise Http404
+
         rubricList = []
         rubrics = current_user.rubric_set.all()
 
         for rubric in rubrics:
             rubricList.append(rubric.json())
 
-        # Create dictionary
-        # context = {
-        #     'rubricList': simplejson.dumps(rubricList)
-        # }
-        jsonData = {
-            'rubricList': rubricList
-        }
+        jsonData['rubricList'] = rubricList
 
         collegeList = []
         colleges = College.objects.all()
         for college in colleges:
             collegeList.append(college.json())
 
-        # context['collegeList'] = simplejson.dumps(collegeList)
         jsonData['collegeList'] = collegeList
 
         departmentList = []
@@ -101,21 +124,7 @@ class SyllabusView(View):
         for department in departments:
             departmentList.append(department.json())
 
-        # context['departmentList'] = simplejson.dumps(departmentList)
         jsonData['departmentList'] = departmentList
-
-        # If edit mode, load syllabus data
-        if(len(args)):
-            try:
-                syllabus = current_user.syllabus_set.get(pk=args[0])
-
-                # context['jsonString'] = syllabus.json_data
-                jsonData['syllabusData'] = simplejson.loads(syllabus.json_data)
-
-                # return render(request, self.template_name, context)
-
-            except Exception:
-                raise Http404
 
         # If reached here, no arguments. Return empty form
         return render(request, self.template_name, {"jsonData": simplejson.dumps(jsonData)})
