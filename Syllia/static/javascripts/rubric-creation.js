@@ -1,70 +1,74 @@
-(function() {
-    var viewModel,
-        RubricModel,
-        RubricModule = {
-            init: function() {
-                this.bindUIActions();
-                this.defineModels();
+var RubricModule = (function($, ko) {
+    var MODULE = {}
 
-                viewModel = new RubricModel();
+    MODULE.init = function() {
 
-                ko.applyBindings(viewModel);
+        viewModel = new MODELS.RubricModel();
+        ko.applyBindings(viewModel);
+        MODULE.bindUIActions(viewModel);
 
-                if ("jsonString" in window) {
-                    var jsonData = $.parseJSON(jsonString);
-                    this.loadData(jsonData);
-                } else {
-                    // Uncomment for test data
-                    // this.loadData($.parseJSON('{"pk":null,"rubricName":"NTCOR04 Rubric AY 2013-2015","criterias":[{"criteriaName":"Equipment and Resources","exemplary":"Exemplary lorem ipsum","satisfactory":"Satisfactory lorem ipsum","developing":"Developing lorem ipsum","beginning":"Beginning lorem ipsum"},{"criteriaName":"Second Criteria","exemplary":"Exemplary ipsum lorem","satisfactory":"Satisfactory ipsum lorem","developing":"Developing ipsum lorem","beginning":"Beginning ipsum lorem"}]}'));
-                }
-            },
+        if ("jsonString" in window) {
+            var jsonData = $.parseJSON(jsonString);
+            this.loadData(viewModel, jsonData);
+        } else {
+            // Uncomment for test data
+            // this.loadData($.parseJSON('{"pk":null,"rubricName":"NTCOR04 Rubric AY 2013-2015","criterias":[{"criteriaName":"Equipment and Resources","exemplary":"Exemplary lorem ipsum","satisfactory":"Satisfactory lorem ipsum","developing":"Developing lorem ipsum","beginning":"Beginning lorem ipsum"},{"criteriaName":"Second Criteria","exemplary":"Exemplary ipsum lorem","satisfactory":"Satisfactory ipsum lorem","developing":"Developing ipsum lorem","beginning":"Beginning ipsum lorem"}]}'));
+        }
+    };
 
-            defineModels: function() {
-                RubricModel = function() {
-                    var self = this;
-                    self.pk = null;
-                    self.rubricName = ko.observable();
+    MODULE.loadData = function(viewModel, json) {
+        viewModel.pk = parseInt(json.pk)
+        viewModel.rubricName(json.rubricName)
+        viewModel.criterias(json.criterias)
+    };
 
-                    var criteriaObject = function() {
-                        this.criteriaName = "";
-                        this.exemplary = "";
-                        this.satisfactory = "";
-                        this.developing = "";
-                        this.beginning = "";
-                    };
+    MODULE.bindUIActions = function(viewModel) {
+        $('#postBtn').click(function() {
+            $('#rubric_json').val(ko.toJSON(viewModel));
+            $('#rubric_json_form').submit();
+        });
 
-                    self.criterias = ko.observableArray([new criteriaObject()])
+        $('#stringifyBtn').click(function() {
+            console.log("KO Data:");
+            console.log(ko.toJSON(viewModel));
+        });
+    };
 
-                    self.addCriteria = function() {
-                        self.criterias.push(new criteriaObject());
-                    };
+    var MODELS = (function() {
+        var models = {};
 
-                    self.removeCriteria = function(criteria) {
-                        self.criterias.remove(criteria);
-                    };
-                };
-            },
+        models.RubricModel = function() {
+            var self = this;
+            self.pk = null;
+            self.rubricName = ko.observable();
 
-            loadData: function(json) {
-                viewModel.pk = parseInt(json.pk)
-                viewModel.rubricName(json.rubricName)
-                viewModel.criterias(json.criterias)
-            },
+            var criteriaObject = function() {
+                this.criteriaName = "";
+                this.exemplary = "";
+                this.satisfactory = "";
+                this.developing = "";
+                this.beginning = "";
+            };
 
-            bindUIActions: function() {
-                $('#postBtn').click(function() {
-                    $('#rubric_json').val(ko.toJSON(viewModel));
-                    $('#rubric_json_form').submit();
-                });
+            self.criterias = ko.observableArray([new criteriaObject()])
 
-                $('#stringifyBtn').click(function() {
-                    console.log("KO Data:");
-                    console.log(ko.toJSON(viewModel));
-                });
-            }
+            self.addCriteria = function() {
+                self.criterias.push(new criteriaObject());
+            };
+
+            self.removeCriteria = function(criteria) {
+                self.criterias.remove(criteria);
+            };
         };
 
-    $(document).ready(function() {
-        RubricModule.init();
-    });
-})();
+        return models;
+
+    })();
+
+    return MODULE;
+
+})(Zepto, ko);
+
+$(document).ready(function() {
+    RubricModule.init();
+});
