@@ -38,7 +38,7 @@ class DashboardView(View):
             syllabusList.append({
                 "pk": syllabus.id,
                 "url": 'syllabus',
-                "itemName": syllabus.course_code,
+                "itemName": syllabus.syllabus_name,
                 "lastModified": lastModified
                 })
 
@@ -128,6 +128,7 @@ class SyllabusView(View):
 
         # Initialize
         syllabus.user = current_user
+        syllabus.syllabus_name = json_data['syllabusName']
         syllabus.course_code = json_data['courseCode']
         syllabus.json_data = request.POST['syllabus_json']
 

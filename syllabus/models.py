@@ -53,6 +53,7 @@ class Department(models.Model):
 class Syllabus(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(get_user_model())
+    syllabus_name = models.CharField(max_length=50)
     department = models.ForeignKey(Department)
     course_code = models.CharField(max_length=7)
     rubric = models.ForeignKey(Rubric)

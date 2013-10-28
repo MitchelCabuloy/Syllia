@@ -29,6 +29,7 @@
                 SyllabusModel = function() {
                     var self = this;
                     self.pk = null;
+                    self.syllabusName = ko.observable();
                     self.college = ko.observable();
                     self.department = ko.observable();
                     self.courseCode = ko.observable();
@@ -248,6 +249,7 @@
 
             loadData: function(json) {
                 viewModel.pk = parseInt(json.pk);
+                viewModel.syllabusName(json.syllabusName);
                 viewModel.college(json.college);
                 viewModel.department(json.department);
                 viewModel.courseCode(json.courseCode);
