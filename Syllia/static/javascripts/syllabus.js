@@ -134,9 +134,6 @@ var SyllabusModule = (function($, ko) {
 
             // Dropdown lists
             self.college = ko.observable();
-            self.college.subscribe(function() {
-                Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
-            });
             self.collegeList = ko.observableArray(window.jsonData.collegeList);
 
             self.department = ko.observable();
@@ -150,6 +147,9 @@ var SyllabusModule = (function($, ko) {
                 });
 
                 return tempList;
+            });
+            self.college.subscribe(function() {
+                Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
             });
 
             self.rubric = ko.observable();
