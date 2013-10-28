@@ -7,9 +7,9 @@ var RubricModule = (function($, ko) {
         ko.applyBindings(viewModel);
         MODULE.bindUIActions(viewModel);
 
-        if ("jsonString" in window) {
-            var jsonData = $.parseJSON(jsonString);
-            this.loadData(viewModel, jsonData);
+        if (jsonData.rubricData) {
+            MODULE.loadData(viewModel, jsonData.rubricData);
+            viewModel.timeSinceModified(jsonData.timeSinceModified);
         } else {
             // Uncomment for test data
             // this.loadData($.parseJSON('{"pk":null,"rubricName":"NTCOR04 Rubric AY 2013-2015","criterias":[{"criteriaName":"Equipment and Resources","exemplary":"Exemplary lorem ipsum","satisfactory":"Satisfactory lorem ipsum","developing":"Developing lorem ipsum","beginning":"Beginning lorem ipsum"},{"criteriaName":"Second Criteria","exemplary":"Exemplary ipsum lorem","satisfactory":"Satisfactory ipsum lorem","developing":"Developing ipsum lorem","beginning":"Beginning ipsum lorem"}]}'));
@@ -42,6 +42,7 @@ var RubricModule = (function($, ko) {
             self.pk = null;
             self.rubricName = ko.observable();
             self.criterias = ko.observableArray([new models.CriteriaModel()])
+            self.timeSinceModified = ko.observable();
 
             self.addCriteria = function() {
                 self.criterias.push(new models.criteriaObject());

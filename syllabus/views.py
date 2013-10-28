@@ -85,21 +85,7 @@ class SyllabusView(View):
                 jsonData['syllabusData'] = simplejson.loads(syllabus.json_data)
 
                 # Load modified time data
-                time_since_modified = datetime.utcnow().replace(tzinfo=timezone.utc) - syllabus.last_modified
-                s = time_since_modified.total_seconds()
-                days, remainder = divmod(s, 86400)
-                hours, remainder = divmod(remainder, 3600)
-                minutes, seconds = divmod(remainder, 60)
-
-                # If less than an hour, show minutes ago
-                if time_since_modified < timedelta(minutes=60):
-                    timeSinceModified = "%d minutes" % minutes
-                elif time_since_modified < timedelta(hours=24):
-                    timeSinceModified = "%d hours" % hours
-                else:
-                    timeSinceModified = "%d days ago" % days
-
-                jsonData['timeSinceModified'] = timeSinceModified
+                jsonData['timeSinceModified'] = get_last_modified_string(syllabus.last_modified)
 
             except Exception, e:
                 print e.message
@@ -169,7 +155,13 @@ class RubricView(View):
 
             try:
                 rubric = current_user.rubric_set.get(pk=args[0])
-                context = {'jsonString': rubric.json_data}
+
+                jsonData = {
+                    'rubricData': simplejson.loads(rubric.json_data),
+                    'timeSinceModified': get_last_modified_string(rubric.last_modified)
+                }
+
+                context = {'jsonData': simplejson.dumps(jsonData)}
                 return render(request, self.template_name, context)
             except Exception:
                 raise Http404
@@ -196,3 +188,22 @@ class RubricView(View):
         rubric.save()
 
         return HttpResponse(rubric.json_data)
+
+# static methods
+
+def get_last_modified_string(last_modified):
+    time_since_modified = datetime.utcnow().replace(tzinfo=timezone.utc) - last_modified
+    s = time_since_modified.total_seconds()
+    days, remainder = divmod(s, 86400)
+    hours, remainder = divmod(remainder, 3600)
+    minutes, seconds = divmod(remainder, 60)
+
+    # If less than an hour, show minutes ago
+    if time_since_modified < timedelta(minutes=60):
+        timeSinceModified = "%d minutes" % minutes
+    elif time_since_modified < timedelta(hours=24):
+        timeSinceModified = "%d hours" % hours
+    else:
+        timeSinceModified = "%d days" % days
+
+    return timeSinceModified

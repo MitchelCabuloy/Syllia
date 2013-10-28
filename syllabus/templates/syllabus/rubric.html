@@ -8,7 +8,7 @@
 <div class="row content-header">
 	<div class="large-12 column">
 		<h3 class="left">Create a new Rubric</h3>
-		<div class="modified" data-bind="">Modified <span data-bind=""></span> ago</div>
+		<div class="modified" data-bind="">Modified <span data-bind="text: timeSinceModified"></span> ago</div>
 	</div>
 </div>
 
@@ -91,11 +91,9 @@
 {% block scripts %}
 {% load staticfiles %}
 
-{% if jsonString %}
 <script>
-	var jsonString = '{{ jsonString|escapejs }}';
+    var jsonData = $.parseJSON('{{ jsonData|escapejs }}');
 </script>
-{% endif %}
 
 <script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
 <script src="{% static "javascripts/rubric.js" %}"></script>
