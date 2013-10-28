@@ -24,44 +24,27 @@
                     <!-- Content -->
                     <div class="row">
                         <div class="large-12 columns">
-                            <!--<a href="#" class="dashboard-button-grey">
+
+                            <a href="#" data-dropdown="syllabus-checkboxes" class="dashboard-grey dropdown">
                                 <i class="icon-check-empty"></i>
                                 <i class="icon-caret-down"></i>
                             </a>
-                            <a href="#" class="dashboard-button-grey">
-                                <i class="icon-check-minus"></i>
-                                <i class="icon-caret-down"></i>
-                            </a>
-                            <a href="#" class="dashboard-button-grey">
-                                <i class="icon-check"></i>
-                                <i class="icon-caret-down"></i>
-                            </a>
+                            <ul id="syllabus-checkboxes" class="f-dropdown">
+                              <li><a href="#">All</a></li>
+                              <li><a href="#">None</a></li>
+                            </ul>  
 
-                            <a href="#" class="dashboard-button-grey">
-                                <i class="icon-refresh"></i>
-                            </a>
-                            -->
-                            
-                            <a href="#" class="dashboard-green">
-                                <i class="icon-download-alt"></i>
-                                download
-                               
-                            </a>
+                            <a href="#" class="dashboard-green"><i class="icon-download-alt"></i> download</a>
 
-                            <a href="#" class="dashboard-green">
-                                <i class="icon-edit"></i>
-                                Edit
-                            </a>
+                            <a href="{% url "syllabus:syllabus" %}" class="dashboard-green"><i class="icon-plus"></i> New Syllabus</a>
 
-                            <a href="{% url "syllabus:syllabus" %}" class="dashboard-green">
-                                <i class="icon-plus"></i>
-                                New Syllabus
-                            </a>
+                            <a href="#" class="dashboard-grey"><i class="icon-trash"></i></a>
+
                         </div>
                     </div>
 
 
-                    <div class="dashboard-table-content">
+                    <div class="row dashboard-table-content">
                         <div class="large-12 columns">
                             <ul data-bind="foreach: pagedList">
                                 <li data-bind="click: select">
@@ -72,8 +55,8 @@
                                 </li>
                             </ul>
                             <div data-bind="visible: hasMoreThanOnePage">
-                                <a class="green-button right-spacing form-button" data-bind="click: previousPage">Previous</a>
-                                <a class="green-button right-spacing form-button" data-bind="click: nextPage">Next</a>
+                                <a class="dashboard-green" data-bind="click: previousPage">Previous</a>
+                                <a class="dashboard-green" data-bind="click: nextPage">Next</a>
                             </div>
                         </div>
                     </div>
@@ -88,47 +71,28 @@
                 <div class="content" data-slug="rubric" data-section-content>
                     <!-- Content -->
                     <div class="row">
-                        <div class="large-12 columns bottom-spacing-small">
-                            <a href="#" class="dashboard-button-grey">
+                        <div class="large-12 columns">
+
+                            <a href="#" data-dropdown="rubric-checkboxes" class="dashboard-grey dropdown">
                                 <i class="icon-check-empty"></i>
                                 <i class="icon-caret-down"></i>
                             </a>
-                            <a href="#" class="dashboard-button-grey">
-                                <i class="icon-check-minus"></i>
-                                <i class="icon-caret-down"></i>
-                            </a>
-                            <a href="#" class="dashboard-button-grey">
-                                <i class="icon-check"></i>
-                                <i class="icon-caret-down"></i>
-                            </a>
+                            <ul id="rubric-checkboxes" class="f-dropdown">
+                              <li><a href="#">All</a></li>
+                              <li><a href="#">None</a></li>
+                            </ul>  
 
-                            <a href="#" class="dashboard-button-grey">
-                                <i class="icon-refresh"></i>
-                            </a>
-                            <a href="#" class="dashboard-button-grey">
-                                <i class="icon-remove"></i>
-                                delete
-                            </a>
+                            <a href="#" class="dashboard-green"><i class="icon-download-alt"></i> download</a>
 
-                            <a href="#" class="dashboard-button-green">
-                                <i class="icon-download-alt button-icon"></i>
-                                download
-                            </a>
+                            <a href="{% url "syllabus:syllabus" %}" class="dashboard-green"><i class="icon-plus"></i> New Syllabus</a>
 
-                            <a href="#" class="dashboard-button-green">
-                                <i class="icon-edit button-icon"></i>
-                                Edit
-                            </a>
+                            <a href="#" class="dashboard-grey"><i class="icon-trash"></i></a>
 
-                            <a href="{% url "syllabus:rubric" %}" class="dashboard-button-green">
-                                <i class="icon-plus button-icon"></i>
-                                New Rubric
-                            </a>
                         </div>
                     </div>
 
 
-                    <div class="dashboard-table-content">
+                    <div class="row dashboard-table-content">
                         <div class="large-12 columns">
                             <ul data-bind="foreach: pagedList">
                                 <li data-bind="click: select">
@@ -139,8 +103,8 @@
                                 </li>
                             </ul>
                             <div data-bind="visible: hasMoreThanOnePage">
-                                <a class="green-button right-spacing form-button" data-bind="click: previousPage">Previous</a>
-                                <a class="green-button right-spacing form-button" data-bind="click: nextPage">Next</a>
+                                <a class="dashboard-green" data-bind="click: previousPage">Previous</a>
+                                <a class="dashboard-green" data-bind="click: nextPage">Next</a>
                             </div>
                         </div>
                     </div>
@@ -163,4 +127,6 @@
 {% load staticfiles %}
 <script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
 <script src="{% static "javascripts/dashboard.js" %}"></script>
+
+
 {% endblock scripts %}

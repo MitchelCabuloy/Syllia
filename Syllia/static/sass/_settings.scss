@@ -434,8 +434,8 @@ $form-label-font-weight: $normal;
 
 // We use these to set the color of the pip in dropdown buttons
 
-// $dropdown-button-pip-color: #fff;
-// $dropdown-button-pip-color-alt: #333;
+ //$dropdown-button-pip-color: $grey;
+ //$dropdown-button-pip-color-alt: $grey;
 
 // We use these to style tiny dropdown buttons
 
@@ -674,7 +674,7 @@ $custom-dropdown-shadow: none;
 
 // We use these to controls height and width styles.
 
-// $f-dropdown-max-width: 200px;
+ $f-dropdown-max-width: 75px;
 // $f-dropdown-height: auto;
 // $f-dropdown-max-height: none;
 // $f-dropdown-margin-top: 2px;
@@ -691,7 +691,7 @@ $custom-dropdown-shadow: none;
 
 // We use these to style the triangle pip.
 
-// $f-dropdown-triangle-size: 6px;
+ $f-dropdown-triangle-size: 0px;
 // $f-dropdown-triangle-color: #fff;
 // $f-dropdown-triangle-side-offset: 10px;
 

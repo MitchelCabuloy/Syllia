@@ -99,7 +99,7 @@ html, body {
 */	
 
 // general declarations (to @extend from)
-.green-button, .clear-button, .negative-button {
+.green-button, .clear-button, .negative-button, .grey-button {
 	transition: background-color 0.5s, border 0.5s, color 0.5s;
 	text-transform: uppercase;
 }
@@ -130,6 +130,15 @@ html, body {
 		background-color: $red;
 		//border: 1px solid $red-darker;
 		color: #fff;
+	}
+}
+
+.grey-button {
+	background-color: $grey-button;
+	color: $grey-lighter;
+	&:hover, &:focus {
+		background-color: lighten($grey-button,5%);
+		color: darken($grey-lighter,5%);
 	}
 }
 
@@ -168,11 +177,23 @@ html, body {
 	margin-right: 10px;
 }
 
-.add-row, .dashboard-green {
-	@extend .green-button;
+.add-row, .dashboard-green, .dashboard-grey {
 	padding: 8px 12px 8px 10px;
 	margin-bottom: 15px;
-	display: inline-block;
+	display: inline-block;	
+}
+
+.add-row, .dashboard-green {
+	@extend .green-button;
+}
+
+.dashboard-grey {
+	@extend .grey-button;
+	color: $grey-lighter;
+}
+
+.dashboard-green, .dashboard-grey {
+	font-size: 13px;
 }
 
 .a-error {
@@ -246,6 +267,9 @@ html, body {
 		text-transform: uppercase;
 		margin-right: 15px;
 		position: relative;
+	}
+	li:last-child{
+		margin-right: 0px;
 	}
 
 	a {
@@ -428,84 +452,27 @@ html, body {
 	}
 }
 
-
-
-
-
-
-
-
-
-/* OLD SCSS FILE, JUST NOT TO ENTIRELY FUCK UP 
-THE SITE WHILE IM REDOING THE SCSS */
-
-
-.dashboard-button-grey {
-	@extend .negative-button;
-	//@extend .form-button;
-	font-size: 11px !important;
-
-
-}
-
-.dashboard-button-green {
-	@extend .green-button;
-	//@extend .form-button;
-	//@extend .right;
-	font-size: 11px !important;
-	margin-right: 3px !important;
-}
-
+/* Dashboard declarations */
 .dashboard-table-content {
-	@extend .row;
-	padding-top: 20px;
-	//border-top: 1px solid $grey_lighter;
-
 	ul {
 		list-style: none;
 	}
-
+	input {
+		height: 13px;
+	}
 	li {
-		display: block;
-		padding: 3px;
-		padding-left: 10px !important;
-		padding-right: 10px !important;
-		border-bottom: 1px solid $grey_lighter;
-
-		span.itemName {
-			padding-left: 5px;
-		}
-
-		span.lastModified {
-			float: right;
-		}
-
-		i {
-			font-size: 13px !important;
-			color: $grey-lighter !important;
-		}
-
+		//background-color: $grey-button;
+		padding: 10px 0px 0px 10px;
+		border-bottom: 1px solid $grey-border;
 	}
-	li:last-child {
-		border-bottom: none;
-	}
-
 	li:hover {
-		background-color: $green;
 		cursor: pointer;
-		color: #fff;
-		border-bottom: 1px solid $green;
-		i {
-			color: #fff !important;
-		}
+		color: $green;
 	}
-}
-
-.dashboard-icon {
-	color: $grey-lighter !important;
-	font-size: 13px;
-}
-
-.align-right {
-	text-align: right;
+	.itemName {
+		padding-left: 10px;
+	}
+	.lastModified {
+		float: right;
+	}
 }
