@@ -547,7 +547,7 @@ select {
 
 /* Grid HTML Classes */
 /* line 116, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-.row, .dashboard-table-content {
+.row {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -557,25 +557,24 @@ select {
   *zoom: 1;
 }
 /* line 121, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_global.scss */
-.row:before, .dashboard-table-content:before, .row:after, .dashboard-table-content:after {
+.row:before, .row:after {
   content: " ";
   display: table;
 }
 /* line 122, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_global.scss */
-.row:after, .dashboard-table-content:after {
+.row:after {
   clear: both;
 }
 /* line 121, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-.row.collapse .column, .collapse.dashboard-table-content .column,
-.row.collapse .columns,
-.collapse.dashboard-table-content .columns {
+.row.collapse .column,
+.row.collapse .columns {
   position: relative;
   padding-left: 0;
   padding-right: 0;
   float: left;
 }
 /* line 124, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-.row .row, .dashboard-table-content .row, .row .dashboard-table-content, .dashboard-table-content .dashboard-table-content {
+.row .row {
   width: auto;
   margin-left: -0.9375em;
   margin-right: -0.9375em;
@@ -585,28 +584,28 @@ select {
   *zoom: 1;
 }
 /* line 121, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_global.scss */
-.row .row:before, .dashboard-table-content .row:before, .row .dashboard-table-content:before, .dashboard-table-content .dashboard-table-content:before, .row .row:after, .dashboard-table-content .row:after, .row .dashboard-table-content:after, .dashboard-table-content .dashboard-table-content:after {
+.row .row:before, .row .row:after {
   content: " ";
   display: table;
 }
 /* line 122, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_global.scss */
-.row .row:after, .dashboard-table-content .row:after, .row .dashboard-table-content:after, .dashboard-table-content .dashboard-table-content:after {
+.row .row:after {
   clear: both;
 }
 /* line 125, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-.row .row.collapse, .dashboard-table-content .row.collapse, .row .collapse.dashboard-table-content, .dashboard-table-content .collapse.dashboard-table-content {
+.row .row.collapse {
   width: auto;
   margin: 0;
   max-width: none;
   *zoom: 1;
 }
 /* line 121, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_global.scss */
-.row .row.collapse:before, .dashboard-table-content .row.collapse:before, .row .collapse.dashboard-table-content:before, .dashboard-table-content .collapse.dashboard-table-content:before, .row .row.collapse:after, .dashboard-table-content .row.collapse:after, .row .collapse.dashboard-table-content:after, .dashboard-table-content .collapse.dashboard-table-content:after {
+.row .row.collapse:before, .row .row.collapse:after {
   content: " ";
   display: table;
 }
 /* line 122, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_global.scss */
-.row .row.collapse:after, .dashboard-table-content .row.collapse:after, .row .collapse.dashboard-table-content:after, .dashboard-table-content .collapse.dashboard-table-content:after {
+.row .row.collapse:after {
   clear: both;
 }
 
@@ -862,73 +861,73 @@ select {
   }
 
   /* line 160, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-0, .dashboard-table-content .large-offset-0 {
+  .row .large-offset-0 {
     position: relative;
     margin-left: 0%;
   }
 
   /* line 160, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-1, .dashboard-table-content .large-offset-1 {
+  .row .large-offset-1 {
     position: relative;
     margin-left: 8.33333%;
   }
 
   /* line 160, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-2, .dashboard-table-content .large-offset-2 {
+  .row .large-offset-2 {
     position: relative;
     margin-left: 16.66667%;
   }
 
   /* line 160, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-3, .dashboard-table-content .large-offset-3 {
+  .row .large-offset-3 {
     position: relative;
     margin-left: 25%;
   }
 
   /* line 160, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-4, .dashboard-table-content .large-offset-4 {
+  .row .large-offset-4 {
     position: relative;
     margin-left: 33.33333%;
   }
 
   /* line 160, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-5, .dashboard-table-content .large-offset-5 {
+  .row .large-offset-5 {
     position: relative;
     margin-left: 41.66667%;
   }
 
   /* line 160, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-6, .dashboard-table-content .large-offset-6 {
+  .row .large-offset-6 {
     position: relative;
     margin-left: 50%;
   }
 
   /* line 160, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-7, .dashboard-table-content .large-offset-7 {
+  .row .large-offset-7 {
     position: relative;
     margin-left: 58.33333%;
   }
 
   /* line 160, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-8, .dashboard-table-content .large-offset-8 {
+  .row .large-offset-8 {
     position: relative;
     margin-left: 66.66667%;
   }
 
   /* line 160, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-9, .dashboard-table-content .large-offset-9 {
+  .row .large-offset-9 {
     position: relative;
     margin-left: 75%;
   }
 
   /* line 160, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-10, .dashboard-table-content .large-offset-10 {
+  .row .large-offset-10 {
     position: relative;
     margin-left: 83.33333%;
   }
 
   /* line 160, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-11, .dashboard-table-content .large-offset-11 {
+  .row .large-offset-11 {
     position: relative;
     margin-left: 91.66667%;
   }
@@ -2670,37 +2669,28 @@ form {
 
 /* Using forms within rows, we need to set some defaults */
 /* line 67, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_forms.scss */
-form .row .row, form .dashboard-table-content .row, form .row .dashboard-table-content, form .dashboard-table-content .dashboard-table-content {
+form .row .row {
   margin: 0 -0.5em;
 }
 /* line 70, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_forms.scss */
-form .row .row .column, form .dashboard-table-content .row .column, form .row .dashboard-table-content .column, form .dashboard-table-content .dashboard-table-content .column,
-form .row .row .columns,
-form .dashboard-table-content .row .columns,
-form .row .dashboard-table-content .columns,
-form .dashboard-table-content .dashboard-table-content .columns {
+form .row .row .column,
+form .row .row .columns {
   padding: 0 0.5em;
 }
 /* line 73, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_forms.scss */
-form .row .row.collapse, form .dashboard-table-content .row.collapse, form .row .collapse.dashboard-table-content, form .dashboard-table-content .collapse.dashboard-table-content {
+form .row .row.collapse {
   margin: 0;
 }
 /* line 76, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_forms.scss */
-form .row .row.collapse .column, form .dashboard-table-content .row.collapse .column, form .row .collapse.dashboard-table-content .column, form .dashboard-table-content .collapse.dashboard-table-content .column,
-form .row .row.collapse .columns,
-form .dashboard-table-content .row.collapse .columns,
-form .row .collapse.dashboard-table-content .columns,
-form .dashboard-table-content .collapse.dashboard-table-content .columns {
+form .row .row.collapse .column,
+form .row .row.collapse .columns {
   padding: 0;
 }
 /* line 83, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_forms.scss */
-form .row input.column, form .dashboard-table-content input.column,
+form .row input.column,
 form .row input.columns,
-form .dashboard-table-content input.columns,
 form .row textarea.column,
-form .dashboard-table-content textarea.column,
-form .row textarea.columns,
-form .dashboard-table-content textarea.columns {
+form .row textarea.columns {
   padding-left: 0.5em;
 }
 
@@ -4641,7 +4631,7 @@ label.error {
   list-style: none;
 }
 /* line 97, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_top-bar.scss */
-.top-bar .row, .top-bar .dashboard-table-content {
+.top-bar .row {
   max-width: none;
 }
 /* line 100, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_top-bar.scss */
@@ -7185,7 +7175,7 @@ a.th {
   font-size: 16;
   z-index: 99;
   margin-top: 2px;
-  max-width: 200px;
+  max-width: 75px;
 }
 /* line 50, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_dropdown.scss */
 .f-dropdown > *:first-child {
@@ -7201,11 +7191,11 @@ a.th {
   display: block;
   width: 0;
   height: 0;
-  border: inset 6px;
+  border: inset 0px;
   border-color: transparent transparent white transparent;
   border-bottom-style: solid;
   position: absolute;
-  top: -12px;
+  top: 0px;
   left: 10px;
   z-index: 99;
 }
@@ -7215,11 +7205,11 @@ a.th {
   display: block;
   width: 0;
   height: 0;
-  border: inset 7px;
+  border: inset 1px;
   border-color: transparent transparent #cccccc transparent;
   border-bottom-style: solid;
   position: absolute;
-  top: -14px;
+  top: -2px;
   left: 9px;
   z-index: 98;
 }
@@ -7264,7 +7254,7 @@ a.th {
   border: solid 1px #cccccc;
   font-size: 16;
   z-index: 99;
-  max-width: 200px;
+  max-width: 75px;
 }
 /* line 50, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_dropdown.scss */
 .f-dropdown.content > *:first-child, .f-dropdown.rubric > *:first-child {
@@ -7340,18 +7330,18 @@ html, body {
 	creating (and recreating) it :)
 */
 /* line 102, ../sass/app.scss */
-.green-button, .continue-button, .add-row, .dashboard-green, .call-to-action a, #login-submit, #register-button, .dashboard-button-green, .clear-button, #account-button, #login-button, .negative-button, .icon-remove, .icon-remove-multiple, .icon-chevron-left, #logout-button, .dashboard-button-grey {
+.green-button, .continue-button, .add-row, .dashboard-green, .call-to-action a, #login-submit, #register-button, .clear-button, #account-button, #login-button, .negative-button, .icon-remove, .icon-remove-multiple, .icon-chevron-left, #logout-button, .grey-button, .dashboard-grey {
   transition: background-color 0.5s, border 0.5s, color 0.5s;
   text-transform: uppercase;
 }
 
 /* line 107, ../sass/app.scss */
-.green-button, .continue-button, .add-row, .dashboard-green, .call-to-action a, #login-submit, #register-button, .dashboard-button-green {
+.green-button, .continue-button, .add-row, .dashboard-green, .call-to-action a, #login-submit, #register-button {
   background-color: #27ae60;
   color: #fff !important;
 }
 /* line 111, ../sass/app.scss */
-.green-button:hover, .continue-button:hover, .add-row:hover, .dashboard-green:hover, .call-to-action a:hover, #login-submit:hover, #register-button:hover, .dashboard-button-green:hover, .green-button:focus, .continue-button:focus, .add-row:focus, .dashboard-green:focus, .call-to-action a:focus, #login-submit:focus, #register-button:focus, .dashboard-button-green:focus {
+.green-button:hover, .continue-button:hover, .add-row:hover, .dashboard-green:hover, .call-to-action a:hover, #login-submit:hover, #register-button:hover, .green-button:focus, .continue-button:focus, .add-row:focus, .dashboard-green:focus, .call-to-action a:focus, #login-submit:focus, #register-button:focus {
   background-color: #36d278;
 }
 
@@ -7367,45 +7357,56 @@ html, body {
 }
 
 /* line 126, ../sass/app.scss */
-.negative-button, .icon-remove, .icon-remove-multiple, .icon-chevron-left, #logout-button, .dashboard-button-grey {
+.negative-button, .icon-remove, .icon-remove-multiple, .icon-chevron-left, #logout-button {
   background-color: #dadada;
 }
 /* line 129, ../sass/app.scss */
-.negative-button:hover, .icon-remove:hover, .icon-remove-multiple:hover, .icon-chevron-left:hover, #logout-button:hover, .dashboard-button-grey:hover, .negative-button:focus, .icon-remove:focus, .icon-remove-multiple:focus, .icon-chevron-left:focus, #logout-button:focus, .dashboard-button-grey:focus {
+.negative-button:hover, .icon-remove:hover, .icon-remove-multiple:hover, .icon-chevron-left:hover, #logout-button:hover, .negative-button:focus, .icon-remove:focus, .icon-remove-multiple:focus, .icon-chevron-left:focus, #logout-button:focus {
   background-color: #ef3636;
   color: #fff;
 }
 
 /* line 136, ../sass/app.scss */
+.grey-button, .dashboard-grey {
+  background-color: #dadada;
+  color: #646464;
+}
+/* line 139, ../sass/app.scss */
+.grey-button:hover, .dashboard-grey:hover, .grey-button:focus, .dashboard-grey:focus {
+  background-color: #e7e7e7;
+  color: #575757;
+}
+
+/* line 145, ../sass/app.scss */
 .icon-remove, .icon-remove-multiple {
   padding: 11px;
   color: #fff;
   display: inline-block;
 }
-/* line 141, ../sass/app.scss */
+/* line 150, ../sass/app.scss */
 .icon-remove span, .icon-remove-multiple span {
   font-family: "PT Sans", Arial, sans-serif !important;
   margin-left: 3px;
 }
 
-/* line 147, ../sass/app.scss */
+/* line 156, ../sass/app.scss */
 .icon-remove-multiple {
   position: relative;
   top: 10px;
 }
-/* line 151, ../sass/app.scss */
+/* line 160, ../sass/app.scss */
 .icon-remove-multiple:before {
   content: "\f00d";
 }
 
-/* line 156, ../sass/app.scss */
+/* line 165, ../sass/app.scss */
 .continue-button {
   float: right;
   padding: 15px 20px 15px 20px;
   text-transform: uppercase;
 }
 
-/* line 163, ../sass/app.scss */
+/* line 172, ../sass/app.scss */
 .icon-chevron-left {
   float: right;
   padding: 15px;
@@ -7413,14 +7414,24 @@ html, body {
   margin-right: 10px;
 }
 
-/* line 171, ../sass/app.scss */
-.add-row, .dashboard-green {
+/* line 180, ../sass/app.scss */
+.add-row, .dashboard-green, .dashboard-grey {
   padding: 8px 12px 8px 10px;
   margin-bottom: 15px;
   display: inline-block;
 }
 
-/* line 178, ../sass/app.scss */
+/* line 190, ../sass/app.scss */
+.dashboard-grey {
+  color: #646464;
+}
+
+/* line 195, ../sass/app.scss */
+.dashboard-green, .dashboard-grey {
+  font-size: 13px;
+}
+
+/* line 199, ../sass/app.scss */
 .a-error {
   color: #ef3636;
   margin-bottom: 40px;
@@ -7429,70 +7440,70 @@ html, body {
   padding: 10px;
 }
 
-/* line 186, ../sass/app.scss */
+/* line 207, ../sass/app.scss */
 .errorlist {
   margin-top: -15px;
   border-top: 2px solid #ef3636;
   padding: 5px 5px 5px 0px;
 }
-/* line 190, ../sass/app.scss */
+/* line 211, ../sass/app.scss */
 .errorlist li {
   list-style: none;
   color: #ef3636;
 }
 
-/* line 197, ../sass/app.scss */
+/* line 218, ../sass/app.scss */
 .no-visibility {
   visibility: hidden;
 }
 
-/* line 202, ../sass/app.scss */
+/* line 223, ../sass/app.scss */
 .index-main {
   padding-top: 75px;
 }
-/* line 204, ../sass/app.scss */
+/* line 225, ../sass/app.scss */
 .index-main h4, .index-main div {
   text-align: center;
 }
-/* line 207, ../sass/app.scss */
+/* line 228, ../sass/app.scss */
 .index-main div:last-child {
   margin-bottom: 30px;
 }
 
-/* line 211, ../sass/app.scss */
+/* line 232, ../sass/app.scss */
 .index-features {
   padding-top: 30px;
   text-align: center;
 }
-/* line 214, ../sass/app.scss */
+/* line 235, ../sass/app.scss */
 .index-features div {
   padding-bottom: 20px;
 }
 
-/* line 220, ../sass/app.scss */
+/* line 241, ../sass/app.scss */
 .call-to-action a {
   padding: 10px 30px 10px 30px;
   text-transform: uppercase;
   font-size: 20px;
   margin-bottom: 10px;
 }
-/* line 227, ../sass/app.scss */
+/* line 248, ../sass/app.scss */
 .call-to-action span {
   color: #646464;
   margin-top: 20px;
   display: block;
 }
 
-/* line 237, ../sass/app.scss */
+/* line 258, ../sass/app.scss */
 .navigation {
   margin-top: 30px;
 }
-/* line 239, ../sass/app.scss */
+/* line 260, ../sass/app.scss */
 .navigation ul {
   float: right;
   list-style: none;
 }
-/* line 243, ../sass/app.scss */
+/* line 264, ../sass/app.scss */
 .navigation li {
   float: left;
   font-size: 1em;
@@ -7500,12 +7511,16 @@ html, body {
   margin-right: 15px;
   position: relative;
 }
-/* line 251, ../sass/app.scss */
+/* line 271, ../sass/app.scss */
+.navigation li:last-child {
+  margin-right: 0px;
+}
+/* line 275, ../sass/app.scss */
 .navigation a {
   color: #4a4a4a;
 }
 
-/* line 256, ../sass/app.scss */
+/* line 280, ../sass/app.scss */
 .login-pane, .account-pane {
   display: none;
   width: 270px;
@@ -7518,12 +7533,12 @@ html, body {
   border: 1px solid #e3e3e3;
   text-transform: none;
 }
-/* line 267, ../sass/app.scss */
+/* line 291, ../sass/app.scss */
 .login-pane a, .account-pane a {
   color: #27ae60;
 }
 
-/* line 272, ../sass/app.scss */
+/* line 296, ../sass/app.scss */
 .login-pane:before, .account-pane:before {
   content: '';
   position: absolute;
@@ -7534,49 +7549,49 @@ html, body {
   right: 0px;
 }
 
-/* line 282, ../sass/app.scss */
+/* line 306, ../sass/app.scss */
 .account-pane {
   font-size: 13px;
 }
-/* line 284, ../sass/app.scss */
+/* line 308, ../sass/app.scss */
 .account-pane strong {
   font-size: 14px;
   display: block;
 }
-/* line 288, ../sass/app.scss */
+/* line 312, ../sass/app.scss */
 .account-pane ul {
   margin-left: 15px;
   float: none;
   list-style: circle;
   margin-bottom: 20px;
 }
-/* line 294, ../sass/app.scss */
+/* line 318, ../sass/app.scss */
 .account-pane li {
   text-transform: none;
   float: none;
 }
-/* line 298, ../sass/app.scss */
+/* line 322, ../sass/app.scss */
 .account-pane a {
   color: #27ae60;
 }
-/* line 302, ../sass/app.scss */
+/* line 326, ../sass/app.scss */
 .account-pane:before {
   width: 133px !important;
 }
 
-/* line 307, ../sass/app.scss */
+/* line 331, ../sass/app.scss */
 #account-button {
   padding: 8px 20px 8px 20px;
 }
 
 /*	Login button is the 'LOGIN' button found in the navigation, while
 	Login Submit is the button found in the login form itself */
-/* line 315, ../sass/app.scss */
+/* line 339, ../sass/app.scss */
 #login-button {
   padding: 8px 30px 8px 30px;
 }
 
-/* line 320, ../sass/app.scss */
+/* line 344, ../sass/app.scss */
 #login-submit, #register-button {
   padding: 8px 30px 8px 30px;
   display: block;
@@ -7584,64 +7599,64 @@ html, body {
   margin-bottom: 10px;
 }
 
-/* line 328, ../sass/app.scss */
+/* line 352, ../sass/app.scss */
 #logout-button {
   padding: 8px 30px 8px 30px;
   color: #646464;
   margin-top: 20px;
 }
 
-/* line 338, ../sass/app.scss */
+/* line 362, ../sass/app.scss */
 .content-header {
   border-bottom: 1px solid #e3e3e3;
   margin-top: 40px;
   margin-bottom: 30px;
 }
-/* line 341, ../sass/app.scss */
-.content-header span {
+/* line 365, ../sass/app.scss */
+.content-header .modified {
   float: right;
   color: #27ae60;
   font-size: 14px;
   margin-top: 25px;
 }
 
-/* line 350, ../sass/app.scss */
+/* line 374, ../sass/app.scss */
 .tab-wrapper {
   margin-top: 40px;
 }
 
-/* line 354, ../sass/app.scss */
+/* line 378, ../sass/app.scss */
 .content, .rubric {
   /*.row:first-child, h4 {
   	margin-top: 40px;
   }*/
 }
-/* line 359, ../sass/app.scss */
+/* line 383, ../sass/app.scss */
 .content form.custom .custom.dropdown.open ul, .rubric form.custom .custom.dropdown.open ul {
   border: 1px solid #e3e3e3;
 }
-/* line 362, ../sass/app.scss */
+/* line 386, ../sass/app.scss */
 .content input, .rubric input {
   height: 38px;
 }
-/* line 366, ../sass/app.scss */
+/* line 390, ../sass/app.scss */
 .content textarea, .rubric textarea {
   min-height: 80px !important;
   width: 100%;
 }
-/* line 371, ../sass/app.scss */
+/* line 395, ../sass/app.scss */
 .content .checkboxes, .rubric .checkboxes {
   margin-top: 30px;
 }
-/* line 373, ../sass/app.scss */
+/* line 397, ../sass/app.scss */
 .content .checkboxes input, .rubric .checkboxes input {
   height: 30px;
 }
-/* line 376, ../sass/app.scss */
+/* line 400, ../sass/app.scss */
 .content .checkboxes p, .rubric .checkboxes p {
   margin-left: -30px;
 }
-/* line 381, ../sass/app.scss */
+/* line 405, ../sass/app.scss */
 .content .highlight, .rubric .highlight {
   display: inline-block;
   background-color: #dadada;
@@ -7649,112 +7664,71 @@ html, body {
   padding: 2px 5px 2px 5px;
   font-size: 12px;
 }
-/* line 389, ../sass/app.scss */
+/* line 413, ../sass/app.scss */
 .content .foreach-header, .rubric .foreach-header {
   margin-bottom: -40px;
 }
 
-/* line 396, ../sass/app.scss */
+/* line 420, ../sass/app.scss */
 .rubric textarea {
   height: 200px;
   max-width: 100%;
 }
 
-/* line 403, ../sass/app.scss */
+/* line 427, ../sass/app.scss */
 .vertical-tabs .title {
   border-right: 2px solid #e3e3e3 !important;
   text-transform: uppercase;
 }
-/* line 409, ../sass/app.scss */
+/* line 433, ../sass/app.scss */
 .vertical-tabs .active .title {
   border-right: 2px solid #27ae60 !important;
 }
 
-/* line 415, ../sass/app.scss */
+/* line 439, ../sass/app.scss */
 .learning-outcomes {
   margin-bottom: 25px;
 }
-/* line 417, ../sass/app.scss */
-.learning-outcomes .row:first-child, .learning-outcomes .dashboard-table-content:first-child {
+/* line 441, ../sass/app.scss */
+.learning-outcomes .row:first-child {
   margin-top: 0px !important;
   margin-bottom: 10px;
 }
-/* line 421, ../sass/app.scss */
-.learning-outcomes .row, .learning-outcomes .dashboard-table-content {
+/* line 445, ../sass/app.scss */
+.learning-outcomes .row {
   margin-top: 20px;
 }
-/* line 424, ../sass/app.scss */
+/* line 448, ../sass/app.scss */
 .learning-outcomes .lo-block {
   background-color: #dadada;
   color: #fff;
   padding: 11px;
 }
 
-/* OLD SCSS FILE, JUST NOT TO ENTIRELY FUCK UP 
-THE SITE WHILE IM REDOING THE SCSS */
-/* line 443, ../sass/app.scss */
-.dashboard-button-grey {
-  font-size: 11px !important;
-}
-
-/* line 451, ../sass/app.scss */
-.dashboard-button-green {
-  font-size: 11px !important;
-  margin-right: 3px !important;
-}
-
-/* line 459, ../sass/app.scss */
-.dashboard-table-content {
-  padding-top: 20px;
-}
-/* line 464, ../sass/app.scss */
+/* Dashboard declarations */
+/* line 457, ../sass/app.scss */
 .dashboard-table-content ul {
   list-style: none;
 }
-/* line 468, ../sass/app.scss */
+/* line 460, ../sass/app.scss */
+.dashboard-table-content input {
+  height: 13px;
+}
+/* line 463, ../sass/app.scss */
 .dashboard-table-content li {
-  display: block;
-  padding: 3px;
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-  border-bottom: 1px solid #646464;
+  padding: 10px 0px 0px 10px;
+  border-bottom: 1px solid #e3e3e3;
+}
+/* line 468, ../sass/app.scss */
+.dashboard-table-content li:hover {
+  cursor: pointer;
+  color: #27ae60;
+}
+/* line 472, ../sass/app.scss */
+.dashboard-table-content .itemName {
+  padding-left: 10px;
 }
 /* line 475, ../sass/app.scss */
-.dashboard-table-content li span.itemName {
-  padding-left: 5px;
-}
-/* line 479, ../sass/app.scss */
-.dashboard-table-content li span.lastModified {
+.dashboard-table-content .lastModified {
   float: right;
-}
-/* line 483, ../sass/app.scss */
-.dashboard-table-content li i {
-  font-size: 13px !important;
-  color: #646464 !important;
-}
-/* line 489, ../sass/app.scss */
-.dashboard-table-content li:last-child {
-  border-bottom: none;
-}
-/* line 493, ../sass/app.scss */
-.dashboard-table-content li:hover {
-  background-color: #27ae60;
-  cursor: pointer;
-  color: #fff;
-  border-bottom: 1px solid #27ae60;
-}
-/* line 498, ../sass/app.scss */
-.dashboard-table-content li:hover i {
-  color: #fff !important;
-}
-
-/* line 504, ../sass/app.scss */
-.dashboard-icon {
-  color: #646464 !important;
-  font-size: 13px;
-}
-
-/* line 509, ../sass/app.scss */
-.align-right {
-  text-align: right;
 }
