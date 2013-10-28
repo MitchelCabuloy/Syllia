@@ -1,343 +1,344 @@
-(function() {
-    var viewModel,
-        SyllabusModel,
-        ElgaModel,
-        LearningPlanModel,
-        SyllabusModule = {
-            init: function() {
-                this.bindUIActions();
-                this.defineModels();
+var SyllabusModule = (function($, ko) {
+    var MODULE = {};
 
-                viewModel = new SyllabusModel();
+    MODULE.init = function() {
+        // MODULE.defineModels();
 
-                ko.applyBindings(viewModel);
+        var viewModel = new MODELS.SyllabusModel();
 
-                if ("jsonString" in window) {
-                    var jsonData = $.parseJSON(jsonString);
-                    this.loadData(jsonData);
-                } else {
-                    // Uncomment for test data
-                    // this.loadData($.parseJSON('{"college":"College of Computer Studies","department":"Computer Technology","courseCode":"LBYFORE","courseName":"LBYFORE","courseDescription":"LBYFORE is a course that is the hands-on laboratory component of FORENSC.","schedules":[{"endTime":"1740","days":"S","startTime":"1440"},{"endTime":"1600","days":"TH","startTime":"1300"}],"instructors":[{"fullName":"Alexis Pantola"},{"fullName":"Gregory Cu"}],"elgas":[{"elgaName":"Effective Communicator","learningOutcomes":[{"description":"LO 1: Be able to discuss different digital blah."}]},{"elgaName":"Critical/creative thinker","learningOutcomes":[{"description":"LO 2: Be able to gather artifact from different blah"},{"description":"LO 3: Be able to gather artifact from different operating systems"}]}],"finalCourseOutputDescription":"Final course output description here","requiredOutputs":[{"los":["LO 1: Be able to discuss different digital blah."],"description":"Forensic Platform Preparation Report","weekDue":"4"},{"los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"],"description":"Windows System and Artifacts Report","weekDue":"5"}],"otherOutputs":[{"requirementName":"Laboratory Exam"},{"requirementName":"Group Project"}],"gradingSystems":[{"percentage":"60","itemName":"Laboratory Report Average"},{"percentage":"20","itemName":"Group Project"},{"percentage":"20","itemName":"Laboratory Exam"}],"totalGradingSystem":100,"learningPlans":[{"topic":"Introduction / Orientation","weekNumber":"1","learningActivities":[{"description":"Course introduction"},{"description":"Classroom policies discussion"}],"los":[]},{"topic":"1.0 Forensic Platform Preparation","weekNumber":"3","learningActivities":[{"description":"Hands-on"}],"los":["LO 1: Be able to discuss different digital blah."]},{"topic":"2.0 Windows Systems and Artifacts","weekNumber":"4","learningActivities":[{"description":"Hands-on"}],"los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"]}],"references":[{"referenceText":"Reference, First"},{"referenceText":"Reference, Second"},{"referenceText":"Reference, Third"},{"referenceText":"Test reference. Saved from shell."}],"classPolicies":[{"policy":"No eating"},{"policy":"No cheating"}]}'));
+        ko.applyBindings(viewModel);
+        MODULE.bindUIActions(viewModel);
+
+        if ("jsonString" in window) {
+            var jsonData = $.parseJSON(jsonString);
+            MODULE.loadData(viewModel, jsonData);
+        } else {
+            // Uncomment for test data
+            // this.loadData($.parseJSON('{"college":"College of Computer Studies","department":"Computer Technology","courseCode":"LBYFORE","courseName":"LBYFORE","courseDescription":"LBYFORE is a course that is the hands-on laboratory component of FORENSC.","schedules":[{"endTime":"1740","days":"S","startTime":"1440"},{"endTime":"1600","days":"TH","startTime":"1300"}],"instructors":[{"fullName":"Alexis Pantola"},{"fullName":"Gregory Cu"}],"elgas":[{"elgaName":"Effective Communicator","learningOutcomes":[{"description":"LO 1: Be able to discuss different digital blah."}]},{"elgaName":"Critical/creative thinker","learningOutcomes":[{"description":"LO 2: Be able to gather artifact from different blah"},{"description":"LO 3: Be able to gather artifact from different operating systems"}]}],"finalCourseOutputDescription":"Final course output description here","requiredOutputs":[{"los":["LO 1: Be able to discuss different digital blah."],"description":"Forensic Platform Preparation Report","weekDue":"4"},{"los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"],"description":"Windows System and Artifacts Report","weekDue":"5"}],"otherOutputs":[{"requirementName":"Laboratory Exam"},{"requirementName":"Group Project"}],"gradingSystems":[{"percentage":"60","itemName":"Laboratory Report Average"},{"percentage":"20","itemName":"Group Project"},{"percentage":"20","itemName":"Laboratory Exam"}],"totalGradingSystem":100,"learningPlans":[{"topic":"Introduction / Orientation","weekNumber":"1","learningActivities":[{"description":"Course introduction"},{"description":"Classroom policies discussion"}],"los":[]},{"topic":"1.0 Forensic Platform Preparation","weekNumber":"3","learningActivities":[{"description":"Hands-on"}],"los":["LO 1: Be able to discuss different digital blah."]},{"topic":"2.0 Windows Systems and Artifacts","weekNumber":"4","learningActivities":[{"description":"Hands-on"}],"los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"]}],"references":[{"referenceText":"Reference, First"},{"referenceText":"Reference, Second"},{"referenceText":"Reference, Third"},{"referenceText":"Test reference. Saved from shell."}],"classPolicies":[{"policy":"No eating"},{"policy":"No cheating"}]}'));
+        }
+
+        Foundation.libs.forms.refresh_custom_select($('#collegeSelect'), true);
+        Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
+        Foundation.libs.forms.refresh_custom_select($('#rubricSelect'), true);
+    };
+
+    MODULE.loadData = function(viewModel, json) {
+        viewModel.pk = parseInt(json.pk);
+        viewModel.syllabusName(json.syllabusName);
+        viewModel.college(json.college);
+        viewModel.department(json.department);
+        viewModel.courseCode(json.courseCode);
+        viewModel.courseName(json.courseName);
+        viewModel.courseDescription(json.courseDescription);
+        viewModel.schedules(json.schedules);
+        viewModel.instructors(json.instructors);
+        viewModel.rubric(json.rubric);
+
+        viewModel.elgas.removeAll();
+        $.each(json.elgas, function(index, data) {
+            elga = new MODELS.ElgaModel();
+
+            // elga.pk = parseInt(data.pk)
+            elga.elgaName(data.elgaName);
+
+            elga.learningOutcomes.removeAll();
+            $.each(data.learningOutcomes, function(index, lo) {
+                elga.learningOutcomes.push({
+                    // pk: parseInt(lo.pk),
+                    description: ko.observable(lo.description)
+                });
+            });
+
+            viewModel.elgas.push(elga);
+        });
+
+        viewModel.finalCourseOutputDescription(json.finalCourseOutputDescription);
+        viewModel.requiredOutputs(json.requiredOutputs);
+        viewModel.otherOutputs(json.otherOutputs);
+        viewModel.gradingSystems(json.gradingSystems);
+
+        viewModel.learningPlans.removeAll();
+        $.each(json.learningPlans, function(index, data) {
+            lp = new MODELS.LearningPlanModel();
+
+            // lp.pk = parseInt(data.pk)
+            lp.topic(data.topic);
+            lp.weekNumber(data.weekNumber);
+            lp.learningActivities(data.learningActivities);
+            lp.los(data.los);
+
+            viewModel.learningPlans.push(lp);
+        });
+
+        viewModel.references(json.references);
+        viewModel.classPolicies(json.classPolicies);
+    };
+
+    MODULE.bindUIActions = function(viewModel) {
+        $('#postBtn').click(function() {
+            // Ignores these fields
+            var syllabus_json = ko.toJSON(viewModel, function(key, value) {
+                switch (key) {
+                    case "collegeList":
+                    case "departmentList":
+                    case "rubricList":
+                        return;
+                    default:
+                        return value;
                 }
+            });
 
-                Foundation.libs.forms.refresh_custom_select($('#collegeSelect'), true);
+            $('#syllabus_json').val(syllabus_json);
+            $('#syllabus_json_form').submit();
+        });
+
+        $('#stringifyBtn').click(function() {
+            // Ignores these fields
+            var syllabus_json = ko.toJSON(viewModel, function(key, value) {
+                switch (key) {
+                    case "collegeList":
+                    case "departmentList":
+                    case "rubricList":
+                        return;
+                    default:
+                        return value;
+                }
+            });
+
+            console.log("KO Data:");
+            console.log(syllabus_json);
+        });
+    };
+
+    var MODELS = (function() {
+        var models = {};
+        models.SyllabusModel = function() {
+            var self = this;
+            self.pk = null;
+            self.syllabusName = ko.observable();
+            self.college = ko.observable();
+            self.department = ko.observable();
+            self.courseCode = ko.observable();
+            self.courseName = ko.observable();
+            self.courseDescription = ko.observable();
+            self.rubric = ko.observable();
+
+            // Dropdown list code
+            self.collegeList = ko.observableArray(window.collegeList);
+
+            self.departmentList = ko.computed(function() {
+                var tempList = [];
+
+                $.each(window.departmentList, function(index, value) {
+                    if (value.college == self.college()) {
+                        tempList.push(value);
+                    }
+                });
+
+                return tempList;
+            });
+
+            self.college.subscribe(function() {
                 Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
-                Foundation.libs.forms.refresh_custom_select($('#rubricSelect'), true);
-            },
+            });
 
-            defineModels: function() {
-                SyllabusModel = function() {
-                    var self = this;
-                    self.pk = null;
-                    self.syllabusName = ko.observable();
-                    self.college = ko.observable();
-                    self.department = ko.observable();
-                    self.courseCode = ko.observable();
-                    self.courseName = ko.observable();
-                    self.courseDescription = ko.observable();
-                    self.rubric = ko.observable();
+            self.rubricList = ko.observableArray(window.rubricList);
 
-                    // Dropdown list code
-                    self.collegeList = ko.observableArray(window.collegeList);
+            var schedule = function() {
+                this.days = "";
+                this.startTime = "";
+                this.endTime = "";
+            };
 
-                    self.departmentList = ko.computed(function() {
-                        var tempList = [];
+            self.schedules = ko.observableArray([new schedule()]);
 
-                        $.each(window.departmentList, function(index, value) {
-                            if (value.college == self.college()) {
-                                tempList.push(value);
-                            }
-                        });
+            self.addSchedule = function() {
+                self.schedules.push(new schedule());
+            };
 
-                        return tempList;
-                    });
-
-                    self.college.subscribe(function() {
-                        Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
-                    });
-
-                    self.rubricList = ko.observableArray(window.rubricList);
-
-                    var schedule = function() {
-                        this.days = "";
-                        this.startTime = "";
-                        this.endTime = "";
-                    };
-
-                    self.schedules = ko.observableArray([new schedule()]);
-
-                    self.addSchedule = function() {
-                        self.schedules.push(new schedule());
-                    };
-
-                    self.removeSchedule = function(schedule) {
-                        self.schedules.remove(schedule);
-                    };
+            self.removeSchedule = function(schedule) {
+                self.schedules.remove(schedule);
+            };
 
 
-                    self.instructors = ko.observableArray([{
-                        fullName: ko.observable()
-                    }]);
+            self.instructors = ko.observableArray([{
+                fullName: ko.observable()
+            }]);
 
-                    self.addInstructor = function() {
-                        self.instructors.push({
-                            fullName: ko.observable()
-                        });
-                    };
+            self.addInstructor = function() {
+                self.instructors.push({
+                    fullName: ko.observable()
+                });
+            };
 
-                    self.removeInstructor = function(instructor) {
-                        self.instructors.remove(instructor);
-                    };
-
-
-                    self.elgas = ko.observableArray([new ElgaModel()]);
-
-                    self.addElga = function() {
-                        self.elgas.push(new ElgaModel());
-                    };
-
-                    self.removeElga = function(elga) {
-                        self.elgas.remove(elga);
-                    };
+            self.removeInstructor = function(instructor) {
+                self.instructors.remove(instructor);
+            };
 
 
-                    self.finalCourseOutputDescription = ko.observable();
-                    self.requiredOutputs = ko.observableArray([{
-                        description: ko.observable(),
-                        weekDue: ko.observable(),
-                        los: ko.observableArray()
-                    }]);
+            self.elgas = ko.observableArray([new MODELS.ElgaModel()]);
 
-                    self.addRequiredOutput = function() {
-                        self.requiredOutputs.push({
-                            description: ko.observable(),
-                            weekDue: ko.observable(),
-                            los: ko.observableArray()
-                        });
-                    };
+            self.addElga = function() {
+                self.elgas.push(new MODELS.ElgaModel());
+            };
 
-                    self.removeRequiredOutput = function(requiredOutput) {
-                        self.requiredOutputs.remove(requiredOutput);
-                    };
+            self.removeElga = function(elga) {
+                self.elgas.remove(elga);
+            };
 
 
-                    self.otherOutputs = ko.observableArray([{
-                        requirementName: ko.observable()
-                    }]);
+            self.finalCourseOutputDescription = ko.observable();
+            self.requiredOutputs = ko.observableArray([{
+                description: ko.observable(),
+                weekDue: ko.observable(),
+                los: ko.observableArray()
+            }]);
 
-                    self.addOtherOutput = function() {
-                        self.otherOutputs.push({
-                            requirementName: ko.observable()
-                        });
-                    };
+            self.addRequiredOutput = function() {
+                self.requiredOutputs.push({
+                    description: ko.observable(),
+                    weekDue: ko.observable(),
+                    los: ko.observableArray()
+                });
+            };
 
-                    self.removeOtherOutput = function(otherOutput) {
-                        self.otherOutputs.remove(otherOutput);
-                    };
-
-
-                    self.gradingSystems = ko.observableArray([{
-                        itemName: ko.observable(),
-                        percentage: ko.observable()
-                    }]);
-
-                    self.addGradingSystem = function() {
-                        self.gradingSystems.push({
-                            itemName: ko.observable(),
-                            percentage: ko.observable()
-                        });
-                    };
-
-                    self.removeGradingSystem = function(gradingSystem) {
-                        self.gradingSystems.remove(gradingSystem);
-                    };
-
-                    self.totalGradingSystem = ko.computed(function() {
-                        var gradingSystems = self.gradingSystems();
-                        var total = 0;
-                        $.each(gradingSystems, function(index, item) {
-                            var temp = parseInt(item.percentage);
-                            if (!isNaN(temp))
-                                total += temp;
-                        });
-
-                        return total;
-                    })
+            self.removeRequiredOutput = function(requiredOutput) {
+                self.requiredOutputs.remove(requiredOutput);
+            };
 
 
-                    self.learningPlans = ko.observableArray([new LearningPlanModel()]);
+            self.otherOutputs = ko.observableArray([{
+                requirementName: ko.observable()
+            }]);
 
-                    self.addLearningPlan = function() {
-                        self.learningPlans.push(new LearningPlanModel());
-                    };
+            self.addOtherOutput = function() {
+                self.otherOutputs.push({
+                    requirementName: ko.observable()
+                });
+            };
 
-                    self.removeLearningPlan = function(learningPlan) {
-                        self.learningPlans.remove(learningPlan);
-                    };
-
-
-                    self.references = ko.observableArray([{
-                        referenceText: ko.observable()
-                    }]);
-
-                    self.addReference = function() {
-                        self.references.push({
-                            referenceText: ko.observable()
-                        });
-                    };
-
-                    self.removeReference = function(reference) {
-                        self.references.remove(reference);
-                    };
+            self.removeOtherOutput = function(otherOutput) {
+                self.otherOutputs.remove(otherOutput);
+            };
 
 
-                    self.classPolicies = ko.observableArray([{
-                        policy: ko.observable()
-                    }]);
+            self.gradingSystems = ko.observableArray([{
+                itemName: ko.observable(),
+                percentage: ko.observable()
+            }]);
 
-                    self.addClassPolicy = function() {
-                        self.classPolicies.push({
-                            policy: ko.observable()
-                        });
-                    };
+            self.addGradingSystem = function() {
+                self.gradingSystems.push({
+                    itemName: ko.observable(),
+                    percentage: ko.observable()
+                });
+            };
 
-                    self.removeClassPolicy = function(policy) {
-                        self.classPolicies.remove(policy);
-                    };
+            self.removeGradingSystem = function(gradingSystem) {
+                self.gradingSystems.remove(gradingSystem);
+            };
 
-                };
-
-                ElgaModel = function() {
-                    var self = this;
-                    self.elgaName = ko.observable();
-                    self.learningOutcomes = ko.observableArray([{
-                        description: ko.observable()
-                    }]);
-
-                    self.addLearningOutcome = function() {
-                        self.learningOutcomes.push({
-                            description: ko.observable()
-                        });
-                    };
-
-                    self.removeLearningOutcome = function(lo) {
-                        self.learningOutcomes.remove(lo);
-                    };
-                };
-
-                LearningPlanModel = function() {
-                    var self = this;
-                    self.topic = ko.observable();
-                    self.weekNumber = ko.observable();
-                    self.learningActivities = ko.observableArray([{
-                        description: ko.observable()
-                    }]);
-                    self.los = ko.observableArray();
-
-                    self.addLearningActivity = function() {
-                        self.learningActivities.push({
-                            description: ko.observable()
-                        });
-                    };
-
-                    self.removeLearningActivity = function(learningActivity) {
-                        self.learningActivities.remove(learningActivity);
-                    };
-
-                };
-            },
-
-            loadData: function(json) {
-                viewModel.pk = parseInt(json.pk);
-                viewModel.syllabusName(json.syllabusName);
-                viewModel.college(json.college);
-                viewModel.department(json.department);
-                viewModel.courseCode(json.courseCode);
-                viewModel.courseName(json.courseName);
-                viewModel.courseDescription(json.courseDescription);
-                viewModel.schedules(json.schedules);
-                viewModel.instructors(json.instructors);
-                viewModel.rubric(json.rubric);
-
-                viewModel.elgas.removeAll();
-                $.each(json.elgas, function(index, data) {
-                    elga = new ElgaModel();
-
-                    // elga.pk = parseInt(data.pk)
-                    elga.elgaName(data.elgaName);
-
-                    elga.learningOutcomes.removeAll();
-                    $.each(data.learningOutcomes, function(index, lo) {
-                        elga.learningOutcomes.push({
-                            // pk: parseInt(lo.pk),
-                            description: ko.observable(lo.description)
-                        });
-                    });
-
-                    viewModel.elgas.push(elga);
+            self.totalGradingSystem = ko.computed(function() {
+                var gradingSystems = self.gradingSystems();
+                var total = 0;
+                $.each(gradingSystems, function(index, item) {
+                    var temp = parseInt(item.percentage);
+                    if (!isNaN(temp))
+                        total += temp;
                 });
 
-                viewModel.finalCourseOutputDescription(json.finalCourseOutputDescription);
-                viewModel.requiredOutputs(json.requiredOutputs);
-                viewModel.otherOutputs(json.otherOutputs);
-                viewModel.gradingSystems(json.gradingSystems);
+                return total;
+            })
 
-                viewModel.learningPlans.removeAll();
-                $.each(json.learningPlans, function(index, data) {
-                    lp = new LearningPlanModel();
 
-                    // lp.pk = parseInt(data.pk)
-                    lp.topic(data.topic);
-                    lp.weekNumber(data.weekNumber);
-                    lp.learningActivities(data.learningActivities);
-                    lp.los(data.los);
+            self.learningPlans = ko.observableArray([new MODELS.LearningPlanModel()]);
 
-                    viewModel.learningPlans.push(lp);
+            self.addLearningPlan = function() {
+                self.learningPlans.push(new MODELS.LearningPlanModel());
+            };
+
+            self.removeLearningPlan = function(learningPlan) {
+                self.learningPlans.remove(learningPlan);
+            };
+
+
+            self.references = ko.observableArray([{
+                referenceText: ko.observable()
+            }]);
+
+            self.addReference = function() {
+                self.references.push({
+                    referenceText: ko.observable()
                 });
+            };
 
-                viewModel.references(json.references);
-                viewModel.classPolicies(json.classPolicies);
-            },
+            self.removeReference = function(reference) {
+                self.references.remove(reference);
+            };
 
-            bindUIActions: function() {
-                $('#postBtn').click(function() {
-                    // Ignores these fields
-                    var syllabus_json = ko.toJSON(viewModel, function(key, value) {
-                        switch (key) {
-                            case "collegeList":
-                            case "departmentList":
-                            case "rubricList":
-                                return;
-                            default:
-                                return value;
-                        }
-                    });
 
-                    $('#syllabus_json').val(syllabus_json);
-                    $('#syllabus_json_form').submit();
+            self.classPolicies = ko.observableArray([{
+                policy: ko.observable()
+            }]);
+
+            self.addClassPolicy = function() {
+                self.classPolicies.push({
+                    policy: ko.observable()
                 });
+            };
 
-                $('#stringifyBtn').click(function() {
-                    // Ignores these fields
-                    var syllabus_json = ko.toJSON(viewModel, function(key, value) {
-                        switch (key) {
-                            case "collegeList":
-                            case "departmentList":
-                            case "rubricList":
-                                return;
-                            default:
-                                return value;
-                        }
-                    });
+            self.removeClassPolicy = function(policy) {
+                self.classPolicies.remove(policy);
+            };
 
-                    console.log("KO Data:");
-                    console.log(syllabus_json);
-                });
-            }
         };
 
-    $(document).ready(function() {
-        SyllabusModule.init();
-    });
+        models.ElgaModel = function() {
+            var self = this;
+            self.elgaName = ko.observable();
+            self.learningOutcomes = ko.observableArray([{
+                description: ko.observable()
+            }]);
 
-})();
+            self.addLearningOutcome = function() {
+                self.learningOutcomes.push({
+                    description: ko.observable()
+                });
+            };
+
+            self.removeLearningOutcome = function(lo) {
+                self.learningOutcomes.remove(lo);
+            };
+        };
+
+        models.LearningPlanModel = function() {
+            var self = this;
+            self.topic = ko.observable();
+            self.weekNumber = ko.observable();
+            self.learningActivities = ko.observableArray([{
+                description: ko.observable()
+            }]);
+            self.los = ko.observableArray();
+
+            self.addLearningActivity = function() {
+                self.learningActivities.push({
+                    description: ko.observable()
+                });
+            };
+
+            self.removeLearningActivity = function(learningActivity) {
+                self.learningActivities.remove(learningActivity);
+            };
+
+        };
+
+        return models;
+    })(); // End models
+
+    return MODULE;
+
+})(Zepto, ko);
+
+$(document).ready(function() {
+    SyllabusModule.init();
+});
