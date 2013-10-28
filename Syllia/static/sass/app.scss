@@ -168,13 +168,12 @@ html, body {
 	margin-right: 10px;
 }
 
-.add-row {
+.add-row, .dashboard-green {
 	@extend .green-button;
 	padding: 8px 12px 8px 10px;
 	margin-bottom: 15px;
 	display: inline-block;
 }
-
 
 .a-error {
 	color: $red;
@@ -270,6 +269,16 @@ html, body {
 	}
 }
 
+.login-pane:before {
+	content: '';
+	position: absolute;
+	width: 104px;
+	height: 1px;
+	background-color: #fff;
+	top: -1px;
+	right: 0px;
+}
+
 .account-pane {
 	font-size: 13px;
 	strong {
@@ -289,23 +298,12 @@ html, body {
 	a {
 		color: $green;
 	}
-}
 
-.login-pane:before {
-	content: '';
-	position: absolute;
-	width: 104px;
-	height: 1px;
-	background-color: #fff;
-	top: -1px;
-	right: 0px;
+	&:before {
+		@extend .login-pane:before;
+		width: 133px !important;
+	}
 }
-
-.account-pane:before {
-	@extend .login-pane:before;
-	width: 133px !important;
-}
-
 #account-button {
 	@extend .clear-button;
 	padding: 8px 20px 8px 20px
