@@ -24,13 +24,31 @@ var RubricModule = (function($, ko) {
 
     MODULE.bindUIActions = function(viewModel) {
         $('#postBtn').click(function() {
-            $('#rubric_json').val(ko.toJSON(viewModel));
+            var rubric_json = ko.toJSON(viewModel, function(key, value) {
+                switch (key) {
+                    case "timeSinceModified":
+                        return;
+                    default:
+                        return value;
+                }
+            });
+
+            $('#rubric_json').val(rubric_json);
             $('#rubric_json_form').submit();
         });
 
         $('#stringifyBtn').click(function() {
+            var rubric_json = ko.toJSON(viewModel, function(key, value) {
+                switch (key) {
+                    case "timeSinceModified":
+                        return;
+                    default:
+                        return value;
+                }
+            });
+
             console.log("KO Data:");
-            console.log(ko.toJSON(viewModel));
+            console.log(rubric_json);
         });
     };
 

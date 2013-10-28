@@ -93,6 +93,7 @@ var SyllabusModule = (function($, ko) {
                     case "collegeList":
                     case "departmentList":
                     case "rubricList":
+                    case "timeSinceModified":
                         return;
                     default:
                         return value;
@@ -110,6 +111,7 @@ var SyllabusModule = (function($, ko) {
                     case "collegeList":
                     case "departmentList":
                     case "rubricList":
+                    case "timeSinceModified":
                         return;
                     default:
                         return value;
