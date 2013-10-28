@@ -76,6 +76,7 @@ html, body {
 .footer {
 	border-top: 1px solid $grey-border;
 	padding-top: 30px;
+	text-align: center;
 	a {
 		font-size: 15px;
 		color: $green;
@@ -389,6 +390,14 @@ html, body {
 
 	.foreach-header {
 		margin-bottom: -40px;
+	}
+}
+
+.rubric {
+	@extend .content;
+	textarea {
+		height: 200px;
+		max-width: 100%;
 	}
 }
 

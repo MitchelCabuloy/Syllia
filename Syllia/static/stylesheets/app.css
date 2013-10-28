@@ -3635,59 +3635,83 @@ label.error {
   white-space: nowrap;
 }
 /* line 111, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-[data-section=''] > section > [data-section-content], [data-section=''] > section > .content, [data-section=''] > .section > [data-section-content], [data-section=''] > .section > .content, [data-section=''] > [data-section-region] > [data-section-content], [data-section=''] > [data-section-region] > .content, [data-section='auto'] > section > [data-section-content], [data-section='auto'] > section > .content, [data-section='auto'] > .section > [data-section-content], [data-section='auto'] > .section > .content, [data-section='auto'] > [data-section-region] > [data-section-content], [data-section='auto'] > [data-section-region] > .content, .section-container.auto > section > [data-section-content], .section-container.auto > section > .content, .section-container.auto > .section > [data-section-content], .section-container.auto > .section > .content, .section-container.auto > [data-section-region] > [data-section-content], .section-container.auto > [data-section-region] > .content,
+[data-section=''] > section > [data-section-content], [data-section=''] > section > .content, [data-section=''] > section > .rubric, [data-section=''] > .section > [data-section-content], [data-section=''] > .section > .content, [data-section=''] > .section > .rubric, [data-section=''] > [data-section-region] > [data-section-content], [data-section=''] > [data-section-region] > .content, [data-section=''] > [data-section-region] > .rubric, [data-section='auto'] > section > [data-section-content], [data-section='auto'] > section > .content, [data-section='auto'] > section > .rubric, [data-section='auto'] > .section > [data-section-content], [data-section='auto'] > .section > .content, [data-section='auto'] > .section > .rubric, [data-section='auto'] > [data-section-region] > [data-section-content], [data-section='auto'] > [data-section-region] > .content, [data-section='auto'] > [data-section-region] > .rubric, .section-container.auto > section > [data-section-content], .section-container.auto > section > .content, .section-container.auto > section > .rubric, .section-container.auto > .section > [data-section-content], .section-container.auto > .section > .content, .section-container.auto > .section > .rubric, .section-container.auto > [data-section-region] > [data-section-content], .section-container.auto > [data-section-region] > .content, .section-container.auto > [data-section-region] > .rubric,
 [data-section='vertical-tabs'] > section > [data-section-content],
 [data-section='vertical-tabs'] > section > .content,
+[data-section='vertical-tabs'] > section > .rubric,
 [data-section='vertical-tabs'] > .section > [data-section-content],
 [data-section='vertical-tabs'] > .section > .content,
+[data-section='vertical-tabs'] > .section > .rubric,
 [data-section='vertical-tabs'] > [data-section-region] > [data-section-content],
-[data-section='vertical-tabs'] > [data-section-region] > .content, .section-container.vertical-tabs > section > [data-section-content], .section-container.vertical-tabs > section > .content, .section-container.vertical-tabs > .section > [data-section-content], .section-container.vertical-tabs > .section > .content, .section-container.vertical-tabs > [data-section-region] > [data-section-content], .section-container.vertical-tabs > [data-section-region] > .content,
+[data-section='vertical-tabs'] > [data-section-region] > .content,
+[data-section='vertical-tabs'] > [data-section-region] > .rubric, .section-container.vertical-tabs > section > [data-section-content], .section-container.vertical-tabs > section > .content, .section-container.vertical-tabs > section > .rubric, .section-container.vertical-tabs > .section > [data-section-content], .section-container.vertical-tabs > .section > .content, .section-container.vertical-tabs > .section > .rubric, .section-container.vertical-tabs > [data-section-region] > [data-section-content], .section-container.vertical-tabs > [data-section-region] > .content, .section-container.vertical-tabs > [data-section-region] > .rubric,
 [data-section='vertical-nav'] > section > [data-section-content],
 [data-section='vertical-nav'] > section > .content,
+[data-section='vertical-nav'] > section > .rubric,
 [data-section='vertical-nav'] > .section > [data-section-content],
 [data-section='vertical-nav'] > .section > .content,
+[data-section='vertical-nav'] > .section > .rubric,
 [data-section='vertical-nav'] > [data-section-region] > [data-section-content],
-[data-section='vertical-nav'] > [data-section-region] > .content, .section-container.vertical-nav > section > [data-section-content], .section-container.vertical-nav > section > .content, .section-container.vertical-nav > .section > [data-section-content], .section-container.vertical-nav > .section > .content, .section-container.vertical-nav > [data-section-region] > [data-section-content], .section-container.vertical-nav > [data-section-region] > .content,
+[data-section='vertical-nav'] > [data-section-region] > .content,
+[data-section='vertical-nav'] > [data-section-region] > .rubric, .section-container.vertical-nav > section > [data-section-content], .section-container.vertical-nav > section > .content, .section-container.vertical-nav > section > .rubric, .section-container.vertical-nav > .section > [data-section-content], .section-container.vertical-nav > .section > .content, .section-container.vertical-nav > .section > .rubric, .section-container.vertical-nav > [data-section-region] > [data-section-content], .section-container.vertical-nav > [data-section-region] > .content, .section-container.vertical-nav > [data-section-region] > .rubric,
 [data-section='horizontal-nav'] > section > [data-section-content],
 [data-section='horizontal-nav'] > section > .content,
+[data-section='horizontal-nav'] > section > .rubric,
 [data-section='horizontal-nav'] > .section > [data-section-content],
 [data-section='horizontal-nav'] > .section > .content,
+[data-section='horizontal-nav'] > .section > .rubric,
 [data-section='horizontal-nav'] > [data-section-region] > [data-section-content],
-[data-section='horizontal-nav'] > [data-section-region] > .content, .section-container.horizontal-nav > section > [data-section-content], .section-container.horizontal-nav > section > .content, .section-container.horizontal-nav > .section > [data-section-content], .section-container.horizontal-nav > .section > .content, .section-container.horizontal-nav > [data-section-region] > [data-section-content], .section-container.horizontal-nav > [data-section-region] > .content,
+[data-section='horizontal-nav'] > [data-section-region] > .content,
+[data-section='horizontal-nav'] > [data-section-region] > .rubric, .section-container.horizontal-nav > section > [data-section-content], .section-container.horizontal-nav > section > .content, .section-container.horizontal-nav > section > .rubric, .section-container.horizontal-nav > .section > [data-section-content], .section-container.horizontal-nav > .section > .content, .section-container.horizontal-nav > .section > .rubric, .section-container.horizontal-nav > [data-section-region] > [data-section-content], .section-container.horizontal-nav > [data-section-region] > .content, .section-container.horizontal-nav > [data-section-region] > .rubric,
 [data-section='accordion'] > section > [data-section-content],
 [data-section='accordion'] > section > .content,
+[data-section='accordion'] > section > .rubric,
 [data-section='accordion'] > .section > [data-section-content],
 [data-section='accordion'] > .section > .content,
+[data-section='accordion'] > .section > .rubric,
 [data-section='accordion'] > [data-section-region] > [data-section-content],
-[data-section='accordion'] > [data-section-region] > .content, .section-container.accordion > section > [data-section-content], .section-container.accordion > section > .content, .section-container.accordion > .section > [data-section-content], .section-container.accordion > .section > .content, .section-container.accordion > [data-section-region] > [data-section-content], .section-container.accordion > [data-section-region] > .content {
+[data-section='accordion'] > [data-section-region] > .content,
+[data-section='accordion'] > [data-section-region] > .rubric, .section-container.accordion > section > [data-section-content], .section-container.accordion > section > .content, .section-container.accordion > section > .rubric, .section-container.accordion > .section > [data-section-content], .section-container.accordion > .section > .content, .section-container.accordion > .section > .rubric, .section-container.accordion > [data-section-region] > [data-section-content], .section-container.accordion > [data-section-region] > .content, .section-container.accordion > [data-section-region] > .rubric {
   display: none;
 }
 /* line 116, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-[data-section=''] > section.active > [data-section-content], [data-section=''] > section.active > .content, [data-section=''] > .section.active > [data-section-content], [data-section=''] > .section.active > .content, [data-section=''] > [data-section-region].active > [data-section-content], [data-section=''] > [data-section-region].active > .content, [data-section='auto'] > section.active > [data-section-content], [data-section='auto'] > section.active > .content, [data-section='auto'] > .section.active > [data-section-content], [data-section='auto'] > .section.active > .content, [data-section='auto'] > [data-section-region].active > [data-section-content], [data-section='auto'] > [data-section-region].active > .content, .section-container.auto > section.active > [data-section-content], .section-container.auto > section.active > .content, .section-container.auto > .section.active > [data-section-content], .section-container.auto > .section.active > .content, .section-container.auto > [data-section-region].active > [data-section-content], .section-container.auto > [data-section-region].active > .content,
+[data-section=''] > section.active > [data-section-content], [data-section=''] > section.active > .content, [data-section=''] > section.active > .rubric, [data-section=''] > .section.active > [data-section-content], [data-section=''] > .section.active > .content, [data-section=''] > .section.active > .rubric, [data-section=''] > [data-section-region].active > [data-section-content], [data-section=''] > [data-section-region].active > .content, [data-section=''] > [data-section-region].active > .rubric, [data-section='auto'] > section.active > [data-section-content], [data-section='auto'] > section.active > .content, [data-section='auto'] > section.active > .rubric, [data-section='auto'] > .section.active > [data-section-content], [data-section='auto'] > .section.active > .content, [data-section='auto'] > .section.active > .rubric, [data-section='auto'] > [data-section-region].active > [data-section-content], [data-section='auto'] > [data-section-region].active > .content, [data-section='auto'] > [data-section-region].active > .rubric, .section-container.auto > section.active > [data-section-content], .section-container.auto > section.active > .content, .section-container.auto > section.active > .rubric, .section-container.auto > .section.active > [data-section-content], .section-container.auto > .section.active > .content, .section-container.auto > .section.active > .rubric, .section-container.auto > [data-section-region].active > [data-section-content], .section-container.auto > [data-section-region].active > .content, .section-container.auto > [data-section-region].active > .rubric,
 [data-section='vertical-tabs'] > section.active > [data-section-content],
 [data-section='vertical-tabs'] > section.active > .content,
+[data-section='vertical-tabs'] > section.active > .rubric,
 [data-section='vertical-tabs'] > .section.active > [data-section-content],
 [data-section='vertical-tabs'] > .section.active > .content,
+[data-section='vertical-tabs'] > .section.active > .rubric,
 [data-section='vertical-tabs'] > [data-section-region].active > [data-section-content],
-[data-section='vertical-tabs'] > [data-section-region].active > .content, .section-container.vertical-tabs > section.active > [data-section-content], .section-container.vertical-tabs > section.active > .content, .section-container.vertical-tabs > .section.active > [data-section-content], .section-container.vertical-tabs > .section.active > .content, .section-container.vertical-tabs > [data-section-region].active > [data-section-content], .section-container.vertical-tabs > [data-section-region].active > .content,
+[data-section='vertical-tabs'] > [data-section-region].active > .content,
+[data-section='vertical-tabs'] > [data-section-region].active > .rubric, .section-container.vertical-tabs > section.active > [data-section-content], .section-container.vertical-tabs > section.active > .content, .section-container.vertical-tabs > section.active > .rubric, .section-container.vertical-tabs > .section.active > [data-section-content], .section-container.vertical-tabs > .section.active > .content, .section-container.vertical-tabs > .section.active > .rubric, .section-container.vertical-tabs > [data-section-region].active > [data-section-content], .section-container.vertical-tabs > [data-section-region].active > .content, .section-container.vertical-tabs > [data-section-region].active > .rubric,
 [data-section='vertical-nav'] > section.active > [data-section-content],
 [data-section='vertical-nav'] > section.active > .content,
+[data-section='vertical-nav'] > section.active > .rubric,
 [data-section='vertical-nav'] > .section.active > [data-section-content],
 [data-section='vertical-nav'] > .section.active > .content,
+[data-section='vertical-nav'] > .section.active > .rubric,
 [data-section='vertical-nav'] > [data-section-region].active > [data-section-content],
-[data-section='vertical-nav'] > [data-section-region].active > .content, .section-container.vertical-nav > section.active > [data-section-content], .section-container.vertical-nav > section.active > .content, .section-container.vertical-nav > .section.active > [data-section-content], .section-container.vertical-nav > .section.active > .content, .section-container.vertical-nav > [data-section-region].active > [data-section-content], .section-container.vertical-nav > [data-section-region].active > .content,
+[data-section='vertical-nav'] > [data-section-region].active > .content,
+[data-section='vertical-nav'] > [data-section-region].active > .rubric, .section-container.vertical-nav > section.active > [data-section-content], .section-container.vertical-nav > section.active > .content, .section-container.vertical-nav > section.active > .rubric, .section-container.vertical-nav > .section.active > [data-section-content], .section-container.vertical-nav > .section.active > .content, .section-container.vertical-nav > .section.active > .rubric, .section-container.vertical-nav > [data-section-region].active > [data-section-content], .section-container.vertical-nav > [data-section-region].active > .content, .section-container.vertical-nav > [data-section-region].active > .rubric,
 [data-section='horizontal-nav'] > section.active > [data-section-content],
 [data-section='horizontal-nav'] > section.active > .content,
+[data-section='horizontal-nav'] > section.active > .rubric,
 [data-section='horizontal-nav'] > .section.active > [data-section-content],
 [data-section='horizontal-nav'] > .section.active > .content,
+[data-section='horizontal-nav'] > .section.active > .rubric,
 [data-section='horizontal-nav'] > [data-section-region].active > [data-section-content],
-[data-section='horizontal-nav'] > [data-section-region].active > .content, .section-container.horizontal-nav > section.active > [data-section-content], .section-container.horizontal-nav > section.active > .content, .section-container.horizontal-nav > .section.active > [data-section-content], .section-container.horizontal-nav > .section.active > .content, .section-container.horizontal-nav > [data-section-region].active > [data-section-content], .section-container.horizontal-nav > [data-section-region].active > .content,
+[data-section='horizontal-nav'] > [data-section-region].active > .content,
+[data-section='horizontal-nav'] > [data-section-region].active > .rubric, .section-container.horizontal-nav > section.active > [data-section-content], .section-container.horizontal-nav > section.active > .content, .section-container.horizontal-nav > section.active > .rubric, .section-container.horizontal-nav > .section.active > [data-section-content], .section-container.horizontal-nav > .section.active > .content, .section-container.horizontal-nav > .section.active > .rubric, .section-container.horizontal-nav > [data-section-region].active > [data-section-content], .section-container.horizontal-nav > [data-section-region].active > .content, .section-container.horizontal-nav > [data-section-region].active > .rubric,
 [data-section='accordion'] > section.active > [data-section-content],
 [data-section='accordion'] > section.active > .content,
+[data-section='accordion'] > section.active > .rubric,
 [data-section='accordion'] > .section.active > [data-section-content],
 [data-section='accordion'] > .section.active > .content,
+[data-section='accordion'] > .section.active > .rubric,
 [data-section='accordion'] > [data-section-region].active > [data-section-content],
-[data-section='accordion'] > [data-section-region].active > .content, .section-container.accordion > section.active > [data-section-content], .section-container.accordion > section.active > .content, .section-container.accordion > .section.active > [data-section-content], .section-container.accordion > .section.active > .content, .section-container.accordion > [data-section-region].active > [data-section-content], .section-container.accordion > [data-section-region].active > .content {
+[data-section='accordion'] > [data-section-region].active > .content,
+[data-section='accordion'] > [data-section-region].active > .rubric, .section-container.accordion > section.active > [data-section-content], .section-container.accordion > section.active > .content, .section-container.accordion > section.active > .rubric, .section-container.accordion > .section.active > [data-section-content], .section-container.accordion > .section.active > .content, .section-container.accordion > .section.active > .rubric, .section-container.accordion > [data-section-region].active > [data-section-content], .section-container.accordion > [data-section-region].active > .content, .section-container.accordion > [data-section-region].active > .rubric {
   display: block;
 }
 /* line 119, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -3785,53 +3809,85 @@ label.error {
   background-color: white;
 }
 /* line 220, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.section-container.auto > section > .content, .section-container.auto > .section > .content,
+.section-container.auto > section > .content, .section-container.auto > section > .rubric, .section-container.auto > .section > .content, .section-container.auto > .section > .rubric,
 .section-container.vertical-tabs > section > .content,
+.section-container.vertical-tabs > section > .rubric,
 .section-container.vertical-tabs > .section > .content,
+.section-container.vertical-tabs > .section > .rubric,
 .section-container.vertical-nav > section > .content,
+.section-container.vertical-nav > section > .rubric,
 .section-container.vertical-nav > .section > .content,
+.section-container.vertical-nav > .section > .rubric,
 .section-container.horizontal-nav > section > .content,
+.section-container.horizontal-nav > section > .rubric,
 .section-container.horizontal-nav > .section > .content,
+.section-container.horizontal-nav > .section > .rubric,
 .section-container.accordion > section > .content,
-.section-container.accordion > .section > .content {
+.section-container.accordion > section > .rubric,
+.section-container.accordion > .section > .content,
+.section-container.accordion > .section > .rubric {
   padding: 5px 15px 15px 35px;
   background-color: white;
   border: solid 0px #cccccc;
 }
 /* line 225, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.section-container.auto > section > .content > *:last-child, .section-container.auto > .section > .content > *:last-child,
+.section-container.auto > section > .content > *:last-child, .section-container.auto > section > .rubric > *:last-child, .section-container.auto > .section > .content > *:last-child, .section-container.auto > .section > .rubric > *:last-child,
 .section-container.vertical-tabs > section > .content > *:last-child,
+.section-container.vertical-tabs > section > .rubric > *:last-child,
 .section-container.vertical-tabs > .section > .content > *:last-child,
+.section-container.vertical-tabs > .section > .rubric > *:last-child,
 .section-container.vertical-nav > section > .content > *:last-child,
+.section-container.vertical-nav > section > .rubric > *:last-child,
 .section-container.vertical-nav > .section > .content > *:last-child,
+.section-container.vertical-nav > .section > .rubric > *:last-child,
 .section-container.horizontal-nav > section > .content > *:last-child,
+.section-container.horizontal-nav > section > .rubric > *:last-child,
 .section-container.horizontal-nav > .section > .content > *:last-child,
+.section-container.horizontal-nav > .section > .rubric > *:last-child,
 .section-container.accordion > section > .content > *:last-child,
-.section-container.accordion > .section > .content > *:last-child {
+.section-container.accordion > section > .rubric > *:last-child,
+.section-container.accordion > .section > .content > *:last-child,
+.section-container.accordion > .section > .rubric > *:last-child {
   margin-bottom: 0;
 }
 /* line 226, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.section-container.auto > section > .content > *:first-child, .section-container.auto > .section > .content > *:first-child,
+.section-container.auto > section > .content > *:first-child, .section-container.auto > section > .rubric > *:first-child, .section-container.auto > .section > .content > *:first-child, .section-container.auto > .section > .rubric > *:first-child,
 .section-container.vertical-tabs > section > .content > *:first-child,
+.section-container.vertical-tabs > section > .rubric > *:first-child,
 .section-container.vertical-tabs > .section > .content > *:first-child,
+.section-container.vertical-tabs > .section > .rubric > *:first-child,
 .section-container.vertical-nav > section > .content > *:first-child,
+.section-container.vertical-nav > section > .rubric > *:first-child,
 .section-container.vertical-nav > .section > .content > *:first-child,
+.section-container.vertical-nav > .section > .rubric > *:first-child,
 .section-container.horizontal-nav > section > .content > *:first-child,
+.section-container.horizontal-nav > section > .rubric > *:first-child,
 .section-container.horizontal-nav > .section > .content > *:first-child,
+.section-container.horizontal-nav > .section > .rubric > *:first-child,
 .section-container.accordion > section > .content > *:first-child,
-.section-container.accordion > .section > .content > *:first-child {
+.section-container.accordion > section > .rubric > *:first-child,
+.section-container.accordion > .section > .content > *:first-child,
+.section-container.accordion > .section > .rubric > *:first-child {
   padding-top: 0;
 }
 /* line 227, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.section-container.auto > section > .content > *:last-child:not(.flex-video), .section-container.auto > .section > .content > *:last-child:not(.flex-video),
+.section-container.auto > section > .content > *:last-child:not(.flex-video), .section-container.auto > section > .rubric > *:last-child:not(.flex-video), .section-container.auto > .section > .content > *:last-child:not(.flex-video), .section-container.auto > .section > .rubric > *:last-child:not(.flex-video),
 .section-container.vertical-tabs > section > .content > *:last-child:not(.flex-video),
+.section-container.vertical-tabs > section > .rubric > *:last-child:not(.flex-video),
 .section-container.vertical-tabs > .section > .content > *:last-child:not(.flex-video),
+.section-container.vertical-tabs > .section > .rubric > *:last-child:not(.flex-video),
 .section-container.vertical-nav > section > .content > *:last-child:not(.flex-video),
+.section-container.vertical-nav > section > .rubric > *:last-child:not(.flex-video),
 .section-container.vertical-nav > .section > .content > *:last-child:not(.flex-video),
+.section-container.vertical-nav > .section > .rubric > *:last-child:not(.flex-video),
 .section-container.horizontal-nav > section > .content > *:last-child:not(.flex-video),
+.section-container.horizontal-nav > section > .rubric > *:last-child:not(.flex-video),
 .section-container.horizontal-nav > .section > .content > *:last-child:not(.flex-video),
+.section-container.horizontal-nav > .section > .rubric > *:last-child:not(.flex-video),
 .section-container.accordion > section > .content > *:last-child:not(.flex-video),
-.section-container.accordion > .section > .content > *:last-child:not(.flex-video) {
+.section-container.accordion > section > .rubric > *:last-child:not(.flex-video),
+.section-container.accordion > .section > .content > *:last-child:not(.flex-video),
+.section-container.accordion > .section > .rubric > *:last-child:not(.flex-video) {
   padding-bottom: 0;
 }
 /* line 231, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -3905,11 +3961,11 @@ label.error {
   white-space: nowrap;
 }
 /* line 111, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-[data-section='tabs'] > section > [data-section-content], [data-section='tabs'] > section > .content, [data-section='tabs'] > .section > [data-section-content], [data-section='tabs'] > .section > .content, [data-section='tabs'] > [data-section-region] > [data-section-content], [data-section='tabs'] > [data-section-region] > .content, .section-container.tabs > section > [data-section-content], .section-container.tabs > section > .content, .section-container.tabs > .section > [data-section-content], .section-container.tabs > .section > .content, .section-container.tabs > [data-section-region] > [data-section-content], .section-container.tabs > [data-section-region] > .content {
+[data-section='tabs'] > section > [data-section-content], [data-section='tabs'] > section > .content, [data-section='tabs'] > section > .rubric, [data-section='tabs'] > .section > [data-section-content], [data-section='tabs'] > .section > .content, [data-section='tabs'] > .section > .rubric, [data-section='tabs'] > [data-section-region] > [data-section-content], [data-section='tabs'] > [data-section-region] > .content, [data-section='tabs'] > [data-section-region] > .rubric, .section-container.tabs > section > [data-section-content], .section-container.tabs > section > .content, .section-container.tabs > section > .rubric, .section-container.tabs > .section > [data-section-content], .section-container.tabs > .section > .content, .section-container.tabs > .section > .rubric, .section-container.tabs > [data-section-region] > [data-section-content], .section-container.tabs > [data-section-region] > .content, .section-container.tabs > [data-section-region] > .rubric {
   display: none;
 }
 /* line 116, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-[data-section='tabs'] > section.active > [data-section-content], [data-section='tabs'] > section.active > .content, [data-section='tabs'] > .section.active > [data-section-content], [data-section='tabs'] > .section.active > .content, [data-section='tabs'] > [data-section-region].active > [data-section-content], [data-section='tabs'] > [data-section-region].active > .content, .section-container.tabs > section.active > [data-section-content], .section-container.tabs > section.active > .content, .section-container.tabs > .section.active > [data-section-content], .section-container.tabs > .section.active > .content, .section-container.tabs > [data-section-region].active > [data-section-content], .section-container.tabs > [data-section-region].active > .content {
+[data-section='tabs'] > section.active > [data-section-content], [data-section='tabs'] > section.active > .content, [data-section='tabs'] > section.active > .rubric, [data-section='tabs'] > .section.active > [data-section-content], [data-section='tabs'] > .section.active > .content, [data-section='tabs'] > .section.active > .rubric, [data-section='tabs'] > [data-section-region].active > [data-section-content], [data-section='tabs'] > [data-section-region].active > .content, [data-section='tabs'] > [data-section-region].active > .rubric, .section-container.tabs > section.active > [data-section-content], .section-container.tabs > section.active > .content, .section-container.tabs > section.active > .rubric, .section-container.tabs > .section.active > [data-section-content], .section-container.tabs > .section.active > .content, .section-container.tabs > .section.active > .rubric, .section-container.tabs > [data-section-region].active > [data-section-content], .section-container.tabs > [data-section-region].active > .content, .section-container.tabs > [data-section-region].active > .rubric {
   display: block;
 }
 /* line 119, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -3946,21 +4002,21 @@ label.error {
   background-color: white;
 }
 /* line 220, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.section-container.tabs > section > .content, .section-container.tabs > .section > .content {
+.section-container.tabs > section > .content, .section-container.tabs > section > .rubric, .section-container.tabs > .section > .content, .section-container.tabs > .section > .rubric {
   padding: 5px 15px 15px 35px;
   background-color: white;
   border: solid 0px #cccccc;
 }
 /* line 225, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.section-container.tabs > section > .content > *:last-child, .section-container.tabs > .section > .content > *:last-child {
+.section-container.tabs > section > .content > *:last-child, .section-container.tabs > section > .rubric > *:last-child, .section-container.tabs > .section > .content > *:last-child, .section-container.tabs > .section > .rubric > *:last-child {
   margin-bottom: 0;
 }
 /* line 226, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.section-container.tabs > section > .content > *:first-child, .section-container.tabs > .section > .content > *:first-child {
+.section-container.tabs > section > .content > *:first-child, .section-container.tabs > section > .rubric > *:first-child, .section-container.tabs > .section > .content > *:first-child, .section-container.tabs > .section > .rubric > *:first-child {
   padding-top: 0;
 }
 /* line 227, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.section-container.tabs > section > .content > *:last-child:not(.flex-video), .section-container.tabs > .section > .content > *:last-child:not(.flex-video) {
+.section-container.tabs > section > .content > *:last-child:not(.flex-video), .section-container.tabs > section > .rubric > *:last-child:not(.flex-video), .section-container.tabs > .section > .content > *:last-child:not(.flex-video), .section-container.tabs > .section > .rubric > *:last-child:not(.flex-video) {
   padding-bottom: 0;
 }
 /* line 231, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -4003,11 +4059,11 @@ label.error {
     white-space: nowrap;
   }
   /* line 111, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  [data-section=''] > section > [data-section-content], [data-section=''] > section > .content, [data-section=''] > .section > [data-section-content], [data-section=''] > .section > .content, [data-section=''] > [data-section-region] > [data-section-content], [data-section=''] > [data-section-region] > .content, [data-section='auto'] > section > [data-section-content], [data-section='auto'] > section > .content, [data-section='auto'] > .section > [data-section-content], [data-section='auto'] > .section > .content, [data-section='auto'] > [data-section-region] > [data-section-content], [data-section='auto'] > [data-section-region] > .content, .section-container.auto > section > [data-section-content], .section-container.auto > section > .content, .section-container.auto > .section > [data-section-content], .section-container.auto > .section > .content, .section-container.auto > [data-section-region] > [data-section-content], .section-container.auto > [data-section-region] > .content {
+  [data-section=''] > section > [data-section-content], [data-section=''] > section > .content, [data-section=''] > section > .rubric, [data-section=''] > .section > [data-section-content], [data-section=''] > .section > .content, [data-section=''] > .section > .rubric, [data-section=''] > [data-section-region] > [data-section-content], [data-section=''] > [data-section-region] > .content, [data-section=''] > [data-section-region] > .rubric, [data-section='auto'] > section > [data-section-content], [data-section='auto'] > section > .content, [data-section='auto'] > section > .rubric, [data-section='auto'] > .section > [data-section-content], [data-section='auto'] > .section > .content, [data-section='auto'] > .section > .rubric, [data-section='auto'] > [data-section-region] > [data-section-content], [data-section='auto'] > [data-section-region] > .content, [data-section='auto'] > [data-section-region] > .rubric, .section-container.auto > section > [data-section-content], .section-container.auto > section > .content, .section-container.auto > section > .rubric, .section-container.auto > .section > [data-section-content], .section-container.auto > .section > .content, .section-container.auto > .section > .rubric, .section-container.auto > [data-section-region] > [data-section-content], .section-container.auto > [data-section-region] > .content, .section-container.auto > [data-section-region] > .rubric {
     display: none;
   }
   /* line 116, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  [data-section=''] > section.active > [data-section-content], [data-section=''] > section.active > .content, [data-section=''] > .section.active > [data-section-content], [data-section=''] > .section.active > .content, [data-section=''] > [data-section-region].active > [data-section-content], [data-section=''] > [data-section-region].active > .content, [data-section='auto'] > section.active > [data-section-content], [data-section='auto'] > section.active > .content, [data-section='auto'] > .section.active > [data-section-content], [data-section='auto'] > .section.active > .content, [data-section='auto'] > [data-section-region].active > [data-section-content], [data-section='auto'] > [data-section-region].active > .content, .section-container.auto > section.active > [data-section-content], .section-container.auto > section.active > .content, .section-container.auto > .section.active > [data-section-content], .section-container.auto > .section.active > .content, .section-container.auto > [data-section-region].active > [data-section-content], .section-container.auto > [data-section-region].active > .content {
+  [data-section=''] > section.active > [data-section-content], [data-section=''] > section.active > .content, [data-section=''] > section.active > .rubric, [data-section=''] > .section.active > [data-section-content], [data-section=''] > .section.active > .content, [data-section=''] > .section.active > .rubric, [data-section=''] > [data-section-region].active > [data-section-content], [data-section=''] > [data-section-region].active > .content, [data-section=''] > [data-section-region].active > .rubric, [data-section='auto'] > section.active > [data-section-content], [data-section='auto'] > section.active > .content, [data-section='auto'] > section.active > .rubric, [data-section='auto'] > .section.active > [data-section-content], [data-section='auto'] > .section.active > .content, [data-section='auto'] > .section.active > .rubric, [data-section='auto'] > [data-section-region].active > [data-section-content], [data-section='auto'] > [data-section-region].active > .content, [data-section='auto'] > [data-section-region].active > .rubric, .section-container.auto > section.active > [data-section-content], .section-container.auto > section.active > .content, .section-container.auto > section.active > .rubric, .section-container.auto > .section.active > [data-section-content], .section-container.auto > .section.active > .content, .section-container.auto > .section.active > .rubric, .section-container.auto > [data-section-region].active > [data-section-content], .section-container.auto > [data-section-region].active > .content, .section-container.auto > [data-section-region].active > .rubric {
     display: block;
   }
   /* line 119, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -4044,21 +4100,21 @@ label.error {
     background-color: white;
   }
   /* line 220, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.auto > section > .content, .section-container.auto > .section > .content {
+  .section-container.auto > section > .content, .section-container.auto > section > .rubric, .section-container.auto > .section > .content, .section-container.auto > .section > .rubric {
     padding: 5px 15px 15px 35px;
     background-color: white;
     border: solid 0px #cccccc;
   }
   /* line 225, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.auto > section > .content > *:last-child, .section-container.auto > .section > .content > *:last-child {
+  .section-container.auto > section > .content > *:last-child, .section-container.auto > section > .rubric > *:last-child, .section-container.auto > .section > .content > *:last-child, .section-container.auto > .section > .rubric > *:last-child {
     margin-bottom: 0;
   }
   /* line 226, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.auto > section > .content > *:first-child, .section-container.auto > .section > .content > *:first-child {
+  .section-container.auto > section > .content > *:first-child, .section-container.auto > section > .rubric > *:first-child, .section-container.auto > .section > .content > *:first-child, .section-container.auto > .section > .rubric > *:first-child {
     padding-top: 0;
   }
   /* line 227, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.auto > section > .content > *:last-child:not(.flex-video), .section-container.auto > .section > .content > *:last-child:not(.flex-video) {
+  .section-container.auto > section > .content > *:last-child:not(.flex-video), .section-container.auto > section > .rubric > *:last-child:not(.flex-video), .section-container.auto > .section > .content > *:last-child:not(.flex-video), .section-container.auto > .section > .rubric > *:last-child:not(.flex-video) {
     padding-bottom: 0;
   }
   /* line 231, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -4113,11 +4169,11 @@ label.error {
     white-space: nowrap;
   }
   /* line 111, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  [data-section='vertical-tabs'] > section > [data-section-content], [data-section='vertical-tabs'] > section > .content, [data-section='vertical-tabs'] > .section > [data-section-content], [data-section='vertical-tabs'] > .section > .content, [data-section='vertical-tabs'] > [data-section-region] > [data-section-content], [data-section='vertical-tabs'] > [data-section-region] > .content, .section-container.vertical-tabs > section > [data-section-content], .section-container.vertical-tabs > section > .content, .section-container.vertical-tabs > .section > [data-section-content], .section-container.vertical-tabs > .section > .content, .section-container.vertical-tabs > [data-section-region] > [data-section-content], .section-container.vertical-tabs > [data-section-region] > .content {
+  [data-section='vertical-tabs'] > section > [data-section-content], [data-section='vertical-tabs'] > section > .content, [data-section='vertical-tabs'] > section > .rubric, [data-section='vertical-tabs'] > .section > [data-section-content], [data-section='vertical-tabs'] > .section > .content, [data-section='vertical-tabs'] > .section > .rubric, [data-section='vertical-tabs'] > [data-section-region] > [data-section-content], [data-section='vertical-tabs'] > [data-section-region] > .content, [data-section='vertical-tabs'] > [data-section-region] > .rubric, .section-container.vertical-tabs > section > [data-section-content], .section-container.vertical-tabs > section > .content, .section-container.vertical-tabs > section > .rubric, .section-container.vertical-tabs > .section > [data-section-content], .section-container.vertical-tabs > .section > .content, .section-container.vertical-tabs > .section > .rubric, .section-container.vertical-tabs > [data-section-region] > [data-section-content], .section-container.vertical-tabs > [data-section-region] > .content, .section-container.vertical-tabs > [data-section-region] > .rubric {
     display: none;
   }
   /* line 116, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  [data-section='vertical-tabs'] > section.active > [data-section-content], [data-section='vertical-tabs'] > section.active > .content, [data-section='vertical-tabs'] > .section.active > [data-section-content], [data-section='vertical-tabs'] > .section.active > .content, [data-section='vertical-tabs'] > [data-section-region].active > [data-section-content], [data-section='vertical-tabs'] > [data-section-region].active > .content, .section-container.vertical-tabs > section.active > [data-section-content], .section-container.vertical-tabs > section.active > .content, .section-container.vertical-tabs > .section.active > [data-section-content], .section-container.vertical-tabs > .section.active > .content, .section-container.vertical-tabs > [data-section-region].active > [data-section-content], .section-container.vertical-tabs > [data-section-region].active > .content {
+  [data-section='vertical-tabs'] > section.active > [data-section-content], [data-section='vertical-tabs'] > section.active > .content, [data-section='vertical-tabs'] > section.active > .rubric, [data-section='vertical-tabs'] > .section.active > [data-section-content], [data-section='vertical-tabs'] > .section.active > .content, [data-section='vertical-tabs'] > .section.active > .rubric, [data-section='vertical-tabs'] > [data-section-region].active > [data-section-content], [data-section='vertical-tabs'] > [data-section-region].active > .content, [data-section='vertical-tabs'] > [data-section-region].active > .rubric, .section-container.vertical-tabs > section.active > [data-section-content], .section-container.vertical-tabs > section.active > .content, .section-container.vertical-tabs > section.active > .rubric, .section-container.vertical-tabs > .section.active > [data-section-content], .section-container.vertical-tabs > .section.active > .content, .section-container.vertical-tabs > .section.active > .rubric, .section-container.vertical-tabs > [data-section-region].active > [data-section-content], .section-container.vertical-tabs > [data-section-region].active > .content, .section-container.vertical-tabs > [data-section-region].active > .rubric {
     display: block;
   }
   /* line 119, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -4162,21 +4218,21 @@ label.error {
     background-color: white;
   }
   /* line 220, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.vertical-tabs > section > .content, .section-container.vertical-tabs > .section > .content {
+  .section-container.vertical-tabs > section > .content, .section-container.vertical-tabs > section > .rubric, .section-container.vertical-tabs > .section > .content, .section-container.vertical-tabs > .section > .rubric {
     padding: 5px 15px 15px 35px;
     background-color: white;
     border: solid 0px #cccccc;
   }
   /* line 225, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.vertical-tabs > section > .content > *:last-child, .section-container.vertical-tabs > .section > .content > *:last-child {
+  .section-container.vertical-tabs > section > .content > *:last-child, .section-container.vertical-tabs > section > .rubric > *:last-child, .section-container.vertical-tabs > .section > .content > *:last-child, .section-container.vertical-tabs > .section > .rubric > *:last-child {
     margin-bottom: 0;
   }
   /* line 226, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.vertical-tabs > section > .content > *:first-child, .section-container.vertical-tabs > .section > .content > *:first-child {
+  .section-container.vertical-tabs > section > .content > *:first-child, .section-container.vertical-tabs > section > .rubric > *:first-child, .section-container.vertical-tabs > .section > .content > *:first-child, .section-container.vertical-tabs > .section > .rubric > *:first-child {
     padding-top: 0;
   }
   /* line 227, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.vertical-tabs > section > .content > *:last-child:not(.flex-video), .section-container.vertical-tabs > .section > .content > *:last-child:not(.flex-video) {
+  .section-container.vertical-tabs > section > .content > *:last-child:not(.flex-video), .section-container.vertical-tabs > section > .rubric > *:last-child:not(.flex-video), .section-container.vertical-tabs > .section > .content > *:last-child:not(.flex-video), .section-container.vertical-tabs > .section > .rubric > *:last-child:not(.flex-video) {
     padding-bottom: 0;
   }
   /* line 231, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -4240,11 +4296,11 @@ label.error {
     white-space: nowrap;
   }
   /* line 111, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  [data-section='vertical-nav'] > section > [data-section-content], [data-section='vertical-nav'] > section > .content, [data-section='vertical-nav'] > .section > [data-section-content], [data-section='vertical-nav'] > .section > .content, [data-section='vertical-nav'] > [data-section-region] > [data-section-content], [data-section='vertical-nav'] > [data-section-region] > .content, .section-container.vertical-nav > section > [data-section-content], .section-container.vertical-nav > section > .content, .section-container.vertical-nav > .section > [data-section-content], .section-container.vertical-nav > .section > .content, .section-container.vertical-nav > [data-section-region] > [data-section-content], .section-container.vertical-nav > [data-section-region] > .content {
+  [data-section='vertical-nav'] > section > [data-section-content], [data-section='vertical-nav'] > section > .content, [data-section='vertical-nav'] > section > .rubric, [data-section='vertical-nav'] > .section > [data-section-content], [data-section='vertical-nav'] > .section > .content, [data-section='vertical-nav'] > .section > .rubric, [data-section='vertical-nav'] > [data-section-region] > [data-section-content], [data-section='vertical-nav'] > [data-section-region] > .content, [data-section='vertical-nav'] > [data-section-region] > .rubric, .section-container.vertical-nav > section > [data-section-content], .section-container.vertical-nav > section > .content, .section-container.vertical-nav > section > .rubric, .section-container.vertical-nav > .section > [data-section-content], .section-container.vertical-nav > .section > .content, .section-container.vertical-nav > .section > .rubric, .section-container.vertical-nav > [data-section-region] > [data-section-content], .section-container.vertical-nav > [data-section-region] > .content, .section-container.vertical-nav > [data-section-region] > .rubric {
     display: none;
   }
   /* line 116, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  [data-section='vertical-nav'] > section.active > [data-section-content], [data-section='vertical-nav'] > section.active > .content, [data-section='vertical-nav'] > .section.active > [data-section-content], [data-section='vertical-nav'] > .section.active > .content, [data-section='vertical-nav'] > [data-section-region].active > [data-section-content], [data-section='vertical-nav'] > [data-section-region].active > .content, .section-container.vertical-nav > section.active > [data-section-content], .section-container.vertical-nav > section.active > .content, .section-container.vertical-nav > .section.active > [data-section-content], .section-container.vertical-nav > .section.active > .content, .section-container.vertical-nav > [data-section-region].active > [data-section-content], .section-container.vertical-nav > [data-section-region].active > .content {
+  [data-section='vertical-nav'] > section.active > [data-section-content], [data-section='vertical-nav'] > section.active > .content, [data-section='vertical-nav'] > section.active > .rubric, [data-section='vertical-nav'] > .section.active > [data-section-content], [data-section='vertical-nav'] > .section.active > .content, [data-section='vertical-nav'] > .section.active > .rubric, [data-section='vertical-nav'] > [data-section-region].active > [data-section-content], [data-section='vertical-nav'] > [data-section-region].active > .content, [data-section='vertical-nav'] > [data-section-region].active > .rubric, .section-container.vertical-nav > section.active > [data-section-content], .section-container.vertical-nav > section.active > .content, .section-container.vertical-nav > section.active > .rubric, .section-container.vertical-nav > .section.active > [data-section-content], .section-container.vertical-nav > .section.active > .content, .section-container.vertical-nav > .section.active > .rubric, .section-container.vertical-nav > [data-section-region].active > [data-section-content], .section-container.vertical-nav > [data-section-region].active > .content, .section-container.vertical-nav > [data-section-region].active > .rubric {
     display: block;
   }
   /* line 119, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -4261,7 +4317,7 @@ label.error {
     display: block;
   }
   /* line 171, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  [data-section='vertical-nav'] > section > [data-section-content], [data-section='vertical-nav'] > section > .content, [data-section='vertical-nav'] > .section > [data-section-content], [data-section='vertical-nav'] > .section > .content, [data-section='vertical-nav'] > [data-section-region] > [data-section-content], [data-section='vertical-nav'] > [data-section-region] > .content, .section-container.vertical-nav > section > [data-section-content], .section-container.vertical-nav > section > .content, .section-container.vertical-nav > .section > [data-section-content], .section-container.vertical-nav > .section > .content, .section-container.vertical-nav > [data-section-region] > [data-section-content], .section-container.vertical-nav > [data-section-region] > .content {
+  [data-section='vertical-nav'] > section > [data-section-content], [data-section='vertical-nav'] > section > .content, [data-section='vertical-nav'] > section > .rubric, [data-section='vertical-nav'] > .section > [data-section-content], [data-section='vertical-nav'] > .section > .content, [data-section='vertical-nav'] > .section > .rubric, [data-section='vertical-nav'] > [data-section-region] > [data-section-content], [data-section='vertical-nav'] > [data-section-region] > .content, [data-section='vertical-nav'] > [data-section-region] > .rubric, .section-container.vertical-nav > section > [data-section-content], .section-container.vertical-nav > section > .content, .section-container.vertical-nav > section > .rubric, .section-container.vertical-nav > .section > [data-section-content], .section-container.vertical-nav > .section > .content, .section-container.vertical-nav > .section > .rubric, .section-container.vertical-nav > [data-section-region] > [data-section-content], .section-container.vertical-nav > [data-section-region] > .content, .section-container.vertical-nav > [data-section-region] > .rubric {
     position: absolute;
     top: 0;
     left: 0;
@@ -4291,21 +4347,21 @@ label.error {
     background-color: white;
   }
   /* line 220, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.vertical-nav > section > .content, .section-container.vertical-nav > .section > .content {
+  .section-container.vertical-nav > section > .content, .section-container.vertical-nav > section > .rubric, .section-container.vertical-nav > .section > .content, .section-container.vertical-nav > .section > .rubric {
     padding: 5px 15px 15px 35px;
     background-color: white;
     border: solid 0px #cccccc;
   }
   /* line 225, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.vertical-nav > section > .content > *:last-child, .section-container.vertical-nav > .section > .content > *:last-child {
+  .section-container.vertical-nav > section > .content > *:last-child, .section-container.vertical-nav > section > .rubric > *:last-child, .section-container.vertical-nav > .section > .content > *:last-child, .section-container.vertical-nav > .section > .rubric > *:last-child {
     margin-bottom: 0;
   }
   /* line 226, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.vertical-nav > section > .content > *:first-child, .section-container.vertical-nav > .section > .content > *:first-child {
+  .section-container.vertical-nav > section > .content > *:first-child, .section-container.vertical-nav > section > .rubric > *:first-child, .section-container.vertical-nav > .section > .content > *:first-child, .section-container.vertical-nav > .section > .rubric > *:first-child {
     padding-top: 0;
   }
   /* line 227, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.vertical-nav > section > .content > *:last-child:not(.flex-video), .section-container.vertical-nav > .section > .content > *:last-child:not(.flex-video) {
+  .section-container.vertical-nav > section > .content > *:last-child:not(.flex-video), .section-container.vertical-nav > section > .rubric > *:last-child:not(.flex-video), .section-container.vertical-nav > .section > .content > *:last-child:not(.flex-video), .section-container.vertical-nav > .section > .rubric > *:last-child:not(.flex-video) {
     padding-bottom: 0;
   }
   /* line 231, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -4361,11 +4417,11 @@ label.error {
     white-space: nowrap;
   }
   /* line 111, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  [data-section='horizontal-nav'] > section > [data-section-content], [data-section='horizontal-nav'] > section > .content, [data-section='horizontal-nav'] > .section > [data-section-content], [data-section='horizontal-nav'] > .section > .content, [data-section='horizontal-nav'] > [data-section-region] > [data-section-content], [data-section='horizontal-nav'] > [data-section-region] > .content, .section-container.horizontal-nav > section > [data-section-content], .section-container.horizontal-nav > section > .content, .section-container.horizontal-nav > .section > [data-section-content], .section-container.horizontal-nav > .section > .content, .section-container.horizontal-nav > [data-section-region] > [data-section-content], .section-container.horizontal-nav > [data-section-region] > .content {
+  [data-section='horizontal-nav'] > section > [data-section-content], [data-section='horizontal-nav'] > section > .content, [data-section='horizontal-nav'] > section > .rubric, [data-section='horizontal-nav'] > .section > [data-section-content], [data-section='horizontal-nav'] > .section > .content, [data-section='horizontal-nav'] > .section > .rubric, [data-section='horizontal-nav'] > [data-section-region] > [data-section-content], [data-section='horizontal-nav'] > [data-section-region] > .content, [data-section='horizontal-nav'] > [data-section-region] > .rubric, .section-container.horizontal-nav > section > [data-section-content], .section-container.horizontal-nav > section > .content, .section-container.horizontal-nav > section > .rubric, .section-container.horizontal-nav > .section > [data-section-content], .section-container.horizontal-nav > .section > .content, .section-container.horizontal-nav > .section > .rubric, .section-container.horizontal-nav > [data-section-region] > [data-section-content], .section-container.horizontal-nav > [data-section-region] > .content, .section-container.horizontal-nav > [data-section-region] > .rubric {
     display: none;
   }
   /* line 116, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  [data-section='horizontal-nav'] > section.active > [data-section-content], [data-section='horizontal-nav'] > section.active > .content, [data-section='horizontal-nav'] > .section.active > [data-section-content], [data-section='horizontal-nav'] > .section.active > .content, [data-section='horizontal-nav'] > [data-section-region].active > [data-section-content], [data-section='horizontal-nav'] > [data-section-region].active > .content, .section-container.horizontal-nav > section.active > [data-section-content], .section-container.horizontal-nav > section.active > .content, .section-container.horizontal-nav > .section.active > [data-section-content], .section-container.horizontal-nav > .section.active > .content, .section-container.horizontal-nav > [data-section-region].active > [data-section-content], .section-container.horizontal-nav > [data-section-region].active > .content {
+  [data-section='horizontal-nav'] > section.active > [data-section-content], [data-section='horizontal-nav'] > section.active > .content, [data-section='horizontal-nav'] > section.active > .rubric, [data-section='horizontal-nav'] > .section.active > [data-section-content], [data-section='horizontal-nav'] > .section.active > .content, [data-section='horizontal-nav'] > .section.active > .rubric, [data-section='horizontal-nav'] > [data-section-region].active > [data-section-content], [data-section='horizontal-nav'] > [data-section-region].active > .content, [data-section='horizontal-nav'] > [data-section-region].active > .rubric, .section-container.horizontal-nav > section.active > [data-section-content], .section-container.horizontal-nav > section.active > .content, .section-container.horizontal-nav > section.active > .rubric, .section-container.horizontal-nav > .section.active > [data-section-content], .section-container.horizontal-nav > .section.active > .content, .section-container.horizontal-nav > .section.active > .rubric, .section-container.horizontal-nav > [data-section-region].active > [data-section-content], .section-container.horizontal-nav > [data-section-region].active > .content, .section-container.horizontal-nav > [data-section-region].active > .rubric {
     display: block;
   }
   /* line 119, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -4382,7 +4438,7 @@ label.error {
     display: block;
   }
   /* line 192, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  [data-section='horizontal-nav'] > section > [data-section-content], [data-section='horizontal-nav'] > section > .content, [data-section='horizontal-nav'] > .section > [data-section-content], [data-section='horizontal-nav'] > .section > .content, [data-section='horizontal-nav'] > [data-section-region] > [data-section-content], [data-section='horizontal-nav'] > [data-section-region] > .content, .section-container.horizontal-nav > section > [data-section-content], .section-container.horizontal-nav > section > .content, .section-container.horizontal-nav > .section > [data-section-content], .section-container.horizontal-nav > .section > .content, .section-container.horizontal-nav > [data-section-region] > [data-section-content], .section-container.horizontal-nav > [data-section-region] > .content {
+  [data-section='horizontal-nav'] > section > [data-section-content], [data-section='horizontal-nav'] > section > .content, [data-section='horizontal-nav'] > section > .rubric, [data-section='horizontal-nav'] > .section > [data-section-content], [data-section='horizontal-nav'] > .section > .content, [data-section='horizontal-nav'] > .section > .rubric, [data-section='horizontal-nav'] > [data-section-region] > [data-section-content], [data-section='horizontal-nav'] > [data-section-region] > .content, [data-section='horizontal-nav'] > [data-section-region] > .rubric, .section-container.horizontal-nav > section > [data-section-content], .section-container.horizontal-nav > section > .content, .section-container.horizontal-nav > section > .rubric, .section-container.horizontal-nav > .section > [data-section-content], .section-container.horizontal-nav > .section > .content, .section-container.horizontal-nav > .section > .rubric, .section-container.horizontal-nav > [data-section-region] > [data-section-content], .section-container.horizontal-nav > [data-section-region] > .content, .section-container.horizontal-nav > [data-section-region] > .rubric {
     width: auto;
     position: absolute;
     top: 0;
@@ -4414,21 +4470,21 @@ label.error {
     background-color: white;
   }
   /* line 220, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.horizontal-nav > section > .content, .section-container.horizontal-nav > .section > .content {
+  .section-container.horizontal-nav > section > .content, .section-container.horizontal-nav > section > .rubric, .section-container.horizontal-nav > .section > .content, .section-container.horizontal-nav > .section > .rubric {
     padding: 5px 15px 15px 35px;
     background-color: white;
     border: solid 0px #cccccc;
   }
   /* line 225, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.horizontal-nav > section > .content > *:last-child, .section-container.horizontal-nav > .section > .content > *:last-child {
+  .section-container.horizontal-nav > section > .content > *:last-child, .section-container.horizontal-nav > section > .rubric > *:last-child, .section-container.horizontal-nav > .section > .content > *:last-child, .section-container.horizontal-nav > .section > .rubric > *:last-child {
     margin-bottom: 0;
   }
   /* line 226, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.horizontal-nav > section > .content > *:first-child, .section-container.horizontal-nav > .section > .content > *:first-child {
+  .section-container.horizontal-nav > section > .content > *:first-child, .section-container.horizontal-nav > section > .rubric > *:first-child, .section-container.horizontal-nav > .section > .content > *:first-child, .section-container.horizontal-nav > .section > .rubric > *:first-child {
     padding-top: 0;
   }
   /* line 227, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-  .section-container.horizontal-nav > section > .content > *:last-child:not(.flex-video), .section-container.horizontal-nav > .section > .content > *:last-child:not(.flex-video) {
+  .section-container.horizontal-nav > section > .content > *:last-child:not(.flex-video), .section-container.horizontal-nav > section > .rubric > *:last-child:not(.flex-video), .section-container.horizontal-nav > .section > .content > *:last-child:not(.flex-video), .section-container.horizontal-nav > .section > .rubric > *:last-child:not(.flex-video) {
     padding-bottom: 0;
   }
   /* line 231, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -4479,11 +4535,11 @@ label.error {
   white-space: nowrap;
 }
 /* line 111, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.no-js [data-section] > section > [data-section-content], .no-js [data-section] > section > .content, .no-js [data-section] > .section > [data-section-content], .no-js [data-section] > .section > .content, .no-js [data-section] > [data-section-region] > [data-section-content], .no-js [data-section] > [data-section-region] > .content, .no-js .section-container > section > [data-section-content], .no-js .section-container > section > .content, .no-js .section-container > .section > [data-section-content], .no-js .section-container > .section > .content, .no-js .section-container > [data-section-region] > [data-section-content], .no-js .section-container > [data-section-region] > .content {
+.no-js [data-section] > section > [data-section-content], .no-js [data-section] > section > .content, .no-js [data-section] > section > .rubric, .no-js [data-section] > .section > [data-section-content], .no-js [data-section] > .section > .content, .no-js [data-section] > .section > .rubric, .no-js [data-section] > [data-section-region] > [data-section-content], .no-js [data-section] > [data-section-region] > .content, .no-js [data-section] > [data-section-region] > .rubric, .no-js .section-container > section > [data-section-content], .no-js .section-container > section > .content, .no-js .section-container > section > .rubric, .no-js .section-container > .section > [data-section-content], .no-js .section-container > .section > .content, .no-js .section-container > .section > .rubric, .no-js .section-container > [data-section-region] > [data-section-content], .no-js .section-container > [data-section-region] > .content, .no-js .section-container > [data-section-region] > .rubric {
   display: none;
 }
 /* line 116, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.no-js [data-section] > section.active > [data-section-content], .no-js [data-section] > section.active > .content, .no-js [data-section] > .section.active > [data-section-content], .no-js [data-section] > .section.active > .content, .no-js [data-section] > [data-section-region].active > [data-section-content], .no-js [data-section] > [data-section-region].active > .content, .no-js .section-container > section.active > [data-section-content], .no-js .section-container > section.active > .content, .no-js .section-container > .section.active > [data-section-content], .no-js .section-container > .section.active > .content, .no-js .section-container > [data-section-region].active > [data-section-content], .no-js .section-container > [data-section-region].active > .content {
+.no-js [data-section] > section.active > [data-section-content], .no-js [data-section] > section.active > .content, .no-js [data-section] > section.active > .rubric, .no-js [data-section] > .section.active > [data-section-content], .no-js [data-section] > .section.active > .content, .no-js [data-section] > .section.active > .rubric, .no-js [data-section] > [data-section-region].active > [data-section-content], .no-js [data-section] > [data-section-region].active > .content, .no-js [data-section] > [data-section-region].active > .rubric, .no-js .section-container > section.active > [data-section-content], .no-js .section-container > section.active > .content, .no-js .section-container > section.active > .rubric, .no-js .section-container > .section.active > [data-section-content], .no-js .section-container > .section.active > .content, .no-js .section-container > .section.active > .rubric, .no-js .section-container > [data-section-region].active > [data-section-content], .no-js .section-container > [data-section-region].active > .content, .no-js .section-container > [data-section-region].active > .rubric {
   display: block;
 }
 /* line 119, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -4516,21 +4572,21 @@ label.error {
   background-color: white;
 }
 /* line 220, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.no-js .section-container > section > .content, .no-js .section-container > .section > .content {
+.no-js .section-container > section > .content, .no-js .section-container > section > .rubric, .no-js .section-container > .section > .content, .no-js .section-container > .section > .rubric {
   padding: 5px 15px 15px 35px;
   background-color: white;
   border: solid 0px #cccccc;
 }
 /* line 225, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.no-js .section-container > section > .content > *:last-child, .no-js .section-container > .section > .content > *:last-child {
+.no-js .section-container > section > .content > *:last-child, .no-js .section-container > section > .rubric > *:last-child, .no-js .section-container > .section > .content > *:last-child, .no-js .section-container > .section > .rubric > *:last-child {
   margin-bottom: 0;
 }
 /* line 226, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.no-js .section-container > section > .content > *:first-child, .no-js .section-container > .section > .content > *:first-child {
+.no-js .section-container > section > .content > *:first-child, .no-js .section-container > section > .rubric > *:first-child, .no-js .section-container > .section > .content > *:first-child, .no-js .section-container > .section > .rubric > *:first-child {
   padding-top: 0;
 }
 /* line 227, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
-.no-js .section-container > section > .content > *:last-child:not(.flex-video), .no-js .section-container > .section > .content > *:last-child:not(.flex-video) {
+.no-js .section-container > section > .content > *:last-child:not(.flex-video), .no-js .section-container > section > .rubric > *:last-child:not(.flex-video), .no-js .section-container > .section > .content > *:last-child:not(.flex-video), .no-js .section-container > .section > .rubric > *:last-child:not(.flex-video) {
   padding-bottom: 0;
 }
 /* line 231, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_section.scss */
@@ -7195,7 +7251,7 @@ a.th {
   color: #555555;
 }
 /* line 142, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_dropdown.scss */
-.f-dropdown.content {
+.f-dropdown.content, .f-dropdown.rubric {
   position: absolute;
   top: -9999px;
   list-style: none;
@@ -7211,11 +7267,11 @@ a.th {
   max-width: 200px;
 }
 /* line 50, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_dropdown.scss */
-.f-dropdown.content > *:first-child {
+.f-dropdown.content > *:first-child, .f-dropdown.rubric > *:first-child {
   margin-top: 0;
 }
 /* line 51, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_dropdown.scss */
-.f-dropdown.content > *:last-child {
+.f-dropdown.content > *:last-child, .f-dropdown.rubric > *:last-child {
   margin-bottom: 0;
 }
 /* line 145, ../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.3.1/scss/foundation/components/_dropdown.scss */
@@ -7264,15 +7320,16 @@ html, body {
 .footer {
   border-top: 1px solid #e3e3e3;
   padding-top: 30px;
+  text-align: center;
 }
-/* line 79, ../sass/app.scss */
+/* line 80, ../sass/app.scss */
 .footer a {
   font-size: 15px;
   color: #27ae60;
   text-transform: uppercase;
   margin-right: 10px;
 }
-/* line 87, ../sass/app.scss */
+/* line 88, ../sass/app.scss */
 .footer p {
   font-size: 13px;
   color: #646464;
@@ -7282,73 +7339,73 @@ html, body {
 	Hello stylesheet reader! I hope you enjoy reading these declarations as I have enjoyed
 	creating (and recreating) it :)
 */
-/* line 101, ../sass/app.scss */
+/* line 102, ../sass/app.scss */
 .green-button, .continue-button, .add-row, .call-to-action a, #login-submit, #register-button, .dashboard-button-green, .clear-button, #account-button, #login-button, .negative-button, .icon-remove, .icon-remove-multiple, .icon-chevron-left, #logout-button, .dashboard-button-grey {
   transition: background-color 0.5s, border 0.5s, color 0.5s;
   text-transform: uppercase;
 }
 
-/* line 106, ../sass/app.scss */
+/* line 107, ../sass/app.scss */
 .green-button, .continue-button, .add-row, .call-to-action a, #login-submit, #register-button, .dashboard-button-green {
   background-color: #27ae60;
   color: #fff !important;
 }
-/* line 110, ../sass/app.scss */
+/* line 111, ../sass/app.scss */
 .green-button:hover, .continue-button:hover, .add-row:hover, .call-to-action a:hover, #login-submit:hover, #register-button:hover, .dashboard-button-green:hover, .green-button:focus, .continue-button:focus, .add-row:focus, .call-to-action a:focus, #login-submit:focus, #register-button:focus, .dashboard-button-green:focus {
   background-color: #36d278;
 }
 
-/* line 116, ../sass/app.scss */
+/* line 117, ../sass/app.scss */
 .clear-button, #account-button, #login-button {
   border: 1px solid #e3e3e3;
   color: #27ae60 !important;
 }
-/* line 119, ../sass/app.scss */
+/* line 120, ../sass/app.scss */
 .clear-button:hover, #account-button:hover, #login-button:hover, .clear-button:focus, #account-button:focus, #login-button:focus {
   border: 1px solid #cacaca;
   color: #1e8449;
 }
 
-/* line 125, ../sass/app.scss */
+/* line 126, ../sass/app.scss */
 .negative-button, .icon-remove, .icon-remove-multiple, .icon-chevron-left, #logout-button, .dashboard-button-grey {
   background-color: #dadada;
 }
-/* line 128, ../sass/app.scss */
+/* line 129, ../sass/app.scss */
 .negative-button:hover, .icon-remove:hover, .icon-remove-multiple:hover, .icon-chevron-left:hover, #logout-button:hover, .dashboard-button-grey:hover, .negative-button:focus, .icon-remove:focus, .icon-remove-multiple:focus, .icon-chevron-left:focus, #logout-button:focus, .dashboard-button-grey:focus {
   background-color: #ef3636;
   color: #fff;
 }
 
-/* line 135, ../sass/app.scss */
+/* line 136, ../sass/app.scss */
 .icon-remove, .icon-remove-multiple {
   padding: 11px;
   color: #fff;
   display: inline-block;
 }
-/* line 140, ../sass/app.scss */
+/* line 141, ../sass/app.scss */
 .icon-remove span, .icon-remove-multiple span {
   font-family: "PT Sans", Arial, sans-serif !important;
   margin-left: 3px;
 }
 
-/* line 146, ../sass/app.scss */
+/* line 147, ../sass/app.scss */
 .icon-remove-multiple {
   position: relative;
   top: 10px;
 }
-/* line 150, ../sass/app.scss */
+/* line 151, ../sass/app.scss */
 .icon-remove-multiple:before {
   content: "\f00d";
 }
 
-/* line 155, ../sass/app.scss */
+/* line 156, ../sass/app.scss */
 .continue-button {
   float: right;
   padding: 15px 20px 15px 20px;
   text-transform: uppercase;
 }
 
-/* line 162, ../sass/app.scss */
+/* line 163, ../sass/app.scss */
 .icon-chevron-left {
   float: right;
   padding: 15px;
@@ -7356,14 +7413,14 @@ html, body {
   margin-right: 10px;
 }
 
-/* line 170, ../sass/app.scss */
+/* line 171, ../sass/app.scss */
 .add-row {
   padding: 8px 12px 8px 10px;
   margin-bottom: 15px;
   display: inline-block;
 }
 
-/* line 178, ../sass/app.scss */
+/* line 179, ../sass/app.scss */
 .a-error {
   color: #ef3636;
   margin-bottom: 40px;
@@ -7372,70 +7429,70 @@ html, body {
   padding: 10px;
 }
 
-/* line 186, ../sass/app.scss */
+/* line 187, ../sass/app.scss */
 .errorlist {
   margin-top: -15px;
   border-top: 2px solid #ef3636;
   padding: 5px 5px 5px 0px;
 }
-/* line 190, ../sass/app.scss */
+/* line 191, ../sass/app.scss */
 .errorlist li {
   list-style: none;
   color: #ef3636;
 }
 
-/* line 197, ../sass/app.scss */
+/* line 198, ../sass/app.scss */
 .no-visibility {
   visibility: hidden;
 }
 
-/* line 202, ../sass/app.scss */
+/* line 203, ../sass/app.scss */
 .index-main {
   padding-top: 75px;
 }
-/* line 204, ../sass/app.scss */
+/* line 205, ../sass/app.scss */
 .index-main h4, .index-main div {
   text-align: center;
 }
-/* line 207, ../sass/app.scss */
+/* line 208, ../sass/app.scss */
 .index-main div:last-child {
   margin-bottom: 30px;
 }
 
-/* line 211, ../sass/app.scss */
+/* line 212, ../sass/app.scss */
 .index-features {
   padding-top: 30px;
   text-align: center;
 }
-/* line 214, ../sass/app.scss */
+/* line 215, ../sass/app.scss */
 .index-features div {
   padding-bottom: 20px;
 }
 
-/* line 220, ../sass/app.scss */
+/* line 221, ../sass/app.scss */
 .call-to-action a {
   padding: 10px 30px 10px 30px;
   text-transform: uppercase;
   font-size: 20px;
   margin-bottom: 10px;
 }
-/* line 227, ../sass/app.scss */
+/* line 228, ../sass/app.scss */
 .call-to-action span {
   color: #646464;
   margin-top: 20px;
   display: block;
 }
 
-/* line 237, ../sass/app.scss */
+/* line 238, ../sass/app.scss */
 .navigation {
   margin-top: 30px;
 }
-/* line 239, ../sass/app.scss */
+/* line 240, ../sass/app.scss */
 .navigation ul {
   float: right;
   list-style: none;
 }
-/* line 243, ../sass/app.scss */
+/* line 244, ../sass/app.scss */
 .navigation li {
   float: left;
   font-size: 1em;
@@ -7443,12 +7500,12 @@ html, body {
   margin-right: 15px;
   position: relative;
 }
-/* line 251, ../sass/app.scss */
+/* line 252, ../sass/app.scss */
 .navigation a {
   color: #4a4a4a;
 }
 
-/* line 256, ../sass/app.scss */
+/* line 257, ../sass/app.scss */
 .login-pane, .account-pane {
   display: none;
   width: 270px;
@@ -7461,38 +7518,38 @@ html, body {
   border: 1px solid #e3e3e3;
   text-transform: none;
 }
-/* line 267, ../sass/app.scss */
+/* line 268, ../sass/app.scss */
 .login-pane a, .account-pane a {
   color: #27ae60;
 }
 
-/* line 272, ../sass/app.scss */
+/* line 273, ../sass/app.scss */
 .account-pane {
   font-size: 13px;
 }
-/* line 274, ../sass/app.scss */
+/* line 275, ../sass/app.scss */
 .account-pane strong {
   font-size: 14px;
   display: block;
 }
-/* line 278, ../sass/app.scss */
+/* line 279, ../sass/app.scss */
 .account-pane ul {
   margin-left: 15px;
   float: none;
   list-style: circle;
   margin-bottom: 20px;
 }
-/* line 284, ../sass/app.scss */
+/* line 285, ../sass/app.scss */
 .account-pane li {
   text-transform: none;
   float: none;
 }
-/* line 288, ../sass/app.scss */
+/* line 289, ../sass/app.scss */
 .account-pane a {
   color: #27ae60;
 }
 
-/* line 293, ../sass/app.scss */
+/* line 294, ../sass/app.scss */
 .login-pane:before, .account-pane:before {
   content: '';
   position: absolute;
@@ -7503,24 +7560,24 @@ html, body {
   right: 0px;
 }
 
-/* line 303, ../sass/app.scss */
+/* line 304, ../sass/app.scss */
 .account-pane:before {
   width: 133px !important;
 }
 
-/* line 308, ../sass/app.scss */
+/* line 309, ../sass/app.scss */
 #account-button {
   padding: 8px 20px 8px 20px;
 }
 
 /*	Login button is the 'LOGIN' button found in the navigation, while
 	Login Submit is the button found in the login form itself */
-/* line 316, ../sass/app.scss */
+/* line 317, ../sass/app.scss */
 #login-button {
   padding: 8px 30px 8px 30px;
 }
 
-/* line 321, ../sass/app.scss */
+/* line 322, ../sass/app.scss */
 #login-submit, #register-button {
   padding: 8px 30px 8px 30px;
   display: block;
@@ -7528,20 +7585,20 @@ html, body {
   margin-bottom: 10px;
 }
 
-/* line 329, ../sass/app.scss */
+/* line 330, ../sass/app.scss */
 #logout-button {
   padding: 8px 30px 8px 30px;
   color: #646464;
   margin-top: 20px;
 }
 
-/* line 339, ../sass/app.scss */
+/* line 340, ../sass/app.scss */
 .content-header {
   border-bottom: 1px solid #e3e3e3;
   margin-top: 40px;
   margin-bottom: 30px;
 }
-/* line 342, ../sass/app.scss */
+/* line 343, ../sass/app.scss */
 .content-header span {
   float: right;
   color: #27ae60;
@@ -7549,79 +7606,85 @@ html, body {
   margin-top: 25px;
 }
 
-/* line 351, ../sass/app.scss */
+/* line 352, ../sass/app.scss */
 .tab-wrapper {
   margin-top: 40px;
 }
 
-/* line 355, ../sass/app.scss */
-.content {
+/* line 356, ../sass/app.scss */
+.content, .rubric {
   /*.row:first-child, h4 {
   	margin-top: 40px;
   }*/
 }
-/* line 360, ../sass/app.scss */
-.content form.custom .custom.dropdown.open ul {
+/* line 361, ../sass/app.scss */
+.content form.custom .custom.dropdown.open ul, .rubric form.custom .custom.dropdown.open ul {
   border: 1px solid #e3e3e3;
 }
-/* line 363, ../sass/app.scss */
-.content input {
+/* line 364, ../sass/app.scss */
+.content input, .rubric input {
   height: 38px;
 }
-/* line 367, ../sass/app.scss */
-.content textarea {
+/* line 368, ../sass/app.scss */
+.content textarea, .rubric textarea {
   min-height: 80px !important;
   width: 100%;
 }
-/* line 372, ../sass/app.scss */
-.content .checkboxes {
+/* line 373, ../sass/app.scss */
+.content .checkboxes, .rubric .checkboxes {
   margin-top: 30px;
 }
-/* line 374, ../sass/app.scss */
-.content .checkboxes input {
+/* line 375, ../sass/app.scss */
+.content .checkboxes input, .rubric .checkboxes input {
   height: 30px;
 }
-/* line 377, ../sass/app.scss */
-.content .checkboxes p {
+/* line 378, ../sass/app.scss */
+.content .checkboxes p, .rubric .checkboxes p {
   margin-left: -30px;
 }
-/* line 382, ../sass/app.scss */
-.content .highlight {
+/* line 383, ../sass/app.scss */
+.content .highlight, .rubric .highlight {
   display: inline-block;
   background-color: #dadada;
   color: lighter(#646464);
   padding: 2px 5px 2px 5px;
   font-size: 12px;
 }
-/* line 390, ../sass/app.scss */
-.content .foreach-header {
+/* line 391, ../sass/app.scss */
+.content .foreach-header, .rubric .foreach-header {
   margin-bottom: -40px;
 }
 
-/* line 396, ../sass/app.scss */
+/* line 398, ../sass/app.scss */
+.rubric textarea {
+  height: 200px;
+  max-width: 100%;
+}
+
+/* line 405, ../sass/app.scss */
 .vertical-tabs .title {
   border-right: 2px solid #e3e3e3 !important;
   text-transform: uppercase;
 }
-/* line 402, ../sass/app.scss */
+/* line 411, ../sass/app.scss */
 .vertical-tabs .active .title {
   border-right: 2px solid #27ae60 !important;
 }
 
-/* line 408, ../sass/app.scss */
+/* line 417, ../sass/app.scss */
 .learning-outcomes {
   margin-bottom: 25px;
 }
-/* line 410, ../sass/app.scss */
+/* line 419, ../sass/app.scss */
 .learning-outcomes .row:first-child, .learning-outcomes .dashboard-table-content:first-child {
   margin-top: 0px !important;
   margin-bottom: 10px;
 }
-/* line 414, ../sass/app.scss */
+/* line 423, ../sass/app.scss */
 .learning-outcomes .row, .learning-outcomes .dashboard-table-content {
   margin-top: 20px;
 }
-/* line 417, ../sass/app.scss */
+/* line 426, ../sass/app.scss */
 .learning-outcomes .lo-block {
   background-color: #dadada;
   color: #fff;
@@ -7630,26 +7693,26 @@ html, body {
 
 /* OLD SCSS FILE, JUST NOT TO ENTIRELY FUCK UP 
 THE SITE WHILE IM REDOING THE SCSS */
-/* line 436, ../sass/app.scss */
+/* line 445, ../sass/app.scss */
 .dashboard-button-grey {
   font-size: 11px !important;
 }
 
-/* line 444, ../sass/app.scss */
+/* line 453, ../sass/app.scss */
 .dashboard-button-green {
   font-size: 11px !important;
   margin-right: 3px !important;
 }
 
-/* line 452, ../sass/app.scss */
+/* line 461, ../sass/app.scss */
 .dashboard-table-content {
   padding-top: 20px;
 }
-/* line 457, ../sass/app.scss */
+/* line 466, ../sass/app.scss */
 .dashboard-table-content ul {
   list-style: none;
 }
-/* line 461, ../sass/app.scss */
+/* line 470, ../sass/app.scss */
 .dashboard-table-content li {
   display: block;
   padding: 3px;
@@ -7657,42 +7720,42 @@ THE SITE WHILE IM REDOING THE SCSS */
   padding-right: 10px !important;
   border-bottom: 1px solid #646464;
 }
-/* line 468, ../sass/app.scss */
+/* line 477, ../sass/app.scss */
 .dashboard-table-content li span.itemName {
   padding-left: 5px;
 }
-/* line 472, ../sass/app.scss */
+/* line 481, ../sass/app.scss */
 .dashboard-table-content li span.lastModified {
   float: right;
 }
-/* line 476, ../sass/app.scss */
+/* line 485, ../sass/app.scss */
 .dashboard-table-content li i {
   font-size: 13px !important;
   color: #646464 !important;
 }
-/* line 482, ../sass/app.scss */
+/* line 491, ../sass/app.scss */
 .dashboard-table-content li:last-child {
   border-bottom: none;
 }
-/* line 486, ../sass/app.scss */
+/* line 495, ../sass/app.scss */
 .dashboard-table-content li:hover {
   background-color: #27ae60;
   cursor: pointer;
   color: #fff;
   border-bottom: 1px solid #27ae60;
 }
-/* line 491, ../sass/app.scss */
+/* line 500, ../sass/app.scss */
 .dashboard-table-content li:hover i {
   color: #fff !important;
 }
 
-/* line 497, ../sass/app.scss */
+/* line 506, ../sass/app.scss */
 .dashboard-icon {
   color: #646464 !important;
   font-size: 13px;
 }
 
-/* line 502, ../sass/app.scss */
+/* line 511, ../sass/app.scss */
 .align-right {
   text-align: right;
 }

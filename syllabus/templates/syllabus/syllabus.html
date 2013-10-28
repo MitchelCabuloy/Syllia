@@ -3,329 +3,327 @@
 {% block title %}New syllabus{% endblock title %}
 
 {% block content %}
-<div>
-
-    <div class="row content-header">
-        <div class="large-12 column">
-            <h3 class="left">Create a new syllabus</h3>
-            <span>Modified x minutes ago</span>
-        </div>
+<div class="row content-header">
+    <div class="large-12 column">
+        <h3 class="left">Create a new syllabus</h3>
+        <span>Modified x minutes ago</span>
     </div>
+</div>
 
-    <div class="row tab-wrapper">
-        <div class="section-container vertical-tabs" data-options="deep_linking: true" data-section="vertical-tabs">
-            <section class="active">
-                <p class="title"><a href="#section1">Basic Details</a></p>
+<div class="row tab-wrapper">
+    <div class="section-container vertical-tabs" data-options="deep_linking: true" data-section="vertical-tabs">
+        <section class="active">
+            <p class="title"><a href="#section1">Basic Details</a></p>
 
-                <div class="content" data-slug="section1">
-                    <!-- Basic Details content -->
-
-                    <div class="row">
-                        <div class="large-4 columns">
-                            <label>Syllabus Name</label>
-                            <input type="text" placeholder="NewSyllabus-class-01" data-bind="value: syllabusName"/>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <form class="custom">
-                        <div class="row">
-                            <div class="large-4 columns">
-                                <label>College</label>
-                                <select id="collegeSelect" data-bind="options: collegeList,optionsText: 'collegeName',optionsValue: 'pk',value: college,optionsCaption: 'Choose one...'">
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="large-4 columns">
-                                <label>Department</label>
-                                <select id="departmentSelect" data-bind="options: departmentList,optionsText: 'departmentName',
-                                optionsValue: 'pk',value: department,optionsCaption: 'Choose one...'">
-                            </select>
-                        </div>
-                    </div>
-                </form>
+            <div class="content" data-slug="section1">
+                <!-- Basic Details content -->
 
                 <div class="row">
                     <div class="large-4 columns">
-                        <label>Course Code</label>
-                        <input data-bind="value: courseCode" placeholder="NTCOR03" type="text">
-                    </div>
-                    <div class="large-8 columns">
-                        <label>Course Name</label>
-                        <input data-bind="value: courseName" placeholder="LAN Switching and Wireless - Lecture" type="text">
+                        <label>Syllabus Name</label>
+                        <input type="text" placeholder="NewSyllabus-class-01" data-bind="value: syllabusName"/>
                     </div>
                 </div>
 
                 <hr>
-
-                <div class="row">
-                    <div class="large-4 columns">
-                        <label>Days</label>
-                    </div>
-                    <div class="large-4 columns left">
-                        <label>Class time</label>
-                    </div>
-                </div>
-                <div  data-bind="foreach: schedules">
-                    <div class="row">
-                        <div class="large-4 columns">
-                            <input data-bind="value: days" placeholder="Mondays and Wednesdays" type="text">
-                        </div>
-                        <div class="large-3 columns">
-                            <input data-bind="value: startTime" placeholder="13:00" type="text">
-                        </div>
-                        <div class="large-3 columns">
-                            <input data-bind="value: endTime" placeholder="14:30" type="text">
-                        </div>
-                        <div class="large-2 columns">
-                            <a class="icon-remove-multiple" data-bind="click: $root.removeSchedule" href="#"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="large-4 columns">
-                        <a class="add-row" data-bind="click: addSchedule" href="#"><i class="icon-plus"></i> Add row</a>
-                    </div>
-                </div>
-
-                <hr>
-
-
-                <div class="row">
-                    <div class="large-4 columns">
-                       <label>Instructors</label>
-                    </div>
-                </div>
-                <div  data-bind="foreach: instructors">
-                    <div class="row">
-                        <div class="large-4 columns">
-                            <input data-bind="value: fullName" placeholder="Jean Baptiste de La Salle" type="text">
-                        </div>
-                        <div class="large-4 columns left">
-                            <a class="icon-remove-multiple" data-bind="click: $root.removeInstructor" href="#"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="large-4 columns">
-                        <a class="add-row" data-bind="click: addInstructor" href="#"><i class="icon-plus"></i> Add row</a>
-                    </div>
-                </div>
-
-                <hr>
-
-                <div class="row top-spacing">
-                    <div class="large-12 columns">
-                        <label>Course Description</label>
-                        <textarea class="form-fill form-textarea" data-bind="value: courseDescription" name="description">
-                        </textarea>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="large-12 columns">
-                        <a class="continue-button" href="#section2">
-                            <i class="icon-chevron-right"></i> To Learning Outcomes
-                        </a>
-                    </div>
-                </div><!-- End of Basic Details content -->
-            </div>
-        </section>
-
-        <section>
-            <p class="title"><a href="#section2">Learning Outcomes</a></p>
-            <div class="content" data-slug="section2">
-                <!-- Start of Learning Outcomes content -->
-
-                <!--<p>On completion of the course, the student is expected to be able to do the following:</p>-->
-
-                <div  data-bind="foreach: elgas">
-
-                    <div class="row">
-
-                        <div class="large-4 columns">
-                            <label>Lasallian Value</label>
-                            <input type="text" data-bind="value: elgaName" placeholder="Service Driven Citizen"> <a class="icon-remove" data-bind="click: $root.removeElga" href="#"></a>
-                        </div>
-
-                        <div class="large-8 columns left">
-
-                            <label>Learning Outcome</label>
-                            <div class="learning-outcomes" data-bind="foreach: learningOutcomes">
-                                <div class="row">
-                                    <div class="large-2 columns">
-                                        <div class="lo-block">LO 1</div>
-                                    </div>
-                                    <div class="large-10 columns">
-                                        <textarea class="lo-form form-fill" data-bind="value: description" placeholder="Design an efficient, fault tolerant, and scalable network based on the principles of hiearchical LAN design.">
-                                        </textarea>
-                                        <a class="icon-remove" data-bind="click: $parent.removeLearningOutcome" href="#">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="large-10 columns">
-                                    <a class="add-row" data-bind="click: addLearningOutcome" href="#">
-                                        <i class="icon-plus"></i> Add Learning Outcome
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <hr>
-                </div>
-
-
-
-                <div class="row">
-                    <div class="large-7 columns left">
-                        <a class="add-row" data-bind="click: addElga" href="#"><i class="icon-plus"></i> Add A Lasallian Value</a>
-                    </div>
-
-                    <div class="large-5 columns">
-                        <a class="continue-button" href="#section3"><i class="icon-chevron-right"></i> To Course Output</a> <a class=" icon-chevron-left" href="#section1" onclick="pane(1)"></a>
-                    </div>
-                </div><!-- End of Learning Outcomes content -->
-            </div>
-        </section>
-
-        <section>
-            <p class="title" data-section-title=""><a href="#section3">Course Output</a></p>
-
-            <div class="content" data-section-content="" data-slug="section3">
-                <!-- Start of Course Output content -->
-
-                <h4>Final Course Output</h4>
-                <p>As evidence of attaining the prescribed learning outcomes, the student is required to do and submit the following during the indicated dates of the term.</p>
-
-                <div class="row">
-                    <div class="large-12 columns">
-                        <label>Final Course Output Description</label>
-                        <textarea data-bind="value: finalCourseOutputDescription" placeholder="The final case study requires students to work in groups of 3-4 members in designing, implementing, and verifying a hypothetical network based on a set of given requirement. Further details and specifications of the case study will be given at a later date.">
-                        </textarea>
-                    </div>
-                </div>
-
-                <div data-bind="foreach: requiredOutputs">
-
-                    <div class="row">
-                        <div class="large-4 columns">
-                            <label>Required Output</label>
-                            <input data-bind="value: description" placeholder="Case Study" type="text">
-                        </div>
-                        <div class="large-4 columns left">
-                            <label>Due Date</label>
-                            <input data-bind="value: weekDue" placeholder="Week 13" type="text">
-                        </div>
-                        <div class="large-2 columns left">
-                            <label class="no-visibility">Delete row</label>
-                            <a class="icon-remove-multiple" data-bind="click: $root.removeRequiredOutput" href="#"></a>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <label>Learning Outcomes</label>
-                        </div>
-                        <div data-bind="foreach: $root.elgas">
-                            <div class="checkboxes" data-bind="foreach: learningOutcomes">
-                                <div class="large-12 columns">
-                                    <div class="small-1 columns">
-                                        <input data-bind="value: description, checked: $parents[1].los" type="checkbox">
-                                    </div>
-                                    <div class="small-11 columns left">
-                                        <p data-bind="text: description"></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                </div>
-
-                <div class="row">
-                    <div class="large-12 columns">
-                        <a class="add-row" data-bind="click: addRequiredOutput" href="#"><i class="icon-plus"></i> Add Required Output</a>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="large-12 columns">
-                        <h4>Other Requirements and Assesments</h4><!--<span class="syllabus-modified">Modified 53 minutes ago</span>-->
-
-                        <p>
-                            Aside from the final output, the student will be assessed at other times during the term by the following:
-                        </p>
-                    </div>
-                </div>
-
-                
-                <div class="row">
-                    <div class="large-12 columns">
-                        <label>Requirement / Assessment</label>
-                    </div>
-                </div>
-
-                <div data-bind="foreach: otherOutputs">
-                    <div class="row">
-                        <div class="large-4 columns">
-                            <input data-bind="value: requirementName" placeholder="Online Practical Exam" type="text">
-                        </div>
-                        <div class="large-2 columns left">
-                            <a class="icon-remove" data-bind="click: $root.removeOtherOutput" href="#"></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="large-12 columns">
-                        <a class="add-row" data-bind="click: addOtherOutput" href="#"><i class="icon-plus"></i> Add row</a>
-                    </div>
-                </div>
-
-                <hr>
-
-                <div class="row">
-                    <div class="large-12 columns">
-                        <a class="continue-button" href="#section4"><i class="icon-chevron-right"></i> To Rubric</a>
-                        <a class="icon-chevron-left" href="#section2"></a>
-                    </div>
-                </div><!-- End of Course Output content -->
-            </div>
-        </section>
-
-        <section>
-            <p class="title"><a href="#section4">Rubric</a></p>
-
-            <div class="content" data-slug="section4">
-                <!-- Start of Rubric content -->
-
-                <h4>Attach a Rubric</h4>
-
-                <p>
-                    Rubrics are created separately from the actual Syllabus so they can be attached to multiple / different Syllabuses without having to retype them each time. Simply select below which Rubric you would like to attach. Alternatively, you can proceed to create a new one (progress here would not be lost).
-                </p>
 
                 <form class="custom">
                     <div class="row">
-                        <div class="large-4 column">
-                            <select id="rubricSelect" data-bind="options: rubricList,
-                            optionsText: 'rubricName',
-                            optionsValue: 'pk',
-                            value: rubric,
-                            optionsCaption: 'Choose one...'">
+                        <div class="large-4 columns">
+                            <label>College</label>
+                            <select id="collegeSelect" data-bind="options: collegeList,optionsText: 'collegeName',optionsValue: 'pk',value: college,optionsCaption: 'Choose one...'">
                             </select>
                         </div>
                     </div>
-                </form>
+                    <div class="row">
+                        <div class="large-4 columns">
+                            <label>Department</label>
+                            <select id="departmentSelect" data-bind="options: departmentList,optionsText: 'departmentName',
+                            optionsValue: 'pk',value: department,optionsCaption: 'Choose one...'">
+                        </select>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row">
+                <div class="large-4 columns">
+                    <label>Course Code</label>
+                    <input data-bind="value: courseCode" placeholder="NTCOR03" type="text">
+                </div>
+                <div class="large-8 columns">
+                    <label>Course Name</label>
+                    <input data-bind="value: courseName" placeholder="LAN Switching and Wireless - Lecture" type="text">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="large-4 columns">
+                    <label>Days</label>
+                </div>
+                <div class="large-4 columns left">
+                    <label>Class time</label>
+                </div>
+            </div>
+            <div  data-bind="foreach: schedules">
+                <div class="row">
+                    <div class="large-4 columns">
+                        <input data-bind="value: days" placeholder="Mondays and Wednesdays" type="text">
+                    </div>
+                    <div class="large-3 columns">
+                        <input data-bind="value: startTime" placeholder="13:00" type="text">
+                    </div>
+                    <div class="large-3 columns">
+                        <input data-bind="value: endTime" placeholder="14:30" type="text">
+                    </div>
+                    <div class="large-2 columns">
+                        <a class="icon-remove-multiple" data-bind="click: $root.removeSchedule" href="#"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-4 columns">
+                    <a class="add-row" data-bind="click: addSchedule" href="#"><i class="icon-plus"></i> Add row</a>
+                </div>
+            </div>
+
+            <hr>
+
+
+            <div class="row">
+                <div class="large-4 columns">
+                    <label>Instructors</label>
+                </div>
+            </div>
+            <div  data-bind="foreach: instructors">
+                <div class="row">
+                    <div class="large-4 columns">
+                        <input data-bind="value: fullName" placeholder="Jean Baptiste de La Salle" type="text">
+                    </div>
+                    <div class="large-4 columns left">
+                        <a class="icon-remove-multiple" data-bind="click: $root.removeInstructor" href="#"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-4 columns">
+                    <a class="add-row" data-bind="click: addInstructor" href="#"><i class="icon-plus"></i> Add row</a>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row top-spacing">
+                <div class="large-12 columns">
+                    <label>Course Description</label>
+                    <textarea class="form-fill form-textarea" data-bind="value: courseDescription" name="description">
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <a class="continue-button" href="#section2">
+                        <i class="icon-chevron-right"></i> To Learning Outcomes
+                    </a>
+                </div>
+            </div><!-- End of Basic Details content -->
+        </div>
+    </section>
+
+    <section>
+        <p class="title"><a href="#section2">Learning Outcomes</a></p>
+        <div class="content" data-slug="section2">
+            <!-- Start of Learning Outcomes content -->
+
+            <!--<p>On completion of the course, the student is expected to be able to do the following:</p>-->
+
+            <div  data-bind="foreach: elgas">
+
+                <div class="row">
+
+                    <div class="large-4 columns">
+                        <label>Lasallian Value</label>
+                        <input type="text" data-bind="value: elgaName" placeholder="Service Driven Citizen"> <a class="icon-remove" data-bind="click: $root.removeElga" href="#"></a>
+                    </div>
+
+                    <div class="large-8 columns left">
+
+                        <label>Learning Outcome</label>
+                        <div class="learning-outcomes" data-bind="foreach: learningOutcomes">
+                            <div class="row">
+                                <div class="large-2 columns">
+                                    <div class="lo-block">LO 1</div>
+                                </div>
+                                <div class="large-10 columns">
+                                    <textarea class="lo-form form-fill" data-bind="value: description" placeholder="Design an efficient, fault tolerant, and scalable network based on the principles of hiearchical LAN design.">
+                                    </textarea>
+                                    <a class="icon-remove" data-bind="click: $parent.removeLearningOutcome" href="#">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-10 columns">
+                                <a class="add-row" data-bind="click: addLearningOutcome" href="#">
+                                    <i class="icon-plus"></i> Add Learning Outcome
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <hr>
+            </div>
+
+
+
+            <div class="row">
+                <div class="large-7 columns left">
+                    <a class="add-row" data-bind="click: addElga" href="#"><i class="icon-plus"></i> Add A Lasallian Value</a>
+                </div>
+
+                <div class="large-5 columns">
+                    <a class="continue-button" href="#section3"><i class="icon-chevron-right"></i> To Course Output</a> <a class=" icon-chevron-left" href="#section1" onclick="pane(1)"></a>
+                </div>
+            </div><!-- End of Learning Outcomes content -->
+        </div>
+    </section>
+
+    <section>
+        <p class="title" data-section-title=""><a href="#section3">Course Output</a></p>
+
+        <div class="content" data-section-content="" data-slug="section3">
+            <!-- Start of Course Output content -->
+
+            <h4>Final Course Output</h4>
+            <p>As evidence of attaining the prescribed learning outcomes, the student is required to do and submit the following during the indicated dates of the term.</p>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Final Course Output Description</label>
+                    <textarea data-bind="value: finalCourseOutputDescription" placeholder="The final case study requires students to work in groups of 3-4 members in designing, implementing, and verifying a hypothetical network based on a set of given requirement. Further details and specifications of the case study will be given at a later date.">
+                    </textarea>
+                </div>
+            </div>
+
+            <div data-bind="foreach: requiredOutputs">
+
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label>Required Output</label>
+                        <input data-bind="value: description" placeholder="Case Study" type="text">
+                    </div>
+                    <div class="large-4 columns left">
+                        <label>Due Date</label>
+                        <input data-bind="value: weekDue" placeholder="Week 13" type="text">
+                    </div>
+                    <div class="large-2 columns left">
+                        <label class="no-visibility">Delete row</label>
+                        <a class="icon-remove-multiple" data-bind="click: $root.removeRequiredOutput" href="#"></a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Learning Outcomes</label>
+                    </div>
+                    <div data-bind="foreach: $root.elgas">
+                        <div class="checkboxes" data-bind="foreach: learningOutcomes">
+                            <div class="large-12 columns">
+                                <div class="small-1 columns">
+                                    <input data-bind="value: description, checked: $parents[1].los" type="checkbox">
+                                </div>
+                                <div class="small-11 columns left">
+                                    <p data-bind="text: description"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <a class="add-row" data-bind="click: addRequiredOutput" href="#"><i class="icon-plus"></i> Add Required Output</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <h4>Other Requirements and Assesments</h4><!--<span class="syllabus-modified">Modified 53 minutes ago</span>-->
+
+                    <p>
+                        Aside from the final output, the student will be assessed at other times during the term by the following:
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <label>Requirement / Assessment</label>
+                </div>
+            </div>
+
+            <div data-bind="foreach: otherOutputs">
+                <div class="row">
+                    <div class="large-4 columns">
+                        <input data-bind="value: requirementName" placeholder="Online Practical Exam" type="text">
+                    </div>
+                    <div class="large-2 columns left">
+                        <a class="icon-remove" data-bind="click: $root.removeOtherOutput" href="#"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <a class="add-row" data-bind="click: addOtherOutput" href="#"><i class="icon-plus"></i> Add row</a>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <a class="continue-button" href="#section4"><i class="icon-chevron-right"></i> To Rubric</a>
+                    <a class="icon-chevron-left" href="#section2"></a>
+                </div>
+            </div><!-- End of Course Output content -->
+        </div>
+    </section>
+
+    <section>
+        <p class="title"><a href="#section4">Rubric</a></p>
+
+        <div class="content" data-slug="section4">
+            <!-- Start of Rubric content -->
+
+            <h4>Attach a Rubric</h4>
+
+            <p>
+                Rubrics are created separately from the actual Syllabus so they can be attached to multiple / different Syllabuses without having to retype them each time. Simply select below which Rubric you would like to attach. Alternatively, you can proceed to create a new one (progress here would not be lost).
+            </p>
+
+            <form class="custom">
+                <div class="row">
+                    <div class="large-4 column">
+                        <select id="rubricSelect" data-bind="options: rubricList,
+                        optionsText: 'rubricName',
+                        optionsValue: 'pk',
+                        value: rubric,
+                        optionsCaption: 'Choose one...'">
+                        </select>
+                    </div>
+                </div>
+            </form>
 
             <hr>
 
