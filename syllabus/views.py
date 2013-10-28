@@ -29,34 +29,22 @@ class DashboardView(View):
         syllabusList = []
 
         for syllabus in syllabus_set:
-            # Both in UTC
-            if syllabus.last_modified.date() == datetime.utcnow().date():
-                lastModified = timezone.localtime(syllabus.last_modified).strftime('%I:%M %p')
-            else:
-                lastModified = timezone.localtime(syllabus.last_modified).strftime('%b %d')
-
             syllabusList.append({
                 "pk": syllabus.id,
                 "url": 'syllabus',
                 "itemName": syllabus.syllabus_name,
-                "lastModified": lastModified
+                "lastModified": format_last_modified_time(syllabus.last_modified)
             })
 
         rubric_set = current_user.rubric_set.all()
         rubricList = []
 
         for rubric in rubric_set:
-            # Both in UTC
-            if rubric.last_modified.date() == datetime.utcnow().date():
-                lastModified = timezone.localtime(rubric.last_modified).strftime('%I:%M %p')
-            else:
-                lastModified = timezone.localtime(rubric.last_modified).strftime('%b %d')
-
             rubricList.append({
                 "pk": rubric.id,
                 "url": 'rubric',
                 "itemName": rubric.rubric_name,
-                "lastModified": lastModified
+                "lastModified": format_last_modified_time(rubric.last_modified)
             })
 
         jsonData = {
@@ -85,7 +73,7 @@ class SyllabusView(View):
                 jsonData['syllabusData'] = simplejson.loads(syllabus.json_data)
 
                 # Load modified time data
-                jsonData['timeSinceModified'] = get_last_modified_string(syllabus.last_modified)
+                jsonData['timeSinceModified'] = get_time_since_modified(syllabus.last_modified)
 
             except Exception, e:
                 print e.message
@@ -158,7 +146,7 @@ class RubricView(View):
 
                 jsonData = {
                     'rubricData': simplejson.loads(rubric.json_data),
-                    'timeSinceModified': get_last_modified_string(rubric.last_modified)
+                    'timeSinceModified': get_time_since_modified(rubric.last_modified)
                 }
 
                 context = {'jsonData': simplejson.dumps(jsonData)}
@@ -190,8 +178,15 @@ class RubricView(View):
         return HttpResponse(rubric.json_data)
 
 # static methods
+def format_last_modified_time(last_modified):
+    if last_modified.date() == datetime.utcnow().date():
+        last_modified_string = timezone.localtime(last_modified).strftime('%I:%M %p')
+    else:
+        last_modified_string = timezone.localtime(last_modified).strftime('%b %d')
 
-def get_last_modified_string(last_modified):
+    return last_modified_string
+
+def get_time_since_modified(last_modified):
     time_since_modified = datetime.utcnow().replace(tzinfo=timezone.utc) - last_modified
     s = time_since_modified.total_seconds()
     days, remainder = divmod(s, 86400)
@@ -200,10 +195,10 @@ def get_last_modified_string(last_modified):
 
     # If less than an hour, show minutes ago
     if time_since_modified < timedelta(minutes=60):
-        timeSinceModified = "%d minutes" % minutes
+        time_since_modified_string = "%d minutes" % minutes
     elif time_since_modified < timedelta(hours=24):
-        timeSinceModified = "%d hours" % hours
+        time_since_modified_string = "%d hours" % hours
     else:
-        timeSinceModified = "%d days" % days
+        time_since_modified_string = "%d days" % days
 
-    return timeSinceModified
+    return time_since_modified_string
