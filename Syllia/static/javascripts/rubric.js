@@ -41,24 +41,24 @@ var RubricModule = (function($, ko) {
             var self = this;
             self.pk = null;
             self.rubricName = ko.observable();
-
-            var criteriaObject = function() {
-                this.criteriaName = "";
-                this.exemplary = "";
-                this.satisfactory = "";
-                this.developing = "";
-                this.beginning = "";
-            };
-
-            self.criterias = ko.observableArray([new criteriaObject()])
+            self.criterias = ko.observableArray([new models.CriteriaModel()])
 
             self.addCriteria = function() {
-                self.criterias.push(new criteriaObject());
+                self.criterias.push(new models.criteriaObject());
             };
 
             self.removeCriteria = function(criteria) {
                 self.criterias.remove(criteria);
             };
+        };
+
+        models.CriteriaModel = function() {
+            var self = this;
+            self.criteriaName = "";
+            self.exemplary = "";
+            self.satisfactory = "";
+            self.developing = "";
+            self.beginning = "";
         };
 
         return models;
