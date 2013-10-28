@@ -7,8 +7,7 @@ from django.views.generic.base import View
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
-from django.utils import simplejson
-from django.utils.timezone import utc
+from django.utils import simplejson, timezone
 
 from syllabus.models import Rubric, College, Department, Syllabus
 
@@ -30,10 +29,11 @@ class DashboardView(View):
         syllabusList = []
 
         for syllabus in syllabus_set:
-            if syllabus.last_modified.date() == datetime.today().date():
-                lastModified = syllabus.last_modified.strftime('%I:%M %p')
+            # Both in UTC
+            if syllabus.last_modified.date() == datetime.utcnow().date():
+                lastModified = timezone.localtime(syllabus.last_modified).strftime('%I:%M %p')
             else:
-                lastModified = syllabus.last_modified.strftime('%b %d')
+                lastModified = timezone.localtime(syllabus.last_modified).strftime('%b %d')
 
             syllabusList.append({
                 "pk": syllabus.id,
@@ -46,10 +46,11 @@ class DashboardView(View):
         rubricList = []
 
         for rubric in rubric_set:
-            if rubric.last_modified.date() == datetime.today().date():
-                lastModified = rubric.last_modified.strftime('%I:%M %p')
+            # Both in UTC
+            if rubric.last_modified.date() == datetime.utcnow().date():
+                lastModified = timezone.localtime(rubric.last_modified).strftime('%I:%M %p')
             else:
-                lastModified = rubric.last_modified.strftime('%b %d')
+                lastModified = timezone.localtime(rubric.last_modified).strftime('%b %d')
 
             rubricList.append({
                 "pk": rubric.id,
@@ -84,7 +85,7 @@ class SyllabusView(View):
                 jsonData['syllabusData'] = simplejson.loads(syllabus.json_data)
 
                 # Load modified time data
-                time_since_modified = datetime.utcnow().replace(tzinfo=utc) - syllabus.last_modified
+                time_since_modified = datetime.utcnow().replace(tzinfo=timezone.utc) - syllabus.last_modified
                 s = time_since_modified.total_seconds()
                 days, remainder = divmod(s, 86400)
                 hours, remainder = divmod(remainder, 3600)
