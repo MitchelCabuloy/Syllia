@@ -56,7 +56,16 @@ var SyllabusModule = (function($, ko) {
         viewModel.requiredOutputs(json.requiredOutputs);
         viewModel.otherOutputs(json.otherOutputs);
         // TODO: Create array of GradingSystemModel() objects instead of passing directly
-        viewModel.gradingSystems(json.gradingSystems);
+
+        var tempList = [];
+        $.each(json.gradingSystems, function(index, value) {
+            var tempItem = new MODELS.GradingSystemModel();
+            tempItem.itemName(value.itemName);
+            tempItem.percentage(value.percentage);
+            tempList.push(tempItem);
+        });
+
+        viewModel.gradingSystems(tempList);
 
         viewModel.learningPlans.removeAll();
         $.each(json.learningPlans, function(index, data) {
@@ -199,7 +208,7 @@ var SyllabusModule = (function($, ko) {
                 var gradingSystems = self.gradingSystems();
                 var total = 0;
                 $.each(gradingSystems, function(index, item) {
-                    var temp = parseInt(item.percentage)
+                    var temp = parseInt(item.percentage())
                     if (!isNaN(temp))
                         total += temp;
                 });
