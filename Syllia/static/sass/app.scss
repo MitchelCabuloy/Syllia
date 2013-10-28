@@ -107,7 +107,7 @@ html, body {
 	//border: 1px solid $green-darker;
 	background-color: $green;
 	color: #fff !important;	
-	&:hover {
+	&:hover, &:focus {
 		background-color: $green-lighter;
 		//border: 1px solid $green;
 	}
@@ -116,7 +116,7 @@ html, body {
 .clear-button {
 	border: 1px solid $grey-border;
 	color: $green !important;
-	&:hover {
+	&:hover, &:focus {
 		border: 1px solid $grey-border-darker;
 		color: $green-darker;
 	}
@@ -125,7 +125,7 @@ html, body {
 .negative-button {
 	background-color: $grey-button;
 	//border:1px solid $grey-button-border;
-	&:hover {
+	&:hover, &:focus {
 		background-color: $red;
 		//border: 1px solid $red-darker;
 		color: #fff;
@@ -136,12 +136,20 @@ html, body {
 	@extend .negative-button;
 	padding: 11px;
 	color: #fff;
+	display: inline-block;
+	span {
+		font-family: $body-font-family !important;
+		margin-left: 3px;
+	}	
 }
 
-.ir-multiple {
+.icon-remove-multiple {
 	@extend .icon-remove;
 	position: relative;
 	top: 10px;
+	&:before {
+		content: "\f00d";
+	}
 }
 
 .continue-button {
@@ -151,7 +159,7 @@ html, body {
 	text-transform: uppercase;
 }
 
-.previous-button {
+.icon-chevron-left {
 	@extend .negative-button;
 	float: right;
 	padding: 15px;
@@ -176,14 +184,18 @@ html, body {
 }
 
 .errorlist {
-	margin-top: 5px;
-	border-left: 3px solid $red;
+	margin-top: -15px;
+	border-top: 2px solid $red;
 	padding: 5px 5px 5px 0px;
 	li {
 		list-style: none;
 		color: $red;
-		padding-left: 10px;
+		//padding-left: 10px;
 	}
+}
+
+.no-visibility {
+	visibility:hidden;
 }
 
 // index page declarations
@@ -333,6 +345,7 @@ html, body {
 		font-size: 14px;
 		margin-top: 25px;
 	}
+	margin-bottom: 30px;
 }
 
 .tab-wrapper {
@@ -340,25 +353,10 @@ html, body {
 }
 
 .content {
-	.row:first-child {
+	/*.row:first-child, h4 {
 		margin-top: 40px;
-	}
+	}*/
 	
-	.row {
-		margin-bottom: 5px;
-	}
-
-	label {
-		@extend h5;
-		font-weight: normal;
-	}
-
-	p {
-		margin-bottom: 15px;
-		margin-top: 10px;
-		display: block;
-	}
-
 	form.custom .custom.dropdown.open ul {
 		border: 1px solid $grey-border;
 	}
@@ -366,6 +364,20 @@ html, body {
 		height: 38px;
 	}
 
+	textarea {
+		min-height: 80px !important;
+		width: 100%;
+	}
+
+	.checkboxes {
+	margin-top: 30px;
+		input {
+			height: 30px;
+		}
+		p {
+			margin-left: -30px;
+		}
+	}
 
 	.highlight {
 		display: inline-block;
@@ -407,10 +419,6 @@ html, body {
 		color: #fff;
 		padding: 11px;
 	}
-	textarea {
-		min-height: 80px !important;
-		width: 100%;
-	}
 }
 
 
@@ -426,8 +434,8 @@ THE SITE WHILE IM REDOING THE SCSS */
 
 
 .dashboard-button-grey {
-	@extend .grey-button2;
-	@extend .form-button;
+	@extend .negative-button;
+	//@extend .form-button;
 	font-size: 11px !important;
 
 
@@ -435,8 +443,8 @@ THE SITE WHILE IM REDOING THE SCSS */
 
 .dashboard-button-green {
 	@extend .green-button;
-	@extend .form-button;
-	@extend .right;
+	//@extend .form-button;
+	//@extend .right;
 	font-size: 11px !important;
 	margin-right: 3px !important;
 }
