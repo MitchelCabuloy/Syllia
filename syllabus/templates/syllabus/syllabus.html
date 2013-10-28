@@ -556,23 +556,6 @@
 {% block scripts %}
 {% load staticfiles %}
 
-{% comment %}
-
-
-{% if jsonString %}
-<script>
-    var jsonString = '{{ jsonString|escapejs }}';
-</script>
-{% endif %}
-
-<!-- Static data from the server -->
-<script>
-    var rubricList = $.parseJSON('{{ rubricList|escapejs }}');
-    var collegeList = $.parseJSON('{{ collegeList|escapejs }}');
-    var departmentList = $.parseJSON('{{ departmentList|escapejs }}');
-</script>
-{% endcomment %}
-
 <script>
     var jsonData = $.parseJSON('{{ jsonData|escapejs }}');
 </script>
