@@ -7340,18 +7340,18 @@ html, body {
 	creating (and recreating) it :)
 */
 /* line 102, ../sass/app.scss */
-.green-button, .continue-button, .add-row, .call-to-action a, #login-submit, #register-button, .dashboard-button-green, .clear-button, #account-button, #login-button, .negative-button, .icon-remove, .icon-remove-multiple, .icon-chevron-left, #logout-button, .dashboard-button-grey {
+.green-button, .continue-button, .add-row, .dashboard-green, .call-to-action a, #login-submit, #register-button, .dashboard-button-green, .clear-button, #account-button, #login-button, .negative-button, .icon-remove, .icon-remove-multiple, .icon-chevron-left, #logout-button, .dashboard-button-grey {
   transition: background-color 0.5s, border 0.5s, color 0.5s;
   text-transform: uppercase;
 }
 
 /* line 107, ../sass/app.scss */
-.green-button, .continue-button, .add-row, .call-to-action a, #login-submit, #register-button, .dashboard-button-green {
+.green-button, .continue-button, .add-row, .dashboard-green, .call-to-action a, #login-submit, #register-button, .dashboard-button-green {
   background-color: #27ae60;
   color: #fff !important;
 }
 /* line 111, ../sass/app.scss */
-.green-button:hover, .continue-button:hover, .add-row:hover, .call-to-action a:hover, #login-submit:hover, #register-button:hover, .dashboard-button-green:hover, .green-button:focus, .continue-button:focus, .add-row:focus, .call-to-action a:focus, #login-submit:focus, #register-button:focus, .dashboard-button-green:focus {
+.green-button:hover, .continue-button:hover, .add-row:hover, .dashboard-green:hover, .call-to-action a:hover, #login-submit:hover, #register-button:hover, .dashboard-button-green:hover, .green-button:focus, .continue-button:focus, .add-row:focus, .dashboard-green:focus, .call-to-action a:focus, #login-submit:focus, #register-button:focus, .dashboard-button-green:focus {
   background-color: #36d278;
 }
 
@@ -7414,13 +7414,13 @@ html, body {
 }
 
 /* line 171, ../sass/app.scss */
-.add-row {
+.add-row, .dashboard-green {
   padding: 8px 12px 8px 10px;
   margin-bottom: 15px;
   display: inline-block;
 }
 
-/* line 179, ../sass/app.scss */
+/* line 178, ../sass/app.scss */
 .a-error {
   color: #ef3636;
   margin-bottom: 40px;
@@ -7429,70 +7429,70 @@ html, body {
   padding: 10px;
 }
 
-/* line 187, ../sass/app.scss */
+/* line 186, ../sass/app.scss */
 .errorlist {
   margin-top: -15px;
   border-top: 2px solid #ef3636;
   padding: 5px 5px 5px 0px;
 }
-/* line 191, ../sass/app.scss */
+/* line 190, ../sass/app.scss */
 .errorlist li {
   list-style: none;
   color: #ef3636;
 }
 
-/* line 198, ../sass/app.scss */
+/* line 197, ../sass/app.scss */
 .no-visibility {
   visibility: hidden;
 }
 
-/* line 203, ../sass/app.scss */
+/* line 202, ../sass/app.scss */
 .index-main {
   padding-top: 75px;
 }
-/* line 205, ../sass/app.scss */
+/* line 204, ../sass/app.scss */
 .index-main h4, .index-main div {
   text-align: center;
 }
-/* line 208, ../sass/app.scss */
+/* line 207, ../sass/app.scss */
 .index-main div:last-child {
   margin-bottom: 30px;
 }
 
-/* line 212, ../sass/app.scss */
+/* line 211, ../sass/app.scss */
 .index-features {
   padding-top: 30px;
   text-align: center;
 }
-/* line 215, ../sass/app.scss */
+/* line 214, ../sass/app.scss */
 .index-features div {
   padding-bottom: 20px;
 }
 
-/* line 221, ../sass/app.scss */
+/* line 220, ../sass/app.scss */
 .call-to-action a {
   padding: 10px 30px 10px 30px;
   text-transform: uppercase;
   font-size: 20px;
   margin-bottom: 10px;
 }
-/* line 228, ../sass/app.scss */
+/* line 227, ../sass/app.scss */
 .call-to-action span {
   color: #646464;
   margin-top: 20px;
   display: block;
 }
 
-/* line 238, ../sass/app.scss */
+/* line 237, ../sass/app.scss */
 .navigation {
   margin-top: 30px;
 }
-/* line 240, ../sass/app.scss */
+/* line 239, ../sass/app.scss */
 .navigation ul {
   float: right;
   list-style: none;
 }
-/* line 244, ../sass/app.scss */
+/* line 243, ../sass/app.scss */
 .navigation li {
   float: left;
   font-size: 1em;
@@ -7500,12 +7500,12 @@ html, body {
   margin-right: 15px;
   position: relative;
 }
-/* line 252, ../sass/app.scss */
+/* line 251, ../sass/app.scss */
 .navigation a {
   color: #4a4a4a;
 }
 
-/* line 257, ../sass/app.scss */
+/* line 256, ../sass/app.scss */
 .login-pane, .account-pane {
   display: none;
   width: 270px;
@@ -7518,38 +7518,12 @@ html, body {
   border: 1px solid #e3e3e3;
   text-transform: none;
 }
-/* line 268, ../sass/app.scss */
+/* line 267, ../sass/app.scss */
 .login-pane a, .account-pane a {
   color: #27ae60;
 }
 
-/* line 273, ../sass/app.scss */
-.account-pane {
-  font-size: 13px;
-}
-/* line 275, ../sass/app.scss */
-.account-pane strong {
-  font-size: 14px;
-  display: block;
-}
-/* line 279, ../sass/app.scss */
-.account-pane ul {
-  margin-left: 15px;
-  float: none;
-  list-style: circle;
-  margin-bottom: 20px;
-}
-/* line 285, ../sass/app.scss */
-.account-pane li {
-  text-transform: none;
-  float: none;
-}
-/* line 289, ../sass/app.scss */
-.account-pane a {
-  color: #27ae60;
-}
-
-/* line 294, ../sass/app.scss */
+/* line 272, ../sass/app.scss */
 .login-pane:before, .account-pane:before {
   content: '';
   position: absolute;
@@ -7560,24 +7534,49 @@ html, body {
   right: 0px;
 }
 
-/* line 304, ../sass/app.scss */
+/* line 282, ../sass/app.scss */
+.account-pane {
+  font-size: 13px;
+}
+/* line 284, ../sass/app.scss */
+.account-pane strong {
+  font-size: 14px;
+  display: block;
+}
+/* line 288, ../sass/app.scss */
+.account-pane ul {
+  margin-left: 15px;
+  float: none;
+  list-style: circle;
+  margin-bottom: 20px;
+}
+/* line 294, ../sass/app.scss */
+.account-pane li {
+  text-transform: none;
+  float: none;
+}
+/* line 298, ../sass/app.scss */
+.account-pane a {
+  color: #27ae60;
+}
+/* line 302, ../sass/app.scss */
 .account-pane:before {
   width: 133px !important;
 }
 
-/* line 309, ../sass/app.scss */
+/* line 307, ../sass/app.scss */
 #account-button {
   padding: 8px 20px 8px 20px;
 }
 
 /*	Login button is the 'LOGIN' button found in the navigation, while
 	Login Submit is the button found in the login form itself */
-/* line 317, ../sass/app.scss */
+/* line 315, ../sass/app.scss */
 #login-button {
   padding: 8px 30px 8px 30px;
 }
 
-/* line 322, ../sass/app.scss */
+/* line 320, ../sass/app.scss */
 #login-submit, #register-button {
   padding: 8px 30px 8px 30px;
   display: block;
@@ -7585,20 +7584,20 @@ html, body {
   margin-bottom: 10px;
 }
 
-/* line 330, ../sass/app.scss */
+/* line 328, ../sass/app.scss */
 #logout-button {
   padding: 8px 30px 8px 30px;
   color: #646464;
   margin-top: 20px;
 }
 
-/* line 340, ../sass/app.scss */
+/* line 338, ../sass/app.scss */
 .content-header {
   border-bottom: 1px solid #e3e3e3;
   margin-top: 40px;
   margin-bottom: 30px;
 }
-/* line 343, ../sass/app.scss */
+/* line 341, ../sass/app.scss */
 .content-header span {
   float: right;
   color: #27ae60;
@@ -7606,43 +7605,43 @@ html, body {
   margin-top: 25px;
 }
 
-/* line 352, ../sass/app.scss */
+/* line 350, ../sass/app.scss */
 .tab-wrapper {
   margin-top: 40px;
 }
 
-/* line 356, ../sass/app.scss */
+/* line 354, ../sass/app.scss */
 .content, .rubric {
   /*.row:first-child, h4 {
   	margin-top: 40px;
   }*/
 }
-/* line 361, ../sass/app.scss */
+/* line 359, ../sass/app.scss */
 .content form.custom .custom.dropdown.open ul, .rubric form.custom .custom.dropdown.open ul {
   border: 1px solid #e3e3e3;
 }
-/* line 364, ../sass/app.scss */
+/* line 362, ../sass/app.scss */
 .content input, .rubric input {
   height: 38px;
 }
-/* line 368, ../sass/app.scss */
+/* line 366, ../sass/app.scss */
 .content textarea, .rubric textarea {
   min-height: 80px !important;
   width: 100%;
 }
-/* line 373, ../sass/app.scss */
+/* line 371, ../sass/app.scss */
 .content .checkboxes, .rubric .checkboxes {
   margin-top: 30px;
 }
-/* line 375, ../sass/app.scss */
+/* line 373, ../sass/app.scss */
 .content .checkboxes input, .rubric .checkboxes input {
   height: 30px;
 }
-/* line 378, ../sass/app.scss */
+/* line 376, ../sass/app.scss */
 .content .checkboxes p, .rubric .checkboxes p {
   margin-left: -30px;
 }
-/* line 383, ../sass/app.scss */
+/* line 381, ../sass/app.scss */
 .content .highlight, .rubric .highlight {
   display: inline-block;
   background-color: #dadada;
@@ -7650,41 +7649,41 @@ html, body {
   padding: 2px 5px 2px 5px;
   font-size: 12px;
 }
-/* line 391, ../sass/app.scss */
+/* line 389, ../sass/app.scss */
 .content .foreach-header, .rubric .foreach-header {
   margin-bottom: -40px;
 }
 
-/* line 398, ../sass/app.scss */
+/* line 396, ../sass/app.scss */
 .rubric textarea {
   height: 200px;
   max-width: 100%;
 }
 
-/* line 405, ../sass/app.scss */
+/* line 403, ../sass/app.scss */
 .vertical-tabs .title {
   border-right: 2px solid #e3e3e3 !important;
   text-transform: uppercase;
 }
-/* line 411, ../sass/app.scss */
+/* line 409, ../sass/app.scss */
 .vertical-tabs .active .title {
   border-right: 2px solid #27ae60 !important;
 }
 
-/* line 417, ../sass/app.scss */
+/* line 415, ../sass/app.scss */
 .learning-outcomes {
   margin-bottom: 25px;
 }
-/* line 419, ../sass/app.scss */
+/* line 417, ../sass/app.scss */
 .learning-outcomes .row:first-child, .learning-outcomes .dashboard-table-content:first-child {
   margin-top: 0px !important;
   margin-bottom: 10px;
 }
-/* line 423, ../sass/app.scss */
+/* line 421, ../sass/app.scss */
 .learning-outcomes .row, .learning-outcomes .dashboard-table-content {
   margin-top: 20px;
 }
-/* line 426, ../sass/app.scss */
+/* line 424, ../sass/app.scss */
 .learning-outcomes .lo-block {
   background-color: #dadada;
   color: #fff;
@@ -7693,26 +7692,26 @@ html, body {
 
 /* OLD SCSS FILE, JUST NOT TO ENTIRELY FUCK UP 
 THE SITE WHILE IM REDOING THE SCSS */
-/* line 445, ../sass/app.scss */
+/* line 443, ../sass/app.scss */
 .dashboard-button-grey {
   font-size: 11px !important;
 }
 
-/* line 453, ../sass/app.scss */
+/* line 451, ../sass/app.scss */
 .dashboard-button-green {
   font-size: 11px !important;
   margin-right: 3px !important;
 }
 
-/* line 461, ../sass/app.scss */
+/* line 459, ../sass/app.scss */
 .dashboard-table-content {
   padding-top: 20px;
 }
-/* line 466, ../sass/app.scss */
+/* line 464, ../sass/app.scss */
 .dashboard-table-content ul {
   list-style: none;
 }
-/* line 470, ../sass/app.scss */
+/* line 468, ../sass/app.scss */
 .dashboard-table-content li {
   display: block;
   padding: 3px;
@@ -7720,42 +7719,42 @@ THE SITE WHILE IM REDOING THE SCSS */
   padding-right: 10px !important;
   border-bottom: 1px solid #646464;
 }
-/* line 477, ../sass/app.scss */
+/* line 475, ../sass/app.scss */
 .dashboard-table-content li span.itemName {
   padding-left: 5px;
 }
-/* line 481, ../sass/app.scss */
+/* line 479, ../sass/app.scss */
 .dashboard-table-content li span.lastModified {
   float: right;
 }
-/* line 485, ../sass/app.scss */
+/* line 483, ../sass/app.scss */
 .dashboard-table-content li i {
   font-size: 13px !important;
   color: #646464 !important;
 }
-/* line 491, ../sass/app.scss */
+/* line 489, ../sass/app.scss */
 .dashboard-table-content li:last-child {
   border-bottom: none;
 }
-/* line 495, ../sass/app.scss */
+/* line 493, ../sass/app.scss */
 .dashboard-table-content li:hover {
   background-color: #27ae60;
   cursor: pointer;
   color: #fff;
   border-bottom: 1px solid #27ae60;
 }
-/* line 500, ../sass/app.scss */
+/* line 498, ../sass/app.scss */
 .dashboard-table-content li:hover i {
   color: #fff !important;
 }
 
-/* line 506, ../sass/app.scss */
+/* line 504, ../sass/app.scss */
 .dashboard-icon {
   color: #646464 !important;
   font-size: 13px;
 }
 
-/* line 511, ../sass/app.scss */
+/* line 509, ../sass/app.scss */
 .align-right {
   text-align: right;
 }

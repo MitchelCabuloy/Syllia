@@ -4,27 +4,27 @@
 
 {% block content %}
 
-<div>
-    <!--<form class="custom syllabus-form">-->
-    <div class="row top-spacing underline">
-        <div class="large-12 column">
-            <h3 class="syllabus-title">
-                Account Dashboard
-            </h3>
-        </div>
+
+<div class="row content-header">
+    <div class="large-12 column">
+        <h3 class="left">Account Dashboard</h3>
+        <!--<span>Modified x minutes ago</span>-->
     </div>
-    <div id="thing"></div>
+</div>
+
+
+    <!-- what is this? > <div id="thing"></div> -->
     <div class="row top-spacing">
         <div class="section-container vertical-tabs" data-section="vertical-tabs" data-options="deep_linking: true">
             <section class="active">
                 <p class="title" data-section-title>
-                    <a href="#">Syllabus</a>
+                    <a href="#syllabus">Syllabus</a>
                 </p>
                 <div class="content" data-slug="syllabus" data-section-content>
                     <!-- Content -->
                     <div class="row">
-                        <div class="large-12 columns bottom-spacing-small">
-                            <a href="#" class="dashboard-button-grey">
+                        <div class="large-12 columns">
+                            <!--<a href="#" class="dashboard-button-grey">
                                 <i class="icon-check-empty"></i>
                                 <i class="icon-caret-down"></i>
                             </a>
@@ -40,23 +40,21 @@
                             <a href="#" class="dashboard-button-grey">
                                 <i class="icon-refresh"></i>
                             </a>
-                            <a href="#" class="dashboard-button-grey">
-                                <i class="icon-remove"></i>
-                                delete
-                            </a>
-
-                            <a href="#" class="dashboard-button-green">
-                                <i class="icon-download-alt button-icon"></i>
+                            -->
+                            
+                            <a href="#" class="dashboard-green">
+                                <i class="icon-download-alt"></i>
                                 download
+                               
                             </a>
 
-                            <a href="#" class="dashboard-button-green">
-                                <i class="icon-edit button-icon"></i>
+                            <a href="#" class="dashboard-green">
+                                <i class="icon-edit"></i>
                                 Edit
                             </a>
 
-                            <a href="{% url "syllabus:syllabus" %}" class="dashboard-button-green">
-                                <i class="icon-plus button-icon"></i>
+                            <a href="{% url "syllabus:syllabus" %}" class="dashboard-green">
+                                <i class="icon-plus"></i>
                                 New Syllabus
                             </a>
                         </div>
@@ -85,7 +83,7 @@
             </section>
             <section>
                 <p class="title" data-section-title>
-                    <a href="#">Rubric</a>
+                    <a href="#rubric">Rubric</a>
                 </p>
                 <div class="content" data-slug="rubric" data-section-content>
                     <!-- Content -->
@@ -153,7 +151,6 @@
         </div>
     </div>
     <!--</form>-->
-</div>
 
 {% endblock content %}
 {% block scripts %}

@@ -13,9 +13,9 @@
 <div class="row tab-wrapper">
     <div class="section-container vertical-tabs" data-options="deep_linking: true" data-section="vertical-tabs">
         <section class="active">
-            <p class="title"><a href="#section1">Basic Details</a></p>
+            <p class="title"><a href="#basic-details">Basic Details</a></p>
 
-            <div class="content" data-slug="section1">
+            <div class="content" data-slug="basic-details">
                 <!-- Basic Details content -->
 
                 <div class="row">
@@ -124,7 +124,7 @@
 
             <div class="row">
                 <div class="large-12 columns">
-                    <a class="continue-button" href="#section2">
+                    <a class="continue-button" href="#learning-outcomes">
                         <i class="icon-chevron-right"></i> To Learning Outcomes
                     </a>
                 </div>
@@ -133,8 +133,8 @@
     </section>
 
     <section>
-        <p class="title"><a href="#section2">Learning Outcomes</a></p>
-        <div class="content" data-slug="section2">
+        <p class="title"><a href="#learning-outcomes">Learning Outcomes</a></p>
+        <div class="content" data-slug="learning-outcomes">
             <!-- Start of Learning Outcomes content -->
 
             <!--<p>On completion of the course, the student is expected to be able to do the following:</p>-->
@@ -187,16 +187,16 @@
                 </div>
 
                 <div class="large-5 columns">
-                    <a class="continue-button" href="#section3"><i class="icon-chevron-right"></i> To Course Output</a> <a class=" icon-chevron-left" href="#section1" onclick="pane(1)"></a>
+                    <a class="continue-button" href="#course-output"><i class="icon-chevron-right"></i> To Course Output</a> <a class=" icon-chevron-left" href="#basic-details" onclick="pane(1)"></a>
                 </div>
             </div><!-- End of Learning Outcomes content -->
         </div>
     </section>
 
     <section>
-        <p class="title" data-section-title=""><a href="#section3">Course Output</a></p>
+        <p class="title" ><a href="#course-output">Course Output</a></p>
 
-        <div class="content" data-section-content="" data-slug="section3">
+        <div class="content" data-slug="course-output">
             <!-- Start of Course Output content -->
 
             <h4>Final Course Output</h4>
@@ -278,7 +278,7 @@
                         <input data-bind="value: requirementName" placeholder="Online Practical Exam" type="text">
                     </div>
                     <div class="large-2 columns left">
-                        <a class="icon-remove" data-bind="click: $root.removeOtherOutput" href="#"></a>
+                        <a class="icon-remove-multiple" data-bind="click: $root.removeOtherOutput" href="#"></a>
                     </div>
                 </div>
             </div>
@@ -293,17 +293,17 @@
 
             <div class="row">
                 <div class="large-12 columns">
-                    <a class="continue-button" href="#section4"><i class="icon-chevron-right"></i> To Rubric</a>
-                    <a class="icon-chevron-left" href="#section2"></a>
+                    <a class="continue-button" href="#rubric"><i class="icon-chevron-right"></i> To Rubric</a>
+                    <a class="icon-chevron-left" href="#learning-outcomes"></a>
                 </div>
             </div><!-- End of Course Output content -->
         </div>
     </section>
 
     <section>
-        <p class="title"><a href="#section4">Rubric</a></p>
+        <p class="title"><a href="#rubric">Rubric</a></p>
 
-        <div class="content" data-slug="section4">
+        <div class="content" data-slug="rubric">
             <!-- Start of Rubric content -->
 
             <h4>Attach a Rubric</h4>
@@ -333,16 +333,16 @@
                 </div>
 
                 <div class="large-5 columns">
-                    <a class="continue-button" href="#section5"><i class="icon-chevron-right"></i> To Grading System</a> <a class="icon-chevron-left button-icon" href="#section3"></a>
+                    <a class="continue-button" href="#grading-system"><i class="icon-chevron-right"></i> To Grading System</a> <a class="icon-chevron-left button-icon" href="#course-output"></a>
                 </div>
             </div><!-- End of Rubric content -->
         </div>
     </section>
 
     <section>
-        <p class="title"><a href="#section5">Grading System</a></p>
+        <p class="title"><a href="#grading-system">Grading System</a></p>
 
-        <div class="content" data-slug="section5">
+        <div class="content" data-slug="grading-system">
             <!-- Start of Grading System content -->
 
             <!--<p>The student will be graded according to the following:</p>-->
@@ -384,17 +384,17 @@
             <hr>
             <div class="row">
                 <div class="large-12 columns right">
-                    <a class="continue-button" href="#section6"><i class="icon-chevron-right"></i> To Learning Plan</a>
-                    <a class="icon-chevron-left" href="#section4"></a>
+                    <a class="continue-button" href="#learning-plan"><i class="icon-chevron-right"></i> To Learning Plan</a>
+                    <a class="icon-chevron-left" href="#rubric"></a>
                 </div>
             </div><!-- End of Grading System content -->
         </div>
     </section>
 
     <section>
-        <p class="title"><a href="#section6">Learning Plan</a></p>
+        <p class="title"><a href="#learning-plan">Learning Plan</a></p>
 
-        <div class="content" data-slug="section6">
+        <div class="content" data-slug="learning-plan">
             <!-- Start of Learning Plan content -->
 
             <!--<p>Plot weekly topics and coressponding activites that will be performed while discussing said topics.</p> -->
@@ -456,17 +456,17 @@
                 </div>
 
                 <div class="large-6 columns">
-                    <a class="continue-button" href="#section7"><i class="icon-chevron-right"></i> To References and Policies</a>
-                    <a class="icon-chevron-left" href="#section5"></a>
+                    <a class="continue-button" href="#references-and-policies"><i class="icon-chevron-right"></i> To References and Policies</a>
+                    <a class="icon-chevron-left" href="#grading-system"></a>
                 </div>
             </div><!-- end of Learning Plan content -->
         </div>
     </section>
 
     <section>
-        <p class="title"><a href="#section7">References and Policies</a></p>
+        <p class="title"><a href="#references-and-policies">References and Policies</a></p>
 
-        <div class="content" data-slug="section7">
+        <div class="content" data-slug="references-and-policies">
             <!-- End of References and Policies content -->
 
             <h4>References</h4>
@@ -520,17 +520,17 @@
 
             <div class="row top-spacing">
                 <div class="large-12 columns">
-                    <a class="continue-button" href="#section8"><i class="icon-chevron-right"></i> Publish Syllabus</a>
-                    <a class="icon-chevron-left" href="#section6"></a>
+                    <a class="continue-button" href="#publish-syllabus"><i class="icon-chevron-right"></i> Publish Syllabus</a>
+                    <a class="icon-chevron-left" href="#learning-plan"></a>
                 </div>
             </div><!-- Start of References and Policies content -->
         </div>
     </section>
 
     <section>
-        <p class="title"><a href="#section8">Publish Syllabus</a></p>
+        <p class="title"><a href="#publish-syllabus">Publish Syllabus</a></p>
 
-        <div class="content" data-slug="section8">
+        <div class="content" data-slug="publish-syllabus">
             <!-- End of Review and Publish content -->
 
             <div class="row">
