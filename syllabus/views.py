@@ -179,7 +179,7 @@ class RubricView(View):
 
 # static methods
 def format_last_modified_time(last_modified):
-    if last_modified.date() == datetime.utcnow().date():
+    if timezone.localtime(last_modified).date() == timezone.localtime(datetime.utcnow().replace(tzinfo=timezone.utc)).date():
         last_modified_string = timezone.localtime(last_modified).strftime('%I:%M %p')
     else:
         last_modified_string = timezone.localtime(last_modified).strftime('%b %d')
