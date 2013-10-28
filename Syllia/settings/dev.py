@@ -144,8 +144,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'authtools',
-    'accounts',
-    'syllabus',
+    'Syllia.apps.accounts',
+    'Syllia.apps.syllabus',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
