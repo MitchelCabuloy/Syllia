@@ -338,7 +338,7 @@ html, body {
 .content-header {
 	border-bottom: 1px solid $grey-border;
 	margin-top: 40px;
-	span {
+	.modified {
 		float: right;
 		color: $green;
 		font-size: 14px;

@@ -7598,7 +7598,7 @@ html, body {
   margin-bottom: 30px;
 }
 /* line 341, ../sass/app.scss */
-.content-header span {
+.content-header .modified {
   float: right;
   color: #27ae60;
   font-size: 14px;
