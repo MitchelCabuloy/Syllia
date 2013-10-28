@@ -81,8 +81,11 @@ class SyllabusView(View):
             rubricList.append(rubric.json())
 
         # Create dictionary
-        context = {
-            'rubricList': simplejson.dumps(rubricList)
+        # context = {
+        #     'rubricList': simplejson.dumps(rubricList)
+        # }
+        jsonData = {
+            'rubricList': rubricList
         }
 
         collegeList = []
@@ -90,21 +93,24 @@ class SyllabusView(View):
         for college in colleges:
             collegeList.append(college.json())
 
-        context['collegeList'] = simplejson.dumps(collegeList)
+        # context['collegeList'] = simplejson.dumps(collegeList)
+        jsonData['collegeList'] = collegeList
 
         departmentList = []
         departments = Department.objects.all()
         for department in departments:
             departmentList.append(department.json())
 
-        context['departmentList'] = simplejson.dumps(departmentList)
+        # context['departmentList'] = simplejson.dumps(departmentList)
+        jsonData['departmentList'] = departmentList
 
         # If edit mode, load syllabus data
         if(len(args)):
             try:
                 syllabus = current_user.syllabus_set.get(pk=args[0])
 
-                context['jsonString'] = syllabus.json_data
+                # context['jsonString'] = syllabus.json_data
+                jsonData['syllabusData'] = simplejson.loads(syllabus.json_data)
 
                 # return render(request, self.template_name, context)
 
@@ -112,7 +118,7 @@ class SyllabusView(View):
                 raise Http404
 
         # If reached here, no arguments. Return empty form
-        return render(request, self.template_name, context)
+        return render(request, self.template_name, {"jsonData": simplejson.dumps(jsonData)})
 
     def post(self, request, *args, **kwargs):
         # Deserialize to dictionary

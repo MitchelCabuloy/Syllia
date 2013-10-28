@@ -9,9 +9,9 @@ var SyllabusModule = (function($, ko) {
         ko.applyBindings(viewModel);
         MODULE.bindUIActions(viewModel);
 
-        if ("jsonString" in window) {
-            var jsonData = $.parseJSON(jsonString);
-            MODULE.loadData(viewModel, jsonData);
+        if (jsonData.syllabusData) {
+            // var jsonData = $.parseJSON(jsonString);
+            MODULE.loadData(viewModel, jsonData.syllabusData);
         } else {
             // Uncomment for test data
             // this.loadData($.parseJSON('{"college":"College of Computer Studies","department":"Computer Technology","courseCode":"LBYFORE","courseName":"LBYFORE","courseDescription":"LBYFORE is a course that is the hands-on laboratory component of FORENSC.","schedules":[{"endTime":"1740","days":"S","startTime":"1440"},{"endTime":"1600","days":"TH","startTime":"1300"}],"instructors":[{"fullName":"Alexis Pantola"},{"fullName":"Gregory Cu"}],"elgas":[{"elgaName":"Effective Communicator","learningOutcomes":[{"description":"LO 1: Be able to discuss different digital blah."}]},{"elgaName":"Critical/creative thinker","learningOutcomes":[{"description":"LO 2: Be able to gather artifact from different blah"},{"description":"LO 3: Be able to gather artifact from different operating systems"}]}],"finalCourseOutputDescription":"Final course output description here","requiredOutputs":[{"los":["LO 1: Be able to discuss different digital blah."],"description":"Forensic Platform Preparation Report","weekDue":"4"},{"los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"],"description":"Windows System and Artifacts Report","weekDue":"5"}],"otherOutputs":[{"requirementName":"Laboratory Exam"},{"requirementName":"Group Project"}],"gradingSystems":[{"percentage":"60","itemName":"Laboratory Report Average"},{"percentage":"20","itemName":"Group Project"},{"percentage":"20","itemName":"Laboratory Exam"}],"totalGradingSystem":100,"learningPlans":[{"topic":"Introduction / Orientation","weekNumber":"1","learningActivities":[{"description":"Course introduction"},{"description":"Classroom policies discussion"}],"los":[]},{"topic":"1.0 Forensic Platform Preparation","weekNumber":"3","learningActivities":[{"description":"Hands-on"}],"los":["LO 1: Be able to discuss different digital blah."]},{"topic":"2.0 Windows Systems and Artifacts","weekNumber":"4","learningActivities":[{"description":"Hands-on"}],"los":["LO 2: Be able to gather artifact from different blah","LO 3: Be able to gather artifact from different operating systems"]}],"references":[{"referenceText":"Reference, First"},{"referenceText":"Reference, Second"},{"referenceText":"Reference, Third"},{"referenceText":"Test reference. Saved from shell."}],"classPolicies":[{"policy":"No eating"},{"policy":"No cheating"}]}'));
@@ -124,12 +124,12 @@ var SyllabusModule = (function($, ko) {
             self.rubric = ko.observable();
 
             // Dropdown list code
-            self.collegeList = ko.observableArray(window.collegeList);
+            self.collegeList = ko.observableArray(window.jsonData.collegeList);
 
             self.departmentList = ko.computed(function() {
                 var tempList = [];
 
-                $.each(window.departmentList, function(index, value) {
+                $.each(window.jsonData.departmentList, function(index, value) {
                     if (value.college == self.college()) {
                         tempList.push(value);
                     }
@@ -142,7 +142,7 @@ var SyllabusModule = (function($, ko) {
                 Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
             });
 
-            self.rubricList = ko.observableArray(window.rubricList);
+            self.rubricList = ko.observableArray(window.jsonData.rubricList);
 
             var schedule = function() {
                 this.days = "";

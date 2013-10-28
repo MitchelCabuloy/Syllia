@@ -609,6 +609,9 @@
 {% block scripts %}
 {% load staticfiles %}
 
+{% comment %}
+
+
 {% if jsonString %}
 <script>
     var jsonString = '{{ jsonString|escapejs }}';
@@ -620,6 +623,11 @@
     var rubricList = $.parseJSON('{{ rubricList|escapejs }}');
     var collegeList = $.parseJSON('{{ collegeList|escapejs }}');
     var departmentList = $.parseJSON('{{ departmentList|escapejs }}');
+</script>
+{% endcomment %}
+
+<script>
+    var jsonData = $.parseJSON('{{ jsonData|escapejs }}');
 </script>
 
 <script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
