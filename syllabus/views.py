@@ -7,8 +7,7 @@ from django.views.generic.base import View
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
-from django.utils import simplejson
-from django.utils.timezone import utc
+from django.utils import simplejson, timezone
 
 from syllabus.models import Rubric, College, Department, Syllabus
 
@@ -30,32 +29,22 @@ class DashboardView(View):
         syllabusList = []
 
         for syllabus in syllabus_set:
-            if syllabus.last_modified.date() == datetime.today().date():
-                lastModified = syllabus.last_modified.strftime('%I:%M %p')
-            else:
-                lastModified = syllabus.last_modified.strftime('%b %d')
-
             syllabusList.append({
                 "pk": syllabus.id,
                 "url": 'syllabus',
                 "itemName": syllabus.syllabus_name,
-                "lastModified": lastModified
+                "lastModified": format_last_modified_time(syllabus.last_modified)
             })
 
         rubric_set = current_user.rubric_set.all()
         rubricList = []
 
         for rubric in rubric_set:
-            if rubric.last_modified.date() == datetime.today().date():
-                lastModified = rubric.last_modified.strftime('%I:%M %p')
-            else:
-                lastModified = rubric.last_modified.strftime('%b %d')
-
             rubricList.append({
                 "pk": rubric.id,
                 "url": 'rubric',
                 "itemName": rubric.rubric_name,
-                "lastModified": lastModified
+                "lastModified": format_last_modified_time(rubric.last_modified)
             })
 
         jsonData = {
@@ -84,21 +73,7 @@ class SyllabusView(View):
                 jsonData['syllabusData'] = simplejson.loads(syllabus.json_data)
 
                 # Load modified time data
-                time_since_modified = datetime.utcnow().replace(tzinfo=utc) - syllabus.last_modified
-                s = time_since_modified.total_seconds()
-                days, remainder = divmod(s, 86400)
-                hours, remainder = divmod(remainder, 3600)
-                minutes, seconds = divmod(remainder, 60)
-
-                # If less than an hour, show minutes ago
-                if time_since_modified < timedelta(minutes=60):
-                    timeSinceModified = "%d minutes" % minutes
-                elif time_since_modified < timedelta(hours=24):
-                    timeSinceModified = "%d hours" % hours
-                else:
-                    timeSinceModified = "%d days ago" % days
-
-                jsonData['timeSinceModified'] = timeSinceModified
+                jsonData['timeSinceModified'] = get_time_since_modified(syllabus.last_modified)
 
             except Exception, e:
                 print e.message
@@ -168,7 +143,13 @@ class RubricView(View):
 
             try:
                 rubric = current_user.rubric_set.get(pk=args[0])
-                context = {'jsonString': rubric.json_data}
+
+                jsonData = {
+                    'rubricData': simplejson.loads(rubric.json_data),
+                    'timeSinceModified': get_time_since_modified(rubric.last_modified)
+                }
+
+                context = {'jsonData': simplejson.dumps(jsonData)}
                 return render(request, self.template_name, context)
             except Exception:
                 raise Http404
@@ -195,3 +176,29 @@ class RubricView(View):
         rubric.save()
 
         return HttpResponse(rubric.json_data)
+
+# static methods
+def format_last_modified_time(last_modified):
+    if timezone.localtime(last_modified).date() == timezone.localtime(datetime.utcnow().replace(tzinfo=timezone.utc)).date():
+        last_modified_string = timezone.localtime(last_modified).strftime('%I:%M %p')
+    else:
+        last_modified_string = timezone.localtime(last_modified).strftime('%b %d')
+
+    return last_modified_string
+
+def get_time_since_modified(last_modified):
+    time_since_modified = datetime.utcnow().replace(tzinfo=timezone.utc) - last_modified
+    s = time_since_modified.total_seconds()
+    days, remainder = divmod(s, 86400)
+    hours, remainder = divmod(remainder, 3600)
+    minutes, seconds = divmod(remainder, 60)
+
+    # If less than an hour, show minutes ago
+    if time_since_modified < timedelta(minutes=60):
+        time_since_modified_string = "%d minutes" % minutes
+    elif time_since_modified < timedelta(hours=24):
+        time_since_modified_string = "%d hours" % hours
+    else:
+        time_since_modified_string = "%d days" % days
+
+    return time_since_modified_string
