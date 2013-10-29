@@ -23,7 +23,7 @@
     <div class="wrapper">
         <div class="row">
             <div class="large-12 columns navigation">
-                {% if not current_path == "/" %}
+                {% if not home_page %}
                 <a href="{% url "index" %}">
                     <img src="{% static "images/syllia_small.jpg" %}" />
                 </a>

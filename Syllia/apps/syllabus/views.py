@@ -4,9 +4,8 @@ from datetime import datetime, timedelta
 
 from django.contrib.auth import get_user_model
 from django.views.generic.base import View
-from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.shortcuts import render, get_object_or_404
-from django.core.urlresolvers import reverse
+from django.http import HttpResponse, Http404
+from django.shortcuts import render
 from django.utils import simplejson, timezone
 
 from Syllia.apps.syllabus.models import Rubric, College, Department, Syllabus
@@ -18,7 +17,7 @@ class DashboardView(View):
     def get(self, request, *args, **kwargs):
         # If not authenticated, show home page
         if not request.user.is_authenticated():
-            return render(request, 'home/index.html')
+            return render(request, 'home/index.html', {'home_page': True})
 
         # Else. Dashboard
         current_user = get_user_model().objects.get(
