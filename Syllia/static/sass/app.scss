@@ -379,6 +379,10 @@ html, body {
 	/*.row:first-child, h4 {
 		margin-top: 40px;
 	}*/
+
+	p {
+		color: $grey-lighter;
+	}
 	
 	form.custom .custom.dropdown.open ul {
 		border: 1px solid $grey-border;

@@ -112,6 +112,83 @@
                     <!-- End of content -->
                 </div>
             </section>
+            <section>
+                <p class="title" data-section-title>
+                    <a href="#user-profile">User Profile</a>
+                </p>
+                <div class="content" data-slug="user-profile" data-section-content>
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <label>Email Addres</label>
+                            <input type="text"/>
+                            <p>
+                                Take note that valid DLSU <span class="highlight">@dlsu.edu.ph</span> email is still required.
+                            </p>                        
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <label>Full name</label>
+                            <input type="text"/>
+                        </div>
+                    </div>
+                    <form class="custom">
+                        <div class="row">
+                            <div class="large-6 columns">
+                                <label>College</label>
+                                <select id="collegeSelect" data-bind="options: collegeList,optionsText: 'collegeName',optionsValue: 'pk',value: college,optionsCaption: 'Choose one...'">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-6 columns">
+                                <label>Department</label>
+                                <select id="departmentSelect" data-bind="options: departmentList,optionsText: 'departmentName',
+                                optionsValue: 'pk',value: department,optionsCaption: 'Choose one...'">
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <a class="add-row" data-bind="click: addReference" href="#"><i class="icon-edit"></i> Edit Profile</a>
+                    </div>
+                </div>
+
+                </div>
+            </section>
+            <section>
+                <p class="title" data-section-title>
+                    <a href="#change-password">Change Password</a>
+                </p>
+                <div class="content" data-slug="change-password" data-section-content>
+                    <div class="row">
+                        <div class="large-6 columns">
+                        <label>Old Password</label>
+                        <input type="password"/>
+                        </div>
+                    </div>  
+                    <div class="row">
+                        <div class="large-6 columns">
+                        <label>New Password</label>
+                        <input type="password"/>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="large-6 columns">
+                        <label>Confirm Password</label>
+                        <input type="password"/>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <a class="add-row" data-bind="click: addReference" href="#"><i class="icon-edit"></i> Change Password</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
         </div>
     </div>
     <!--</form>-->
@@ -127,6 +204,7 @@
 {% load staticfiles %}
 <script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
 <script src="{% static "javascripts/dashboard.js" %}"></script>
+
 
 
 {% endblock scripts %}

@@ -7632,31 +7632,35 @@ html, body {
   }*/
 }
 /* line 383, ../sass/app.scss */
+.content p, .rubric p {
+  color: #646464;
+}
+/* line 387, ../sass/app.scss */
 .content form.custom .custom.dropdown.open ul, .rubric form.custom .custom.dropdown.open ul {
   border: 1px solid #e3e3e3;
 }
-/* line 386, ../sass/app.scss */
+/* line 390, ../sass/app.scss */
 .content input, .rubric input {
   height: 38px;
 }
-/* line 390, ../sass/app.scss */
+/* line 394, ../sass/app.scss */
 .content textarea, .rubric textarea {
   min-height: 80px !important;
   width: 100%;
 }
-/* line 395, ../sass/app.scss */
+/* line 399, ../sass/app.scss */
 .content .checkboxes, .rubric .checkboxes {
   margin-top: 30px;
 }
-/* line 397, ../sass/app.scss */
+/* line 401, ../sass/app.scss */
 .content .checkboxes input, .rubric .checkboxes input {
   height: 30px;
 }
-/* line 400, ../sass/app.scss */
+/* line 404, ../sass/app.scss */
 .content .checkboxes p, .rubric .checkboxes p {
   margin-left: -30px;
 }
-/* line 405, ../sass/app.scss */
+/* line 409, ../sass/app.scss */
 .content .highlight, .rubric .highlight {
   display: inline-block;
   background-color: #dadada;
@@ -7664,41 +7668,41 @@ html, body {
   padding: 2px 5px 2px 5px;
   font-size: 12px;
 }
-/* line 413, ../sass/app.scss */
+/* line 417, ../sass/app.scss */
 .content .foreach-header, .rubric .foreach-header {
   margin-bottom: -40px;
 }
 
-/* line 420, ../sass/app.scss */
+/* line 424, ../sass/app.scss */
 .rubric textarea {
   height: 200px;
   max-width: 100%;
 }
 
-/* line 427, ../sass/app.scss */
+/* line 431, ../sass/app.scss */
 .vertical-tabs .title {
   border-right: 2px solid #e3e3e3 !important;
   text-transform: uppercase;
 }
-/* line 433, ../sass/app.scss */
+/* line 437, ../sass/app.scss */
 .vertical-tabs .active .title {
   border-right: 2px solid #27ae60 !important;
 }
 
-/* line 439, ../sass/app.scss */
+/* line 443, ../sass/app.scss */
 .learning-outcomes {
   margin-bottom: 25px;
 }
-/* line 441, ../sass/app.scss */
+/* line 445, ../sass/app.scss */
 .learning-outcomes .row:first-child {
   margin-top: 0px !important;
   margin-bottom: 10px;
 }
-/* line 445, ../sass/app.scss */
+/* line 449, ../sass/app.scss */
 .learning-outcomes .row {
   margin-top: 20px;
 }
-/* line 448, ../sass/app.scss */
+/* line 452, ../sass/app.scss */
 .learning-outcomes .lo-block {
   background-color: #dadada;
   color: #fff;
@@ -7706,29 +7710,29 @@ html, body {
 }
 
 /* Dashboard declarations */
-/* line 457, ../sass/app.scss */
+/* line 461, ../sass/app.scss */
 .dashboard-table-content ul {
   list-style: none;
 }
-/* line 460, ../sass/app.scss */
+/* line 464, ../sass/app.scss */
 .dashboard-table-content input {
   height: 13px;
 }
-/* line 463, ../sass/app.scss */
+/* line 467, ../sass/app.scss */
 .dashboard-table-content li {
   padding: 10px 0px 0px 10px;
   border-bottom: 1px solid #e3e3e3;
 }
-/* line 468, ../sass/app.scss */
+/* line 472, ../sass/app.scss */
 .dashboard-table-content li:hover {
   cursor: pointer;
   color: #27ae60;
 }
-/* line 472, ../sass/app.scss */
+/* line 476, ../sass/app.scss */
 .dashboard-table-content .itemName {
   padding-left: 10px;
 }
-/* line 475, ../sass/app.scss */
+/* line 479, ../sass/app.scss */
 .dashboard-table-content .lastModified {
   float: right;
 }
