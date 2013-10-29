@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 from django.contrib.auth.decorators import login_required
 
-from syllabus.views import SyllabusView, DashboardView, RubricView
+from Syllia.apps.syllabus.views import SyllabusView, RubricView
 
 urlpatterns = patterns('',
     # url(r'^$', login_required(DashboardView.as_view()), name='index'),

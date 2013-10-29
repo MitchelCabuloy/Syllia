@@ -3,7 +3,8 @@ from django.views.generic.base import View
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
-from accounts.forms import RegisterForm
+
+from Syllia.apps.accounts.forms import RegisterForm
 
 
 class ProfileView(View):

@@ -12,7 +12,7 @@ MANAGERS = ADMINS
 AUTH_USER_MODEL = 'authtools.User'
 
 import os
-SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+SITE_ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
 
 DATABASES = {
     'default': {
@@ -70,7 +70,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = 'staticfiles'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -144,8 +144,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'authtools',
-    'accounts',
-    'syllabus',
+    'Syllia.apps.accounts',
+    'Syllia.apps.syllabus',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

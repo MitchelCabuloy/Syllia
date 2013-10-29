@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic.base import TemplateView
 
-from syllabus.views import DashboardView
+from Syllia.apps.syllabus.views import DashboardView
 
 urlpatterns = patterns('',
    # url(r'^accounts/', include('accounts.urls', namespace="accounts")),
@@ -9,7 +9,7 @@ urlpatterns = patterns('',
 
    # Syllabus App
    url(r'^$', DashboardView.as_view(), name='index'),
-   url(r'^', include('syllabus.urls', namespace='syllabus')),
+   url(r'^', include('Syllia.apps.syllabus.urls', namespace='syllabus')),
 
    # Static pages
    url(r'^about/$', TemplateView.as_view(template_name='home/about.html'), name='about'),
@@ -19,5 +19,5 @@ urlpatterns = patterns('',
 
    # Accounts and authentication
    url(r'^accounts/', include('authtools.urls', namespace='authtools')),
-   url(r'^accounts/', include('accounts.urls', namespace='accounts')),
+   url(r'^accounts/', include('Syllia.apps.accounts.urls', namespace='accounts')),
 )

@@ -9,7 +9,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.utils import simplejson, timezone
 
-from syllabus.models import Rubric, College, Department, Syllabus
+from Syllia.apps.syllabus.models import Rubric, College, Department, Syllabus
 
 
 class DashboardView(View):
