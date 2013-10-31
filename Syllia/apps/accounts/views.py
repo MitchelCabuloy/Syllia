@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib import messages
 from django.views.generic.base import View
 from django.shortcuts import render, redirect
 
@@ -25,8 +26,11 @@ class ProfileView(View):
             current_user.faculty.department = form.cleaned_data['department']
             current_user.faculty.save()
 
+
+            messages.success(request, 'Your profile was updated')
             return redirect('index')
 
+        messages.error(request, 'Something went wrong')
         return redirect('index')
 
 
