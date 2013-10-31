@@ -100,8 +100,9 @@ html, body {
 
 // general declarations (to @extend from)
 .green-button, .clear-button, .negative-button, .grey-button {
-	transition: background-color 0.5s, border 0.5s, color 0.5s;
+	transition: background-color 0.3s, border 0.3s, color 0.3s;
 	text-transform: uppercase;
+	//font-size: 13px;
 }
 
 .green-button {
@@ -137,7 +138,7 @@ html, body {
 	background-color: $grey-button;
 	color: $grey-lighter;
 	&:hover, &:focus {
-		background-color: lighten($grey-button,5%);
+		background-color: $grey-button-lighter;
 		color: darken($grey-lighter,5%);
 	}
 }
@@ -175,6 +176,10 @@ html, body {
 	padding: 15px;
 	color: #fff;
 	margin-right: 10px;
+	&:hover {
+		/* having red on a back button felt negative*/
+		background-color: $grey-button-border;
+	}
 }
 
 .add-row, .dashboard-green, .dashboard-grey {
@@ -196,6 +201,7 @@ html, body {
 	font-size: 13px;
 }
 
+/*legacy error declarations
 .a-error {
 	color: $red;
 	margin-bottom: 40px;
@@ -203,7 +209,7 @@ html, body {
 	display: block;
 	padding: 10px;
 }
-
+*/
 .errorlist {
 	margin-top: -15px;
 	border-top: 2px solid $red;
@@ -212,6 +218,21 @@ html, body {
 		list-style: none;
 		color: $red;
 		//padding-left: 10px;
+	}
+}
+
+/*newer error declarations*/
+.messages, .a-error {
+	list-style: none;
+	li.success {
+		color: $green;
+		border-left: 3px solid $green;
+		padding: 5px 0px 5px 5px;
+	}
+	li.error, .a-error {
+		color: $red;
+		border-left: 3px solid $red;
+		padding: 5px 0px 5px 15px;
 	}
 }
 
@@ -305,22 +326,52 @@ html, body {
 
 .account-pane {
 	font-size: 13px;
+
 	strong {
 		font-size: 14px;
 		display: block;
 	}
 	ul {
-		margin-left: 15px;
+		margin-left: -25px;
 		float: none;
-		list-style: circle;
-		margin-bottom: 20px;
+		//list-style: circle;
+		//margin-bottom: 20px;
+
 	}
 	li {
 		text-transform: none;
 		float: none;
+		width: 269px;
+
+		a {
+			transition: background-color 0.1s, color 0.1s;
+			padding: 1px 0px 1px 26px;
+			display: block;
+			&:hover {
+				color: #fff;
+				background-color: $green;
+				border-left: 1px solid $green-darker;
+				border-right: 1px solid $green-darker;
+				margin-left: -1px;
+			}
+		}
+
+		i {	
+			width: 20px;
+			margin-right: 10px;
+		}
+
 	}
-	a {
-		color: $green;
+
+	#logout {
+		a {
+			transition: background-color 0.1s, color 0.1s;
+			&:hover {
+				background-color: $red !important;
+				border-left: 1px solid $red-darker !important;
+				border-right: 1px solid $red-darker !important;
+			}
+		}
 	}
 
 	&:before {
@@ -336,26 +387,30 @@ html, body {
 /*	Login button is the 'LOGIN' button found in the navigation, while
 	Login Submit is the button found in the login form itself */
 
+#login-button, #login-submit, #register-button/*, #logout-button*/ {
+	padding: 8px 30px 8px 30px;
+}
+
 #login-button {
 	@extend .clear-button;
-	padding: 8px 30px 8px 30px;
+	//padding: 8px 30px 8px 30px;
 }
 
 #login-submit, #register-button {
 	@extend .green-button;
-	padding: 8px 30px 8px 30px;
+	//padding: 8px 30px 8px 30px;
 	display: block;
 	border: none;
 	margin-bottom: 10px;
 }
-
+/*
 #logout-button {
 	@extend .negative-button;
-	padding: 8px 30px 8px 30px;
+	//padding: 8px 30px 8px 30px;
 	color: $grey-lighter;
 	margin-top: 20px;
 }
-
+*/
 
 // Everything else 
 
