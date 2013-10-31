@@ -8,21 +8,28 @@
         <h3>
             Login to proceed
         </h3>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
 </div>
 <form action="{% url 'authtools:login' %}" method="POST">
     {% csrf_token %}
-    
+
     <div class="content">
         {% if form.errors %}
         <div class="row">
             <div class="large-4 columns">
                 <span class="a-error">Your username and password didn't match. Please try again.</span>
-            </div>            
+            </div>
         </div>
         {% endif %}
-    
-    
+
+
         <div class="row">
             <div class="large-4 columns">
                 <label>Email Address</label>

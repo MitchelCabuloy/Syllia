@@ -6,8 +6,11 @@ from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
+from django.utils import simplejson
 
 from Syllia.apps.accounts.forms import RegisterForm, ProfileForm
+from Syllia.apps.accounts.models import Faculty
+from Syllia.apps.syllabus.views import get_college_list, get_department_list
 
 
 class RegisterView(View):
@@ -15,8 +18,22 @@ class RegisterView(View):
     form_class = RegisterForm
 
     def get(self, request, *args, **kwargs):
-        form = RegisterForm()
-        return render(request, self.template_name, {'form': form})
+        jsonData = {
+            "collegeList": get_college_list(),
+            "departmentList": get_department_list(),
+        }
+
+        context = {
+            'jsonData': simplejson.dumps(jsonData)
+        }
+
+        if request.session.get('register_form'):
+            context['form'] = request.session['register_form']
+            del request.session['register_form']
+        else:
+            context['form'] = RegisterForm()
+
+        return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
         form = RegisterForm(request.POST)
@@ -28,9 +45,17 @@ class RegisterView(View):
             user.name = form.cleaned_data['name']
             user.save()
 
+            faculty = Faculty()
+            faculty.department = form.cleaned_data['department']
+            faculty.user = user
+            faculty.save()
+
+            messages.success(request, 'Successfully created your account')
             return redirect('authtools:login')
 
-        return render(request, self.template_name, {'form': form})
+        # Not valid, return with errors
+        request.session['register_form'] = form
+        return redirect('accounts:register')
 
 
 @csrf_protect
