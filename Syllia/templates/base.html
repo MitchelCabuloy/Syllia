@@ -51,17 +51,23 @@
                                 <strong>{{ user.faculty.department.department_name }}</strong>
                                 {{ user.faculty.department.college.college_name }}
                             </p>
-
+                            <hr>
                             <ul>
-                                <li><a href="{% url "index" %}">Account Dashboard</a></li>
-                                <li><a href="{% url "syllabus:syllabus" %}">Create a Syllabus</a></li>
-                                <li><a href="{% url "syllabus:rubric" %}">Create a Rubric</a></li>
+                                <li><a href="{% url "index" %}"><i class="icon-desktop"></i>Account Dashboard</a></li>
+                                <li><a href="{% url "syllabus:syllabus" %}"><i class="icon-plus"></i>&nbsp;Create a Syllabus</a></li>
+                                <li><a href="{% url "syllabus:rubric" %}"><i class="icon-plus"></i>&nbsp;Create a Rubric</a></li>
+
+                            </ul>
+                            <hr>
+                            <ul>
+                                <li id="logout"><a href="{% url "authtools:logout" %}"><i class="icon-signout"></i>Logout</a></li>
                             </ul>
                             <!--<a class="account-option" href="accounts/password_change">Change Password</a>-->
-
+                            <!--
                             <a href="{% url "authtools:logout" %}" id="logout-button">
-                                Sign out
+                                <i class="icon-signout"></i> Sign out
                             </a>
+                            -->
                         </div>
                     </li>
                     {% else %}
