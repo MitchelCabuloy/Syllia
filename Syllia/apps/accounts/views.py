@@ -71,5 +71,6 @@ def change_password(request):
             return redirect('index')
 
         messages.error(request, 'Something went wrong')
+        request.session['change_password_form'] = form
         return redirect('index')
 

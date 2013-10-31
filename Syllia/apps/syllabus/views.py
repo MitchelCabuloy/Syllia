@@ -69,10 +69,15 @@ class DashboardView(View):
 
         context = {
             'jsonData': simplejson.dumps(jsonData),
-            'profile_form': profile_form,
-            'change_password_form': PasswordChangeForm(current_user)
-
+            'profile_form': profile_form
         }
+
+        # reload previous
+        if request.session.get('change_password_form'):
+            context['change_password_form'] = request.session['change_password_form']
+            del request.session['change_password_form']
+        else:
+            context['change_password_form'] = PasswordChangeForm(current_user)
 
         return render(request, self.template_name, context)
 
