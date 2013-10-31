@@ -1,9 +1,15 @@
 from django import forms
+from Syllia.apps.syllabus.models import Department, College
 
 
-class RegisterForm(forms.Form):
-    email = forms.EmailField(label='Email Address')
+class ProfileForm(forms.Form):
     name = forms.CharField()
+    college = forms.ModelChoiceField(queryset=College.objects.all())
+    department = forms.ModelChoiceField(queryset=Department.objects.all())
+
+
+class RegisterForm(ProfileForm):
+    email = forms.EmailField(label='Email Address')
     password = forms.CharField(widget=forms.PasswordInput)
     confirm_password = forms.CharField(widget=forms.PasswordInput)
 
@@ -19,7 +25,7 @@ class RegisterForm(forms.Form):
     def clean_email(self):
         email = self.cleaned_data['email']
 
-        if not "@dlsu.edu.ph" in email or not "@delasalle.ph" in email:
+        if not "@dlsu.edu.ph" in email and not "@delasalle.ph" in email:
             raise forms.ValidationError(
                 "You need to use a valid @dlu.edu.ph or @delasalle.ph email address to sign up for this service.")
 

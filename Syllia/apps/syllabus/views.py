@@ -9,6 +9,7 @@ from django.shortcuts import render
 from django.utils import simplejson, timezone
 
 from Syllia.apps.syllabus.models import Rubric, College, Department, Syllabus
+from Syllia.apps.accounts.forms import ProfileForm
 
 
 class DashboardView(View):
@@ -46,12 +47,29 @@ class DashboardView(View):
                 "lastModified": format_last_modified_time(rubric.last_modified)
             })
 
-        jsonData = {
-            "syllabusList": syllabusList,
-            "rubricList": rubricList
+        profileData = {
+            "college": current_user.faculty.department.college.id,
+            "department": current_user.faculty.department.id
         }
 
-        context = {'jsonData': simplejson.dumps(jsonData)}
+        jsonData = {
+            "syllabusList": syllabusList,
+            "rubricList": rubricList,
+            "collegeList": get_college_list(),
+            "departmentList": get_department_list(),
+            "profileData": profileData
+        }
+
+        # Instantiate ProfileForm
+        profile_form = ProfileForm(initial={
+            'name': current_user.get_full_name()
+        })
+
+        context = {
+            'jsonData': simplejson.dumps(jsonData),
+            'profile_form': profile_form
+
+        }
         return render(request, self.template_name, context)
 
 
@@ -72,7 +90,8 @@ class SyllabusView(View):
                 jsonData['syllabusData'] = simplejson.loads(syllabus.json_data)
 
                 # Load modified time data
-                jsonData['timeSinceModified'] = get_time_since_modified(syllabus.last_modified)
+                jsonData['timeSinceModified'] = get_time_since_modified(
+                    syllabus.last_modified)
 
             except Exception, e:
                 print e.message
@@ -86,19 +105,8 @@ class SyllabusView(View):
 
         jsonData['rubricList'] = rubricList
 
-        collegeList = []
-        colleges = College.objects.all()
-        for college in colleges:
-            collegeList.append(college.json())
-
-        jsonData['collegeList'] = collegeList
-
-        departmentList = []
-        departments = Department.objects.all()
-        for department in departments:
-            departmentList.append(department.json())
-
-        jsonData['departmentList'] = departmentList
+        jsonData['collegeList'] = get_college_list()
+        jsonData['departmentList'] = get_department_list()
 
         # If reached here, no arguments. Return empty form
         return render(request, self.template_name, {"jsonData": simplejson.dumps(jsonData)})
@@ -177,16 +185,22 @@ class RubricView(View):
         return HttpResponse(rubric.json_data)
 
 # static methods
+
+
 def format_last_modified_time(last_modified):
     if timezone.localtime(last_modified).date() == timezone.localtime(datetime.utcnow().replace(tzinfo=timezone.utc)).date():
-        last_modified_string = timezone.localtime(last_modified).strftime('%I:%M %p')
+        last_modified_string = timezone.localtime(
+            last_modified).strftime('%I:%M %p')
     else:
-        last_modified_string = timezone.localtime(last_modified).strftime('%b %d')
+        last_modified_string = timezone.localtime(
+            last_modified).strftime('%b %d')
 
     return last_modified_string
 
+
 def get_time_since_modified(last_modified):
-    time_since_modified = datetime.utcnow().replace(tzinfo=timezone.utc) - last_modified
+    time_since_modified = datetime.utcnow().replace(
+        tzinfo=timezone.utc) - last_modified
     s = time_since_modified.total_seconds()
     days, remainder = divmod(s, 86400)
     hours, remainder = divmod(remainder, 3600)
@@ -201,3 +215,21 @@ def get_time_since_modified(last_modified):
         time_since_modified_string = "%d days" % days
 
     return time_since_modified_string
+
+
+def get_college_list():
+    collegeList = []
+    colleges = College.objects.all()
+    for college in colleges:
+        collegeList.append(college.json())
+
+    return collegeList
+
+
+def get_department_list():
+    departmentList = []
+    departments = Department.objects.all()
+    for department in departments:
+        departmentList.append(department.json())
+
+    return departmentList

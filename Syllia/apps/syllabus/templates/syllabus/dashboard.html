@@ -32,7 +32,7 @@
                             <ul id="syllabus-checkboxes" class="f-dropdown">
                               <li><a href="#">All</a></li>
                               <li><a href="#">None</a></li>
-                            </ul>  
+                            </ul>
 
                             <a href="#" class="dashboard-green"><i class="icon-download-alt"></i> download</a>
 
@@ -80,7 +80,7 @@
                             <ul id="rubric-checkboxes" class="f-dropdown">
                               <li><a href="#">All</a></li>
                               <li><a href="#">None</a></li>
-                            </ul>  
+                            </ul>
 
                             <a href="#" class="dashboard-green"><i class="icon-download-alt"></i> download</a>
 
@@ -117,44 +117,41 @@
                     <a href="#user-profile">User Profile</a>
                 </p>
                 <div class="content" data-slug="user-profile" data-section-content>
-                    <div class="row">
-                        <div class="large-6 columns">
-                            <label>Email Addres</label>
-                            <input type="text"/>
-                            <p>
-                                Take note that valid DLSU <span class="highlight">@dlsu.edu.ph</span> email is still required.
-                            </p>                        
+                    <form id="profileForm" action="{% url "accounts:profile" %}" method="post" class="custom">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="large-6 columns">
+                                <label>Name</label>
+                                {# <input id="id_name" name="name" type="text"/> #}
+                                {{ profile_form.name }}
+                                {{ profile_form.name.errors }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="large-6 columns">
-                            <label>Full name</label>
-                            <input type="text"/>
-                        </div>
-                    </div>
-                    <form class="custom">
                         <div class="row">
                             <div class="large-6 columns">
                                 <label>College</label>
-                                <select id="collegeSelect" data-bind="options: collegeList,optionsText: 'collegeName',optionsValue: 'pk',value: college,optionsCaption: 'Choose one...'">
+                                <select id="collegeSelect" name="college" data-bind="options: collegeList,optionsText: 'collegeName',optionsValue: 'pk',value: college,optionsCaption: 'Choose one...'">
                                 </select>
+                                {# {{ profile_form.college }} #}
+                                {{ profile_form.college.errors }}
                             </div>
                         </div>
                         <div class="row">
                             <div class="large-6 columns">
                                 <label>Department</label>
-                                <select id="departmentSelect" data-bind="options: departmentList,optionsText: 'departmentName',
+                                <select id="departmentSelect" name="department" data-bind="options: departmentList,optionsText: 'departmentName',
                                 optionsValue: 'pk',value: department,optionsCaption: 'Choose one...'">
-                            </select>
+                                </select>
+                                {# {{ profile_form.department }} #}
+                                {{ profile_form.department.errors }}
+                            </div>
                         </div>
-                    </div>
-                </form>
-                <div class="row">
-                    <div class="large-12 columns">
-                        <a class="add-row" data-bind="click: addReference" href="#"><i class="icon-edit"></i> Edit Profile</a>
-                    </div>
-                </div>
-
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <a class="add-row" id="btnProfileSubmit" href="#"><i class="icon-edit"></i>&nbsp;Edit Profile</a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </section>
             <section>
@@ -167,19 +164,19 @@
                         <label>Old Password</label>
                         <input type="password"/>
                         </div>
-                    </div>  
+                    </div>
                     <div class="row">
                         <div class="large-6 columns">
                         <label>New Password</label>
                         <input type="password"/>
                         </div>
-                    </div> 
+                    </div>
                     <div class="row">
                         <div class="large-6 columns">
                         <label>Confirm Password</label>
                         <input type="password"/>
                         </div>
-                    </div> 
+                    </div>
                     <div class="row">
                         <div class="large-12 columns">
                             <a class="add-row" data-bind="click: addReference" href="#"><i class="icon-edit"></i> Change Password</a>

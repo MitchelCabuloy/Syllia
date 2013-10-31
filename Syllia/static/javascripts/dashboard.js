@@ -1,52 +1,3 @@
-// var jsonData = {
-//     syllabusList: [{
-//         pk: 1,
-//         url: "syllabus",
-//         itemName: "Test data 1",
-//         lastModified: "11:58 PM"
-//     }, {
-//         pk: 2,
-//         url: "syllabus",
-//         itemName: "Test data 2",
-//         lastModified: "11:58 PM"
-//     }, {
-//         pk: 3,
-//         url: "syllabus",
-//         itemName: "Test data 3",
-//         lastModified: "11:58 PM"
-//     }, {
-//         pk: 4,
-//         url: "syllabus",
-//         itemName: "Test data 4",
-//         lastModified: "11:58 PM"
-//     }, {
-//         pk: 5,
-//         url: "syllabus",
-//         itemName: "Test data 5",
-//         lastModified: "11:58 PM"
-//     }, {
-//         pk: 6,
-//         url: "syllabus",
-//         itemName: "Test data 6",
-//         lastModified: "11:58 PM"
-//     }, {
-//         pk: 7,
-//         url: "syllabus",
-//         itemName: "Test data 7",
-//         lastModified: "11:58 PM"
-//     }, {
-//         pk: 8,
-//         url: "syllabus",
-//         itemName: "Test data 8",
-//         lastModified: "11:58 PM"
-//     }, {
-//         pk: 9,
-//         url: "syllabus",
-//         itemName: "Test data 9",
-//         lastModified: "11:58 PM"
-//     }]
-// };
-
 var Dashboard = (function($, ko) {
     var MODULE = {};
     var PAGE_SIZE = 5;
@@ -129,6 +80,55 @@ var Dashboard = (function($, ko) {
 
 })(Zepto, ko);
 
+var Profile = (function($, ko) {
+    var MODULE = {}
+
+    MODULE.init = function() {
+        var viewModel = new MODELS.DropdownModel();
+        ko.applyBindings(viewModel, $("[data-slug='user-profile']")[0])
+        MODULE.bindUIActions();
+
+        Foundation.libs.forms.refresh_custom_select($('#collegeSelect'), true);
+        Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
+    };
+
+    MODULE.bindUIActions = function() {
+        $("#btnProfileSubmit").click(function() {
+            $("#profileForm").submit();
+        });
+    };
+
+    var MODELS = (function() {
+        var models = {}
+        models.DropdownModel = function() {
+            var self = this;
+            self.college = ko.observable(window.jsonData.profileData.college);
+            self.collegeList = ko.observableArray(window.jsonData.collegeList);
+
+            self.department = ko.observable(window.jsonData.profileData.department);
+            self.departmentList = ko.computed(function() {
+                var tempList = [];
+
+                $.each(window.jsonData.departmentList, function(index, value) {
+                    if (value.college == self.college()) {
+                        tempList.push(value);
+                    }
+                });
+
+                return tempList;
+            });
+            self.college.subscribe(function() {
+                Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
+            });
+        };
+
+        return models;
+    })();
+
+    return MODULE;
+})(Zepto, ko);
+
 $(document).ready(function() {
     Dashboard.init();
+    Profile.init();
 });
