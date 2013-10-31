@@ -91,9 +91,11 @@
 {% block scripts %}
 {% load staticfiles %}
 
+{% if jsonData %}
 <script>
     var jsonData = $.parseJSON('{{ jsonData|escapejs }}');
 </script>
+{% endif %}
 
 <script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
 <script src="{% static "javascripts/rubric.js" %}"></script>

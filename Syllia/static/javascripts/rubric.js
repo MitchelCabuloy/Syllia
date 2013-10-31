@@ -7,7 +7,7 @@ var RubricModule = (function($, ko) {
         ko.applyBindings(viewModel);
         MODULE.bindUIActions(viewModel);
 
-        if (jsonData.rubricData) {
+        if (window['jsonData']) {
             MODULE.loadData(viewModel, jsonData.rubricData);
             viewModel.timeSinceModified(jsonData.timeSinceModified);
         } else {
@@ -59,11 +59,11 @@ var RubricModule = (function($, ko) {
             var self = this;
             self.pk = null;
             self.rubricName = ko.observable();
-            self.criterias = ko.observableArray([new models.CriteriaModel()])
+            self.criterias = ko.observableArray([new MODELS.CriteriaModel()])
             self.timeSinceModified = ko.observable();
 
             self.addCriteria = function() {
-                self.criterias.push(new models.criteriaObject());
+                self.criterias.push(new MODELS.CriteriaModel());
             };
 
             self.removeCriteria = function(criteria) {

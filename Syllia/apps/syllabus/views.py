@@ -195,7 +195,7 @@ class RubricView(View):
 
         rubric.save()
 
-        messages.success(request, 'Saved syllabus')
+        messages.success(request, 'Saved rubric')
         return redirect('index')
 
 # static methods
