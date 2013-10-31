@@ -21,6 +21,18 @@ var Dashboard = (function($, ko) {
         });
         ko.applyBindings(new MODELS.DashboardModel(rubricList), $("[data-slug='rubric']")[0]);
 
+        MODULE.bindUIActions();
+
+    };
+
+    MODULE.bindUIActions = function() {
+        $("#btnProfileSubmit").click(function() {
+            $("#profileForm").submit();
+        });
+
+        $("#btnChangePasswordSubmit").click(function() {
+            $('#change_password_form').submit();
+        });
     };
 
     // Model declaration
@@ -86,16 +98,9 @@ var Profile = (function($, ko) {
     MODULE.init = function() {
         var viewModel = new MODELS.DropdownModel();
         ko.applyBindings(viewModel, $("[data-slug='user-profile']")[0])
-        MODULE.bindUIActions();
 
         Foundation.libs.forms.refresh_custom_select($('#collegeSelect'), true);
         Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
-    };
-
-    MODULE.bindUIActions = function() {
-        $("#btnProfileSubmit").click(function() {
-            $("#profileForm").submit();
-        });
     };
 
     var MODELS = (function() {
