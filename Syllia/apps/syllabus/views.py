@@ -3,6 +3,7 @@
 from datetime import datetime, timedelta
 
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.views.generic.base import View
 from django.http import Http404
@@ -68,9 +69,11 @@ class DashboardView(View):
 
         context = {
             'jsonData': simplejson.dumps(jsonData),
-            'profile_form': profile_form
+            'profile_form': profile_form,
+            'change_password_form': PasswordChangeForm(current_user)
 
         }
+
         return render(request, self.template_name, context)
 
 

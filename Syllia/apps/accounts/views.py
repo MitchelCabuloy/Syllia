@@ -1,7 +1,10 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.views.generic.base import View
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth.decorators import login_required
 
 from Syllia.apps.accounts.forms import RegisterForm, ProfileForm
 
@@ -55,3 +58,18 @@ class RegisterView(View):
             return redirect('authtools:login')
 
         return render(request, self.template_name, {'form': form})
+
+
+@csrf_protect
+@login_required
+def change_password(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your password has been changed')
+            return redirect('index')
+
+        messages.error(request, 'Something went wrong')
+        return redirect('index')
+

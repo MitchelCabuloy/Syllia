@@ -166,29 +166,41 @@
                     <a href="#change-password">Change Password</a>
                 </p>
                 <div class="content" data-slug="change-password" data-section-content>
-                    <div class="row">
-                        <div class="large-6 columns">
-                        <label>Old Password</label>
-                        <input type="password"/>
+                    <form id="change_password_form" action="{% url "accounts:change_password" %}" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="large-6 columns">
+                                <!-- <label>Old Password</label>
+                                <input type="password"/> -->
+                                {{ change_password_form.old_password.label }}
+                                {{ change_password_form.old_password }}
+                                {{ change_password_form.old_password.errors }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="large-6 columns">
-                        <label>New Password</label>
-                        <input type="password"/>
+                        <div class="row">
+                            <div class="large-6 columns">
+                                <!-- <label>New Password</label>
+                                <input type="password"/> -->
+                                {{ change_password_form.new_password1.label }}
+                                {{ change_password_form.new_password1 }}
+                                {{ change_password_form.new_password1.errors }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="large-6 columns">
-                        <label>Confirm Password</label>
-                        <input type="password"/>
+                        <div class="row">
+                            <div class="large-6 columns">
+                                <!-- <label>Confirm Password</label>
+                                <input type="password"/> -->
+                                {{ change_password_form.new_password2.label }}
+                                {{ change_password_form.new_password2 }}
+                                {{ change_password_form.new_password2.errors }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="large-12 columns">
-                            <a class="add-row" data-bind="click: addReference" href="#"><i class="icon-edit"></i> Change Password</a>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <a class="add-row" href="#" onClick="$('#change_password_form').submit();"><i class="icon-edit"></i>&nbsp;Change Password</a>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </section>
 
