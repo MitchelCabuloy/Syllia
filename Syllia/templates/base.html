@@ -43,8 +43,13 @@
 
                             <p>
                                 <!-- TODO: Add Department and College in profiles -->
-                                <strong>Computer Technology Department</strong>
-                                College of Computer Studies
+                                {% comment %}
+                                    <strong>Computer Technology Department</strong>
+                                    College of Computer Studies
+                                {% endcomment %}
+
+                                <strong>{{ user.faculty.department.department_name }}</strong>
+                                {{ user.faculty.department.college.college_name }}
                             </p>
 
                             <ul>
