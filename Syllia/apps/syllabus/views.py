@@ -62,17 +62,20 @@ class DashboardView(View):
             "profileData": profileData
         }
 
-        # Instantiate ProfileForm
-        profile_form = ProfileForm(initial={
-            'name': current_user.get_full_name()
-        })
-
         context = {
-            'jsonData': simplejson.dumps(jsonData),
-            'profile_form': profile_form
+            'jsonData': simplejson.dumps(jsonData)
         }
 
-        # reload previous
+        # Load profile form
+        if request.session.get('profile_form'):
+            context['profile_form'] = request.session['profile_form']
+            del request.session['profile_form']
+        else:
+            context['profile_form'] = ProfileForm(initial={
+                'name': current_user.get_full_name()
+            })
+
+        # Load change password form
         if request.session.get('change_password_form'):
             context['change_password_form'] = request.session['change_password_form']
             del request.session['change_password_form']

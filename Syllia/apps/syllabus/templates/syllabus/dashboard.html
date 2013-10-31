@@ -124,7 +124,7 @@
                     <a href="#user-profile">User Profile</a>
                 </p>
                 <div class="content" data-slug="user-profile" data-section-content>
-                    <form id="profileForm" action="{% url "accounts:profile" %}" method="post" class="custom">
+                    <form id="profileForm" action="{% url "accounts:update_profile" %}" method="post" class="custom">
                         {% csrf_token %}
                         <div class="row">
                             <div class="large-6 columns">
@@ -197,7 +197,7 @@
                         </div>
                         <div class="row">
                             <div class="large-12 columns">
-                                <a class="add-row" href="#" onClick="$('#change_password_form').submit();"><i class="icon-edit"></i>&nbsp;Change Password</a>
+                                <a class="add-row" href="#"><i class="icon-edit"></i>&nbsp;Change Password</a>
                             </div>
                         </div>
                     </form>
