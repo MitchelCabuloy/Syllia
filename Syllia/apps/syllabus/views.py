@@ -3,9 +3,10 @@
 from datetime import datetime, timedelta
 
 from django.contrib.auth import get_user_model
+from django.contrib import messages
 from django.views.generic.base import View
-from django.http import HttpResponse, Http404
-from django.shortcuts import render
+from django.http import Http404
+from django.shortcuts import render, redirect
 from django.utils import simplejson, timezone
 
 from Syllia.apps.syllabus.models import Rubric, College, Department, Syllabus
@@ -137,7 +138,8 @@ class SyllabusView(View):
 
         syllabus.save()
 
-        return HttpResponse(syllabus.json_data)
+        messages.success(request, 'Saved syllabus')
+        return redirect('index')
 
 
 class RubricView(View):
@@ -182,7 +184,8 @@ class RubricView(View):
 
         rubric.save()
 
-        return HttpResponse(rubric.json_data)
+        messages.success(request, 'Saved syllabus')
+        return redirect('index')
 
 # static methods
 
