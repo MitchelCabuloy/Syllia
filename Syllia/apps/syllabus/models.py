@@ -41,7 +41,7 @@ class College(models.Model):
 class Department(models.Model):
     id = models.AutoField(primary_key=True)
     department_name = models.CharField(max_length=50)
-    college = models.ForeignKey(College)
+    college = models.ForeignKey('syllabus.College')
 
     def json(self):
         return {"pk": self.id, "departmentName": self.department_name, "college": self.college.id}
@@ -54,9 +54,9 @@ class Syllabus(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(get_user_model())
     syllabus_name = models.CharField(max_length=50)
-    department = models.ForeignKey(Department)
+    department = models.ForeignKey('syllabus.Department')
     course_code = models.CharField(max_length=7)
-    rubric = models.ForeignKey(Rubric)
+    rubric = models.ForeignKey('syllabus.Rubric')
     json_data = JSONField(default={"pk": 0})
     created = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
