@@ -2,11 +2,13 @@ var SyllabusModule = (function($, ko) {
     var MODULE = {};
 
     MODULE.init = function() {
-        // MODULE.defineModels();
-
         var viewModel = new MODELS.SyllabusModel();
+        viewModel.errors = ko.validation.group(viewModel, {
+            deep: true
+        });
 
-        ko.applyBindings(viewModel);
+        // ko.applyBindings(viewModel);
+        ko.applyBindingsWithValidation(viewModel);
         MODULE.bindUIActions(viewModel);
 
         if (jsonData.syllabusData) {
@@ -121,6 +123,14 @@ var SyllabusModule = (function($, ko) {
             console.log("KO Data:");
             console.log(syllabus_json);
         });
+
+        $('#validateBtn').click(function() {
+            console.log('Validating...');
+            viewModel.errors = ko.validation.group(viewModel, {
+                deep: true
+            });
+            viewModel.errors.showAllMessages();
+        });
     };
 
     var MODELS = (function() {
@@ -128,10 +138,18 @@ var SyllabusModule = (function($, ko) {
         models.SyllabusModel = function() {
             var self = this;
             self.pk = null;
-            self.syllabusName = ko.observable();
-            self.courseCode = ko.observable();
-            self.courseName = ko.observable();
-            self.courseDescription = ko.observable();
+            self.syllabusName = ko.observable().extend({
+                required: true
+            });
+            self.courseCode = ko.observable().extend({
+                required: true
+            });
+            self.courseName = ko.observable().extend({
+                required: true
+            });
+            self.courseDescription = ko.observable().extend({
+                required: true
+            });
             self.timeSinceModified = ko.observable();
 
             // Dropdown lists
@@ -181,7 +199,9 @@ var SyllabusModule = (function($, ko) {
                 self.elgas.remove(elga);
             };
 
-            self.finalCourseOutputDescription = ko.observable();
+            self.finalCourseOutputDescription = ko.observable().extend({
+                required: true
+            });
 
             self.requiredOutputs = ko.observableArray([new MODELS.RequiredOutputModel()]);
             self.addRequiredOutput = function() {
@@ -244,22 +264,31 @@ var SyllabusModule = (function($, ko) {
             self.removeClassPolicy = function(policy) {
                 self.classPolicies.remove(policy);
             };
-
         };
 
         models.ScheduleModel = function() {
-            this.days = "";
-            this.startTime = "";
-            this.endTime = "";
+            this.days = ko.observable().extend({
+                required: true
+            });
+            this.startTime = ko.observable().extend({
+                required: true
+            });
+            this.endTime = ko.observable().extend({
+                required: true
+            });
         };
 
         models.InstructorModel = function() {
-            this.fullName = "";
+            this.fullName = ko.observable().extend({
+                required: true
+            });
         };
 
         models.ElgaModel = function() {
             var self = this;
-            self.elgaName = ko.observable();
+            self.elgaName = ko.observable().extend({
+                required: true
+            });
             self.learningOutcomes = ko.observableArray([new MODELS.LearningOutcomeModel()]);
 
             self.addLearningOutcome = function() {
@@ -272,29 +301,44 @@ var SyllabusModule = (function($, ko) {
         };
 
         models.LearningOutcomeModel = function() {
-            this.description = ko.observable();
+            this.description = ko.observable().extend({
+                required: true
+            });
         };
 
         models.RequiredOutputModel = function() {
-            this.description = ko.observable();
-            this.weekDue = ko.observable();
+            this.description = ko.observable().extend({
+                required: true
+            });
+            this.weekDue = ko.observable().extend({
+                required: true
+            });
             this.los = ko.observableArray();
-
         };
 
         models.OtherOutputModel = function() {
-            this.requirementName = ko.observable();
+            this.requirementName = ko.observable().extend({
+                required: true
+            });
         };
 
         models.GradingSystemModel = function() {
-            this.itemName = ko.observable();
-            this.percentage = ko.observable();
+            this.itemName = ko.observable().extend({
+                required: true
+            });
+            this.percentage = ko.observable().extend({
+                required: true
+            });
         };
 
         models.LearningPlanModel = function() {
             var self = this;
-            self.topic = ko.observable();
-            self.weekNumber = ko.observable();
+            self.topic = ko.observable().extend({
+                required: true
+            });
+            self.weekNumber = ko.observable().extend({
+                required: true
+            });
 
             self.los = ko.observableArray();
 
@@ -308,22 +352,27 @@ var SyllabusModule = (function($, ko) {
         };
 
         models.LearningActivityModel = function() {
-            this.description = ko.observable();
+            this.description = ko.observable().extend({
+                required: true
+            });
         };
 
         models.ReferenceModel = function() {
-            this.referenceText = ko.observable();
+            this.referenceText = ko.observable().extend({
+                required: true
+            });
         };
 
         models.ClassPolicyModel = function() {
-            this.policy = ko.observable();
+            this.policy = ko.observable().extend({
+                required: true
+            });
         };
 
         return models;
     })(); // End models
 
     return MODULE;
-
 })(Zepto, ko);
 
 $(document).ready(function() {
