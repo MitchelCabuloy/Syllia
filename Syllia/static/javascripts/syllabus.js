@@ -33,58 +33,56 @@ var SyllabusModule = (function($, ko) {
         viewModel.courseCode(json.courseCode);
         viewModel.courseName(json.courseName);
         viewModel.courseDescription(json.courseDescription);
-        viewModel.schedules(json.schedules);
-        viewModel.instructors(json.instructors);
+
+        viewModel.schedules.removeAll();
+        $.each(json.schedules, function(index, schedule) {
+            viewModel.schedules.push(new MODELS.ScheduleModel(schedule));
+        });
+
+        viewModel.instructors.removeAll();
+        $.each(json.instructors, function(index, instructor) {
+            viewModel.instructors.push(new MODELS.InstructorModel(instructor));
+        });
+
         viewModel.rubric(json.rubric);
 
         viewModel.elgas.removeAll();
-        $.each(json.elgas, function(index, data) {
-            elga = new MODELS.ElgaModel();
-
-            // elga.pk = parseInt(data.pk)
-            elga.elgaName(data.elgaName);
-
-            elga.learningOutcomes.removeAll();
-            $.each(data.learningOutcomes, function(index, lo) {
-                elga.learningOutcomes.push({
-                    // pk: parseInt(lo.pk),
-                    description: ko.observable(lo.description)
-                });
-            });
-
-            viewModel.elgas.push(elga);
+        $.each(json.elgas, function(index, elga) {
+            viewModel.elgas.push(new MODELS.ElgaModel(elga));
         });
 
         viewModel.finalCourseOutputDescription(json.finalCourseOutputDescription);
-        viewModel.requiredOutputs(json.requiredOutputs);
-        viewModel.otherOutputs(json.otherOutputs);
-        // TODO: Create array of GradingSystemModel() objects instead of passing directly
 
-        var tempList = [];
-        $.each(json.gradingSystems, function(index, value) {
-            var tempItem = new MODELS.GradingSystemModel();
-            tempItem.itemName(value.itemName);
-            tempItem.percentage(value.percentage);
-            tempList.push(tempItem);
+        viewModel.requiredOutputs.removeAll();
+        $.each(json.requiredOutputs, function(index, requiredOutput) {
+            viewModel.requiredOutputs.push(new MODELS.RequiredOutputModel(requiredOutput));
         });
 
-        viewModel.gradingSystems(tempList);
+        viewModel.otherOutputs.removeAll();
+        $.each(json.otherOutputs, function(index, otherOutput) {
+            viewModel.otherOutput.push(new MODELS.OtherOutputModel(otherOutput));
+        });
+
+        viewModel.gradingSystems.removeAll();
+        $.each(json.gradingSystems, function(index, gradeComponent) {
+            viewModel.gradingSystems.push(new MODELS.GradingSystemModel(gradeComponent));
+        });
 
         viewModel.learningPlans.removeAll();
-        $.each(json.learningPlans, function(index, data) {
-            lp = new MODELS.LearningPlanModel();
-
-            // lp.pk = parseInt(data.pk)
-            lp.topic(data.topic);
-            lp.weekNumber(data.weekNumber);
-            lp.learningActivities(data.learningActivities);
-            lp.los(data.los);
-
-            viewModel.learningPlans.push(lp);
+        $.each(json.learningPlans, function(index, learningPlan) {
+            viewModel.learningPlans.push(new MODELS.LearningPlanModel(learningPlan));
         });
 
-        viewModel.references(json.references);
-        viewModel.classPolicies(json.classPolicies);
+
+        viewModel.references.removeAll();
+        $.each(json.references, function(index, reference) {
+            viewModel.references.push(new MODELS.ReferenceModel(reference));
+        });
+
+        viewModel.classPolicies.removeAll();
+        $.each(json.classPolicies, function(index, classPolicy) {
+            viewModel.classPolicies.push(new MODELS.ClassPolicyModel(classPolicy));
+        });
     };
 
     MODULE.bindUIActions = function(viewModel) {
@@ -175,25 +173,29 @@ var SyllabusModule = (function($, ko) {
             self.rubric = ko.observable();
             self.rubricList = ko.observableArray(window.jsonData.rubricList);
 
-            self.schedules = ko.observableArray([new MODELS.ScheduleModel()]);
+            self.schedules = ko.observableArray();
             self.addSchedule = function() {
                 self.schedules.push(new MODELS.ScheduleModel());
             };
             self.removeSchedule = function(schedule) {
                 self.schedules.remove(schedule);
             };
+            self.addSchedule();
 
-            self.instructors = ko.observableArray([new MODELS.InstructorModel()]);
+            self.instructors = ko.observableArray();
             self.addInstructor = function() {
                 self.instructors.push(new MODELS.InstructorModel());
             };
             self.removeInstructor = function(instructor) {
                 self.instructors.remove(instructor);
             };
+            self.addInstructor();
 
             self.elgas = ko.observableArray();
             self.addElga = function() {
-                var elga = new MODELS.ElgaModel(self.elgas().length + 1)
+                var elga = new MODELS.ElgaModel({
+                    number: self.elgas().length + 1
+                });
                 self.elgas.push(elga);
             };
             self.removeElga = function(elga) {
@@ -211,25 +213,27 @@ var SyllabusModule = (function($, ko) {
                 required: true
             });
 
-            self.requiredOutputs = ko.observableArray([new MODELS.RequiredOutputModel()]);
+            self.requiredOutputs = ko.observableArray();
             self.addRequiredOutput = function() {
                 self.requiredOutputs.push(new MODELS.RequiredOutputModel());
             };
             self.removeRequiredOutput = function(requiredOutput) {
                 self.requiredOutputs.remove(requiredOutput);
             };
+            self.addRequiredOutput();
 
 
-            self.otherOutputs = ko.observableArray([new MODELS.OtherOutputModel()]);
+            self.otherOutputs = ko.observableArray();
             self.addOtherOutput = function() {
                 self.otherOutputs.push(new MODELS.OtherOutputModel());
             };
             self.removeOtherOutput = function(otherOutput) {
                 self.otherOutputs.remove(otherOutput);
             };
+            self.addOtherOutput();
 
             // TODO: Rename this variable
-            self.gradingSystems = ko.observableArray([new MODELS.GradingSystemModel()]);
+            self.gradingSystems = ko.observableArray();
             self.addGradingSystem = function() {
                 self.gradingSystems.push(new MODELS.GradingSystemModel());
             };
@@ -247,90 +251,133 @@ var SyllabusModule = (function($, ko) {
 
                 return total;
             });
+            self.addGradingSystem();
 
-
-            self.learningPlans = ko.observableArray([new MODELS.LearningPlanModel()]);
+            self.learningPlans = ko.observableArray();
             self.addLearningPlan = function() {
                 self.learningPlans.push(new MODELS.LearningPlanModel());
             };
             self.removeLearningPlan = function(learningPlan) {
                 self.learningPlans.remove(learningPlan);
             };
+            self.addLearningPlan();
 
-            self.references = ko.observableArray([new MODELS.ReferenceModel()]);
+            self.references = ko.observableArray();
             self.addReference = function() {
                 self.references.push(new MODELS.ReferenceModel());
             };
             self.removeReference = function(reference) {
                 self.references.remove(reference);
             };
+            self.addReference();
 
-            self.classPolicies = ko.observableArray([new MODELS.ClassPolicyModel()]);
+            self.classPolicies = ko.observableArray();
             self.addClassPolicy = function() {
                 self.classPolicies.push(new MODELS.ClassPolicyModel());
             };
             self.removeClassPolicy = function(policy) {
                 self.classPolicies.remove(policy);
             };
+            self.addClassPolicy();
         };
 
-        models.ScheduleModel = function() {
-            this.days = ko.observable().extend({
+        models.ScheduleModel = function(schedule) {
+            var self = this;
+            self.days = ko.observable().extend({
                 required: true
             });
-            this.startTime = ko.observable().extend({
+            self.startTime = ko.observable().extend({
                 required: true
             });
-            this.endTime = ko.observable().extend({
+            self.endTime = ko.observable().extend({
                 required: true
             });
+
+            if (schedule) {
+                self.days(schedule.days);
+                self.startTime(schedule.startTime);
+                self.endTime(schedule.endTime);
+            }
         };
 
-        models.InstructorModel = function() {
-            this.fullName = ko.observable().extend({
+        models.InstructorModel = function(instructor) {
+            var self = this;
+            self.fullName = ko.observable().extend({
                 required: true
             });
+
+            if (instructor) {
+                self.fullName(instructor.fullName);
+            }
         };
 
-        models.ElgaModel = function(number) {
+        models.ElgaModel = function(elga) {
             var self = this;
             self.elgaName = ko.observable().extend({
                 required: true
             });
-
-            self.learningOutcomeNumber = ko.observable(number);
-
+            self.learningOutcomeNumber = ko.observable();
             self.learningOutcome = ko.observable().extend({
                 required: true
             });
+
+            // Constructor
+            if (elga.elgaName) {
+                self.elgaName(elga.elgaName);
+                self.learningOutcomeNumber(elga.learningOutcomeNumber);
+                self.learningOutcome(elga.learningOutcome);
+            }
+
+            // If empty elga
+            if (elga.number) {
+                self.learningOutcomeNumber(elga.number);
+            }
         };
 
-        models.RequiredOutputModel = function() {
-            this.description = ko.observable().extend({
+        models.RequiredOutputModel = function(requiredOutput) {
+            var self = this;
+            self.description = ko.observable().extend({
                 required: true
             });
-            this.weekDue = ko.observable().extend({
+            self.weekDue = ko.observable().extend({
                 required: true
             });
-            this.los = ko.observableArray();
+            self.los = ko.observableArray();
+
+            if (requiredOutput) {
+                self.description(requiredOutput.description);
+                self.weekDue(requiredOutput.weekDue);
+                self.los(requiredOutput.los);
+            }
         };
 
-        models.OtherOutputModel = function() {
-            this.requirementName = ko.observable().extend({
+        models.OtherOutputModel = function(otherOutput) {
+            var self = this;
+            self.requirementName = ko.observable().extend({
                 required: true
             });
+
+            if (otherOutput) {
+                self.requirementName(otherOutput.requirementName);
+            }
         };
 
-        models.GradingSystemModel = function() {
-            this.itemName = ko.observable().extend({
+        models.GradingSystemModel = function(gradeComponent) {
+            var self = this;
+            self.itemName = ko.observable().extend({
                 required: true
             });
-            this.percentage = ko.observable().extend({
+            self.percentage = ko.observable().extend({
                 required: true
             });
+
+            if (gradeComponent) {
+                self.itemName(gradeComponent.itemName);
+                self.percentage(gradeComponent.percentage)
+            }
         };
 
-        models.LearningPlanModel = function() {
+        models.LearningPlanModel = function(learningPlan) {
             var self = this;
             self.topic = ko.observable().extend({
                 required: true
@@ -348,24 +395,51 @@ var SyllabusModule = (function($, ko) {
             self.removeLearningActivity = function(learningActivity) {
                 self.learningActivities.remove(learningActivity);
             };
+            self.addLearningActivity();
+
+            if (learningPlan) {
+                self.topic(learningPlan.topic);
+                self.weekNumber(learningPlan.weekNumber);
+                self.los(learningPlan.los);
+
+                self.learningActivities.removeAll();
+                $.each(learningPlan.learningActivities, function(index, learningActivity) {
+                    self.learningActivity.push(new MODELS.LearningActivityModel(learningActivity));
+                });
+            }
         };
 
-        models.LearningActivityModel = function() {
-            this.description = ko.observable().extend({
+        models.LearningActivityModel = function(learningActivity) {
+            var self = this;
+            self.description = ko.observable().extend({
                 required: true
             });
+
+            if (learningActivity) {
+                self.description(learningActivity.description);
+            }
         };
 
-        models.ReferenceModel = function() {
-            this.referenceText = ko.observable().extend({
+        models.ReferenceModel = function(reference) {
+            var self = this;
+            self.referenceText = ko.observable().extend({
                 required: true
             });
+
+            if (reference) {
+                self.referenceText(reference.referenceText);
+            }
         };
 
-        models.ClassPolicyModel = function() {
-            this.policy = ko.observable().extend({
+        models.ClassPolicyModel = function(classPolicy) {
+            var self = this;
+            self.policy = ko.observable().extend({
                 required: true
             });
+
+            if (classPolicy) {
+                self.policy(classPolicy);
+            }
         };
 
         return models;
