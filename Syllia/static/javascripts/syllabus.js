@@ -1,4 +1,4 @@
-var SyllabusModule = (function($, ko) {
+var SyllabusModule = (function($, ko, jsonData) {
     var MODULE = {};
 
     MODULE.init = function() {
@@ -244,7 +244,7 @@ var SyllabusModule = (function($, ko) {
                 var gradingSystems = self.gradingSystems();
                 var total = 0;
                 $.each(gradingSystems, function(index, item) {
-                    var temp = parseInt(item.percentage())
+                    var temp = parseInt(item.percentage());
                     if (!isNaN(temp))
                         total += temp;
                 });
@@ -373,7 +373,7 @@ var SyllabusModule = (function($, ko) {
 
             if (gradeComponent) {
                 self.itemName(gradeComponent.itemName);
-                self.percentage(gradeComponent.percentage)
+                self.percentage(gradeComponent.percentage);
             }
         };
 
@@ -446,7 +446,7 @@ var SyllabusModule = (function($, ko) {
     })(); // End models
 
     return MODULE;
-})(Zepto, ko);
+})(Zepto, ko, jsonData);
 
 $(document).ready(function() {
     SyllabusModule.init();
