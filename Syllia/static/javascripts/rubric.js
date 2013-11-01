@@ -10,9 +10,6 @@ var RubricModule = (function($, ko) {
         if (window['jsonData']) {
             MODULE.loadData(viewModel, jsonData.rubricData);
             viewModel.timeSinceModified(jsonData.timeSinceModified);
-        } else {
-            // Uncomment for test data
-            // this.loadData($.parseJSON('{"pk":null,"rubricName":"NTCOR04 Rubric AY 2013-2015","criterias":[{"criteriaName":"Equipment and Resources","exemplary":"Exemplary lorem ipsum","satisfactory":"Satisfactory lorem ipsum","developing":"Developing lorem ipsum","beginning":"Beginning lorem ipsum"},{"criteriaName":"Second Criteria","exemplary":"Exemplary ipsum lorem","satisfactory":"Satisfactory ipsum lorem","developing":"Developing ipsum lorem","beginning":"Beginning ipsum lorem"}]}'));
         }
     };
 
