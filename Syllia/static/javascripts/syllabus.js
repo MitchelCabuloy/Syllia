@@ -60,7 +60,7 @@ var SyllabusModule = (function($, ko) {
 
         viewModel.otherOutputs.removeAll();
         $.each(json.otherOutputs, function(index, otherOutput) {
-            viewModel.otherOutput.push(new MODELS.OtherOutputModel(otherOutput));
+            viewModel.otherOutputs.push(new MODELS.OtherOutputModel(otherOutput));
         });
 
         viewModel.gradingSystems.removeAll();
@@ -388,7 +388,7 @@ var SyllabusModule = (function($, ko) {
 
             self.los = ko.observableArray();
 
-            self.learningActivities = ko.observableArray([new MODELS.LearningActivityModel()]);
+            self.learningActivities = ko.observableArray();
             self.addLearningActivity = function() {
                 self.learningActivities.push(new MODELS.LearningActivityModel());
             };
@@ -404,7 +404,7 @@ var SyllabusModule = (function($, ko) {
 
                 self.learningActivities.removeAll();
                 $.each(learningPlan.learningActivities, function(index, learningActivity) {
-                    self.learningActivity.push(new MODELS.LearningActivityModel(learningActivity));
+                    self.learningActivities.push(new MODELS.LearningActivityModel(learningActivity));
                 });
             }
         };
@@ -438,7 +438,7 @@ var SyllabusModule = (function($, ko) {
             });
 
             if (classPolicy) {
-                self.policy(classPolicy);
+                self.policy(classPolicy.policy);
             }
         };
 
