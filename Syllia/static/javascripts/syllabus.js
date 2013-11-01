@@ -191,13 +191,21 @@ var SyllabusModule = (function($, ko) {
                 self.instructors.remove(instructor);
             };
 
-            self.elgas = ko.observableArray([new MODELS.ElgaModel()]);
+            self.elgas = ko.observableArray();
             self.addElga = function() {
-                self.elgas.push(new MODELS.ElgaModel());
+                var elga = new MODELS.ElgaModel(self.elgas().length + 1)
+                self.elgas.push(elga);
             };
             self.removeElga = function(elga) {
+                $.each(self.elgas(), function(index, elgaTemp) {
+                    if (elga.learningOutcomeNumber() < elgaTemp.learningOutcomeNumber()) {
+                        elgaTemp.learningOutcomeNumber(elgaTemp.learningOutcomeNumber() - 1);
+                    }
+                });
+
                 self.elgas.remove(elga);
             };
+            self.addElga();
 
             self.finalCourseOutputDescription = ko.observable().extend({
                 required: true
@@ -284,24 +292,15 @@ var SyllabusModule = (function($, ko) {
             });
         };
 
-        models.ElgaModel = function() {
+        models.ElgaModel = function(number) {
             var self = this;
             self.elgaName = ko.observable().extend({
                 required: true
             });
-            self.learningOutcomes = ko.observableArray([new MODELS.LearningOutcomeModel()]);
 
-            self.addLearningOutcome = function() {
-                self.learningOutcomes.push(new MODELS.LearningOutcomeModel());
-            };
+            self.learningOutcomeNumber = ko.observable(number);
 
-            self.removeLearningOutcome = function(lo) {
-                self.learningOutcomes.remove(lo);
-            };
-        };
-
-        models.LearningOutcomeModel = function() {
-            this.description = ko.observable().extend({
+            self.learningOutcome = ko.observable().extend({
                 required: true
             });
         };
