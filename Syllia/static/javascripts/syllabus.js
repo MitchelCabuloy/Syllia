@@ -2,17 +2,18 @@ var SyllabusModule = (function($, ko, jsonData) {
     var MODULE = {};
 
     MODULE.init = function() {
-        var viewModel = new MODELS.SyllabusModel(jsonData);
-        viewModel.errors = ko.validation.group(viewModel, {
-            deep: true
+        // Validation configuration
+        ko.validation.init({
+            decorateElement: true,
+            errorClass: "error"
         });
 
-        // ko.applyBindings(viewModel);
+        var viewModel = new MODELS.SyllabusModel(jsonData);
+
         ko.applyBindingsWithValidation(viewModel);
         MODULE.bindUIActions(viewModel);
 
         if (jsonData.syllabusData) {
-            // var jsonData = $.parseJSON(jsonString);
             MODULE.loadData(viewModel, jsonData.syllabusData);
             viewModel.timeSinceModified(jsonData.timeSinceModified);
         }
@@ -137,7 +138,13 @@ var SyllabusModule = (function($, ko, jsonData) {
                 required: true
             });
             self.courseCode = ko.observable().extend({
-                required: true
+                required: true,
+                validation: {
+                    validator: function(val) {
+                        return val.length == 7 ? true : false;
+                    },
+                    message: "A course code consists of 7 characters"
+                }
             });
             self.courseName = ko.observable().extend({
                 required: true
@@ -148,10 +155,14 @@ var SyllabusModule = (function($, ko, jsonData) {
             self.timeSinceModified = ko.observable();
 
             // Dropdown lists
-            self.college = ko.observable();
+            self.college = ko.observable().extend({
+                selectedItemNotCaption: true
+            });
             self.collegeList = ko.observableArray(jsonData.collegeList);
 
-            self.department = ko.observable();
+            self.department = ko.observable().extend({
+                selectedItemNotCaption: true
+            });
             self.departmentList = ko.computed(function() {
                 var tempList = [];
 
@@ -167,7 +178,9 @@ var SyllabusModule = (function($, ko, jsonData) {
                 Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
             });
 
-            self.rubric = ko.observable();
+            self.rubric = ko.observable().extend({
+                selectedItemNotCaption: true
+            });
             self.rubricList = ko.observableArray(jsonData.rubricList);
 
             self.schedules = ko.observableArray();
@@ -247,6 +260,13 @@ var SyllabusModule = (function($, ko, jsonData) {
                 });
 
                 return total;
+            }).extend({
+                validation: {
+                    validator: function(val) {
+                        return val == 100;
+                    },
+                    message: 'Percentage must equal 100'
+                }
             });
             self.addGradingSystem();
 
@@ -276,6 +296,19 @@ var SyllabusModule = (function($, ko, jsonData) {
                 self.classPolicies.remove(policy);
             };
             self.addClassPolicy();
+
+            // Validation
+            self.errors = ko.validation.group(self, {
+                deep: true
+            });
+
+            ko.validation.rules['selectedItemNotCaption'] = {
+                validator: function(val) {
+                    console.log("in validator..." + val);
+                    return (typeof val != "undefined");
+                },
+                message: 'Please select an option'
+            };
         };
 
         models.ScheduleModel = function(schedule) {

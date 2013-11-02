@@ -55,7 +55,7 @@
 // @import "foundation/components/dropdown";
 
 
-// footer by http://ryanfait.com 
+// footer by http://ryanfait.com
 * {
 	margin: 0;
 }
@@ -93,10 +93,10 @@ html, body {
 
 //  end of footer declarations */
 
-/*	-- Syllia stylesheet V3 (Re-created from ground up for a easier understanding) -- 
+/*	-- Syllia stylesheet V3 (Re-created from ground up for a easier understanding) --
 	Hello stylesheet reader! I hope you enjoy reading these declarations as I have enjoyed
 	creating (and recreating) it :)
-*/	
+*/
 
 // general declarations (to @extend from)
 .green-button, .clear-button, .negative-button, .grey-button {
@@ -108,7 +108,7 @@ html, body {
 .green-button {
 	//border: 1px solid $green-darker;
 	background-color: $green;
-	color: #fff !important;	
+	color: #fff !important;
 	&:hover, &:focus {
 		background-color: $green-lighter;
 		//border: 1px solid $green;
@@ -151,7 +151,7 @@ html, body {
 	span {
 		font-family: $body-font-family !important;
 		margin-left: 3px;
-	}	
+	}
 }
 
 .icon-remove-multiple {
@@ -185,7 +185,7 @@ html, body {
 .add-row, .dashboard-green, .dashboard-grey,  {
 	padding: 8px 12px 8px 10px;
 	margin-bottom: 15px;
-	display: inline-block;	
+	display: inline-block;
 }
 
 .add-row, .dashboard-green {
@@ -364,7 +364,7 @@ html, body {
 			}
 		}
 
-		i {	
+		i {
 			width: 20px;
 			margin-right: 10px;
 		}
@@ -420,7 +420,7 @@ html, body {
 }
 */
 
-// Everything else 
+// Everything else
 
 .content-header {
 	border-bottom: 1px solid $grey-border;
@@ -446,7 +446,7 @@ html, body {
 	p {
 		color: $grey-lighter;
 	}
-	
+
 	form.custom .custom.dropdown.open ul {
 		border: 1px solid $grey-border;
 	}
