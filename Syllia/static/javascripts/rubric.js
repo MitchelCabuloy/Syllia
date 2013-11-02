@@ -1,22 +1,22 @@
-var RubricModule = (function($, ko) {
-    var MODULE = {}
+var RubricModule = (function($, ko, jsonData) {
+    var MODULE = {};
 
     MODULE.init = function() {
 
-        viewModel = new MODELS.RubricModel();
+        var viewModel = new MODELS.RubricModel();
         ko.applyBindings(viewModel);
         MODULE.bindUIActions(viewModel);
 
-        if (window['jsonData']) {
+        if (jsonData) {
             MODULE.loadData(viewModel, jsonData.rubricData);
             viewModel.timeSinceModified(jsonData.timeSinceModified);
         }
     };
 
     MODULE.loadData = function(viewModel, json) {
-        viewModel.pk = parseInt(json.pk)
-        viewModel.rubricName(json.rubricName)
-        viewModel.criterias(json.criterias)
+        viewModel.pk = parseInt(json.pk);
+        viewModel.rubricName(json.rubricName);
+        viewModel.criterias(json.criterias);
     };
 
     MODULE.bindUIActions = function(viewModel) {
@@ -56,7 +56,7 @@ var RubricModule = (function($, ko) {
             var self = this;
             self.pk = null;
             self.rubricName = ko.observable();
-            self.criterias = ko.observableArray([new MODELS.CriteriaModel()])
+            self.criterias = ko.observableArray([new MODELS.CriteriaModel()]);
             self.timeSinceModified = ko.observable();
 
             self.addCriteria = function() {
@@ -83,7 +83,7 @@ var RubricModule = (function($, ko) {
 
     return MODULE;
 
-})(Zepto, ko);
+})(Zepto, ko, jsonData);
 
 $(document).ready(function() {
     RubricModule.init();

@@ -2,7 +2,7 @@ var SyllabusModule = (function($, ko, jsonData) {
     var MODULE = {};
 
     MODULE.init = function() {
-        var viewModel = new MODELS.SyllabusModel();
+        var viewModel = new MODELS.SyllabusModel(jsonData);
         viewModel.errors = ko.validation.group(viewModel, {
             deep: true
         });
@@ -130,7 +130,7 @@ var SyllabusModule = (function($, ko, jsonData) {
 
     var MODELS = (function() {
         var models = {};
-        models.SyllabusModel = function() {
+        models.SyllabusModel = function(jsonData) {
             var self = this;
             self.pk = null;
             self.syllabusName = ko.observable().extend({
@@ -149,13 +149,13 @@ var SyllabusModule = (function($, ko, jsonData) {
 
             // Dropdown lists
             self.college = ko.observable();
-            self.collegeList = ko.observableArray(window.jsonData.collegeList);
+            self.collegeList = ko.observableArray(jsonData.collegeList);
 
             self.department = ko.observable();
             self.departmentList = ko.computed(function() {
                 var tempList = [];
 
-                $.each(window.jsonData.departmentList, function(index, value) {
+                $.each(jsonData.departmentList, function(index, value) {
                     if (value.college == self.college()) {
                         tempList.push(value);
                     }
@@ -168,7 +168,7 @@ var SyllabusModule = (function($, ko, jsonData) {
             });
 
             self.rubric = ko.observable();
-            self.rubricList = ko.observableArray(window.jsonData.rubricList);
+            self.rubricList = ko.observableArray(jsonData.rubricList);
 
             self.schedules = ko.observableArray();
             self.addSchedule = function() {

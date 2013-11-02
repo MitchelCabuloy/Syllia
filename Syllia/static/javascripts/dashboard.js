@@ -1,4 +1,4 @@
-var Dashboard = (function($, ko) {
+var Dashboard = (function($, ko, jsonData) {
     var MODULE = {};
     var PAGE_SIZE = 5;
 
@@ -90,7 +90,7 @@ var Dashboard = (function($, ko) {
 
     return MODULE;
 
-})(Zepto, ko);
+})(Zepto, ko, jsonData);
 
 $(document).ready(function() {
     Dashboard.init();
