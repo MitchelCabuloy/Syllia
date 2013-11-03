@@ -31,7 +31,7 @@ def return_a_pdf(request):
 
     pdf_file = generate_pdf(html=html)
     response = HttpResponse(FileWrapper(pdf_file), mimetype='application/pdf')
-    response['Content-Disposition'] = 'filename=Syllia.pdf'
+    response['Content-Disposition'] = 'filename=%s.pdf' % clean_filename(context_dict['syllabusName'])
     pdf_file.seek(0)
     return response
 
@@ -69,3 +69,8 @@ def generate_pdf(html):
     # call_subprocess([command, html_file.name, pdf_file.name])
 
     return pdf_file
+
+def clean_filename(filename):
+    import string
+    valid_chars = "-_.()%s%s" % (string.ascii_letters, string.digits)
+    return ''.join(c for c in filename if c in valid_chars)
