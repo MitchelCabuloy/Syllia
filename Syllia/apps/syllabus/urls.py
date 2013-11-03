@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 from django.contrib.auth.decorators import login_required
 
-from Syllia.apps.syllabus import views
+from Syllia.apps.syllabus import views, pdf
 
 urlpatterns = patterns('',
     # url(r'^$', login_required(DashboardView.as_view()), name='index'),
@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^syllabus/(\d+)/$', login_required(views.SyllabusView.as_view()), name='syllabus'),
     url(r'^rubric/new/$', login_required(views.RubricView.as_view()), name='rubric'),
     url(r'^rubric/(\d+)/$', login_required(views.RubricView.as_view()), name='rubric'),
+    url(r'^pdf/$', pdf.return_a_pdf)
 )
