@@ -1,39 +1,51 @@
-# from os.path import basename
 from wsgiref.util import FileWrapper
 from os import environ
-from subprocess import call as call_subprocess, list2cmdline
+from subprocess import call as call_subprocess
 from tempfile import NamedTemporaryFile
-# import hashlib
 
 from django.http import HttpResponse
-from django.template import RequestContext, Context
+from django.template import Context
 from django.template.loader import get_template
 from django.utils import simplejson
-# from django.core.servers.basehttp import FileWrapper
+from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
+from django.http import Http404
 
-# from pywkher import generate_pdf
-from Syllia.apps.syllabus.models import College, Department, Rubric, Syllabus
+from Syllia.apps.syllabus.models import College, Department, Rubric
 
-
+@csrf_protect
+@login_required
 def return_a_pdf(request):
-    syllabus = Syllabus.objects.get(pk=1)
+    if request.method == "POST":
+        current_user = get_user_model().objects.get(
+            email=request.user.email)
 
-    context_dict = simplejson.loads(syllabus.json_data)
-    context_dict['college'] = College.objects.get(pk=context_dict['college'])
-    context_dict['department'] = Department.objects.get(
-        pk=context_dict['department'])
-    context_dict['rubric'] = simplejson.loads(
-        Rubric.objects.get(pk=context_dict['rubric']).json_data)
+        # If you don't own it, you can't download it
+        try:
+            syllabus = current_user.syllabus_set.get(pk=request.POST['pk'])
 
-    template = get_template('syllabus/pdf.html')
-    context = Context(context_dict)
-    html = template.render(context)
+        except Exception:
+            raise Http404
 
-    pdf_file = generate_pdf(html=html)
-    response = HttpResponse(FileWrapper(pdf_file), mimetype='application/pdf')
-    response['Content-Disposition'] = 'filename=%s.pdf' % clean_filename(context_dict['syllabusName'])
-    pdf_file.seek(0)
-    return response
+        context_dict = simplejson.loads(syllabus.json_data)
+        context_dict['college'] = College.objects.get(pk=context_dict['college'])
+        context_dict['department'] = Department.objects.get(
+            pk=context_dict['department'])
+        context_dict['rubric'] = simplejson.loads(
+            Rubric.objects.get(pk=context_dict['rubric']).json_data)
+
+        template = get_template('syllabus/pdf.html')
+        context = Context(context_dict)
+        html = template.render(context)
+
+        pdf_file = generate_pdf(html=html)
+        response = HttpResponse(FileWrapper(pdf_file), mimetype='application/pdf')
+        response['Content-Disposition'] = 'filename=%s.pdf' % clean_filename(context_dict['syllabusName'])
+        pdf_file.seek(0)
+        return response
+
+    raise Http404
 
 
 def generate_pdf(html):

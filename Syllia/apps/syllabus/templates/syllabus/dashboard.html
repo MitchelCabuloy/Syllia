@@ -41,7 +41,7 @@
                               <li><a href="#">None</a></li>
                             </ul>
 
-                            <a href="#" class="dashboard-green"><i class="icon-download-alt"></i>&nbsp;Download</a>
+                            <a id="btnDownload" href="#" class="dashboard-green"><i class="icon-download-alt"></i>&nbsp;Download</a>
 
                             <a href="{% url "syllabus:syllabus" %}" class="dashboard-green"><i class="icon-plus"></i>&nbsp;New Syllabus</a>
 
@@ -68,8 +68,12 @@
                         </div>
                     </div>
 
-                            <!-- End of content -->
+                    <!-- End of content -->
                 </div>
+                <form id="formDownload" action="{% url "syllabus:pdf" %}" style="display: none;" method="post">
+                    {% csrf_token %}
+                    <input id="inputDownload" name="pk" type="hidden">
+                </form>
             </section>
             <section>
                 <p class="title" data-section-title>

@@ -9,5 +9,5 @@ urlpatterns = patterns('',
     url(r'^syllabus/(\d+)/$', login_required(views.SyllabusView.as_view()), name='syllabus'),
     url(r'^rubric/new/$', login_required(views.RubricView.as_view()), name='rubric'),
     url(r'^rubric/(\d+)/$', login_required(views.RubricView.as_view()), name='rubric'),
-    url(r'^pdf/$', pdf.return_a_pdf)
+    url(r'^pdf/$', pdf.return_a_pdf, name='pdf')
 )
