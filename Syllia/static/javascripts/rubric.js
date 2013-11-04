@@ -1,4 +1,4 @@
-var RubricModule = (function($, ko, jsonData) {
+var RubricModule = (function($, ko) {
     var MODULE = {};
 
     MODULE.init = function() {
@@ -7,7 +7,7 @@ var RubricModule = (function($, ko, jsonData) {
         ko.applyBindings(viewModel);
         MODULE.bindUIActions(viewModel);
 
-        if (jsonData) {
+        if ('jsonData' in window) {
             MODULE.loadData(viewModel, jsonData.rubricData);
             viewModel.timeSinceModified(jsonData.timeSinceModified);
         }
@@ -83,7 +83,7 @@ var RubricModule = (function($, ko, jsonData) {
 
     return MODULE;
 
-})(Zepto, ko, jsonData);
+})(Zepto, ko);
 
 $(document).ready(function() {
     RubricModule.init();
