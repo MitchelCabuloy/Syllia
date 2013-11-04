@@ -565,7 +565,7 @@ html, body {
 	}
 	a._saving {
 		background-color: $green-lighter;
-		cursor: progress !important;
+		cursor: default !important;
 	}
 	a._saved {
 		opacity: 0.5;
