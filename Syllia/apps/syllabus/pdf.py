@@ -52,8 +52,8 @@ def generate_pdf(html):
     wkhtmltopdf_default = 'wkhtmltopdf-heroku'
 
     # Reference command
-    # wkhtmltopdf_cmd = environ.get('WKHTMLTOPDF_CMD', wkhtmltopdf_default)
-    wkhtmltopdf_cmd = wkhtmltopdf_default
+    wkhtmltopdf_cmd = environ.get('WKHTMLTOPDF_CMD', wkhtmltopdf_default)
+    # wkhtmltopdf_cmd = wkhtmltopdf_default
 
     # Set up return file
     pdf_file = NamedTemporaryFile(delete=False, suffix='.pdf')
@@ -77,9 +77,7 @@ def generate_pdf(html):
         pdf_file.name
     ]
 
-    # print list2cmdline(command)
     call_subprocess(command)
-    # call_subprocess([command, html_file.name, pdf_file.name])
 
     return pdf_file
 
