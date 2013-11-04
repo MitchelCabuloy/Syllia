@@ -564,6 +564,7 @@ html, body {
 		padding: 8px 12px 8px 10px;
 	}
 	a._saving {
+		opacity: 0.5;
 		background-color: $green-lighter;
 		cursor: default !important;
 	}
