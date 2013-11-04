@@ -6,8 +6,13 @@
 <div class="row content-header">
     <div class="large-12 column">
         <h3 class="left">Create a new syllabus</h3>
-        <a href="#" class="primary button" id="validateBtn">Validate</a>
-        <div class="modified" data-bind="if: timeSinceModified">Modified <span data-bind="text: timeSinceModified"></span> ago</div>
+        <!--<a href="#" class="add-row" id="validateBtn">Validate</a>-->
+        <div class="right">
+            <div class="modified" data-bind="if: timeSinceModified">Modified <span data-bind="text: timeSinceModified"></span> ago</div>
+            <div class="save">
+                <a href="#" class="_saving"><i class="icon-save"></i> Saving</a>
+            </div>
+        </div>
     </div>
 </div>
 

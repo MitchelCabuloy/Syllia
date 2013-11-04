@@ -7409,108 +7409,115 @@ html, body {
 	creating (and recreating) it :)
 */
 /* line 102, ../sass/app.scss */
-.green-button, .continue-button, .add-row, .dashboard-green, .call-to-action a, #login-submit, #register-button, .clear-button, #account-button, #login-button, .negative-button, .icon-remove, .icon-remove-multiple, .icon-chevron-left, .grey-button, .dashboard-grey {
+.green-button, .continue-button, .add-row, .dashboard-green, .call-to-action a, #login-submit, #register-button, .save a, .clear-button, #account-button, #login-button, .negative-button, .icon-remove, .icon-remove-multiple, .icon-chevron-left, .grey-button, .dashboard-grey {
   transition: background-color 0.3s, border 0.3s, color 0.3s;
   text-transform: uppercase;
 }
 
 /* line 108, ../sass/app.scss */
-.green-button, .continue-button, .add-row, .dashboard-green, .call-to-action a, #login-submit, #register-button {
+.green-button, .continue-button, .add-row, .dashboard-green, .call-to-action a, #login-submit, #register-button, .save a {
   background-color: #27ae60;
   color: #fff !important;
 }
 /* line 112, ../sass/app.scss */
-.green-button:hover, .continue-button:hover, .add-row:hover, .dashboard-green:hover, .call-to-action a:hover, #login-submit:hover, #register-button:hover, .green-button:focus, .continue-button:focus, .add-row:focus, .dashboard-green:focus, .call-to-action a:focus, #login-submit:focus, #register-button:focus {
+.green-button:hover, .continue-button:hover, .add-row:hover, .dashboard-green:hover, .call-to-action a:hover, #login-submit:hover, #register-button:hover, .save a:hover, .green-button:focus, .continue-button:focus, .add-row:focus, .dashboard-green:focus, .call-to-action a:focus, #login-submit:focus, #register-button:focus, .save a:focus {
   background-color: #2cc36b;
 }
 
-/* line 118, ../sass/app.scss */
+/* line 119, ../sass/app.scss */
+.add-row i, .save i {
+  font-size: 12px;
+  position: relative;
+  top: -1px;
+}
+
+/* line 126, ../sass/app.scss */
 .clear-button, #account-button, #login-button {
   border: 1px solid #e3e3e3;
   color: #27ae60 !important;
 }
-/* line 121, ../sass/app.scss */
+/* line 129, ../sass/app.scss */
 .clear-button:hover, #account-button:hover, #login-button:hover, .clear-button:focus, #account-button:focus, #login-button:focus {
   border: 1px solid #cacaca;
   color: #229955;
 }
 
-/* line 127, ../sass/app.scss */
+/* line 135, ../sass/app.scss */
 .negative-button, .icon-remove, .icon-remove-multiple, .icon-chevron-left {
   background-color: #dadada;
 }
-/* line 130, ../sass/app.scss */
+/* line 138, ../sass/app.scss */
 .negative-button:hover, .icon-remove:hover, .icon-remove-multiple:hover, .icon-chevron-left:hover, .negative-button:focus, .icon-remove:focus, .icon-remove-multiple:focus, .icon-chevron-left:focus {
   background-color: #ef3636;
   color: #fff;
 }
 
-/* line 137, ../sass/app.scss */
+/* line 145, ../sass/app.scss */
 .grey-button, .dashboard-grey {
   background-color: #dadada;
   color: #646464;
 }
-/* line 140, ../sass/app.scss */
+/* line 148, ../sass/app.scss */
 .grey-button:hover, .dashboard-grey:hover, .grey-button:focus, .dashboard-grey:focus {
   background-color: #e7e7e7;
   color: #575757;
 }
 
-/* line 146, ../sass/app.scss */
+/* line 154, ../sass/app.scss */
 .icon-remove, .icon-remove-multiple {
   padding: 11px;
   color: #fff;
   display: inline-block;
 }
-/* line 151, ../sass/app.scss */
+/* line 159, ../sass/app.scss */
 .icon-remove span, .icon-remove-multiple span {
   font-family: "PT Sans", Arial, sans-serif !important;
   margin-left: 3px;
 }
 
-/* line 157, ../sass/app.scss */
+/* line 165, ../sass/app.scss */
 .icon-remove-multiple {
   position: relative;
   top: 10px;
 }
-/* line 161, ../sass/app.scss */
+/* line 169, ../sass/app.scss */
 .icon-remove-multiple:before {
   content: "\f00d";
 }
 
-/* line 166, ../sass/app.scss */
+/* line 174, ../sass/app.scss */
 .continue-button {
   float: right;
   padding: 15px 20px 15px 20px;
   text-transform: uppercase;
 }
 
-/* line 173, ../sass/app.scss */
+/* line 181, ../sass/app.scss */
 .icon-chevron-left {
   float: right;
   padding: 15px;
   color: #fff;
   margin-right: 10px;
 }
-/* line 179, ../sass/app.scss */
+/* line 187, ../sass/app.scss */
 .icon-chevron-left:hover {
   /* having red on a back button felt negative*/
   background-color: #cdcdcd;
 }
 
-/* line 185, ../sass/app.scss */
+/* line 193, ../sass/app.scss */
 .add-row, .dashboard-green, .dashboard-grey {
   padding: 8px 12px 8px 10px;
   margin-bottom: 15px;
   display: inline-block;
 }
 
-/* line 195, ../sass/app.scss */
+/* line 203, ../sass/app.scss */
 .dashboard-grey {
   color: #646464;
 }
 
-/* line 200, ../sass/app.scss */
+/* line 208, ../sass/app.scss */
 .dashboard-green, .dashboard-grey {
   font-size: 13px;
 }
@@ -7533,88 +7540,88 @@ html, body {
 	padding: 10px;
 }
 */
-/* line 221, ../sass/app.scss */
+/* line 229, ../sass/app.scss */
 .errorlist {
   margin-top: -15px;
   border-top: 2px solid #ef3636;
   padding: 5px 5px 5px 0px;
 }
-/* line 225, ../sass/app.scss */
+/* line 233, ../sass/app.scss */
 .errorlist li {
   list-style: none;
   color: #ef3636;
 }
 
 /*newer error declarations*/
-/* line 233, ../sass/app.scss */
+/* line 241, ../sass/app.scss */
 .messages, .a-error, .generic {
   list-style: none;
 }
-/* line 235, ../sass/app.scss */
+/* line 243, ../sass/app.scss */
 .messages li.success, .a-error li.success, .generic li.success {
   color: #27ae60;
   border-left: 3px solid #27ae60;
   padding: 5px 0px 5px 5px;
 }
-/* line 240, ../sass/app.scss */
+/* line 248, ../sass/app.scss */
 .messages li.error, .messages .a-error, .a-error li.error, .a-error .a-error, .generic li.error, .generic .a-error {
   color: #ef3636;
   border-left: 3px solid #ef3636;
   padding: 5px 0px 5px 15px;
 }
 
-/* line 247, ../sass/app.scss */
+/* line 255, ../sass/app.scss */
 .no-visibility {
   visibility: hidden;
 }
 
-/* line 252, ../sass/app.scss */
+/* line 260, ../sass/app.scss */
 .index-main {
   padding-top: 75px;
 }
-/* line 254, ../sass/app.scss */
+/* line 262, ../sass/app.scss */
 .index-main h4, .index-main div {
   text-align: center;
 }
-/* line 257, ../sass/app.scss */
+/* line 265, ../sass/app.scss */
 .index-main div:last-child {
   margin-bottom: 30px;
 }
 
-/* line 261, ../sass/app.scss */
+/* line 269, ../sass/app.scss */
 .index-features {
   padding-top: 30px;
   text-align: center;
 }
-/* line 264, ../sass/app.scss */
+/* line 272, ../sass/app.scss */
 .index-features div {
   padding-bottom: 20px;
 }
 
-/* line 270, ../sass/app.scss */
+/* line 278, ../sass/app.scss */
 .call-to-action a {
   padding: 10px 30px 10px 30px;
   text-transform: uppercase;
   font-size: 20px;
   margin-bottom: 10px;
 }
-/* line 277, ../sass/app.scss */
+/* line 285, ../sass/app.scss */
 .call-to-action span {
   color: #646464;
   margin-top: 20px;
   display: block;
 }
 
-/* line 287, ../sass/app.scss */
+/* line 295, ../sass/app.scss */
 .navigation {
   margin-top: 30px;
 }
-/* line 289, ../sass/app.scss */
+/* line 297, ../sass/app.scss */
 .navigation ul {
   float: right;
   list-style: none;
 }
-/* line 293, ../sass/app.scss */
+/* line 301, ../sass/app.scss */
 .navigation li {
   float: left;
   font-size: 1em;
@@ -7622,16 +7629,16 @@ html, body {
   margin-right: 15px;
   position: relative;
 }
-/* line 300, ../sass/app.scss */
+/* line 308, ../sass/app.scss */
 .navigation li:last-child {
   margin-right: 0px;
 }
-/* line 304, ../sass/app.scss */
+/* line 312, ../sass/app.scss */
 .navigation a {
   color: #4a4a4a;
 }
 
-/* line 309, ../sass/app.scss */
+/* line 317, ../sass/app.scss */
 .login-pane, .account-pane {
   display: none;
   width: 270px;
@@ -7644,12 +7651,12 @@ html, body {
   border: 1px solid #e3e3e3;
   text-transform: none;
 }
-/* line 320, ../sass/app.scss */
+/* line 328, ../sass/app.scss */
 .login-pane a, .account-pane a {
   color: #27ae60;
 }
 
-/* line 325, ../sass/app.scss */
+/* line 333, ../sass/app.scss */
 .login-pane:before, .account-pane:before {
   content: '';
   position: absolute;
@@ -7660,33 +7667,33 @@ html, body {
   right: 0px;
 }
 
-/* line 335, ../sass/app.scss */
+/* line 343, ../sass/app.scss */
 .account-pane {
   font-size: 13px;
 }
-/* line 338, ../sass/app.scss */
+/* line 346, ../sass/app.scss */
 .account-pane strong {
   font-size: 14px;
   display: block;
 }
-/* line 342, ../sass/app.scss */
+/* line 350, ../sass/app.scss */
 .account-pane ul {
   margin-left: -25px;
   float: none;
 }
-/* line 349, ../sass/app.scss */
+/* line 357, ../sass/app.scss */
 .account-pane li {
   text-transform: none;
   float: none;
   width: 269px;
 }
-/* line 354, ../sass/app.scss */
+/* line 362, ../sass/app.scss */
 .account-pane li a {
   transition: background-color 0.1s, color 0.1s;
   padding: 1px 0px 1px 26px;
   display: block;
 }
-/* line 358, ../sass/app.scss */
+/* line 366, ../sass/app.scss */
 .account-pane li a:hover {
   color: #fff;
   background-color: #27ae60;
@@ -7694,39 +7701,39 @@ html, body {
   border-right: 1px solid #229955;
   margin-left: -1px;
 }
-/* line 367, ../sass/app.scss */
+/* line 375, ../sass/app.scss */
 .account-pane li i {
   width: 20px;
   margin-right: 10px;
 }
-/* line 375, ../sass/app.scss */
+/* line 383, ../sass/app.scss */
 .account-pane #logout a {
   transition: background-color 0.1s, color 0.1s;
 }
-/* line 377, ../sass/app.scss */
+/* line 385, ../sass/app.scss */
 .account-pane #logout a:hover {
   background-color: #ef3636 !important;
   border-left: 1px solid #b10e0e !important;
   border-right: 1px solid #b10e0e !important;
 }
-/* line 385, ../sass/app.scss */
+/* line 393, ../sass/app.scss */
 .account-pane:before {
   width: 133px !important;
 }
 
-/* line 390, ../sass/app.scss */
+/* line 398, ../sass/app.scss */
 #account-button {
   padding: 8px 20px 8px 20px;
 }
 
 /*	Login button is the 'LOGIN' button found in the navigation, while
 	Login Submit is the button found in the login form itself */
-/* line 398, ../sass/app.scss */
+/* line 406, ../sass/app.scss */
 #login-button, #login-submit, #register-button {
   padding: 8px 30px 8px 30px;
 }
 
-/* line 407, ../sass/app.scss */
+/* line 415, ../sass/app.scss */
 #login-submit, #register-button {
   display: block;
   border: none;
@@ -7741,61 +7748,63 @@ html, body {
 	margin-top: 20px;
 }
 */
-/* line 425, ../sass/app.scss */
+/* line 433, ../sass/app.scss */
 .content-header {
   border-bottom: 1px solid #e3e3e3;
   margin-top: 40px;
   margin-bottom: 30px;
 }
-/* line 428, ../sass/app.scss */
+/* line 436, ../sass/app.scss */
 .content-header .modified {
-  float: right;
+  float: left;
   color: #27ae60;
   font-size: 14px;
-  margin-top: 25px;
+  margin-right: 20px;
+  position: relative;
+  top: 15px;
 }
 
-/* line 437, ../sass/app.scss */
+/* line 447, ../sass/app.scss */
 .tab-wrapper {
   margin-top: 40px;
 }
 
-/* line 441, ../sass/app.scss */
+/* line 451, ../sass/app.scss */
 .content, .rubric {
   /*.row:first-child, h4 {
   	margin-top: 40px;
   }*/
 }
-/* line 446, ../sass/app.scss */
+/* line 456, ../sass/app.scss */
 .content p, .rubric p {
   color: #646464;
 }
-/* line 450, ../sass/app.scss */
+/* line 460, ../sass/app.scss */
 .content form.custom .custom.dropdown.open ul, .rubric form.custom .custom.dropdown.open ul {
   border: 1px solid #e3e3e3;
 }
-/* line 453, ../sass/app.scss */
+/* line 463, ../sass/app.scss */
 .content input, .rubric input {
   height: 38px;
 }
-/* line 457, ../sass/app.scss */
+/* line 467, ../sass/app.scss */
 .content textarea, .rubric textarea {
   min-height: 80px !important;
   width: 100%;
 }
-/* line 462, ../sass/app.scss */
+/* line 472, ../sass/app.scss */
 .content .checkboxes, .rubric .checkboxes {
   margin-top: 30px;
 }
-/* line 464, ../sass/app.scss */
+/* line 474, ../sass/app.scss */
 .content .checkboxes input, .rubric .checkboxes input {
   height: 30px;
 }
-/* line 467, ../sass/app.scss */
+/* line 477, ../sass/app.scss */
 .content .checkboxes p, .rubric .checkboxes p {
   margin-left: -30px;
 }
-/* line 472, ../sass/app.scss */
+/* line 482, ../sass/app.scss */
 .content .highlight, .rubric .highlight {
   display: inline-block;
   background-color: #dadada;
@@ -7803,41 +7812,41 @@ html, body {
   padding: 2px 5px 2px 5px;
   font-size: 12px;
 }
-/* line 480, ../sass/app.scss */
+/* line 490, ../sass/app.scss */
 .content .foreach-header, .rubric .foreach-header {
   margin-bottom: -40px;
 }
 
-/* line 487, ../sass/app.scss */
+/* line 497, ../sass/app.scss */
 .rubric textarea {
   height: 200px;
   max-width: 100%;
 }
 
-/* line 494, ../sass/app.scss */
+/* line 504, ../sass/app.scss */
 .vertical-tabs .title {
   border-right: 2px solid #e3e3e3 !important;
   text-transform: uppercase;
 }
-/* line 500, ../sass/app.scss */
+/* line 510, ../sass/app.scss */
 .vertical-tabs .active .title {
   border-right: 2px solid #27ae60 !important;
 }
 
-/* line 506, ../sass/app.scss */
+/* line 516, ../sass/app.scss */
 .learning-outcomes {
   margin-bottom: 25px;
 }
-/* line 508, ../sass/app.scss */
+/* line 518, ../sass/app.scss */
 .learning-outcomes .row:first-child {
   margin-top: 0px !important;
   margin-bottom: 10px;
 }
-/* line 512, ../sass/app.scss */
+/* line 522, ../sass/app.scss */
 .learning-outcomes .row {
   margin-top: 20px;
 }
-/* line 515, ../sass/app.scss */
+/* line 525, ../sass/app.scss */
 .learning-outcomes .lo-block {
   background-color: #dadada;
   color: #fff;
@@ -7845,29 +7854,53 @@ html, body {
 }
 
 /* Dashboard declarations */
-/* line 524, ../sass/app.scss */
+/* line 534, ../sass/app.scss */
 .dashboard-table-content ul {
   list-style: none;
 }
-/* line 527, ../sass/app.scss */
+/* line 537, ../sass/app.scss */
 .dashboard-table-content input {
   height: 13px;
 }
-/* line 530, ../sass/app.scss */
+/* line 540, ../sass/app.scss */
 .dashboard-table-content li {
   padding: 10px 0px 0px 10px;
   border-bottom: 1px solid #e3e3e3;
 }
-/* line 535, ../sass/app.scss */
+/* line 545, ../sass/app.scss */
 .dashboard-table-content li:hover {
   cursor: pointer;
   color: #27ae60;
 }
-/* line 539, ../sass/app.scss */
+/* line 549, ../sass/app.scss */
 .dashboard-table-content .itemName {
   padding-left: 10px;
 }
-/* line 542, ../sass/app.scss */
+/* line 552, ../sass/app.scss */
 .dashboard-table-content .lastModified {
   float: right;
+}
+
+/* line 557, ../sass/app.scss */
+.save {
+  float: right;
+  margin-top: 15px;
+}
+/* line 560, ../sass/app.scss */
+.save a {
+  padding: 8px 12px 8px 10px;
+}
+/* line 564, ../sass/app.scss */
+.save a._saving {
+  background-color: #2cc36b;
+  cursor: progress !important;
+}
+/* line 568, ../sass/app.scss */
+.save a._saved {
+  opacity: 0.5;
+  cursor: default !important;
+}
+/* line 571, ../sass/app.scss */
+.save a._saved:hover {
+  background-color: #27ae60;
 }

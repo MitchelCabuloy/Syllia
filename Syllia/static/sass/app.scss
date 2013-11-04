@@ -115,6 +115,14 @@ html, body {
 	}
 }
 
+.add-row, .save {
+	i {
+	font-size: 12px;
+	position: relative;
+	top: -1px;
+	}
+}
+
 .clear-button {
 	border: 1px solid $grey-border;
 	color: $green !important;
@@ -426,10 +434,12 @@ html, body {
 	border-bottom: 1px solid $grey-border;
 	margin-top: 40px;
 	.modified {
-		float: right;
+		float: left;
 		color: $green;
 		font-size: 14px;
-		margin-top: 25px;
+		margin-right: 20px;
+		position: relative;
+		top: 15px;
 	}
 	margin-bottom: 30px;
 }
@@ -541,5 +551,25 @@ html, body {
 	}
 	.lastModified {
 		float: right;
+	}
+}
+
+.save {
+	float: right;
+	margin-top: 15px;
+	a {
+		@extend .green-button;
+		padding: 8px 12px 8px 10px;
+	}
+	a._saving {
+		background-color: $green-lighter;
+		cursor: progress !important;
+	}
+	a._saved {
+		opacity: 0.5;
+		cursor: default !important;
+		&:hover{
+			background-color: $green;
+		}
 	}
 }
