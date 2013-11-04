@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ syllabusName }}</title>
+    <style>
+        body{
+            font-family: "Times New Roman";
+            font-size: 12px;
+        }
+        table{
+            width: 100%;
+        }
+        td{
+            vertical-align: top;
+        }
+        table, div{
+            margin-bottom: 0.25in;
+        }
+
+
+        /* Bordered tables*/
+        table.bordered{
+            border-collapse: collapse;
+        }
+        table.bordered, table.bordered td, table.bordered th{
+            border: 1px solid black;
+        }
+        table.bordered td{
+            padding: 0.05in 0.10in;
+        }
+
+        /* Page break*/
+        div.section{
+            page-break-inside: avoid;
+        }
+
+        /* Lists */
+        ul.simple{
+            list-style-type: none;
+            margin: 0;
+            /*padding: 0;*/
+        }
+    </style>
+</head>
+<body>
+    <!-- Initial data -->
+    <div class="section">
+        <table>
+            <tr>
+                <td>
+                    <strong>COLLEGE: </strong>
+                    <span>{{ college }}</span>
+                </td>
+                <td>
+                    <strong>DEPARTMENT: </strong>
+                    <span>{{ department }}</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <strong>COURSE CODE :</strong>
+                    <span>{{ courseCode}} ({{ courseName}})</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>CLASS DAYS AND CLASS TIMES:</strong>
+                    <ul class="simple">
+                        {% for schedule in schedules %}
+                            <li>{{ schedule.days }} {{ schedule.startTime }} {{ schedule.endTime }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                    <strong>ROOMS:</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>INSTRUCTORS:</strong>
+                    <ul class="simple">
+                        {% for instructor in instructors %}
+                            <li>{{ instructor.fullName }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Course Description -->
+    <div class="section">
+        <strong>COURSE DESCRIPTION: </strong>
+        <div>{{ courseDescription }}</div>
+    </div>
+
+    <!-- ELGAS -->
+    <div class="section">
+        <strong>LEARNING OUTCOMES:</strong>
+        <table class="bordered">
+            <tr>
+                <th>ELGA</th>
+                <th>LEARNING OUTCOME</th>
+            </tr>
+            {% for elga in elgas %}
+            <tr>
+                <td>{{ elga.elgaName }}</td>
+                <td>
+                    LO {{ elga.learningOutcomeNumber}}: <br>
+                    {{ elga.learningOutcome }}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Final course output -->
+    <div class="section">
+        <strong>FINAL COURSE OUTPUT:</strong>
+        <div>{{ finalCourseOutputDescription }}</div>
+        <!-- <div>As evidence of attaining the above learning outcomes, the student is required to do and submit the following during the indicated dates of the term.</div> -->
+        <table class="bordered">
+            <tr>
+                <th>LEARNING OUTCOME</th>
+                <th>REQUIRED OUTPUT</th>
+                <th>DUE DATE</th>
+            </tr>
+            {% for requiredOutput in requiredOutputs %}
+                <tr>
+                    <td>
+                        {% for lo in requiredOutput.los %}
+                            LO {{ lo }},
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {{ requiredOutput.description }}
+                    </td>
+                    <td>
+                        Week {{ requiredOutput.weekDue }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Rubric for assessment -->
+    <div class="section">
+        <strong>RUBRIC FOR ASSESSMENT:</strong>
+        <table class="bordered">
+            <tr>
+                <th>CRITERIA</th>
+                <th>EXEMPLARY</th>
+                <th>SATISFACTORY</th>
+                <th>DEVELOPING</th>
+                <th>BEGINNING</th>
+            </tr>
+            {% for criteria in rubric.criterias %}
+                <tr>
+                    <td>
+                        {{ criteria.criteriaName }}
+                    </td>
+                    <td>
+                        {{ criteria.exemplary }}
+                    </td>
+                    <td>
+                        {{ criteria.satisfactory }}
+                    </td>
+                    <td>
+                        {{ criteria.developing }}
+                    </td>
+                    <td>
+                        {{ criteria.beginning }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Other requirements and assessments -->
+    <div class="section">
+        <strong>OTHER REQUIREMENTS AND ASSESSMENTS:</strong><br>
+        <span>Aside from the final output, the student will be assessed at other times during the term by the following:</span>
+        <ul>
+            {% for otherOutput in otherOutputs %}
+                <li>
+                    {{ otherOutput.requirementName }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Grading system -->
+    <div class="section">
+        <strong>GRADING SYSTEM:</strong><br>
+        <span>The student will be graded according to the following:</span>
+        <ul>
+            {% for gradeComponent in gradingSystems %}
+                <li>{{ gradeComponent.itemName }}&nbsp;&ndash;&nbsp;{{ gradeComponent.percentage }}%</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Learning plan -->
+    <div class="section">
+        <strong>LEARNING PLAN:</strong>
+        <table class="bordered">
+            <tr>
+                <th>LEARNING OUTCOME</th>
+                <th>TOPIC</th>
+                <th>WEEK NO.</th>
+                <th>LEARNING ACTIVITIES</th>
+            </tr>
+            {% for learningPlan in learningPlans %}
+                <tr>
+                    <td>
+                        {% for lo in learningPlan.los %}
+                            LO {{ lo }},
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {{ learningPlan.topic }}
+                    </td>
+                    <td>
+                        {{ learningPlan.weekNumber}}
+                    </td>
+                    <td>
+                        <ul class="simple">
+                            {% for learningActivity in learningPlan.learningActivities %}
+                                <li>{{ learningActivity.description }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- References -->
+    <div class="section">
+        <strong>REFERENCES:</strong>
+        {% for reference in references %}
+            <div>
+                {{ reference.referenceText }}
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Class Policies -->
+    <div class="section">
+        <strong>CLASS POLICIES:</strong>
+        <ul>
+            {% for classPolicy in classPolicies %}
+                <li>{{ classPolicy.policy }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

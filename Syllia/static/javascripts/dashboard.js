@@ -11,7 +11,8 @@ var Dashboard = (function($, ko, jsonData) {
         $.each(jsonData.syllabusList, function(index, value) {
             syllabusList.push(new MODELS.ListItemModel(value));
         });
-        ko.applyBindings(new MODELS.DashboardModel(syllabusList), $("[data-slug='syllabus']")[0]);
+        var syllabusViewModel = new MODELS.DashboardModel(syllabusList);
+        ko.applyBindings(syllabusViewModel, $("[data-slug='syllabus']")[0]);
 
         // Rubric
         var rubricList = [];
@@ -21,17 +22,23 @@ var Dashboard = (function($, ko, jsonData) {
         });
         ko.applyBindings(new MODELS.DashboardModel(rubricList), $("[data-slug='rubric']")[0]);
 
-        MODULE.bindUIActions();
+        MODULE.bindUIActions(syllabusViewModel);
 
     };
 
-    MODULE.bindUIActions = function() {
+    MODULE.bindUIActions = function(syllabusViewModel) {
         $("#btnProfileSubmit").click(function() {
             $("#profileForm").submit();
         });
 
         $("#btnChangePasswordSubmit").click(function() {
             $('#change_password_form').submit();
+        });
+
+        $("#btnDownload").click(function() {
+            var item = syllabusViewModel.selectedItems()[0];
+            $("#inputDownload").val(item.pk);
+            $("#formDownload").submit();
         });
     };
 
@@ -51,6 +58,17 @@ var Dashboard = (function($, ko, jsonData) {
                 return self.listItems().slice(startIndex, endIndex);
             }, self);
 
+            self.selectedItems = ko.computed(function() {
+                var items = [];
+
+                $.each(self.listItems(), function(index, item) {
+                    if (item.isSelected()) {
+                        items.push(item);
+                    }
+                });
+
+                return items;
+            });
 
             // TODO: Disable buttons on first and last pages.
             self.nextPage = function() {
@@ -69,6 +87,7 @@ var Dashboard = (function($, ko, jsonData) {
         models.ListItemModel = function(value) {
             var self = this;
             // Quotes for static things
+            self.pk = value.pk;
             self.itemName = value.itemName;
             self.lastModified = value.lastModified;
             self.url = "/" + value.url + "/" + value.pk;
