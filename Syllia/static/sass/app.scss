@@ -230,7 +230,7 @@ html, body {
 }
 
 /*newer error declarations*/
-.messages, .a-error {
+.messages, .a-error, .generic {
 	list-style: none;
 	li.success {
 		color: $green;
