@@ -539,12 +539,14 @@ html, body {
 	}
 	li {
 		//background-color: $grey-button;
-		padding: 10px 0px 0px 10px;
+		transition: background-color 0.2s, color 0.2s;
+		padding: 10px 3px 3px 10px;
 		border-bottom: 1px solid $grey-border;
-	}
-	li:hover {
-		cursor: pointer;
-		color: $green;
+		&:hover {
+			background-color: #f9f9f9;
+			cursor: pointer;
+			color: $green;
+		}
 	}
 	.itemName {
 		padding-left: 10px;

@@ -7864,43 +7864,45 @@ html, body {
 }
 /* line 540, ../sass/app.scss */
 .dashboard-table-content li {
-  padding: 10px 0px 0px 10px;
+  transition: background-color 0.2s, color 0.2s;
+  padding: 10px 3px 3px 10px;
   border-bottom: 1px solid #e3e3e3;
 }
 /* line 545, ../sass/app.scss */
 .dashboard-table-content li:hover {
+  background-color: #f9f9f9;
   cursor: pointer;
   color: #27ae60;
 }
-/* line 549, ../sass/app.scss */
+/* line 551, ../sass/app.scss */
 .dashboard-table-content .itemName {
   padding-left: 10px;
 }
-/* line 552, ../sass/app.scss */
+/* line 554, ../sass/app.scss */
 .dashboard-table-content .lastModified {
   float: right;
 }
 
-/* line 557, ../sass/app.scss */
+/* line 559, ../sass/app.scss */
 .save {
   float: right;
   margin-top: 15px;
 }
-/* line 560, ../sass/app.scss */
+/* line 562, ../sass/app.scss */
 .save a {
   padding: 8px 12px 8px 10px;
 }
-/* line 564, ../sass/app.scss */
+/* line 566, ../sass/app.scss */
 .save a._saving {
   background-color: #2cc36b;
   cursor: progress !important;
 }
-/* line 568, ../sass/app.scss */
+/* line 570, ../sass/app.scss */
 .save a._saved {
   opacity: 0.5;
   cursor: default !important;
 }
-/* line 571, ../sass/app.scss */
+/* line 573, ../sass/app.scss */
 .save a._saved:hover {
   background-color: #27ae60;
 }
