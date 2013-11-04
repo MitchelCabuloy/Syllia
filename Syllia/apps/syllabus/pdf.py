@@ -72,6 +72,7 @@ def generate_pdf(html):
         '--margin-left', '1in',
         '--margin-right', '1in',
         '--margin-top', '1in',
+        '--disable-smart-shrinking',
         html_file.name,
         pdf_file.name
     ]

@@ -6,7 +6,7 @@
     <style>
         body{
             font-family: "Times New Roman";
-            font-size: 12pt;
+            font-size: 12px;
         }
         table{
             width: 100%;
@@ -156,21 +156,23 @@
                 <th>BEGINNING</th>
             </tr>
             {% for criteria in rubric.criterias %}
-                <td>
-                    {{ criteria.criteriaName }}
-                </td>
-                <td>
-                    {{ criteria.exemplary }}
-                </td>
-                <td>
-                    {{ criteria.satisfactory }}
-                </td>
-                <td>
-                    {{ criteria.developing }}
-                </td>
-                <td>
-                    {{ criteria.beginning }}
-                </td>
+                <tr>
+                    <td>
+                        {{ criteria.criteriaName }}
+                    </td>
+                    <td>
+                        {{ criteria.exemplary }}
+                    </td>
+                    <td>
+                        {{ criteria.satisfactory }}
+                    </td>
+                    <td>
+                        {{ criteria.developing }}
+                    </td>
+                    <td>
+                        {{ criteria.beginning }}
+                    </td>
+                </tr>
             {% endfor %}
         </table>
     </div>
