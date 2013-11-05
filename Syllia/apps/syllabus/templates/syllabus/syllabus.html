@@ -11,9 +11,9 @@
             <div class="modified" data-bind="if: timeSinceModified">Modified <span data-bind="text: timeSinceModified"></span> ago</div>
             <div class="save">
 
-                <!--<a href="#" class="_save">
-                <i class="icon-save"></i> Save</a>-->
+                <a id="saveBtn" href="#" class="_save"><i class="icon-save"></i>&nbsp;Save</a>
 
+<<<<<<< HEAD
                 <!--<a href="#" class="_saving">
                 <i class="icon-refresh icon-spin"></i> Saving
                 </a>-->
@@ -23,6 +23,11 @@
 
                 <a data-tooltip title="Use this tooltip to include any error message." href="#" class="_error">
                 Error!
+=======
+                <a id="savingBtn" href="#" class="_saving" style="display: none;"><i class="icon-refresh icon-spin"></i>&nbsp;Saving</a>
+
+                <a id="savedBtn" href="#" class="_saved"  style="display: none;"><i class="icon-save"></i>&nbsp;Saved</a>
+>>>>>>> 40356957c0d19d75dfd82578d30a9cf7618c6593
                 </a>
 
             </div>
@@ -579,13 +584,6 @@
     </div>
 </div>
 
-<form action="{% url "syllabus:syllabus" %}" id="syllabus_json_form" method="post" name="syllabus_json_form">
-    {% csrf_token %}
-    <input id="syllabus_json" name="syllabus_json" type="hidden">
-    <input type="hidden" id="syllabus_rubric" name="syllabus_rubric">
-</form>
-</div>
-
 {% endblock content %}
 
 {% block scripts %}
@@ -594,8 +592,9 @@
 <script>
     var jsonData = $.parseJSON('{{ jsonData|escapejs }}');
 </script>
-
+<script src="{% static "javascripts/vendor/zepto.cookie.js" %}"></script>
 <script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
 <script src="{% static "javascripts/vendor/knockout.validation.js" %}"></script>
 <script src="{% static "javascripts/syllabus.js" %}"></script>
+<script src="{% static "javascripts/ajax.js" %}"></script>
 {% endblock scripts %}

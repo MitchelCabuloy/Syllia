@@ -67,7 +67,8 @@ def generate_pdf(html):
     command = [
         wkhtmltopdf_cmd,
         '-q',
-        '--footer-right', 'Page [page]',
+        '--footer-right', '[page]',
+        '--footer-font-name', 'Times',
         '--margin-bottom', '1in',
         '--margin-left', '1in',
         '--margin-right', '1in',

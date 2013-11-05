@@ -83,28 +83,17 @@ var SyllabusModule = (function($, ko, jsonData) {
         });
     };
 
-    MODULE.bindUIActions = function(viewModel) {
-        $('#postBtn').click(function() {
-            // Ignores these fields
-            var syllabus_json = ko.toJSON(viewModel, function(key, value) {
-                switch (key) {
-                    case "collegeList":
-                    case "departmentList":
-                    case "rubricList":
-                    case "timeSinceModified":
-                        return;
-                    default:
-                        return value;
-                }
-            });
+    MODULE.submitForm = function(viewModel, redirect) {
+        redirect = typeof redirect !== 'undefined' ? redirect : false;
 
-            $('#syllabus_json').val(syllabus_json);
-            $('#syllabus_json_form').submit();
+        viewModel.errors = ko.validation.group(viewModel, {
+            deep: true
         });
 
-        $('#stringifyBtn').click(function() {
-            // Ignores these fields
+        if (viewModel.errors().length == 0) {
+            // Serialize
             var syllabus_json = ko.toJSON(viewModel, function(key, value) {
+                // Ignores these fields
                 switch (key) {
                     case "collegeList":
                     case "departmentList":
@@ -116,8 +105,46 @@ var SyllabusModule = (function($, ko, jsonData) {
                 }
             });
 
-            console.log("KO Data:");
-            console.log(syllabus_json);
+            // Toggle save button
+            $('#saveBtn').toggle();
+            $('#savingBtn').toggle();
+
+            $.ajax({
+                data: {
+                    'syllabus_json': syllabus_json,
+                    'redirect': redirect
+                },
+                type: 'POST',
+                url: '/syllabus/new/',
+                success: function(response) {
+                    // For save buttons
+                    $('#savingBtn').toggle();
+                    $('#savedBtn').toggle();
+                    setTimeout(function() {
+                        $('#savedBtn').toggle();
+                        $('#saveBtn').toggle();
+                    }, 5000);
+
+                    if (response.redirectTo) {
+                        window.location.href = response.redirectTo;
+                    }
+
+                    MODULE.loadData(viewModel, response.viewModel);
+                    viewModel.timeSinceModified(response.timeSinceModified);
+                }
+            });
+        } else {
+            viewModel.errors.showAllMessages();
+        }
+    };
+
+    MODULE.bindUIActions = function(viewModel) {
+        $('#postBtn').click(function() {
+            MODULE.submitForm(viewModel, true);
+        });
+
+        $('#saveBtn').click(function() {
+            MODULE.submitForm(viewModel, false);
         });
 
         $('#validateBtn').click(function() {
