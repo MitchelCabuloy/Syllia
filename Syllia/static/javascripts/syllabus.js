@@ -21,6 +21,19 @@ var SyllabusModule = (function($, ko, jsonData) {
         Foundation.libs.forms.refresh_custom_select($('#collegeSelect'), true);
         Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
         Foundation.libs.forms.refresh_custom_select($('#rubricSelect'), true);
+
+        // Start modified timer
+        if (viewModel.timeSinceModified()) {
+
+            // If hour and day is not in the string
+            if (viewModel.timeSinceModified().indexOf("hour") == -1 && viewModel.timeSinceModified().indexOf("day") == -1) {
+                var modifiedTime = setInterval(function() {
+                    var timeRegex = /(\d+)/g;
+                    var match = timeRegex.exec(viewModel.timeSinceModified());
+                    viewModel.timeSinceModified(viewModel.timeSinceModified().replace(timeRegex, parseInt(match[1]) + 1));
+                }, 60000);
+            }
+        }
     };
 
     MODULE.loadData = function(viewModel, json) {
