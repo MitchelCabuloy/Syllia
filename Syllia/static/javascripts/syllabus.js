@@ -104,7 +104,6 @@ var SyllabusModule = (function($, ko, jsonData) {
         });
 
         if (viewModel.errors().length == 0) {
-            console.log("Valid");
             // Serialize
             var syllabus_json = ko.toJSON(viewModel, function(key, value) {
                 // Ignores these fields
@@ -119,7 +118,6 @@ var SyllabusModule = (function($, ko, jsonData) {
                 }
             });
 
-            console.log("Going for toggle 1");
             // Toggle save button
             $('#saveBtn').toggle();
             $('#savingBtn').toggle();
@@ -132,13 +130,10 @@ var SyllabusModule = (function($, ko, jsonData) {
                 type: 'POST',
                 url: '/syllabus/new/',
                 success: function(response) {
-                    console.log("Success");
-                    console.log("Going for toggle 2");
                     // For save buttons
                     $('#savingBtn').toggle();
                     $('#savedBtn').toggle();
                     setTimeout(function() {
-                        console.log("Going for toggle 3");
                         $('#savedBtn').toggle();
                         $('#saveBtn').toggle();
                     }, 5000);
@@ -147,15 +142,29 @@ var SyllabusModule = (function($, ko, jsonData) {
                         window.location.href = response.redirectTo;
                     }
 
-                    console.log("Reloading data");
                     MODULE.loadData(viewModel, response.viewModel);
-                    console.log("Reloading time since modified");
                     viewModel.timeSinceModified(response.timeSinceModified);
-
+                },
+                error: function(xhr, errorType, error) {
+                    $('#savingBtn').toggle();
+                    $('#errorBtn').toggle();
+                    $('#errorBtn').attr('title', "There was a problem trying to save your data.");
+                    setTimeout(function() {
+                        $('#errorBtn').toggle();
+                        $('#errorBtn').attr('title', "");
+                        $('#saveBtn').toggle();
+                    }, 5000);
                 }
             });
         } else {
-            console.log("Error!");
+            $('#saveBtn').toggle();
+            $('#errorBtn').toggle();
+            $('#errorBtn').attr('title', "Please check your forms");
+            setTimeout(function() {
+                $('#errorBtn').toggle();
+                $('#errorBtn').attr('title', "");
+                $('#saveBtn').toggle();
+            }, 5000);
             viewModel.errors.showAllMessages();
         }
     };
