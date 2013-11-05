@@ -6,9 +6,10 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.views.generic.base import View
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from django.shortcuts import render, redirect
 from django.utils import simplejson, timezone
+from django.core.urlresolvers import reverse
 
 from Syllia.apps.syllabus.models import Rubric, College, Department, Syllabus
 from Syllia.apps.accounts.forms import ProfileForm
@@ -77,7 +78,8 @@ class DashboardView(View):
 
         # Load change password form
         if request.session.get('change_password_form'):
-            context['change_password_form'] = request.session['change_password_form']
+            context['change_password_form'] = request.session[
+                'change_password_form']
             del request.session['change_password_form']
         else:
             context['change_password_form'] = PasswordChangeForm(current_user)
@@ -149,8 +151,16 @@ class SyllabusView(View):
 
         syllabus.save()
 
-        messages.success(request, 'Saved syllabus')
-        return redirect('index')
+        response_data = {
+            'viewModel': simplejson.loads(syllabus.json_data),
+            'timeSinceModified': get_time_since_modified(syllabus.last_modified)
+        }
+
+        if request.POST['redirect'] == "true":
+            messages.success(request, 'Saved syllabus')
+            response_data['redirectTo'] = reverse('index')
+
+        return HttpResponse(simplejson.dumps(response_data), content_type="application/json")
 
 
 class RubricView(View):
