@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.views.generic.base import View
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse, HttpResponseServerError
 from django.shortcuts import render, redirect
 from django.utils import simplejson, timezone
 from django.core.urlresolvers import reverse
@@ -137,30 +137,33 @@ class SyllabusView(View):
         except Exception:
             syllabus = Syllabus()
 
-        # Initialize
-        syllabus.user = current_user
-        syllabus.syllabus_name = json_data['syllabusName']
-        syllabus.course_code = json_data['courseCode']
-        syllabus.json_data = request.POST['syllabus_json']
+        try:
+            # Initialize
+            syllabus.user = current_user
+            syllabus.syllabus_name = json_data['syllabusName']
+            syllabus.course_code = json_data['courseCode']
+            syllabus.json_data = request.POST['syllabus_json']
 
-        # Load foreign keys
-        # These will throw an exception if invalid
-        syllabus.department = Department.objects.get(
-            pk=json_data['department'])
-        syllabus.rubric = current_user.rubric_set.get(pk=json_data['rubric'])
+            # Load foreign keys
+            # These will throw an exception if invalid
+            syllabus.department = Department.objects.get(
+                pk=json_data['department'])
+            syllabus.rubric = current_user.rubric_set.get(pk=json_data['rubric'])
 
-        syllabus.save()
+            syllabus.save()
 
-        response_data = {
-            'viewModel': simplejson.loads(syllabus.json_data),
-            'timeSinceModified': get_time_since_modified(syllabus.last_modified)
-        }
+            response_data = {
+                'viewModel': simplejson.loads(syllabus.json_data),
+                'timeSinceModified': get_time_since_modified(syllabus.last_modified)
+            }
 
-        if request.POST['redirect'] == "true":
-            messages.success(request, 'Saved syllabus')
-            response_data['redirectTo'] = reverse('index')
+            if request.POST['redirect'] == "true":
+                messages.success(request, 'Saved syllabus')
+                response_data['redirectTo'] = reverse('index')
 
-        return HttpResponse(simplejson.dumps(response_data), content_type="application/json")
+            return HttpResponse(simplejson.dumps(response_data), content_type="application/json")
+        except Exception:
+            return HttpResponseServerError(simplejson.dumps({'message': 'Please check your forms'}), content_type="application/json");
 
 
 class RubricView(View):

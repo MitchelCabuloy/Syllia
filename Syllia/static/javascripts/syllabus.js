@@ -22,6 +22,11 @@ var SyllabusModule = (function($, ko, jsonData) {
         Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
         Foundation.libs.forms.refresh_custom_select($('#rubricSelect'), true);
 
+        Foundation.libs.section.settings.callback = function(element) {
+            console.log("Changing sections");
+            console.log(element);
+        };
+
         // Start modified timer
         if (viewModel.timeSinceModified()) {
 
@@ -103,7 +108,8 @@ var SyllabusModule = (function($, ko, jsonData) {
             deep: true
         });
 
-        if (viewModel.errors().length == 0) {
+        // if (viewModel.errors().length == 0) {
+        if (true) {
             // Serialize
             var syllabus_json = ko.toJSON(viewModel, function(key, value) {
                 // Ignores these fields
@@ -146,9 +152,10 @@ var SyllabusModule = (function($, ko, jsonData) {
                     viewModel.timeSinceModified(response.timeSinceModified);
                 },
                 error: function(xhr, errorType, error) {
+                    error = $.parseJSON(xhr.response);
                     $('#savingBtn').toggle();
                     $('#errorBtn').toggle();
-                    $('#errorBtn').attr('title', "There was a problem trying to save your data.");
+                    $('#errorBtn').attr('title', error.message);
                     setTimeout(function() {
                         $('#errorBtn').toggle();
                         $('#errorBtn').attr('title', "");
