@@ -7894,13 +7894,13 @@ html, body {
 }
 /* line 566, ../sass/app.scss */
 .save a._saving {
-  opacity: 0.5;
+  opacity: 0.5 !important;
   background-color: #2cc36b;
   cursor: default !important;
 }
 /* line 571, ../sass/app.scss */
 .save a._saved {
-  opacity: 0.5;
+  opacity: 0.5 !important;
   cursor: default !important;
 }
 /* line 574, ../sass/app.scss */
