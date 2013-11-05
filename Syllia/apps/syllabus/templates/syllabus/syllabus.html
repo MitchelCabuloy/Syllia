@@ -5,7 +5,13 @@
 {% block content %}
 <div class="row content-header">
     <div class="large-12 column">
-        <h3 class="left">Create a new syllabus</h3>
+        <!-- ko if: syllabusName -->
+            <h3 class="left" data-bind="text: syllabusName"></h3>
+        <!-- /ko -->
+        <!-- ko if: !syllabusName() -->
+            <h3 class="left">Create a new syllabus</h3>
+        <!-- /ko -->
+
         <!--<a href="#" class="add-row" id="validateBtn">Validate</a>-->
         <div class="right">
             <div class="modified" data-bind="if: timeSinceModified">Modified <span data-bind="text: timeSinceModified"></span> ago</div>
