@@ -575,4 +575,16 @@ html, body {
 			background-color: $green;
 		}
 	}
+
+	a._error {
+		background-color: $red !important;
+
+		&:before {
+			content: "\f057";
+			font-family: 'FontAwesome';
+			font-size: 12px;
+			position: relative;
+			top: -1px;
+		}
+	}
 }
