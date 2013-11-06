@@ -108,8 +108,8 @@ var SyllabusModule = (function($, ko, jsonData) {
             deep: true
         });
 
-        // if (viewModel.errors().length == 0) {
-        if (true) {
+        if (viewModel.errors().length == 0) {
+        // if (true) {
             // Serialize
             var syllabus_json = ko.toJSON(viewModel, function(key, value) {
                 // Ignores these fields
