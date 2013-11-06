@@ -124,10 +124,6 @@ var SyllabusModule = (function($, ko, jsonData) {
                 }
             });
 
-            // Toggle save button
-            $('#saveBtn').toggle();
-            $('#savingBtn').toggle();
-
             $.ajax({
                 data: {
                     'syllabus_json': syllabus_json,
@@ -136,31 +132,12 @@ var SyllabusModule = (function($, ko, jsonData) {
                 type: 'POST',
                 url: '/syllabus/new/',
                 success: function(response) {
-                    // For save buttons
-                    $('#savingBtn').toggle();
-                    $('#savedBtn').toggle();
-                    setTimeout(function() {
-                        $('#savedBtn').toggle();
-                        $('#saveBtn').toggle();
-                    }, 5000);
-
                     if (response.redirectTo) {
                         window.location.href = response.redirectTo;
                     }
 
                     MODULE.loadData(viewModel, response.viewModel);
                     viewModel.timeSinceModified(response.timeSinceModified);
-                },
-                error: function(xhr, errorType, error) {
-                    error = $.parseJSON(xhr.response);
-                    $('#savingBtn').toggle();
-                    $('#errorBtn').toggle();
-                    $('#errorBtn').attr('title', error.message);
-                    setTimeout(function() {
-                        $('#errorBtn').toggle();
-                        $('#errorBtn').attr('title', "");
-                        $('#saveBtn').toggle();
-                    }, 5000);
                 }
             });
         } else {
