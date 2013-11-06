@@ -7941,3 +7941,12 @@ html, body {
   padding: 8px 15px 8px 15px;
   display: block;
 }
+
+/* line 611, ../sass/app.scss */
+.title a._error {
+  color: #ef3636 !important;
+}
+/* line 614, ../sass/app.scss */
+.title a._disabled {
+  opacity: 0.4;
+}

@@ -606,3 +606,12 @@ html, body {
     	display: block;
     }
 }
+
+.title {
+	a._error {
+		color: $red !important;
+	}
+	a._disabled {
+		opacity: 0.4;
+	}
+}
