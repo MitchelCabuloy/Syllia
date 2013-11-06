@@ -10,7 +10,8 @@ var SyllabusModule = (function($, ko, jsonData) {
 
         var viewModel = new MODELS.SyllabusModel(jsonData);
 
-        ko.applyBindingsWithValidation(viewModel);
+        // ko.applyBindingsWithValidation(viewModel);
+        ko.applyBindings(viewModel);
         MODULE.bindUIActions(viewModel);
 
         if (jsonData.syllabusData) {
@@ -109,7 +110,7 @@ var SyllabusModule = (function($, ko, jsonData) {
         });
 
         if (viewModel.errors().length == 0) {
-        // if (true) {
+            // if (true) {
             // Serialize
             var syllabus_json = ko.toJSON(viewModel, function(key, value) {
                 // Ignores these fields
@@ -164,11 +165,78 @@ var SyllabusModule = (function($, ko, jsonData) {
 
         $('#validateBtn').click(function() {
             console.log('Validating...');
-            viewModel.errors = ko.validation.group(viewModel, {
-                deep: true
-            });
-            viewModel.errors.showAllMessages();
+            MODULE.validate(viewModel);
         });
+    };
+
+    MODULE.validate = function(viewModel) {
+        // console.log("Errors");
+        // viewModel.errors = ko.validation.group(viewModel, {
+        //     deep: true
+        // });
+        // console.log(viewModel.errors());
+
+        console.log("Base");
+        viewModel.baseValidation = ko.validation.group([
+            viewModel.syllabusName,
+            viewModel.courseCode,
+            viewModel.college,
+            viewModel.department
+        ]);
+        console.log(viewModel.baseValidation());
+
+        console.log("Basic Info");
+        viewModel.basicInfoValidation = ko.validation.group([
+            viewModel.courseName,
+            viewModel.schedules,
+            viewModel.instructors
+        ], {
+            deep: true
+        });
+        console.log(viewModel.basicInfoValidation());
+
+        console.log("ELGA");
+        viewModel.elgaValidation = ko.validation.group([
+            viewModel.elgas
+        ], {
+            deep: true
+        });
+        console.log(viewModel.elgaValidation());
+
+        console.log("Course Output");
+        viewModel.courseOutputValidation = ko.validation.group([
+            viewModel.finalCourseOutputDescription,
+            viewModel.requiredOutputs,
+            viewModel.otherOutputs
+        ], {
+            deep: true
+        });
+        console.log(viewModel.courseOutputValidation());
+
+        console.log("Grading System");
+        viewModel.gradingSystemValidation = ko.validation.group([
+            viewModel.gradingSystems
+        ], {
+            deep: true
+        });
+        console.log(viewModel.gradingSystemValidation());
+
+        console.log("Learning Plan");
+        viewModel.learningPlanValidation = ko.validation.group([
+            viewModel.learningPlans
+        ], {
+            deep: true
+        });
+        console.log(viewModel.learningPlanValidation());
+
+        console.log("References and Policies");
+        viewModel.referenceAndPolicyValidation = ko.validation.group([
+            viewModel.references,
+            viewModel.classPolicies
+        ], {
+            deep: true
+        });
+        console.log(viewModel.referenceAndPolicyValidation());
     };
 
     var MODELS = (function() {
@@ -198,12 +266,12 @@ var SyllabusModule = (function($, ko, jsonData) {
 
             // Dropdown lists
             self.college = ko.observable().extend({
-                selectedItemNotCaption: true
+                required: true
             });
             self.collegeList = ko.observableArray(jsonData.collegeList);
 
             self.department = ko.observable().extend({
-                selectedItemNotCaption: true
+                required: true
             });
             self.departmentList = ko.computed(function() {
                 var tempList = [];
@@ -339,10 +407,7 @@ var SyllabusModule = (function($, ko, jsonData) {
             };
             self.addClassPolicy();
 
-            // Validation
-            self.errors = ko.validation.group(self, {
-                deep: true
-            });
+            // Validation rules
 
             ko.validation.rules['selectedItemNotCaption'] = {
                 validator: function(val) {
