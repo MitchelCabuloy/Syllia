@@ -470,12 +470,20 @@ html, body {
 	}
 
 	.checkboxes {
-	margin-top: 30px;
+		//padding-top: 10px;
+		padding-bottom: 20px;
 		input {
-			height: 30px;
+			height: 15px;
 		}
-		p {
-			margin-left: -30px;
+		div {
+			height: 20px;
+			display: inline-block;
+			margin-right: 10px;
+			border-right: 1px solid $grey-button-border;
+			padding: 0px 10px 0px 0px;
+			&:last-child {
+				border: none;
+			}
 		}
 	}
 
