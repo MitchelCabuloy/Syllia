@@ -1033,9 +1033,9 @@ $custom-dropdown-shadow: none;
 
 // $reveal-modal-bg: #fff;
 // $reveal-position-top: 50px;
-// $reveal-default-width: 80%;
-// $reveal-modal-padding: emCalc(20);
-// $reveal-box-shadow: 0 0 10px rgba(#000,.4);
+ $reveal-default-width: 50%;
+ $reveal-modal-padding: emCalc(10);
+ $reveal-box-shadow: 0 0 0px rgba(#000,.4);
 
 // We use these to style the reveal close button
 
@@ -1048,7 +1048,7 @@ $custom-dropdown-shadow: none;
 // We use these to control the modal border
 
 // $reveal-border-style: solid;
-// $reveal-border-width: 1px;
+ $reveal-border-width: 0px;
 // $reveal-border-color: #666;
 
 // $reveal-modal-class: "reveal-modal";
