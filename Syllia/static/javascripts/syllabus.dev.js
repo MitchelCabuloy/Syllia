@@ -2,12 +2,6 @@ var SyllabusModule = (function($, ko, jsonData) {
     var MODULE = {};
 
     MODULE.init = function() {
-        // Validation configuration
-        ko.validation.init({
-            decorateElement: true,
-            errorClass: "error"
-        });
-
         var viewModel = new MODELS.SyllabusModel(jsonData);
 
         // ko.applyBindingsWithValidation(viewModel);
@@ -18,6 +12,7 @@ var SyllabusModule = (function($, ko, jsonData) {
             MODULE.loadData(viewModel, jsonData.syllabusData);
             viewModel.timeSinceModified(jsonData.timeSinceModified);
         }
+        $(document).foundation('abide', 'events');
 
         Foundation.libs.forms.refresh_custom_select($('#collegeSelect'), true);
         Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
@@ -165,81 +160,8 @@ var SyllabusModule = (function($, ko, jsonData) {
 
         $('#validateBtn').click(function() {
             console.log('Validating...');
-            MODULE.validate(viewModel);
+            $('form[data-abide]').trigger('validate');
         });
-    };
-
-    MODULE.validate = function(viewModel) {
-        // console.log("Errors");
-        // viewModel.errors = ko.validation.group(viewModel, {
-        //     deep: true
-        // });
-        // console.log(viewModel.errors());
-
-        console.log("Base");
-        viewModel.baseValidation = ko.validation.group([
-            viewModel.syllabusName,
-            viewModel.courseCode,
-            viewModel.college,
-            viewModel.department
-        ]);
-        console.log(viewModel.baseValidation());
-
-        console.log("Basic Info");
-        viewModel.basicInfoValidation = ko.validation.group([
-            viewModel.courseName,
-            viewModel.schedules,
-            viewModel.instructors
-        ], {
-            deep: true
-        });
-        console.log(viewModel.basicInfoValidation());
-
-        console.log("ELGA");
-        viewModel.elgaValidation = ko.validation.group([
-            viewModel.elgas
-        ], {
-            deep: true
-        });
-        console.log(viewModel.elgaValidation());
-
-        console.log("Course Output");
-        viewModel.courseOutputValidation = ko.validation.group([
-            viewModel.finalCourseOutputDescription,
-            viewModel.requiredOutputs,
-            viewModel.otherOutputs
-        ], {
-            deep: true
-        });
-        console.log(viewModel.courseOutputValidation());
-
-        // Rubric
-        console.log(viewModel.rubric)
-
-        console.log("Grading System");
-        viewModel.gradingSystemValidation = ko.validation.group([
-            viewModel.gradingSystems
-        ], {
-            deep: true
-        });
-        console.log(viewModel.gradingSystemValidation());
-
-        console.log("Learning Plan");
-        viewModel.learningPlanValidation = ko.validation.group([
-            viewModel.learningPlans
-        ], {
-            deep: true
-        });
-        console.log(viewModel.learningPlanValidation());
-
-        console.log("References and Policies");
-        viewModel.referenceAndPolicyValidation = ko.validation.group([
-            viewModel.references,
-            viewModel.classPolicies
-        ], {
-            deep: true
-        });
-        console.log(viewModel.referenceAndPolicyValidation());
     };
 
     var MODELS = (function() {
@@ -247,35 +169,17 @@ var SyllabusModule = (function($, ko, jsonData) {
         models.SyllabusModel = function(jsonData) {
             var self = this;
             self.pk = null;
-            self.syllabusName = ko.observable().extend({
-                required: true
-            });
-            self.courseCode = ko.observable().extend({
-                required: true,
-                validation: {
-                    validator: function(val) {
-                        return val.length == 7 ? true : false;
-                    },
-                    message: "A course code consists of 7 characters"
-                }
-            });
-            self.courseName = ko.observable().extend({
-                required: true
-            });
-            self.courseDescription = ko.observable().extend({
-                required: true
-            });
+            self.syllabusName = ko.observable();
+            self.courseCode = ko.observable();
+            self.courseName = ko.observable();
+            self.courseDescription = ko.observable();
             self.timeSinceModified = ko.observable();
 
             // Dropdown lists
-            self.college = ko.observable().extend({
-                required: true
-            });
+            self.college = ko.observable();
             self.collegeList = ko.observableArray(jsonData.collegeList);
 
-            self.department = ko.observable().extend({
-                required: true
-            });
+            self.department = ko.observable();
             self.departmentList = ko.computed(function() {
                 var tempList = [];
 
@@ -291,14 +195,13 @@ var SyllabusModule = (function($, ko, jsonData) {
                 Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
             });
 
-            self.rubric = ko.observable().extend({
-                selectedItemNotCaption: true
-            });
+            self.rubric = ko.observable();
             self.rubricList = ko.observableArray(jsonData.rubricList);
 
             self.schedules = ko.observableArray();
             self.addSchedule = function() {
                 self.schedules.push(new MODELS.ScheduleModel());
+                $(document).foundation('abide', 'events');
             };
             self.removeSchedule = function(schedule) {
                 self.schedules.remove(schedule);
@@ -308,6 +211,7 @@ var SyllabusModule = (function($, ko, jsonData) {
             self.instructors = ko.observableArray();
             self.addInstructor = function() {
                 self.instructors.push(new MODELS.InstructorModel());
+                $(document).foundation('abide', 'events');
             };
             self.removeInstructor = function(instructor) {
                 self.instructors.remove(instructor);
@@ -320,6 +224,7 @@ var SyllabusModule = (function($, ko, jsonData) {
                     number: self.elgas().length + 1
                 });
                 self.elgas.push(elga);
+                $(document).foundation('abide', 'events');
             };
             self.removeElga = function(elga) {
                 $.each(self.elgas(), function(index, elgaTemp) {
@@ -332,13 +237,12 @@ var SyllabusModule = (function($, ko, jsonData) {
             };
             self.addElga();
 
-            self.finalCourseOutputDescription = ko.observable().extend({
-                required: true
-            });
+            self.finalCourseOutputDescription = ko.observable();
 
             self.requiredOutputs = ko.observableArray();
             self.addRequiredOutput = function() {
                 self.requiredOutputs.push(new MODELS.RequiredOutputModel());
+                $(document).foundation('abide', 'events');
             };
             self.removeRequiredOutput = function(requiredOutput) {
                 self.requiredOutputs.remove(requiredOutput);
@@ -349,6 +253,7 @@ var SyllabusModule = (function($, ko, jsonData) {
             self.otherOutputs = ko.observableArray();
             self.addOtherOutput = function() {
                 self.otherOutputs.push(new MODELS.OtherOutputModel());
+                $(document).foundation('abide', 'events');
             };
             self.removeOtherOutput = function(otherOutput) {
                 self.otherOutputs.remove(otherOutput);
@@ -359,6 +264,7 @@ var SyllabusModule = (function($, ko, jsonData) {
             self.gradingSystems = ko.observableArray();
             self.addGradingSystem = function() {
                 self.gradingSystems.push(new MODELS.GradingSystemModel());
+                $(document).foundation('abide', 'events');
             };
             self.removeGradingSystem = function(gradingSystem) {
                 self.gradingSystems.remove(gradingSystem);
@@ -373,19 +279,13 @@ var SyllabusModule = (function($, ko, jsonData) {
                 });
 
                 return total;
-            }).extend({
-                validation: {
-                    validator: function(val) {
-                        return val == 100;
-                    },
-                    message: 'Percentage must equal 100'
-                }
             });
             self.addGradingSystem();
 
             self.learningPlans = ko.observableArray();
             self.addLearningPlan = function() {
                 self.learningPlans.push(new MODELS.LearningPlanModel());
+                $(document).foundation('abide', 'events');
             };
             self.removeLearningPlan = function(learningPlan) {
                 self.learningPlans.remove(learningPlan);
@@ -395,6 +295,7 @@ var SyllabusModule = (function($, ko, jsonData) {
             self.references = ko.observableArray();
             self.addReference = function() {
                 self.references.push(new MODELS.ReferenceModel());
+                $(document).foundation('abide', 'events');
             };
             self.removeReference = function(reference) {
                 self.references.remove(reference);
@@ -404,34 +305,19 @@ var SyllabusModule = (function($, ko, jsonData) {
             self.classPolicies = ko.observableArray();
             self.addClassPolicy = function() {
                 self.classPolicies.push(new MODELS.ClassPolicyModel());
+                $(document).foundation('abide', 'events');
             };
             self.removeClassPolicy = function(policy) {
                 self.classPolicies.remove(policy);
             };
             self.addClassPolicy();
-
-            // Validation rules
-
-            ko.validation.rules['selectedItemNotCaption'] = {
-                validator: function(val) {
-                    console.log("in validator..." + val);
-                    return (typeof val != "undefined");
-                },
-                message: 'Please select an option'
-            };
         };
 
         models.ScheduleModel = function(schedule) {
             var self = this;
-            self.days = ko.observable().extend({
-                required: true
-            });
-            self.startTime = ko.observable().extend({
-                required: true
-            });
-            self.endTime = ko.observable().extend({
-                required: true
-            });
+            self.days = ko.observable();
+            self.startTime = ko.observable();
+            self.endTime = ko.observable();
 
             if (schedule) {
                 self.days(schedule.days);
@@ -442,9 +328,7 @@ var SyllabusModule = (function($, ko, jsonData) {
 
         models.InstructorModel = function(instructor) {
             var self = this;
-            self.fullName = ko.observable().extend({
-                required: true
-            });
+            self.fullName = ko.observable();
 
             if (instructor) {
                 self.fullName(instructor.fullName);
@@ -453,13 +337,9 @@ var SyllabusModule = (function($, ko, jsonData) {
 
         models.ElgaModel = function(elga) {
             var self = this;
-            self.elgaName = ko.observable().extend({
-                required: true
-            });
+            self.elgaName = ko.observable();
             self.learningOutcomeNumber = ko.observable();
-            self.learningOutcome = ko.observable().extend({
-                required: true
-            });
+            self.learningOutcome = ko.observable();
 
             // Constructor
             if (elga.elgaName) {
@@ -476,12 +356,8 @@ var SyllabusModule = (function($, ko, jsonData) {
 
         models.RequiredOutputModel = function(requiredOutput) {
             var self = this;
-            self.description = ko.observable().extend({
-                required: true
-            });
-            self.weekDue = ko.observable().extend({
-                required: true
-            });
+            self.description = ko.observable();
+            self.weekDue = ko.observable();
             self.los = ko.observableArray();
 
             if (requiredOutput) {
@@ -493,9 +369,7 @@ var SyllabusModule = (function($, ko, jsonData) {
 
         models.OtherOutputModel = function(otherOutput) {
             var self = this;
-            self.requirementName = ko.observable().extend({
-                required: true
-            });
+            self.requirementName = ko.observable();
 
             if (otherOutput) {
                 self.requirementName(otherOutput.requirementName);
@@ -504,12 +378,8 @@ var SyllabusModule = (function($, ko, jsonData) {
 
         models.GradingSystemModel = function(gradeComponent) {
             var self = this;
-            self.itemName = ko.observable().extend({
-                required: true
-            });
-            self.percentage = ko.observable().extend({
-                required: true
-            });
+            self.itemName = ko.observable();
+            self.percentage = ko.observable();
 
             if (gradeComponent) {
                 self.itemName(gradeComponent.itemName);
@@ -519,18 +389,15 @@ var SyllabusModule = (function($, ko, jsonData) {
 
         models.LearningPlanModel = function(learningPlan) {
             var self = this;
-            self.topic = ko.observable().extend({
-                required: true
-            });
-            self.weekNumber = ko.observable().extend({
-                required: true
-            });
+            self.topic = ko.observable();
+            self.weekNumber = ko.observable();
 
             self.los = ko.observableArray();
 
             self.learningActivities = ko.observableArray();
             self.addLearningActivity = function() {
                 self.learningActivities.push(new MODELS.LearningActivityModel());
+                $(document).foundation('abide', 'events');
             };
             self.removeLearningActivity = function(learningActivity) {
                 self.learningActivities.remove(learningActivity);
@@ -551,9 +418,7 @@ var SyllabusModule = (function($, ko, jsonData) {
 
         models.LearningActivityModel = function(learningActivity) {
             var self = this;
-            self.description = ko.observable().extend({
-                required: true
-            });
+            self.description = ko.observable();
 
             if (learningActivity) {
                 self.description(learningActivity.description);
@@ -562,9 +427,7 @@ var SyllabusModule = (function($, ko, jsonData) {
 
         models.ReferenceModel = function(reference) {
             var self = this;
-            self.referenceText = ko.observable().extend({
-                required: true
-            });
+            self.referenceText = ko.observable();
 
             if (reference) {
                 self.referenceText(reference.referenceText);
@@ -573,9 +436,7 @@ var SyllabusModule = (function($, ko, jsonData) {
 
         models.ClassPolicyModel = function(classPolicy) {
             var self = this;
-            self.policy = ko.observable().extend({
-                required: true
-            });
+            self.policy = ko.observable();
 
             if (classPolicy) {
                 self.policy(classPolicy.policy);
