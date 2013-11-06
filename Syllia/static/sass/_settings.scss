@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'), url(http://themes.googleusercontent.com/static/fonts/ptsans/v5/LKf8nhXsWg5ybwEGXk8UBQ.woff) format('woff');
+}
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('PT Sans Bold'), local('PTSans-Bold'), url(http://themes.googleusercontent.com/static/fonts/ptsans/v5/0XxGQsSc1g4rdRdjJKZrNBsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+}
+
+
 //
 // Foundation Variables
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
@@ -1033,9 +1047,9 @@ $custom-dropdown-shadow: none;
 
 // $reveal-modal-bg: #fff;
 // $reveal-position-top: 50px;
-// $reveal-default-width: 80%;
-// $reveal-modal-padding: emCalc(20);
-// $reveal-box-shadow: 0 0 10px rgba(#000,.4);
+ $reveal-default-width: 50%;
+ $reveal-modal-padding: emCalc(10);
+ $reveal-box-shadow: 0 0 0px rgba(#000,.4);
 
 // We use these to style the reveal close button
 
@@ -1048,7 +1062,7 @@ $custom-dropdown-shadow: none;
 // We use these to control the modal border
 
 // $reveal-border-style: solid;
-// $reveal-border-width: 1px;
+ $reveal-border-width: 0px;
 // $reveal-border-color: #666;
 
 // $reveal-modal-class: "reveal-modal";
