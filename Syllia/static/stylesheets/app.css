@@ -1,7 +1,21 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("PT Sans"), local("PTSans-Regular"), url(http://themes.googleusercontent.com/static/fonts/ptsans/v5/LKf8nhXsWg5ybwEGXk8UBQ.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local("PT Sans Bold"), local("PTSans-Bold"), url(http://themes.googleusercontent.com/static/fonts/ptsans/v5/0XxGQsSc1g4rdRdjJKZrNBsxEYwM7FgeyaSgU71cLG0.woff) format("woff");
+}
+
 /*  Declarations not part of the original foundation setting stylesheet
     are indented (for easy identifications) */
-/* line 86, ../sass/_settings.scss */
+/* line 100, ../sass/_settings.scss */
 input {
   padding-left: 10px;
 }
