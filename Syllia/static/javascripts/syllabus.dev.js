@@ -100,12 +100,7 @@ var SyllabusModule = (function($, ko, jsonData) {
     MODULE.submitForm = function(viewModel, redirect) {
         redirect = typeof redirect !== 'undefined' ? redirect : false;
 
-        viewModel.errors = ko.validation.group(viewModel, {
-            deep: true
-        });
-
-        if (viewModel.errors().length == 0) {
-            // if (true) {
+        if (true) {
             // Serialize
             var syllabus_json = ko.toJSON(viewModel, function(key, value) {
                 // Ignores these fields
