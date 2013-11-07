@@ -1,6 +1,6 @@
 var Dashboard = (function($, ko, jsonData) {
     var MODULE = {};
-    var PAGE_SIZE = 5;
+    var PAGE_SIZE = 20;
 
     // Init method
     // public
