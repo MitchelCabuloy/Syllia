@@ -335,11 +335,13 @@ var SyllabusModule = (function($, ko, jsonData) {
             self.days = ko.observable();
             self.startTime = ko.observable();
             self.endTime = ko.observable();
+            self.venue = ko.observable();
 
             if (schedule) {
                 self.days(schedule.days);
                 self.startTime(schedule.startTime);
                 self.endTime(schedule.endTime);
+                self.venue(schedule.venue);
             }
         };
 
