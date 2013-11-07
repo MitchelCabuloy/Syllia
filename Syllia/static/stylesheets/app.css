@@ -7423,7 +7423,7 @@ html, body {
 	creating (and recreating) it :)
 */
 /* line 102, ../sass/app.scss */
-.green-button, .continue-button, .add-row, .dashboard-green, .call-to-action a, #login-submit, #register-button, .save a, #feedback a, .clear-button, #account-button, #login-button, .negative-button, .icon-remove, .icon-remove-multiple, .icon-chevron-left, .grey-button, .dashboard-grey {
+.green-button, .continue-button, .add-row, .dashboard-green, .call-to-action a, #login-submit, #register-button, .save a, #feedback a, .clear-button, #account-button, #login-button, .negative-button, a.icon-remove, a.icon-remove-multiple, .icon-chevron-left, .grey-button, .dashboard-grey {
   transition: background-color 0.3s, border 0.3s, color 0.3s;
   text-transform: uppercase;
 }
@@ -7457,11 +7457,11 @@ html, body {
 }
 
 /* line 135, ../sass/app.scss */
-.negative-button, .icon-remove, .icon-remove-multiple, .icon-chevron-left {
+.negative-button, a.icon-remove, a.icon-remove-multiple, .icon-chevron-left {
   background-color: #dadada;
 }
 /* line 138, ../sass/app.scss */
-.negative-button:hover, .icon-remove:hover, .icon-remove-multiple:hover, .icon-chevron-left:hover, .negative-button:focus, .icon-remove:focus, .icon-remove-multiple:focus, .icon-chevron-left:focus {
+.negative-button:hover, a.icon-remove:hover, a.icon-remove-multiple:hover, .icon-chevron-left:hover, .negative-button:focus, a.icon-remove:focus, a.icon-remove-multiple:focus, .icon-chevron-left:focus {
   background-color: #ef3636;
   color: #fff;
 }
@@ -7478,13 +7478,12 @@ html, body {
 }
 
 /* line 154, ../sass/app.scss */
-.icon-remove, .icon-remove-multiple {
+a.icon-remove, a.icon-remove-multiple {
   padding: 11px;
   color: #fff;
-  display: inline-block;
 }
 /* line 159, ../sass/app.scss */
-.icon-remove span, .icon-remove-multiple span {
+a.icon-remove span, a.icon-remove-multiple span {
   font-family: "PT Sans", Arial, sans-serif !important;
   margin-left: 3px;
 }

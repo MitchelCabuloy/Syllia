@@ -151,11 +151,11 @@ html, body {
 	}
 }
 
-.icon-remove {
+a.icon-remove {
 	@extend .negative-button;
 	padding: 11px;
 	color: #fff;
-	display: inline-block;
+	// display: inline-block;
 	span {
 		font-family: $body-font-family !important;
 		margin-left: 3px;
