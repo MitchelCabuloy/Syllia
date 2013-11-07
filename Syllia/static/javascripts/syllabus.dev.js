@@ -187,6 +187,9 @@ var SyllabusModule = (function($, ko, jsonData) {
             var self = this;
             self.pk = null;
             self.syllabusName = ko.observable();
+            self.syllabusName.subscribe(function() {
+                document.title = self.syllabusName() + " | Syllia";
+            });
             self.courseCode = ko.observable();
             self.courseName = ko.observable();
             self.courseDescription = ko.observable();

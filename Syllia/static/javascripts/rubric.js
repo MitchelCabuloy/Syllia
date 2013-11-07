@@ -57,6 +57,9 @@ var RubricModule = (function($, ko) {
             var self = this;
             self.pk = null;
             self.rubricName = ko.observable();
+            self.rubricName.subscribe(function() {
+                document.title = self.rubricName() + " | Syllia";
+            });
             self.criterias = ko.observableArray([new MODELS.CriteriaModel()]);
             self.timeSinceModified = ko.observable();
 
