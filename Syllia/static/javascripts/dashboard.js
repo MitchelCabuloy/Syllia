@@ -83,6 +83,9 @@ var Dashboard = (function($, ko, jsonData) {
             self.btnDownload = $("[data-slug='" + self.context + "'] #btnDownload");
             self.btnDownloadAll = $("[data-slug='" + self.context + "'] #btnDownloadAll");
             self.btnDelete = $("[data-slug='" + self.context + "'] #btnDelete");
+            self.selectCheck = $("[data-slug='" + self.context + "'] #multiSelector i.icon-check");
+            self.selectMinus = $("[data-slug='" + self.context + "'] #multiSelector i.icon-check-minus");
+            self.selectEmpty = $("[data-slug='" + self.context + "'] #multiSelector i.icon-check-empty");
 
             self.btnDownload.click(function() {
                 var item = self.selectedItems()[0];
@@ -93,6 +96,20 @@ var Dashboard = (function($, ko, jsonData) {
             self.btnDelete.click(function() {
                 MODULE.deleteData(self);
             });
+
+            var selectAction = function() {
+                if (self.selectedItems().length == 0) {
+                    $.each(self.pagedList(), function(index, item) {
+                        item.isSelected(true);
+                    });
+                } else {
+                    $.each(self.pagedList(), function(index, item) {
+                        item.isSelected(false);
+                    });
+                }
+            };
+
+            $("[data-slug='" + self.context + "'] #multiSelector").click(selectAction);
 
             self.listItems = ko.observableArray(items);
 
@@ -131,6 +148,20 @@ var Dashboard = (function($, ko, jsonData) {
                         self.btnDownload.hide();
                         self.btnDownloadAll.show();
                         self.btnDelete.show();
+                }
+
+                if (self.selectedItems().length == self.listItems().length) {
+                    self.selectCheck.show();
+                    self.selectMinus.hide();
+                    self.selectEmpty.hide();
+                } else if (self.selectedItems().length != 0) {
+                    self.selectCheck.hide();
+                    self.selectMinus.show();
+                    self.selectEmpty.hide();
+                } else {
+                    self.selectCheck.hide();
+                    self.selectMinus.hide();
+                    self.selectEmpty.show();
                 }
             });
 

@@ -32,14 +32,11 @@
                     <div class="row">
                         <div class="large-12 columns">
 
-                            <a href="#" data-dropdown="syllabus-checkboxes" class="dashboard-grey dropdown">
+                            <a id="multiSelector" href="#" class="dashboard-grey dropdown">
+                                <i class="icon-check" style="display:none;"></i>
+                                <i class="icon-check-minus" style="display:none;"></i>
                                 <i class="icon-check-empty"></i>
-                                <i class="icon-caret-down"></i>
                             </a>
-                            <ul id="syllabus-checkboxes" class="f-dropdown">
-                              <li><a href="#">All</a></li>
-                              <li><a href="#">None</a></li>
-                            </ul>
 
                             <a href="{% url "syllabus:syllabus" %}" class="dashboard-green"><i class="icon-plus"></i>&nbsp;New Syllabus</a>
 
@@ -84,14 +81,11 @@
                     <div class="row">
                         <div class="large-12 columns">
 
-                            <a href="#" data-dropdown="rubric-checkboxes" class="dashboard-grey dropdown">
+                            <a id="multiSelector" href="#" class="dashboard-grey dropdown">
+                                <i class="icon-check" style="display:none;"></i>
+                                <i class="icon-check-minus" style="display:none;"></i>
                                 <i class="icon-check-empty"></i>
-                                <i class="icon-caret-down"></i>
                             </a>
-                            <ul id="rubric-checkboxes" class="f-dropdown">
-                              <li><a href="#">All</a></li>
-                              <li><a href="#">None</a></li>
-                            </ul>
 
                             <a href="{% url "syllabus:rubric" %}" class="dashboard-green"><i class="icon-plus"></i>&nbsp;New Rubric</a>
 
