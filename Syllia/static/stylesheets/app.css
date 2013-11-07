@@ -7579,6 +7579,10 @@ a.icon-remove span, a.icon-remove-multiple span {
 }
 
 /*abide error */
+/* line 254, ../sass/app.scss */
+.error {
+  /* placed important because abide is a pain in the ass to overwrite, can't find tem in settings either*/
+}
 /* line 255, ../sass/app.scss */
 .error label {
   color: #4a4a4a;
@@ -7612,75 +7616,75 @@ a.icon-remove span, a.icon-remove-multiple span {
 }
 */
 /*newer error declarations*/
-/* line 289, ../sass/app.scss */
+/* line 290, ../sass/app.scss */
 .messages, .a-error, .generic {
   list-style: none;
 }
-/* line 291, ../sass/app.scss */
+/* line 292, ../sass/app.scss */
 .messages li.success, .a-error li.success, .generic li.success {
   color: #27ae60;
   border-left: 3px solid #27ae60;
   padding: 5px 0px 5px 5px;
 }
-/* line 296, ../sass/app.scss */
+/* line 297, ../sass/app.scss */
 .messages li.error, .messages .a-error, .a-error li.error, .a-error .a-error, .generic li.error, .generic .a-error {
   color: #ef3636;
   border-left: 3px solid #ef3636;
   padding: 5px 0px 5px 15px;
 }
 
-/* line 303, ../sass/app.scss */
+/* line 304, ../sass/app.scss */
 .no-visibility {
   visibility: hidden;
 }
 
-/* line 308, ../sass/app.scss */
+/* line 309, ../sass/app.scss */
 .index-main {
   padding-top: 75px;
 }
-/* line 310, ../sass/app.scss */
+/* line 311, ../sass/app.scss */
 .index-main h4, .index-main div {
   text-align: center;
 }
-/* line 313, ../sass/app.scss */
+/* line 314, ../sass/app.scss */
 .index-main div:last-child {
   margin-bottom: 30px;
 }
 
-/* line 317, ../sass/app.scss */
+/* line 318, ../sass/app.scss */
 .index-features {
   padding-top: 30px;
   text-align: center;
 }
-/* line 320, ../sass/app.scss */
+/* line 321, ../sass/app.scss */
 .index-features div {
   padding-bottom: 20px;
 }
 
-/* line 326, ../sass/app.scss */
+/* line 327, ../sass/app.scss */
 .call-to-action a {
   padding: 10px 30px 10px 30px;
   text-transform: uppercase;
   font-size: 20px;
   margin-bottom: 10px;
 }
-/* line 333, ../sass/app.scss */
+/* line 334, ../sass/app.scss */
 .call-to-action span {
   color: #646464;
   margin-top: 20px;
   display: block;
 }
 
-/* line 343, ../sass/app.scss */
+/* line 344, ../sass/app.scss */
 .navigation {
   margin-top: 30px;
 }
-/* line 345, ../sass/app.scss */
+/* line 346, ../sass/app.scss */
 .navigation ul {
   float: right;
   list-style: none;
 }
-/* line 349, ../sass/app.scss */
+/* line 350, ../sass/app.scss */
 .navigation li {
   float: left;
   font-size: 1em;
@@ -7688,16 +7692,16 @@ a.icon-remove span, a.icon-remove-multiple span {
   margin-right: 15px;
   position: relative;
 }
-/* line 356, ../sass/app.scss */
+/* line 357, ../sass/app.scss */
 .navigation li:last-child {
   margin-right: 0px;
 }
-/* line 360, ../sass/app.scss */
+/* line 361, ../sass/app.scss */
 .navigation a {
   color: #4a4a4a;
 }
 
-/* line 365, ../sass/app.scss */
+/* line 366, ../sass/app.scss */
 .login-pane, .account-pane {
   display: none;
   width: 270px;
@@ -7710,12 +7714,12 @@ a.icon-remove span, a.icon-remove-multiple span {
   border: 1px solid #e3e3e3;
   text-transform: none;
 }
-/* line 376, ../sass/app.scss */
+/* line 377, ../sass/app.scss */
 .login-pane a, .account-pane a {
   color: #27ae60;
 }
 
-/* line 381, ../sass/app.scss */
+/* line 382, ../sass/app.scss */
 .login-pane:before, .account-pane:before {
   content: '';
   position: absolute;
@@ -7726,33 +7730,33 @@ a.icon-remove span, a.icon-remove-multiple span {
   right: 0px;
 }
 
-/* line 391, ../sass/app.scss */
+/* line 392, ../sass/app.scss */
 .account-pane {
   font-size: 13px;
 }
-/* line 394, ../sass/app.scss */
+/* line 395, ../sass/app.scss */
 .account-pane strong {
   font-size: 14px;
   display: block;
 }
-/* line 398, ../sass/app.scss */
+/* line 399, ../sass/app.scss */
 .account-pane ul {
   margin-left: -25px;
   float: none;
 }
-/* line 405, ../sass/app.scss */
+/* line 406, ../sass/app.scss */
 .account-pane li {
   text-transform: none;
   float: none;
   width: 269px;
 }
-/* line 410, ../sass/app.scss */
+/* line 411, ../sass/app.scss */
 .account-pane li a {
   transition: background-color 0.1s, color 0.1s;
   padding: 1px 0px 1px 26px;
   display: block;
 }
-/* line 414, ../sass/app.scss */
+/* line 415, ../sass/app.scss */
 .account-pane li a:hover {
   color: #fff;
   background-color: #27ae60;
@@ -7760,39 +7764,39 @@ a.icon-remove span, a.icon-remove-multiple span {
   border-right: 1px solid #229955;
   margin-left: -1px;
 }
-/* line 423, ../sass/app.scss */
+/* line 424, ../sass/app.scss */
 .account-pane li i {
   width: 20px;
   margin-right: 10px;
 }
-/* line 431, ../sass/app.scss */
+/* line 432, ../sass/app.scss */
 .account-pane #logout a {
   transition: background-color 0.1s, color 0.1s;
 }
-/* line 433, ../sass/app.scss */
+/* line 434, ../sass/app.scss */
 .account-pane #logout a:hover {
   background-color: #ef3636 !important;
   border-left: 1px solid #b10e0e !important;
   border-right: 1px solid #b10e0e !important;
 }
-/* line 441, ../sass/app.scss */
+/* line 442, ../sass/app.scss */
 .account-pane:before {
   width: 133px !important;
 }
 
-/* line 446, ../sass/app.scss */
+/* line 447, ../sass/app.scss */
 #account-button {
   padding: 8px 20px 8px 20px;
 }
 
 /*	Login button is the 'LOGIN' button found in the navigation, while
 	Login Submit is the button found in the login form itself */
-/* line 454, ../sass/app.scss */
+/* line 455, ../sass/app.scss */
 #login-button, #login-submit, #register-button {
   padding: 8px 30px 8px 30px;
 }
 
-/* line 463, ../sass/app.scss */
+/* line 464, ../sass/app.scss */
 #login-submit, #register-button {
   display: block;
   border: none;
@@ -7807,13 +7811,13 @@ a.icon-remove span, a.icon-remove-multiple span {
 	margin-top: 20px;
 }
 */
-/* line 481, ../sass/app.scss */
+/* line 482, ../sass/app.scss */
 .content-header {
   border-bottom: 1px solid #e3e3e3;
   margin-top: 40px;
   margin-bottom: 30px;
 }
-/* line 484, ../sass/app.scss */
+/* line 485, ../sass/app.scss */
 .content-header .modified {
   float: left;
   color: #27ae60;
@@ -7823,48 +7827,48 @@ a.icon-remove span, a.icon-remove-multiple span {
   top: 20px;
 }
 
-/* line 495, ../sass/app.scss */
+/* line 496, ../sass/app.scss */
 .tab-wrapper {
   margin-top: 40px;
 }
 
-/* line 499, ../sass/app.scss */
+/* line 500, ../sass/app.scss */
 .content, .rubric {
   /*.row:first-child, h4 {
   	margin-top: 40px;
   }*/
 }
-/* line 504, ../sass/app.scss */
+/* line 505, ../sass/app.scss */
 .content h4, .rubric h4 {
   margin-bottom: 15px;
 }
-/* line 509, ../sass/app.scss */
+/* line 510, ../sass/app.scss */
 .content p, .rubric p {
   color: #646464;
 }
-/* line 513, ../sass/app.scss */
+/* line 514, ../sass/app.scss */
 .content form.custom .custom.dropdown.open ul, .rubric form.custom .custom.dropdown.open ul {
   border: 1px solid #e3e3e3;
 }
-/* line 518, ../sass/app.scss */
+/* line 519, ../sass/app.scss */
 .content input, .rubric input {
   height: 38px;
 }
-/* line 522, ../sass/app.scss */
+/* line 523, ../sass/app.scss */
 .content textarea, .rubric textarea {
   min-height: 80px !important;
   width: 100%;
 }
-/* line 527, ../sass/app.scss */
+/* line 528, ../sass/app.scss */
 .content .checkboxes, .rubric .checkboxes {
   padding-top: 10px;
   padding-bottom: 20px;
 }
-/* line 530, ../sass/app.scss */
+/* line 531, ../sass/app.scss */
 .content .checkboxes input, .rubric .checkboxes input {
   height: 15px;
 }
-/* line 533, ../sass/app.scss */
+/* line 534, ../sass/app.scss */
 .content .checkboxes div, .rubric .checkboxes div {
   height: 20px;
   display: inline-block;
@@ -7872,11 +7876,11 @@ a.icon-remove span, a.icon-remove-multiple span {
   border-right: 1px solid #cdcdcd;
   padding: 0px 10px 0px 0px;
 }
-/* line 539, ../sass/app.scss */
+/* line 540, ../sass/app.scss */
 .content .checkboxes div:last-child, .rubric .checkboxes div:last-child {
   border: none;
 }
-/* line 545, ../sass/app.scss */
+/* line 546, ../sass/app.scss */
 .content .highlight, .rubric .highlight {
   display: inline-block;
   background-color: #dadada;
@@ -7884,41 +7888,41 @@ a.icon-remove span, a.icon-remove-multiple span {
   padding: 2px 5px 2px 5px;
   font-size: 12px;
 }
-/* line 553, ../sass/app.scss */
+/* line 554, ../sass/app.scss */
 .content .foreach-header, .rubric .foreach-header {
   margin-bottom: -40px;
 }
 
-/* line 560, ../sass/app.scss */
+/* line 561, ../sass/app.scss */
 .rubric textarea {
   height: 200px;
   max-width: 100%;
 }
 
-/* line 567, ../sass/app.scss */
+/* line 568, ../sass/app.scss */
 .vertical-tabs .title {
   border-right: 2px solid #e3e3e3 !important;
   text-transform: uppercase;
 }
-/* line 573, ../sass/app.scss */
+/* line 574, ../sass/app.scss */
 .vertical-tabs .active .title {
   border-right: 2px solid #27ae60 !important;
 }
 
-/* line 579, ../sass/app.scss */
+/* line 580, ../sass/app.scss */
 .learning-outcomes {
   margin-bottom: 25px;
 }
-/* line 581, ../sass/app.scss */
+/* line 582, ../sass/app.scss */
 .learning-outcomes .row:first-child {
   margin-top: 0px !important;
   margin-bottom: 10px;
 }
-/* line 585, ../sass/app.scss */
+/* line 586, ../sass/app.scss */
 .learning-outcomes .row {
   margin-top: 20px;
 }
-/* line 588, ../sass/app.scss */
+/* line 589, ../sass/app.scss */
 .learning-outcomes .lo-block {
   background-color: #dadada;
   color: #fff;
@@ -7926,64 +7930,64 @@ a.icon-remove span, a.icon-remove-multiple span {
 }
 
 /* Dashboard declarations */
-/* line 597, ../sass/app.scss */
+/* line 598, ../sass/app.scss */
 .dashboard-table-content ul {
   list-style: none;
 }
-/* line 600, ../sass/app.scss */
+/* line 601, ../sass/app.scss */
 .dashboard-table-content input {
   height: 13px;
 }
-/* line 603, ../sass/app.scss */
+/* line 604, ../sass/app.scss */
 .dashboard-table-content li {
   transition: background-color 0.2s, color 0.2s;
   padding: 10px 10px 0px 10px;
   border-bottom: 1px solid #e3e3e3;
 }
-/* line 608, ../sass/app.scss */
+/* line 609, ../sass/app.scss */
 .dashboard-table-content li:hover {
   background-color: #f9f9f9;
   cursor: pointer;
   color: #27ae60;
 }
-/* line 614, ../sass/app.scss */
+/* line 615, ../sass/app.scss */
 .dashboard-table-content .itemName {
   padding-left: 10px;
 }
-/* line 617, ../sass/app.scss */
+/* line 618, ../sass/app.scss */
 .dashboard-table-content .lastModified {
   float: right;
 }
 
-/* line 622, ../sass/app.scss */
+/* line 623, ../sass/app.scss */
 .save {
   float: right;
   margin-top: 15px;
 }
-/* line 625, ../sass/app.scss */
+/* line 626, ../sass/app.scss */
 .save a {
   padding: 8px 12px 8px 10px;
 }
-/* line 629, ../sass/app.scss */
+/* line 630, ../sass/app.scss */
 .save a._saving {
   opacity: 0.5 !important;
   background-color: #2cc36b;
   cursor: default !important;
 }
-/* line 634, ../sass/app.scss */
+/* line 635, ../sass/app.scss */
 .save a._saved {
   opacity: 0.5 !important;
   cursor: default !important;
 }
-/* line 637, ../sass/app.scss */
+/* line 638, ../sass/app.scss */
 .save a._saved:hover {
   background-color: #27ae60;
 }
-/* line 642, ../sass/app.scss */
+/* line 643, ../sass/app.scss */
 .save a._error {
   background-color: #ef3636 !important;
 }
-/* line 645, ../sass/app.scss */
+/* line 646, ../sass/app.scss */
 .save a._error:before {
   content: "\f057";
   font-family: 'FontAwesome';
@@ -7992,23 +7996,23 @@ a.icon-remove span, a.icon-remove-multiple span {
   top: -1px;
 }
 
-/* line 655, ../sass/app.scss */
+/* line 656, ../sass/app.scss */
 #feedback {
   position: fixed;
   bottom: 0px;
   z-index: 5;
 }
-/* line 664, ../sass/app.scss */
+/* line 665, ../sass/app.scss */
 #feedback a {
   padding: 10px 18px 10px 18px;
   display: block;
 }
 
-/* line 672, ../sass/app.scss */
+/* line 673, ../sass/app.scss */
 .title a._error {
   color: #ef3636 !important;
 }
-/* line 675, ../sass/app.scss */
+/* line 676, ../sass/app.scss */
 .title a._disabled {
   opacity: 0.4;
 }
