@@ -245,10 +245,24 @@ a.icon-remove {
 	li {
 		list-style: none;
 		color: $red;
+		font-size: 0.75em;
 		//padding-left: 10px;
 	}
 }
 
+/*abide error
+.error input {
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+.error small {
+	background-color: #fff !important;
+	color: $red !important;
+	border-top: 2px solid $red;
+	font-weight: normal !important;
+}
+*/
 
 /*newer error declarations*/
 .messages, .a-error, .generic {
