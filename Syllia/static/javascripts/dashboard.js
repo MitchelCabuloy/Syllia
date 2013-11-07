@@ -87,6 +87,10 @@ var Dashboard = (function($, ko, jsonData) {
             self.selectMinus = $("[data-slug='" + self.context + "'] #multiSelector i.icon-check-minus");
             self.selectEmpty = $("[data-slug='" + self.context + "'] #multiSelector i.icon-check-empty");
 
+            self.btnSure = $("[data-slug='" + self.context + "'] #btnSure");
+            self.btnConfirm = $("[data-slug='" + self.context + "'] #btnConfirm");
+            self.btnCancel = $("[data-slug='" + self.context + "'] #btnCancel");
+
             self.btnDownload.click(function() {
                 var item = self.selectedItems()[0];
                 $("#inputDownload").val(item.pk);
@@ -94,7 +98,25 @@ var Dashboard = (function($, ko, jsonData) {
             });
 
             self.btnDelete.click(function() {
+                self.btnDelete.hide();
+                self.btnSure.show();
+                self.btnConfirm.show();
+                self.btnCancel.show();
+            });
+
+            self.btnConfirm.click(function() {
                 MODULE.deleteData(self);
+                self.btnDelete.show();
+                self.btnSure.hide();
+                self.btnConfirm.hide();
+                self.btnCancel.hide();
+            });
+
+            self.btnCancel.click(function() {
+                self.btnDelete.show();
+                self.btnSure.hide();
+                self.btnConfirm.hide();
+                self.btnCancel.hide();
             });
 
             var selectAction = function() {
