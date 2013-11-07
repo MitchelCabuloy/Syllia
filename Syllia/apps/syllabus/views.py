@@ -148,7 +148,8 @@ class SyllabusView(View):
             # These will throw an exception if invalid
             syllabus.department = Department.objects.get(
                 pk=json_data['department'])
-            syllabus.rubric = current_user.rubric_set.get(pk=json_data['rubric'])
+            if('rubric' in json_data):
+                syllabus.rubric = current_user.rubric_set.get(pk=json_data['rubric'])
 
             syllabus.save()
 
@@ -163,7 +164,7 @@ class SyllabusView(View):
 
             return HttpResponse(simplejson.dumps(response_data), content_type="application/json")
         except Exception:
-            return HttpResponseServerError(simplejson.dumps({'message': 'Please check your forms'}), content_type="application/json");
+            return HttpResponseServerError(simplejson.dumps({'message': 'You must at least have basic information before saving.'}), content_type="application/json");
 
 
 class RubricView(View):

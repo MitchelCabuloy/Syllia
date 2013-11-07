@@ -19,13 +19,19 @@
             </div>
 
             <div class="save">
-                <a class="_save" href="#" id="saveBtn"><i class="icon-save"></i>&nbsp;Save</a> <a class="_error" data-tooltip="" href="#" id="errorBtn" style="display: none;" title="Use this tooltip to include any error message.">&nbsp;Error!</a> <a class="_saving" href="#" id="savingBtn" style="display: none;"><i class="icon-refresh icon-spin"></i>&nbsp;Saving</a> <a class="_saved" href="#" id="savedBtn" style="display: none;"><i class="icon-save"></i>&nbsp;Saved</a> <a class="_save" href="#" id="validateBtn">Validate</a>
+                <a class="_save" href="#" id="saveBtn"><i class="icon-save"></i>&nbsp;Save</a>
+                <a class="_error" href="#" id="errorBtn" style="display: none;">&nbsp;Error!</a>
+                <a class="_saving" href="#" id="savingBtn" style="display: none;"><i class="icon-refresh icon-spin"></i>&nbsp;Saving</a>
+                <a class="_saved" href="#" id="savedBtn" style="display: none;"><i class="icon-save"></i>&nbsp;Saved</a>
+                <!-- <a class="_save" href="#" id="validateBtn">Validate</a> -->
             </div>
         </div>
     </div>
 </div>
-
 <div class="row tab-wrapper">
+    <ul class="messages">
+        <!-- <li class="error">Test error</li> -->
+    </ul>
     <div class="section-container vertical-tabs" data-options="deep_linking: true" data-section="vertical-tabs">
         <section class="active">
             <p class="title"><a href="#basic-details">Basic Details</a></p>
@@ -37,7 +43,7 @@
                     <div class="row">
                         <div class="large-4 columns">
                             <label>Syllabus Name</label>
-                            <input data-bind="value: syllabusName, valueUpdate: 'afterkeydown'" placeholder="NewSyllabus-class-01" type="text">
+                            <input data-bind="value: syllabusName, valueUpdate: 'afterkeydown'" placeholder="NewSyllabus-class-01" type="text" required>
                             <small class="error">This field is required.</small>
                         </div>
                     </div>

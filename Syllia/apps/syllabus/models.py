@@ -56,7 +56,7 @@ class Syllabus(models.Model):
     syllabus_name = models.CharField(max_length=50)
     department = models.ForeignKey('syllabus.Department')
     course_code = models.CharField(max_length=7)
-    rubric = models.ForeignKey('syllabus.Rubric')
+    rubric = models.ForeignKey('syllabus.Rubric', blank=True, null=True, on_delete=models.SET_NULL)
     json_data = JSONField(default={"pk": 0})
     created = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)

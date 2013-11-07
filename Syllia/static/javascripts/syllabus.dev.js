@@ -18,10 +18,10 @@ var SyllabusModule = (function($, ko, jsonData) {
         Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
         Foundation.libs.forms.refresh_custom_select($('#rubricSelect'), true);
 
-        Foundation.libs.section.settings.callback = function(element) {
-            console.log("Changing sections");
-            console.log(element);
-        };
+        // Foundation.libs.section.settings.callback = function(element) {
+        //     console.log("Changing sections");
+        //     MODULE.submitForm(viewModel, false, true);
+        // };
 
         // Start modified timer
         if (viewModel.timeSinceModified()) {
@@ -97,10 +97,11 @@ var SyllabusModule = (function($, ko, jsonData) {
         });
     };
 
-    MODULE.submitForm = function(viewModel, redirect) {
+    MODULE.submitForm = function(viewModel, redirect, base) {
         redirect = typeof redirect !== 'undefined' ? redirect : false;
+        base = typeof base !== 'undefined' ? base : false;
 
-        if (true) {
+        if (MODULE.isValid(base)) {
             // Serialize
             var syllabus_json = ko.toJSON(viewModel, function(key, value) {
                 // Ignores these fields
@@ -134,29 +135,50 @@ var SyllabusModule = (function($, ko, jsonData) {
         } else {
             $('#saveBtn').toggle();
             $('#errorBtn').toggle();
-            $('#errorBtn').attr('title', "Please check your forms");
+            if (base)
+                $('ul.messages').append($('<li></li>').attr('class', 'error').text('You must at least have basic details before saving.'));
+            else
+                $('ul.messages').append($('<li></li>').attr('class', 'error').text('Please check your forms.'));
+
             setTimeout(function() {
                 $('#errorBtn').toggle();
-                $('#errorBtn').attr('title', "");
+                $('ul.messages').empty();
                 $('#saveBtn').toggle();
             }, 5000);
-            viewModel.errors.showAllMessages();
         }
     };
 
     MODULE.bindUIActions = function(viewModel) {
         $('#postBtn').click(function() {
-            MODULE.submitForm(viewModel, true);
+            MODULE.submitForm(viewModel, true, false);
         });
 
         $('#saveBtn').click(function() {
-            MODULE.submitForm(viewModel, false);
+            MODULE.submitForm(viewModel, false, true);
         });
 
         $('#validateBtn').click(function() {
-            console.log('Validating...');
-            $('form[data-abide]').trigger('validate');
+            MODULE.isValid();
         });
+    };
+
+    MODULE.isValid = function(base) {
+        base = typeof base !== 'undefined' ? base : false;
+
+        console.log('Validating...');
+        var inputs = [];
+        if (base) {
+            $('form#baseForm[data-abide]').trigger('validate');
+            inputs = $('form#baseForm[data-abide]').find('input[data-invalid], select[data-invalid], textarea[data-invalid]');
+            console.log('Invalid inputs:');
+            console.log(inputs.length);
+        } else {
+            $('form[data-abide]').trigger('validate');
+            inputs = $('input[data-invalid]')
+            console.log('Invalid inputs:');
+        }
+
+        return inputs.length == 0 ? true : false;
     };
 
     var MODELS = (function() {
@@ -337,7 +359,7 @@ var SyllabusModule = (function($, ko, jsonData) {
             self.learningOutcome = ko.observable();
 
             // Constructor
-            if (elga.elgaName) {
+            if (elga.learningOutcomeNumber) {
                 self.elgaName(elga.elgaName);
                 self.learningOutcomeNumber(elga.learningOutcomeNumber);
                 self.learningOutcome(elga.learningOutcome);
