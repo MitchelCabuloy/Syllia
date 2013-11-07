@@ -7,7 +7,13 @@
 
 <div class="row content-header">
 	<div class="large-12 column">
-		<h3 class="left">Create a new Rubric</h3>
+		<!-- ko if: rubricName -->
+        <h3 class="left" data-bind="text: rubricName"></h3>
+        <!-- /ko -->
+
+        <!-- ko if: !rubricName() -->
+        <h3 class="left">Create a new rubric</h3>
+        <!-- /ko -->
 		<div class="right">
 			<div class="modified" data-bind="">Modified <span data-bind="text: timeSinceModified"></span> ago</div>
 		</div>
@@ -20,7 +26,7 @@
 			<div class="row">
 				<div class="large-4 columns">
 					<label>Rubric name</label>
-					<input data-bind="value: rubricName" type="text" placeholder="NTCORE03_Rubric01" required/>
+					<input data-bind="value: rubricName, valueUpdate: 'afterkeydown'" type="text" placeholder="NTCORE03_Rubric01" required/>
 					<small class="error">This field is required.</small>
 				</div>
 			</div>
