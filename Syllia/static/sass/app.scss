@@ -470,7 +470,7 @@ html, body {
 	}
 
 	.checkboxes {
-		//padding-top: 10px;
+		padding-top: 10px;
 		padding-bottom: 20px;
 		input {
 			height: 15px;
@@ -597,20 +597,19 @@ html, body {
 	}
 }
 
-
 #feedback {
 	position: absolute;
-	top: 200px;
-	right: -34px;
+	bottom: 0px;
+	right: 24%;
 	z-index: 5;
-    transform: rotate(90deg);
-    -ms-transform: rotate(90deg); /* IE 9 */
-    -webkit-transform: rotate(90deg); /* Safari and Chrome */
-    -o-transform: rotate(90deg); /* Opera */
-    -moz-transform: rotate(90deg); /* Firefox */
+    //transform: rotate(90deg);
+    //-ms-transform: rotate(90deg); /* IE 9 */
+    //-webkit-transform: rotate(90deg); /* Safari and Chrome */
+    //-o-transform: rotate(90deg); /* Opera */
+    //-moz-transform: rotate(90deg); /* Firefox */
     a {
     	@extend .green-button;
-    	padding: 8px 15px 8px 15px;
+    	padding: 10px 18px 10px 18px;
     	display: block;
     }
 }
