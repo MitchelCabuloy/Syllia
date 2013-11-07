@@ -7808,6 +7808,7 @@ html, body {
 }
 /* line 472, ../sass/app.scss */
 .content .checkboxes, .rubric .checkboxes {
+  padding-top: 10px;
   padding-bottom: 20px;
 }
 /* line 475, ../sass/app.scss */
