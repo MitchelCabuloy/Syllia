@@ -7962,20 +7962,19 @@ a.icon-remove span, a.icon-remove-multiple span {
 #feedback {
   position: fixed;
   bottom: 0px;
-  right: 24%;
   z-index: 5;
 }
-/* line 628, ../sass/app.scss */
+/* line 627, ../sass/app.scss */
 #feedback a {
   padding: 10px 18px 10px 18px;
   display: block;
 }
 
-/* line 636, ../sass/app.scss */
+/* line 635, ../sass/app.scss */
 .title a._error {
   color: #ef3636 !important;
 }
-/* line 639, ../sass/app.scss */
+/* line 638, ../sass/app.scss */
 .title a._disabled {
   opacity: 0.4;
 }
