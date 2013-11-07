@@ -20,55 +20,8 @@
 
     <!-- temporary, only during BETA -->
     <div id="feedback">
-        <a href="#" data-reveal-id="feedback-modal">Feedback</a>
+        <a href="{% url 'syllabus:feedback' %}" target="_blank">Feedback</a>
     </div>
-
-    <div id="feedback-modal" class="reveal-modal small">
-        <div class="row content-header">
-            <div class="large-12 column">
-                <h4>
-                    Comments? Bugs? Suggestions?
-                </h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="large-12 column">
-                <p>
-
-                </p>
-                <p>
-                    Syllia is currently at its beta phase! If you encounter any problems or bugs while using Syllia, please do report it to us through this form. That way, we could easily and quickly attend to it. Also feel free to throw in any suggestions regarding Syllia.
-                </p>
-                <span style="float:right;">TheTeam@syllia.co</span>
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="large-12 column">
-                        <label>Full name <small>(Optional)</small></label>
-                        <input type="text"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="large-12 column">
-                        <label>Email address <small>(Optional)</small></label>
-                        <input type="text"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="large-12 column content">
-                        <label>Feedback</label>
-                        <textarea></textarea>
-            </div>
-        </div>
-        <div class="row">
-            <div class="large-12 column">
-                <hr>
-                <a class="continue-button">Submit Feedback</a>
-            </div>
-        </div>
-    </div>
-    <!-- end of feedback form -->
 
     <div class="wrapper">
         <div class="row">

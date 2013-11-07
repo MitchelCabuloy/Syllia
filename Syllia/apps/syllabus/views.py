@@ -15,11 +15,12 @@ from django.contrib.auth.decorators import login_required
 
 from Syllia.apps.syllabus.models import Rubric, College, Department, Syllabus
 from Syllia.apps.accounts.forms import ProfileForm
+from Syllia.apps.syllabus.forms import FeedbackForm
 
 
 # import logging
 
-# # Log everything, and send it to stderr.
+# Log everything, and send it to stderr.
 # logging.basicConfig(level=logging.DEBUG)
 
 class DashboardView(View):
@@ -156,7 +157,8 @@ class SyllabusView(View):
             syllabus.department = Department.objects.get(
                 pk=json_data['department'])
             if('rubric' in json_data):
-                syllabus.rubric = current_user.rubric_set.get(pk=json_data['rubric'])
+                syllabus.rubric = current_user.rubric_set.get(
+                    pk=json_data['rubric'])
 
             syllabus.save()
 
@@ -172,7 +174,8 @@ class SyllabusView(View):
             return HttpResponse(simplejson.dumps(response_data), content_type="application/json")
         except Exception, e:
             print e
-            return HttpResponseServerError(simplejson.dumps({'message': 'You must at least have basic information before saving.'}), content_type="application/json");
+            return HttpResponseServerError(simplejson.dumps({'message': 'You must at least have basic information before saving.'}), content_type="application/json")
+
 
 @csrf_protect
 @login_required
@@ -186,10 +189,10 @@ def delete_syllabus(request):
 
         try:
             current_user.syllabus_set.filter(id__in=item_ids).delete()
-            response_data['success'] = True;
+            response_data['success'] = True
             return HttpResponse(simplejson.dumps(response_data), content_type="application/json")
         except Exception:
-            return HttpResponseServerError(simplejson.dumps({'message': 'Something went wrong.'}), content_type="application/json");
+            return HttpResponseServerError(simplejson.dumps({'message': 'Something went wrong.'}), content_type="application/json")
 
 
 class RubricView(View):
@@ -237,6 +240,7 @@ class RubricView(View):
         messages.success(request, 'Saved rubric')
         return redirect('index')
 
+
 @csrf_protect
 @login_required
 def delete_rubric(request):
@@ -249,14 +253,29 @@ def delete_rubric(request):
 
         try:
             current_user.rubric_set.filter(id__in=item_ids).delete()
-            response_data['success'] = True;
+            response_data['success'] = True
             return HttpResponse(simplejson.dumps(response_data), content_type="application/json")
         except Exception:
-            return HttpResponseServerError(simplejson.dumps({'message': 'Something went wrong.'}), content_type="application/json");
+            return HttpResponseServerError(simplejson.dumps({'message': 'Something went wrong.'}), content_type="application/json")
+
+
+class FeedbackView(View):
+    template_name = 'home/feedback.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        form = FeedbackForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return render(request, 'home/feedback_thanks.html')
+
+        return render(request, 'home/feedback.html', {'form': form})
+
 
 # static methods
-
-
 def format_last_modified_time(last_modified):
     if timezone.localtime(last_modified).date() == timezone.localtime(datetime.utcnow().replace(tzinfo=timezone.utc)).date():
         last_modified_string = timezone.localtime(

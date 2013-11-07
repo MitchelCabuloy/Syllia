@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Feedback{% endblock title %}
+
+{% block content %}
+
+<div class="row content-header">
+    <div class="large-12 column">
+        <h3>
+            Comments? Bugs? Suggestions?
+        </h3>
+    </div>
+</div>
+<div class="row">
+    <div class="small-12 large-6 column">
+        <p>
+
+        </p>
+        <p>
+            Syllia is currently at its beta phase! If you encounter any problems or bugs while using Syllia, please do report it to us through this form. That way, we could easily and quickly attend to it. Also feel free to throw in any suggestions regarding Syllia.
+        </p>
+        <span style="float:right;">TheTeam@syllia.co</span>
+        <hr>
+    </div>
+</div>
+<form action="{% url 'syllabus:feedback' %}" method="POST" data-abide>
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="small-12 large-6 column">
+            <label>Full name <small>(Optional)</small></label>
+            <input type="text" name="fullname"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 large-6 column">
+            <label>Email address <small>(Optional)</small></label>
+            <input type="text" name="email" pattern="email"/>
+            <small class="error">Please enter a valid email address.</small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 large-6 column content">
+            <label>Feedback</label>
+            <textarea name="feedback" required></textarea>
+            <small class="error">This field is required.</small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 large-6 column">
+            <hr>
+            <input type="submit" value="Submit Feedback" class="continue-button">
+        </div>
+    </div>
+</form>
+
+{% endblock content %}

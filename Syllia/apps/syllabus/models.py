@@ -56,7 +56,8 @@ class Syllabus(models.Model):
     syllabus_name = models.CharField(max_length=50)
     department = models.ForeignKey('syllabus.Department')
     course_code = models.CharField(max_length=7)
-    rubric = models.ForeignKey('syllabus.Rubric', blank=True, null=True, on_delete=models.SET_NULL)
+    rubric = models.ForeignKey(
+        'syllabus.Rubric', blank=True, null=True, on_delete=models.SET_NULL)
     json_data = JSONField(default={"pk": 0})
     created = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
@@ -71,3 +72,10 @@ class Syllabus(models.Model):
 
     def __unicode__(self):
         return self.course_code
+
+
+class Feedback(models.Model):
+    id = models.AutoField(primary_key=True)
+    fullname = models.CharField(max_length=50)
+    email = models.EmailField()
+    feedback = models.TextField()
