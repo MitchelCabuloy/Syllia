@@ -7943,33 +7943,24 @@ html, body {
   top: -1px;
 }
 
-/* line 601, ../sass/app.scss */
+/* line 600, ../sass/app.scss */
 #feedback {
   position: absolute;
-  top: 200px;
-  right: -34px;
+  bottom: 0px;
+  right: 24%;
   z-index: 5;
-  transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  /* IE 9 */
-  -webkit-transform: rotate(90deg);
-  /* Safari and Chrome */
-  -o-transform: rotate(90deg);
-  /* Opera */
-  -moz-transform: rotate(90deg);
-  /* Firefox */
 }
-/* line 611, ../sass/app.scss */
+/* line 610, ../sass/app.scss */
 #feedback a {
-  padding: 8px 15px 8px 15px;
+  padding: 10px 18px 10px 18px;
   display: block;
 }
 
-/* line 619, ../sass/app.scss */
+/* line 618, ../sass/app.scss */
 .title a._error {
   color: #ef3636 !important;
 }
-/* line 622, ../sass/app.scss */
+/* line 621, ../sass/app.scss */
 .title a._disabled {
   opacity: 0.4;
 }
