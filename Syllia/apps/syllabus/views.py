@@ -10,10 +10,17 @@ from django.http import Http404, HttpResponse, HttpResponseServerError
 from django.shortcuts import render, redirect
 from django.utils import simplejson, timezone
 from django.core.urlresolvers import reverse
+from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth.decorators import login_required
 
 from Syllia.apps.syllabus.models import Rubric, College, Department, Syllabus
 from Syllia.apps.accounts.forms import ProfileForm
 
+
+# import logging
+
+# # Log everything, and send it to stderr.
+# logging.basicConfig(level=logging.DEBUG)
 
 class DashboardView(View):
     template_name = 'syllabus/dashboard.html'
@@ -163,8 +170,26 @@ class SyllabusView(View):
                 response_data['redirectTo'] = reverse('index')
 
             return HttpResponse(simplejson.dumps(response_data), content_type="application/json")
-        except Exception:
+        except Exception, e:
+            print e
             return HttpResponseServerError(simplejson.dumps({'message': 'You must at least have basic information before saving.'}), content_type="application/json");
+
+@csrf_protect
+@login_required
+def delete_syllabus(request):
+    if request.method == "POST":
+        item_ids = request.POST.getlist('ids_json[]')
+
+        response_data = {}
+        current_user = get_user_model().objects.get(
+            email=request.user.email)
+
+        try:
+            current_user.syllabus_set.filter(id__in=item_ids).delete()
+            response_data['success'] = True;
+            return HttpResponse(simplejson.dumps(response_data), content_type="application/json")
+        except Exception:
+            return HttpResponseServerError(simplejson.dumps({'message': 'Something went wrong.'}), content_type="application/json");
 
 
 class RubricView(View):
@@ -211,6 +236,23 @@ class RubricView(View):
 
         messages.success(request, 'Saved rubric')
         return redirect('index')
+
+@csrf_protect
+@login_required
+def delete_rubric(request):
+    if request.method == "POST":
+        item_ids = request.POST.getlist('ids_json[]')
+
+        response_data = {}
+        current_user = get_user_model().objects.get(
+            email=request.user.email)
+
+        try:
+            current_user.rubric_set.filter(id__in=item_ids).delete()
+            response_data['success'] = True;
+            return HttpResponse(simplejson.dumps(response_data), content_type="application/json")
+        except Exception:
+            return HttpResponseServerError(simplejson.dumps({'message': 'Something went wrong.'}), content_type="application/json");
 
 # static methods
 

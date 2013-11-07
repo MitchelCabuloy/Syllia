@@ -48,6 +48,30 @@ var Dashboard = (function($, ko, jsonData) {
         // });
     };
 
+    MODULE.deleteData = function(viewModel) {
+        var items = [];
+        $.each(viewModel.selectedItems(), function(index, item) {
+            items.push(parseInt(item.pk));
+        });
+
+        $.ajax({
+            data: {
+                ids_json: items
+            },
+            type: 'POST',
+            url: '/' + viewModel.context + '/delete/',
+            success: function(response) {
+                console.log('Success delete');
+                $.each(viewModel.selectedItems(), function(index, item) {
+                    viewModel.listItems.remove(item);
+                });
+            },
+            error: function(response) {
+                console.log('Error delete');
+            }
+        });
+    };
+
     // Model declaration
 
     var MODELS = (function() {
@@ -55,15 +79,19 @@ var Dashboard = (function($, ko, jsonData) {
 
         models.DashboardModel = function(items, context) {
             var self = this;
-            self.context = "[data-slug='" + context + "']";
-            self.btnDownload = $(self.context + " #btnDownload");
-            self.btnDownloadAll = $(self.context + " #btnDownloadAll");
-            self.btnDelete = $(self.context + " #btnDelete");
+            self.context = context;
+            self.btnDownload = $("[data-slug='" + self.context + "'] #btnDownload");
+            self.btnDownloadAll = $("[data-slug='" + self.context + "'] #btnDownloadAll");
+            self.btnDelete = $("[data-slug='" + self.context + "'] #btnDelete");
 
             self.btnDownload.click(function() {
                 var item = self.selectedItems()[0];
                 $("#inputDownload").val(item.pk);
                 $("#formDownload").submit();
+            });
+
+            self.btnDelete.click(function() {
+                MODULE.deleteData(self);
             });
 
             self.listItems = ko.observableArray(items);
