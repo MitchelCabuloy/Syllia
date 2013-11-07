@@ -11,6 +11,7 @@ var RubricModule = (function($, ko) {
             MODULE.loadData(viewModel, jsonData.rubricData);
             viewModel.timeSinceModified(jsonData.timeSinceModified);
         }
+        $(document).foundation('abide', 'events');
     };
 
     MODULE.loadData = function(viewModel, json) {
@@ -61,6 +62,7 @@ var RubricModule = (function($, ko) {
 
             self.addCriteria = function() {
                 self.criterias.push(new MODELS.CriteriaModel());
+                $(document).foundation('abide', 'events');
             };
 
             self.removeCriteria = function(criteria) {
