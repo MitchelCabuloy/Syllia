@@ -176,6 +176,7 @@ a.icon-remove {
 	float: right;
 	padding: 15px 20px 15px 20px;
 	text-transform: uppercase;
+	border: none;
 }
 
 .icon-chevron-left {
@@ -461,6 +462,11 @@ a.icon-remove {
 	/*.row:first-child, h4 {
 		margin-top: 40px;
 	}*/
+
+	h4 {
+		margin-bottom: 15px;
+	}
+
 
 	p {
 		color: $grey-lighter;
