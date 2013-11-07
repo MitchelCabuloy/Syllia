@@ -176,6 +176,7 @@ a.icon-remove {
 	float: right;
 	padding: 15px 20px 15px 20px;
 	text-transform: uppercase;
+	border: none;
 }
 
 .icon-chevron-left {
@@ -235,6 +236,8 @@ a.icon-remove {
 	padding: 10px;
 }
 */
+
+/* registration error*/
 .errorlist {
 	margin-top: -15px;
 	border-top: 2px solid $red;
@@ -242,9 +245,24 @@ a.icon-remove {
 	li {
 		list-style: none;
 		color: $red;
+		font-size: 0.75em;
 		//padding-left: 10px;
 	}
 }
+
+/*abide error
+.error input {
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+.error small {
+	background-color: #fff !important;
+	color: $red !important;
+	border-top: 2px solid $red;
+	font-weight: normal !important;
+}
+*/
 
 /*newer error declarations*/
 .messages, .a-error, .generic {
@@ -462,6 +480,11 @@ a.icon-remove {
 		margin-top: 40px;
 	}*/
 
+	h4 {
+		margin-bottom: 15px;
+	}
+
+
 	p {
 		color: $grey-lighter;
 	}
@@ -609,7 +632,6 @@ a.icon-remove {
 #feedback {
 	position: fixed;
 	bottom: 0px;
-	right: 24%;
 	z-index: 5;
     //transform: rotate(90deg);
     //-ms-transform: rotate(90deg); /* IE 9 */
