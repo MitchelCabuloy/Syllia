@@ -250,7 +250,28 @@ a.icon-remove {
 	}
 }
 
-/*abide error
+/*abide error */
+.error {
+	label {
+		color: $grey;
+	}
+	input, .custom.dropdown ,textarea {
+		border: 1px solid #ccc !important;
+		border-bottom: 1px solid $red !important;
+		background-color: #fff !important;
+	}
+
+
+	small {
+		background-color: #fff !important;
+		color: $red !important;
+		border-top: 1px solid $red;
+		font-weight: normal !important;
+		padding-left: 0px !important;
+	}
+}
+
+/*
 .error input {
 	border: 1px solid #ccc;
 	background-color: #fff;
@@ -492,6 +513,8 @@ a.icon-remove {
 	form.custom .custom.dropdown.open ul {
 		border: 1px solid $grey-border;
 	}
+
+
 	input {
 		height: 38px;
 	}
