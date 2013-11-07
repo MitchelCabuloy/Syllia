@@ -11,7 +11,7 @@ var Dashboard = (function($, ko, jsonData) {
         $.each(jsonData.syllabusList, function(index, value) {
             syllabusList.push(new MODELS.ListItemModel(value));
         });
-        var syllabusViewModel = new MODELS.DashboardModel(syllabusList);
+        var syllabusViewModel = new MODELS.DashboardModel(syllabusList, 'syllabus');
         ko.applyBindings(syllabusViewModel, $("[data-slug='syllabus']")[0]);
 
         // Rubric
@@ -20,13 +20,15 @@ var Dashboard = (function($, ko, jsonData) {
         $.each(jsonData.rubricList, function(index, value) {
             rubricList.push(new MODELS.ListItemModel(value));
         });
-        ko.applyBindings(new MODELS.DashboardModel(rubricList), $("[data-slug='rubric']")[0]);
+        var rubricViewModel = new MODELS.DashboardModel(rubricList, 'rubric');
+        ko.applyBindings(rubricViewModel, $("[data-slug='rubric']")[0]);
 
         MODULE.bindUIActions(syllabusViewModel);
+        MODULE.bindUIActions(rubricViewModel);
 
     };
 
-    MODULE.bindUIActions = function(syllabusViewModel) {
+    MODULE.bindUIActions = function(viewModel) {
         $("#btnProfileSubmit").click(function() {
             $("#profileForm").submit();
         });
@@ -35,11 +37,15 @@ var Dashboard = (function($, ko, jsonData) {
             $('#change_password_form').submit();
         });
 
-        $("#btnDownload").click(function() {
-            var item = syllabusViewModel.selectedItems()[0];
-            $("#inputDownload").val(item.pk);
-            $("#formDownload").submit();
-        });
+        // $(viewModel.context + " #btnDownload").click(function() {
+        //     var item = viewModel.selectedItems()[0];
+        //     $("#inputDownload").val(item.pk);
+        //     $("#formDownload").submit();
+        // });
+
+        // $(viewModel.context + " #btnDelete").click(function() {
+        //     // Do some stuff
+        // });
     };
 
     // Model declaration
@@ -47,8 +53,19 @@ var Dashboard = (function($, ko, jsonData) {
     var MODELS = (function() {
         var models = {};
 
-        models.DashboardModel = function(items) {
+        models.DashboardModel = function(items, context) {
             var self = this;
+            self.context = "[data-slug='" + context + "']";
+            self.btnDownload = $(self.context + " #btnDownload");
+            self.btnDownloadAll = $(self.context + " #btnDownloadAll");
+            self.btnDelete = $(self.context + " #btnDelete");
+
+            self.btnDownload.click(function() {
+                var item = self.selectedItems()[0];
+                $("#inputDownload").val(item.pk);
+                $("#formDownload").submit();
+            });
+
             self.listItems = ko.observableArray(items);
 
             self.pageIndex = ko.observable(1);
@@ -68,6 +85,25 @@ var Dashboard = (function($, ko, jsonData) {
                 });
 
                 return items;
+            });
+
+            self.selectedItems.subscribe(function() {
+                switch (self.selectedItems().length) {
+                    case 0:
+                        self.btnDownload.hide();
+                        self.btnDownloadAll.hide();
+                        self.btnDelete.hide();
+                        break;
+                    case 1:
+                        self.btnDownload.show();
+                        self.btnDownloadAll.hide();
+                        self.btnDelete.show();
+                        break;
+                    default:
+                        self.btnDownload.hide();
+                        self.btnDownloadAll.show();
+                        self.btnDelete.show();
+                }
             });
 
             // TODO: Disable buttons on first and last pages.

@@ -41,12 +41,12 @@
                               <li><a href="#">None</a></li>
                             </ul>
 
-                            <a id="btnDownload" href="#" class="dashboard-green"><i class="icon-download-alt"></i>&nbsp;Download</a>
-
                             <a href="{% url "syllabus:syllabus" %}" class="dashboard-green"><i class="icon-plus"></i>&nbsp;New Syllabus</a>
 
-                            <a href="#" class="dashboard-grey"><i class="icon-trash"></i></a>
+                            <a id="btnDownload" href="#" class="dashboard-green" style="display: none;"><i class="icon-download-alt"></i>&nbsp;Download</a>
+                            <a id="btnDownloadAll" href="#" class="dashboard-grey" style="display: none;"><i class="icon-download-alt"></i>&nbsp;Download All (Soon)</a>
 
+                            <a id="btnDelete" href="#" class="dashboard-grey" style="display: none;"><i class="icon-trash"></i></a>
                         </div>
                     </div>
 
@@ -95,7 +95,7 @@
 
                             <a href="{% url "syllabus:rubric" %}" class="dashboard-green"><i class="icon-plus"></i>&nbsp;New Rubric</a>
 
-                            <a href="#" class="dashboard-grey"><i class="icon-trash"></i></a>
+                            <a id="btnDelete" href="#" class="dashboard-grey" style="display: none;"><i class="icon-trash"></i></a>
 
                         </div>
                     </div>
