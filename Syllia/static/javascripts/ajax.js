@@ -26,11 +26,13 @@ var AjaxModule = (function($) {
             error = $.parseJSON(xhr.response);
             $('#savingBtn').toggle();
             $('#errorBtn').toggle();
+            $('#sectionErrors').show();
             $('ul.messages').append($('<li></li>').attr('class', 'error').text(error.message));
 
             setTimeout(function() {
                 $('#errorBtn').toggle();
                 $('ul.messages').empty();
+                $('#sectionErrors').hide();
                 $('#saveBtn').toggle();
             }, 5000);
         });

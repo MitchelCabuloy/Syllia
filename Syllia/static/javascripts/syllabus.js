@@ -135,6 +135,7 @@ var SyllabusModule = (function($, ko, jsonData) {
         } else {
             $('#saveBtn').toggle();
             $('#errorBtn').toggle();
+            $('#sectionErrors').show();
             if (base)
                 $('ul.messages').append($('<li></li>').attr('class', 'error').text('You must at least have basic details before saving.'));
             else
@@ -143,6 +144,7 @@ var SyllabusModule = (function($, ko, jsonData) {
             setTimeout(function() {
                 $('#errorBtn').toggle();
                 $('ul.messages').empty();
+                $('#sectionErrors').hide();
                 $('#saveBtn').toggle();
             }, 5000);
         }
