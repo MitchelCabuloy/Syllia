@@ -109,14 +109,13 @@ class SyllabusView(View):
         if(len(args)):
             try:
                 syllabus = current_user.syllabus_set.get(pk=args[0])
-                jsonData['syllabusData'] = simplejson.loads(syllabus.json_data)
+                jsonData['syllabusData'] = syllabus.json_data
 
                 # Load modified time data
                 jsonData['timeSinceModified'] = get_time_since_modified(
                     syllabus.last_modified)
 
-            except Exception, e:
-                print e.message
+            except Exception:
                 raise Http404
 
         rubricList = []
@@ -150,7 +149,7 @@ class SyllabusView(View):
             syllabus.user = current_user
             syllabus.syllabus_name = json_data['syllabusName']
             syllabus.course_code = json_data['courseCode']
-            syllabus.json_data = request.POST['syllabus_json']
+            syllabus.json_data = json_data
 
             # Load foreign keys
             # These will throw an exception if invalid
@@ -163,7 +162,7 @@ class SyllabusView(View):
             syllabus.save()
 
             response_data = {
-                'viewModel': simplejson.loads(syllabus.json_data),
+                'viewModel': syllabus.json_data,
                 'timeSinceModified': get_time_since_modified(syllabus.last_modified)
             }
 
@@ -172,8 +171,7 @@ class SyllabusView(View):
                 response_data['redirectTo'] = reverse('index')
 
             return HttpResponse(simplejson.dumps(response_data), content_type="application/json")
-        except Exception, e:
-            print e
+        except Exception:
             return HttpResponseServerError(simplejson.dumps({'message': 'You must at least have basic information before saving.'}), content_type="application/json")
 
 
@@ -207,7 +205,7 @@ class RubricView(View):
                 rubric = current_user.rubric_set.get(pk=args[0])
 
                 jsonData = {
-                    'rubricData': simplejson.loads(rubric.json_data),
+                    'rubricData': rubric.json_data,
                     'timeSinceModified': get_time_since_modified(rubric.last_modified)
                 }
 
@@ -234,7 +232,7 @@ class RubricView(View):
         try:
             rubric.user = current_user
             rubric.rubric_name = json_data['rubricName']
-            rubric.json_data = request.POST['rubric_json']
+            rubric.json_data = json_data
 
             rubric.save()
 
@@ -242,7 +240,7 @@ class RubricView(View):
             return redirect('index')
         except Exception:
             jsonData = {
-                'rubricData': simplejson.loads(request.POST['rubric_json'])
+                'rubricData': json_data
             }
 
             context = {'jsonData': simplejson.dumps(jsonData)}
