@@ -77,13 +77,13 @@
                     <div class="row">
                         <div class="large-4 columns">
                             <label>Course Code</label>
-                            <input data-bind="value: courseCode" pattern="^[a-zA-Z0-9-]{7,7}$" placeholder="NTCOR03" required="" type="text">
+                            <input data-bind="value: courseCode" pattern="^[a-zA-Z0-9-]{7,7}$" placeholder="7 character course code" required="" type="text">
                             <small class="error">The course code is required and must be 7 characters in length.</small>
                         </div>
 
                         <div class="large-8 columns">
                             <label>Course Name</label>
-                            <input data-bind="value: courseName" placeholder="LAN Switching and Wireless - Lecture" required="" type="text">
+                            <input data-bind="value: courseName" placeholder="" required="" type="text">
                             <small class="error">This field is required.</small>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                     <div class="row top-spacing">
                         <div class="large-12 columns">
                             <label>Course Description</label>
-                            <textarea class="form-fill form-textarea" data-bind="value: courseDescription" name="description" required=""></textarea>
+                            <textarea class="form-fill form-textarea" data-bind="value: courseDescription" name="description" required="" placeholder="Short description of what this course covers."></textarea>
                             <small class="error">This field is required.</small>
                         </div>
                     </div>
@@ -114,19 +114,19 @@
                     <div data-bind="foreach: schedules">
                         <div class="row">
                             <div class="large-4 columns">
-                                <input data-bind="value: days" placeholder="Mondays and Wednesdays" type="text">
+                                <input data-bind="value: days" placeholder="e.g. Mondays and Wednesdays" type="text">
                             </div>
 
                             <div class="large-2 columns">
-                                <input data-bind="value: startTime" placeholder="13:00" type="text">
+                                <input data-bind="value: startTime" placeholder="e.g. 13:00" type="text">
                             </div>
 
                             <div class="large-2 columns">
-                                <input data-bind="value: endTime" placeholder="14:30" type="text">
+                                <input data-bind="value: endTime" placeholder="e.g. 14:30" type="text">
                             </div>
 
                             <div class="large-2 columns">
-                                <input data-bind="value: venue" placeholder="G403" type="text">
+                                <input data-bind="value: venue" placeholder="e.g. G403" type="text">
                             </div>
 
                             <div class="large-2 columns">
@@ -151,7 +151,7 @@
                     <div data-bind="foreach: instructors">
                         <div class="row">
                             <div class="large-4 columns">
-                                <input data-bind="value: fullName" placeholder="Jean Baptiste de La Salle" type="text">
+                                <input data-bind="value: fullName" placeholder="" type="text">
                             </div>
 
                             <div class="large-4 columns left">
@@ -188,7 +188,7 @@
                         <div class="row">
                             <div class="large-4 columns">
                                 <label>Lasallian Value</label>
-                                <input data-bind="value: elgaName" placeholder="Service Driven Citizen" required="" type="text">
+                                <input data-bind="value: elgaName" placeholder="e.g. Service Driven Citizen" required="" type="text">
                                 <small class="error">This field is required.</small>
                             </div>
 
@@ -203,7 +203,7 @@
                                     </div>
 
                                     <div class="large-8 columns">
-                                        <textarea class="lo-form form-fill" data-bind="value: learningOutcome" placeholder="Design an efficient, fault tolerant, and scalable network based on the principles of hiearchical LAN design." required=""></textarea>
+                                        <textarea class="lo-form form-fill" data-bind="value: learningOutcome" placeholder="Knowledge, skills, attitudes and habits of mind you aim to equip your students with." required=""></textarea>
                                         <small class="error">This field is required.</small>
                                     </div>
 
@@ -243,7 +243,7 @@
                     <div class="row">
                         <div class="large-12 columns">
                             <label>Final Course Output Description</label>
-                            <textarea data-bind="value: finalCourseOutputDescription" placeholder="The final case study requires students to work in groups of 3-4 members in designing, implementing, and verifying a hypothetical network based on a set of given requirement. Further details and specifications of the case study will be given at a later date." required=""></textarea>
+                            <textarea data-bind="value: finalCourseOutputDescription" placeholder="Place a short description of what students are required to submit as their final output for this course." required=""></textarea>
                             <small class="error">This field is required.</small>
                         </div>
                     </div>
@@ -252,13 +252,13 @@
                         <div class="row">
                             <div class="large-4 columns">
                                 <label>Required Output</label>
-                                <input data-bind="value: description" placeholder="Case Study" required="" type="text">
+                                <input data-bind="value: description" placeholder="e.g. Case Study" required="" type="text">
                                 <small class="error">This field is required.</small>
                             </div>
 
                             <div class="large-4 columns left">
                                 <label>Due Date</label>
-                                <input data-bind="value: weekDue" pattern="integer" placeholder="Week 13" required="" type="text">
+                                <input data-bind="value: weekDue" pattern="integer" placeholder="e.g. Week 13" required="" type="text">
                                 <small class="error">This field is required and must be an integer.</small>
                             </div>
 
@@ -304,7 +304,7 @@
                     <div data-bind="foreach: otherOutputs">
                         <div class="row">
                             <div class="large-4 columns">
-                                <input data-bind="value: requirementName" placeholder="Online Practical Exam" required="" type="text">
+                                <input data-bind="value: requirementName" placeholder="e.g. Reaction Paper" required="" type="text">
                                 <small class="error">This field is required.</small>
                             </div>
 
@@ -386,12 +386,12 @@
             <div data-bind="foreach: gradingSystems">
                 <div class="row">
                     <div class="large-4 columns">
-                        <input data-bind="value: itemName" placeholder="Chapter Exam" required="" type="text">
+                        <input data-bind="value: itemName" placeholder="e.g. Final Exam" required="" type="text">
                         <small class="error">This field is required.</small>
                     </div>
 
                     <div class="large-4 columns left">
-                        <input data-bind="value: percentage" pattern="integer" placeholder="15" required="" type="text">
+                        <input data-bind="value: percentage" pattern="integer" placeholder="e.g. 25" required="" type="text">
                         <small class="error">This field is required and must be an integer.</small>
                     </div>
 
@@ -446,13 +446,13 @@
                 <div class="row">
                     <div class="large-5 columns">
                         <label>Topic</label>
-                        <input data-bind="value: topic" placeholder="Introduction / Orientation" required="" type="text">
+                        <input data-bind="value: topic" placeholder="Topic to be discussed. e.g. Linear Equations" required="" type="text">
                         <small class="error">This field is required.</small>
                     </div>
 
                     <div class="large-2 columns left">
                         <label>Week No.</label>
-                        <input class=" bottom-spacing-small" data-bind="value: weekNumber" pattern="integer" placeholder="1" required="" type="text">
+                        <input class=" bottom-spacing-small" data-bind="value: weekNumber" pattern="integer" placeholder="e.g. 7" required="" type="text">
                         <small class="error">This field is required and must be an integer.</small>
                     </div>
 
@@ -461,7 +461,7 @@
 
                         <div class="row" data-bind="foreach: learningActivities">
                             <div class="small-9 columns">
-                                <input data-bind="value: description" placeholder="Course Introduction" required="" type="text">
+                                <input data-bind="value: description" placeholder="e.g. Seatwork" required="" type="text">
                                 <small class="error">This field is required.</small>
                             </div>
 
@@ -505,7 +505,7 @@
             <div data-bind="foreach: references">
                 <div class="row">
                     <div class="small-10 columns">
-                        <input data-bind="value: referenceText" placeholder="Lewis, W. (2008). LAN Switching and Wireless - CCNA Exploration Companion Guide. Cisco Press" required="" type="text">
+                        <input data-bind="value: referenceText" placeholder="References you will be using for this course." required="" type="text">
                         <small class="error">This field is required.</small>
                     </div>
 
@@ -533,7 +533,7 @@
             <div data-bind="foreach: classPolicies">
                 <div class="row">
                     <div class="small-10 columns">
-                        <input data-bind="value: policy" placeholder="A Chapter exam shall be taken during the first 20 minutes, every Tuesday." required="" type="text">
+                        <input data-bind="value: policy" placeholder="Any additional policies not included in the handbook that you have in your classroom." required="" type="text">
                         <small class="error">This field is required.</small>
                     </div>
 
