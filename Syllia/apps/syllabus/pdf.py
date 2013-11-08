@@ -6,7 +6,6 @@ from tempfile import NamedTemporaryFile
 from django.http import HttpResponse
 from django.template import Context
 from django.template.loader import get_template
-from django.utils import simplejson
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
@@ -28,12 +27,11 @@ def return_a_pdf(request):
         except Exception:
             raise Http404
 
-        context_dict = simplejson.loads(syllabus.json_data)
+        context_dict = syllabus.json_data
         context_dict['college'] = College.objects.get(pk=context_dict['college'])
         context_dict['department'] = Department.objects.get(
             pk=context_dict['department'])
-        context_dict['rubric'] = simplejson.loads(
-            Rubric.objects.get(pk=context_dict['rubric']).json_data)
+        context_dict['rubric'] = Rubric.objects.get(pk=context_dict['rubric']).json_data
 
         template = get_template('syllabus/pdf.html')
         context = Context(context_dict)
