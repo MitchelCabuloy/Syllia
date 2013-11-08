@@ -7723,7 +7723,7 @@ a.icon-remove span, a.icon-remove-multiple span {
 .login-pane:before, .account-pane:before {
   content: '';
   position: absolute;
-  width: 104px;
+  width: 113px;
   height: 1px;
   background-color: #fff;
   top: -1px;

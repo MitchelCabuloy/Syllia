@@ -59,13 +59,13 @@
                             <hr>
                             <ul>
                                 <li><a href="{% url "index" %}"><i class="icon-desktop"></i>Account Dashboard</a></li>
-                                <li><a href="{% url "syllabus:syllabus" %}"><i class="icon-plus"></i>&nbsp;Create a Syllabus</a></li>
-                                <li><a href="{% url "syllabus:rubric" %}"><i class="icon-plus"></i>&nbsp;Create a Rubric</a></li>
+                                <li><a href="{% url "syllabus:syllabus" %}"><i class="icon-file-text-alt"></i>&nbsp;Create a Syllabus</a></li>
+                                <li><a href="{% url "syllabus:rubric" %}"><i class="icon-table"></i>&nbsp;Create a Rubric</a></li>
 
                             </ul>
                             <hr>
                             <ul>
-                                <li id="logout"><a href="{% url "authtools:logout" %}"><i class="icon-signout"></i>Logout</a></li>
+                                <li id="logout"><a href="{% url "authtools:logout" %}"><i class="icon-signout"></i>Sign Out</a></li>
                             </ul>
                             <!--<a class="account-option" href="accounts/password_change">Change Password</a>-->
                             <!--
@@ -77,7 +77,7 @@
                     </li>
                     {% else %}
                     <li>
-                        <a id="login-button" href="#">Login</a>
+                        <a id="login-button" href="#">Sign In</a>
                         <!-- TODO: Do the login panel-->
                         <div class="login-pane">
                             <form action="{% url "authtools:login" %}" method="POST">

@@ -3,10 +3,16 @@
 {% block title %}Logged out{% endblock title %}
 
 {% block content %}
+<div class="row content-header">
+    <div class="large-12 column">
+        <h3>
+        </h3>
+    </div>
+</div>
 <div class="row">
 	<div class="small-12 columns">
 		<h5>You have been logged out.</h5><br>
-		<a href="{% url "authtools:login" %}">Login</a> | <a href="{% url "index" %}">Home</a>
+		<a href="{% url "authtools:login" %}">Sign In</a> | <a href="{% url "index" %}">Home</a>
 	</div>
 </div>
 {% endblock content %}
