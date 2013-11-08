@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="index-main">
+    <div class="row">
+        <div class="large-7 columns large-centered">
+            {% load staticfiles %}
+            <img src="{% static "images/syllia_big.jpg" %}" alt="" />
+            <h4 class="logo_sub">Handling DLSU syllabuses a problem? Never again with Syllia, the online syllabus generator!</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns call-to-action">
+            <a href="{% url "accounts:register" %}">Sign Up Now</a>
+            <span>A valid DLSU email is required</span>
+        </div>
+    </div>
+</div>
+<div class="index-features">
+    <div class="row ">
+        <div class="large-4 columns">
+            <h4>Create clear and concise syllabuses</h4>
+            <p>
+                Using our forms which are optimized for the DLSU standard syllabus, you are assured that the syllabuses you will make are clear and concise.
+            </p>
+        </div>
+        <div class="large-4 columns">
+            <h4>Efficiently manage your syllabuses</h4>
+            <p>
+                Handling two or more subjects? <br>Major syllabus revisions? <br>We've got you covered. <br>Managing syllabuses has never been this easy.
+            </p>
+
+        </div>
+        <div class="large-4 columns">
+            <h4>For DLSU Professors!</h4>
+            <p>
+                Syllia was created by DLSU students, for DLSU professors! It's about time we gave back to you guys! Animo La Salle!
+            </p>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

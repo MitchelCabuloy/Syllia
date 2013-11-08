@@ -1,17 +1,23 @@
 from django.conf.urls import patterns, include, url
+from django.views.generic.base import TemplateView
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from Syllia.apps.syllabus.views import DashboardView
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'Syllia.views.home', name='home'),
-    # url(r'^Syllia/', include('Syllia.foo.urls')),
+   # url(r'^accounts/', include('accounts.urls', namespace="accounts")),
+   # url(r'^$', TemplateView.as_view(template_name='home/index.html'), name='index'),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+   # Syllabus App
+   url(r'^$', DashboardView.as_view(), name='index'),
+   url(r'^', include('Syllia.apps.syllabus.urls', namespace='syllabus')),
 
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+   # Static pages
+   url(r'^about/$', TemplateView.as_view(template_name='home/about.html'), name='about'),
+   url(r'^contact/$', TemplateView.as_view(template_name='home/contact.html'), name='contact'),
+   # url(r'^rubric/$', TemplateView.as_view(template_name='home/rubric.html'), name='rubric'),
+   # url(r'^dashboard/$', TemplateView.as_view(template_name='home/dashboard.html'), name='dashboard'),
+
+   # Accounts and authentication
+   url(r'^accounts/', include('authtools.urls', namespace='authtools')),
+   url(r'^accounts/', include('Syllia.apps.accounts.urls', namespace='accounts')),
 )

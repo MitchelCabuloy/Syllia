@@ -54,3 +54,626 @@
 // @import "foundation/components/tooltips";
 // @import "foundation/components/dropdown";
 
+
+// footer by http://ryanfait.com
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -155px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+	height: 155px; /* .push must be the same height as .footer */
+}
+
+.footer {
+	border-top: 1px solid $grey-border;
+	padding-top: 30px;
+	text-align: center;
+	a {
+		font-size: 15px;
+		color: $green;
+		text-transform: uppercase;
+		margin-right: 10px;
+
+	}
+
+	p {
+		font-size:  13px;
+		color: $grey-lighter;
+	}
+}
+
+//  end of footer declarations */
+
+/*	-- Syllia stylesheet V3 (Re-created from ground up for a easier understanding) --
+	Hello stylesheet reader! I hope you enjoy reading these declarations as I have enjoyed
+	creating (and recreating) it :)
+*/
+
+// general declarations (to @extend from)
+.green-button, .clear-button, .negative-button, .grey-button, .dashboard-red {
+	transition: background-color 0.3s, border 0.3s, color 0.3s;
+	text-transform: uppercase;
+	//font-size: 13px;
+}
+
+.green-button {
+	//border: 1px solid $green-darker;
+	background-color: $green;
+	color: #fff !important;
+	&:hover, &:focus {
+		background-color: $green-lighter;
+		//border: 1px solid $green;
+	}
+}
+
+.add-row, .save {
+	i {
+	font-size: 12px;
+	position: relative;
+	top: -1px;
+	}
+}
+
+.clear-button {
+	border: 1px solid $grey-border;
+	color: $green !important;
+	&:hover, &:focus {
+		border: 1px solid $grey-border-darker;
+		color: $green-darker;
+	}
+}
+
+.negative-button {
+	background-color: $grey-button;
+	//border:1px solid $grey-button-border;
+	&:hover, &:focus {
+		background-color: $red;
+		//border: 1px solid $red-darker;
+		color: #fff;
+	}
+}
+
+.grey-button {
+	background-color: $grey-button;
+	color: $grey-lighter;
+	&:hover, &:focus {
+		background-color: $grey-button-lighter;
+		color: darken($grey-lighter,5%);
+	}
+}
+
+a.icon-remove {
+	@extend .negative-button;
+	padding: 11px;
+	color: #fff;
+	// display: inline-block;
+	span {
+		font-family: $body-font-family !important;
+		margin-left: 3px;
+	}
+}
+
+.icon-remove-multiple {
+	@extend .icon-remove;
+	position: relative;
+	top: 10px;
+	&:before {
+		content: "\f00d";
+	}
+}
+
+.continue-button {
+	@extend .green-button;
+	float: right;
+	padding: 15px 20px 15px 20px;
+	text-transform: uppercase;
+	border: none;
+}
+
+.icon-chevron-left {
+	@extend .negative-button;
+	float: right;
+	padding: 15px;
+	color: #fff;
+	margin-right: 10px;
+	&:hover {
+		/* having red on a back button felt negative*/
+		background-color: $grey-button-border;
+	}
+}
+
+.add-row, .dashboard-green, .dashboard-grey, .dashboard-red{
+	padding: 8px 12px 8px 10px;
+	margin-bottom: 15px;
+	display: inline-block;
+}
+
+.add-row, .dashboard-green {
+	@extend .green-button;
+}
+
+.dashboard-grey {
+	@extend .grey-button;
+	color: $grey-lighter;
+}
+
+.dashboard-red {
+	// @extend .grey-button;
+	background-color: $red;
+	color: #fff !important;
+	&:hover, &:focus {
+		background-color: $red-lighter;
+	}
+}
+
+.dashboard-green, .dashboard-grey, .dashboard-red {
+	font-size: 13px;
+}
+/*
+#submit-syllabus {
+	@extend .green-button;
+	width: 170px;
+	padding: 8px 12px 8px 18px;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+*/
+/*legacy error declarations
+.a-error {
+	color: $red;
+	margin-bottom: 40px;
+	border-left: 3px solid $red;
+	display: block;
+	padding: 10px;
+}
+*/
+
+/* registration error*/
+.errorlist {
+	margin-top: -15px;
+	border-top: 2px solid $red;
+	padding: 5px 5px 5px 0px;
+	li {
+		list-style: none;
+		color: $red;
+		font-size: 0.75em;
+		//padding-left: 10px;
+	}
+}
+
+/*abide error */
+.error {
+	label {
+		color: $grey;
+	}
+	input, .custom.dropdown ,textarea {
+		border: 1px solid #ccc !important;
+		border-bottom: 1px solid $red !important;
+		background-color: #fff !important;
+	}
+
+
+	small {
+		background-color: #fff !important;
+		color: $red !important;
+		border-top: 1px solid $red;
+		font-weight: normal !important;
+		padding-left: 0px !important;
+	}
+	/* placed important because abide is a pain in the ass to overwrite, can't find tem in settings either*/
+}
+
+/*
+.error input {
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+.error small {
+	background-color: #fff !important;
+	color: $red !important;
+	border-top: 2px solid $red;
+	font-weight: normal !important;
+}
+*/
+
+/*newer error declarations*/
+.messages, .a-error, .generic {
+	list-style: none;
+	li.success {
+		color: $green;
+		border-left: 3px solid $green;
+		padding: 5px 0px 5px 5px;
+	}
+	li.error, .a-error {
+		color: $red;
+		border-left: 3px solid $red;
+		padding: 5px 0px 5px 15px;
+	}
+}
+
+.no-visibility {
+	visibility:hidden;
+}
+
+// index page declarations
+.index-main {
+	padding-top: 75px;
+	h4, div {
+		text-align: center;
+	}
+	div:last-child {
+		margin-bottom: 30px;
+	}
+}
+.index-features {
+	padding-top: 30px;
+	text-align: center;
+	div {
+		padding-bottom: 20px;
+	}
+}
+
+.call-to-action {
+	a {
+		@extend .green-button;
+		padding: 10px 30px 10px 30px;
+		text-transform: uppercase;
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+	span {
+		color: $grey-lighter;
+		margin-top: 20px;
+		display: block;
+	}
+
+
+}
+
+// Navigation and Login / My account pane declaration
+.navigation {
+	margin-top: 30px;
+	ul {
+		float: right;
+		list-style: none;
+	}
+	li {
+		float: left;
+		font-size: 1em;
+		text-transform: uppercase;
+		margin-right: 15px;
+		position: relative;
+	}
+	li:last-child{
+		margin-right: 0px;
+	}
+
+	a {
+		color: $grey;
+	}
+}
+
+.login-pane, .account-pane {
+	display: none;
+	width: 270px;
+	padding: 25px;
+	background-color: #fff;
+	position: absolute;
+	z-index: 2;
+	right: 0px;
+	top: 29px;
+	border: 1px solid $grey-border;
+	text-transform: none;
+	a {
+		color: $green;
+	}
+}
+
+.login-pane:before {
+	content: '';
+	position: absolute;
+	width: 113px;
+	height: 1px;
+	background-color: #fff;
+	top: -1px;
+	right: 0px;
+}
+
+.account-pane {
+	font-size: 13px;
+
+	strong {
+		font-size: 14px;
+		display: block;
+	}
+	ul {
+		margin-left: -25px;
+		float: none;
+		//list-style: circle;
+		//margin-bottom: 20px;
+
+	}
+	li {
+		text-transform: none;
+		float: none;
+		width: 269px;
+
+		a {
+			transition: background-color 0.1s, color 0.1s;
+			padding: 1px 0px 1px 26px;
+			display: block;
+			&:hover {
+				color: #fff;
+				background-color: $green;
+				border-left: 1px solid $green-darker;
+				border-right: 1px solid $green-darker;
+				margin-left: -1px;
+			}
+		}
+
+		i {
+			width: 20px;
+			margin-right: 10px;
+		}
+
+	}
+
+	#logout {
+		a {
+			transition: background-color 0.1s, color 0.1s;
+			&:hover {
+				background-color: $red !important;
+				border-left: 1px solid $red-darker !important;
+				border-right: 1px solid $red-darker !important;
+			}
+		}
+	}
+
+	&:before {
+		@extend .login-pane:before;
+		width: 133px !important;
+	}
+}
+#account-button {
+	@extend .clear-button;
+	padding: 8px 20px 8px 20px
+}
+
+/*	Login button is the 'LOGIN' button found in the navigation, while
+	Login Submit is the button found in the login form itself */
+
+#login-button, #login-submit, #register-button/*, #logout-button*/ {
+	padding: 8px 30px 8px 30px;
+}
+
+#login-button {
+	@extend .clear-button;
+	//padding: 8px 30px 8px 30px;
+}
+
+#login-submit, #register-button {
+	@extend .green-button;
+	//padding: 8px 30px 8px 30px;
+	display: block;
+	border: none;
+	margin-bottom: 10px;
+}
+/*
+#logout-button {
+	@extend .negative-button;
+	//padding: 8px 30px 8px 30px;
+	color: $grey-lighter;
+	margin-top: 20px;
+}
+*/
+
+// Everything else
+
+.content-header {
+	border-bottom: 1px solid $grey-border;
+	margin-top: 40px;
+	.modified {
+		float: left;
+		color: $green;
+		font-size: 14px;
+		margin-right: 20px;
+		position: relative;
+		top: 20px;
+	}
+	margin-bottom: 30px;
+}
+
+.tab-wrapper {
+	margin-top: 40px;
+}
+
+.content {
+	/*.row:first-child, h4 {
+		margin-top: 40px;
+	}*/
+
+	h4 {
+		margin-bottom: 15px;
+	}
+
+
+	p {
+		color: $grey-lighter;
+	}
+
+	form.custom .custom.dropdown.open ul {
+		border: 1px solid $grey-border;
+	}
+
+
+	input {
+		height: 38px;
+	}
+
+	textarea {
+		min-height: 80px !important;
+		width: 100%;
+	}
+
+	.checkboxes {
+		padding-top: 10px;
+		padding-bottom: 20px;
+		input {
+			height: 15px;
+		}
+		div {
+			height: 20px;
+			display: inline-block;
+			margin-right: 10px;
+			border-right: 1px solid $grey-button-border;
+			padding: 0px 10px 0px 0px;
+			&:last-child {
+				border: none;
+			}
+		}
+	}
+
+	.highlight {
+		display: inline-block;
+		background-color: $grey-button;
+		color: lighter($grey-lighter);
+		padding: 2px 5px 2px 5px;
+		font-size: 12px;
+	}
+
+	.foreach-header {
+		margin-bottom: -40px;
+	}
+}
+
+.rubric {
+	@extend .content;
+	textarea {
+		height: 200px;
+		max-width: 100%;
+	}
+}
+
+.vertical-tabs {
+	.title {
+		border-right: 2px solid $grey-border !important;
+		text-transform: uppercase;
+	}
+
+	.active {
+		.title {
+			border-right: 2px solid $green !important;
+		}
+	}
+}
+
+.learning-outcomes {
+	margin-bottom: 25px;
+	.row:first-child {
+		margin-top: 0px !important;
+		margin-bottom: 10px;
+	}
+	.row {
+		margin-top: 20px;
+	}
+	.lo-block {
+		background-color: $grey-button;
+		color: #fff;
+		padding: 11px;
+	}
+}
+
+/* Dashboard declarations */
+.dashboard-table-content {
+	ul {
+		list-style: none;
+	}
+	input {
+		height: 13px;
+	}
+	li {
+		//background-color: $grey-button;
+		transition: background-color 0.2s, color 0.2s;
+		padding: 10px 10px 0px 10px;
+		border-bottom: 1px solid $grey-border;
+		&:hover {
+			background-color: #f9f9f9;
+			cursor: pointer;
+			color: $green;
+		}
+	}
+	.itemName {
+		padding-left: 10px;
+	}
+	.lastModified {
+		float: right;
+	}
+}
+
+.save {
+	float: right;
+	margin-top: 15px;
+	a {
+		@extend .green-button;
+		padding: 8px 12px 8px 10px;
+	}
+	a._saving {
+		opacity: 0.5 !important;
+		background-color: $green-lighter;
+		cursor: default !important;
+	}
+	a._saved {
+		opacity: 0.5 !important;
+		cursor: default !important;
+		&:hover{
+			background-color: $green;
+		}
+	}
+
+	a._error {
+		background-color: $red !important;
+
+		&:before {
+			content: "\f057";
+			font-family: 'FontAwesome';
+			font-size: 12px;
+			position: relative;
+			top: -1px;
+		}
+	}
+}
+
+#feedback {
+	position: fixed;
+	bottom: 0px;
+	z-index: 5;
+    //transform: rotate(90deg);
+    //-ms-transform: rotate(90deg); /* IE 9 */
+    //-webkit-transform: rotate(90deg); /* Safari and Chrome */
+    //-o-transform: rotate(90deg); /* Opera */
+    //-moz-transform: rotate(90deg); /* Firefox */
+    a {
+    	@extend .green-button;
+    	padding: 10px 18px 10px 18px;
+    	display: block;
+    }
+}
+
+.title {
+	a._error {
+		color: $red !important;
+	}
+	a._disabled {
+		opacity: 0.4;
+	}
+}

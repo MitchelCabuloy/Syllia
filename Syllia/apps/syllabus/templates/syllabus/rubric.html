@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Rubric{% endblock title %}
+
+{% block content %}
+
+
+<div class="row content-header">
+	<div class="large-12 column">
+		<!-- ko if: rubricName -->
+        <h3 class="left" data-bind="text: rubricName"></h3>
+        <!-- /ko -->
+
+        <!-- ko if: !rubricName() -->
+        <h3 class="left">Create a new rubric</h3>
+        <!-- /ko -->
+		<div class="right">
+			<div class="modified" data-bind="">Modified <span data-bind="text: timeSinceModified"></span> ago</div>
+		</div>
+		<!-- STATIC ERROR MESSAGE -->
+		{% if messages %}
+        <div id="sectionErrors" class="row" >
+            <div class="large-12 columns">
+		        <ul class="messages">
+		            {% for message in messages %}
+		            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		            {% endfor %}
+		        </ul>
+            </div>
+        </div>
+        {% endif %}
+	</div>
+</div>
+
+<div class="rubric row">
+	<div class="large-12 columns">
+		<form id="rubricForm" data-abide>
+			<div class="row">
+				<div class="large-4 columns">
+					<label>Rubric name</label>
+					<input data-bind="value: rubricName, valueUpdate: 'afterkeydown'" type="text" placeholder="NewRubric-class-01" required/>
+					<small class="error">This field is required.</small>
+				</div>
+			</div>
+
+
+			<div data-bind="foreach: criterias">
+				<hr>
+
+				<div class="row">
+					<div class="large-12 columns">
+						<label>Criteria</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="small-4 columns">
+						<input data-bind="value: criteriaName" type="text" required/>
+						<small class="error">This field is required.</small>
+					</div>
+					<div class="small-2 columns left">
+						<a class="icon-remove-multiple" href="#" data-bind="click: $root.removeCriteria"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="large-3 columns">
+						<label>Exemplary</label>
+						<textarea data-bind="value: exemplary" placeholder="The submitted work manifests qualities which go beyond the requirements." required></textarea>
+						<small class="error">This field is required.</small>
+					</div>
+					<div class="large-3 columns">
+						<label>Satisfactory</label>
+						<textarea data-bind="value: satisfactory"placeholder="The submitted work manifests the required qualities." required></textarea>
+						<small class="error">This field is required.</small>
+					</div>
+					<div class="large-3 columns">
+						<label>Developing</label>
+						<textarea data-bind="value: developing" placeholder="The submitted work partially manifests the required qualities. Certain aspects are either incomplete or incorrect." required></textarea>
+						<small class="error">This field is required.</small>
+					</div>
+					<div class="large-3 columns">
+						<label>Beginning</label>
+						<textarea data-bind="value: beginning" placeholder="The submitted work does not manifest any of the requirements." required></textarea>
+						<small class="error">This field is required.</small>
+					</div>
+				</div>
+
+			</div><!-- END OF FOREACH BIND ON THIS DIV -->
+		</form>
+
+
+		<div class="row">
+			<div class="large-12 columns">
+				<!-- ADD BIND ON THIS HREF -->
+				<a href="#" data-bind="click: addCriteria" class="add-row">
+					<i class="icon-plus"></i>Add Criteria
+				</a>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="large-12 columns">
+				<a href="#" id="postBtn" class="continue-button">Save Rubric</a>
+				<!-- <a href="#" id="stringifyBtn" class="add-row">Stringify</a> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- json submit form -->
+<form id="rubric_json_form" action="{% url "syllabus:rubric" %}" method="post">
+	{% csrf_token %}
+	<input type="hidden" name="rubric_json" id="rubric_json">
+</form>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{% load staticfiles %}
+
+{% if jsonData %}
+<script>
+    var jsonData = $.parseJSON('{{ jsonData|escapejs }}');
+</script>
+{% endif %}
+
+<script src="{% static "javascripts/vendor/knockout-2.3.0.js" %}"></script>
+<script src="{% static "javascripts/rubric.js" %}"></script>
+
+{% endblock scripts %}

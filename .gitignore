@@ -2,9 +2,16 @@
 bin/
 include/
 lib/
+staticfiles
 
 # Sass-cache
 *.sass-cache/
 
 # sqlite3 db
 *.db
+
+# sublime stuff
+*.sublime-workspace
+
+# Virtual env
+venv/
