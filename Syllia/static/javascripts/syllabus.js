@@ -167,17 +167,13 @@ var SyllabusModule = (function($, ko, jsonData) {
     MODULE.isValid = function(base) {
         base = typeof base !== 'undefined' ? base : false;
 
-        console.log('Validating...');
         var inputs = [];
         if (base) {
             $('form#baseForm[data-abide]').trigger('validate');
             inputs = $('form#baseForm[data-abide]').find('input[data-invalid], select[data-invalid], textarea[data-invalid]');
-            console.log('Invalid inputs:');
-            console.log(inputs.length);
         } else {
             $('form[data-abide]').trigger('validate');
             inputs = $('input[data-invalid]')
-            console.log('Invalid inputs:');
         }
 
         return inputs.length == 0 ? true : false;

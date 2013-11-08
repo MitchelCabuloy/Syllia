@@ -36,24 +36,9 @@ var RubricModule = (function($, ko) {
                 $('#rubric_json_form').submit();
             }
         });
-
-        $('#stringifyBtn').click(function() {
-            var rubric_json = ko.toJSON(viewModel, function(key, value) {
-                switch (key) {
-                    case "timeSinceModified":
-                        return;
-                    default:
-                        return value;
-                }
-            });
-
-            console.log("KO Data:");
-            console.log(rubric_json);
-        });
     };
 
     MODULE.isValid = function() {
-        console.log('Validating...');
         var inputs = [];
 
         $('form[data-abide]').trigger('validate');
