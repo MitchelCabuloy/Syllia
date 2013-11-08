@@ -123,6 +123,7 @@
                 <a href="#user-profile">User Profile</a>
             </p>
             <div class="content" data-slug="user-profile" data-section-content>
+                <h4>User Profile</h4>
                 <form id="profileForm" action="{% url "accounts:update_profile" %}" method="post" class="custom">
                     {% csrf_token %}
                     <div class="row">
@@ -165,6 +166,7 @@
                 <a href="#change-password">Change Password</a>
             </p>
             <div class="content" data-slug="change-password" data-section-content>
+                <h4>Change Password</h4>
                 <form id="change_password_form" action="{% url "accounts:change_password" %}" method="post">
                     {% csrf_token %}
                     <div class="row">
