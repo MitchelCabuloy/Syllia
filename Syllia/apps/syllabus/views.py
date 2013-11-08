@@ -231,14 +231,23 @@ class RubricView(View):
         except Exception:
             rubric = Rubric()
 
-        rubric.user = current_user
-        rubric.rubric_name = json_data['rubricName']
-        rubric.json_data = request.POST['rubric_json']
+        try:
+            rubric.user = current_user
+            rubric.rubric_name = json_data['rubricName']
+            rubric.json_data = request.POST['rubric_json']
 
-        rubric.save()
+            rubric.save()
 
-        messages.success(request, 'Saved rubric')
-        return redirect('index')
+            messages.success(request, 'Saved rubric')
+            return redirect('index')
+        except Exception:
+            jsonData = {
+                'rubricData': simplejson.loads(request.POST['rubric_json'])
+            }
+
+            context = {'jsonData': simplejson.dumps(jsonData)}
+            messages.error(request, 'Please check your forms')
+            return render(request, self.template_name, context)
 
 
 @csrf_protect

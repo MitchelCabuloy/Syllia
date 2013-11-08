@@ -22,17 +22,19 @@ var RubricModule = (function($, ko) {
 
     MODULE.bindUIActions = function(viewModel) {
         $('#postBtn').click(function() {
-            var rubric_json = ko.toJSON(viewModel, function(key, value) {
-                switch (key) {
-                    case "timeSinceModified":
-                        return;
-                    default:
-                        return value;
-                }
-            });
+            if (MODULE.isValid()) {
+                var rubric_json = ko.toJSON(viewModel, function(key, value) {
+                    switch (key) {
+                        case "timeSinceModified":
+                            return;
+                        default:
+                            return value;
+                    }
+                });
 
-            $('#rubric_json').val(rubric_json);
-            $('#rubric_json_form').submit();
+                $('#rubric_json').val(rubric_json);
+                $('#rubric_json_form').submit();
+            }
         });
 
         $('#stringifyBtn').click(function() {
@@ -50,6 +52,15 @@ var RubricModule = (function($, ko) {
         });
     };
 
+    MODULE.isValid = function() {
+        console.log('Validating...');
+        var inputs = [];
+
+        $('form[data-abide]').trigger('validate');
+        inputs = $('input[data-invalid]')
+
+        return inputs.length == 0 ? true : false;
+    };
     var MODELS = (function() {
         var models = {};
 
