@@ -135,6 +135,7 @@ var SyllabusModule = (function($, ko, jsonData) {
         } else {
             $('#saveBtn').toggle();
             $('#errorBtn').toggle();
+            $('#sectionErrors').show();
             if (base)
                 $('ul.messages').append($('<li></li>').attr('class', 'error').text('You must at least have basic details before saving.'));
             else
@@ -143,6 +144,7 @@ var SyllabusModule = (function($, ko, jsonData) {
             setTimeout(function() {
                 $('#errorBtn').toggle();
                 $('ul.messages').empty();
+                $('#sectionErrors').hide();
                 $('#saveBtn').toggle();
             }, 5000);
         }
@@ -165,17 +167,13 @@ var SyllabusModule = (function($, ko, jsonData) {
     MODULE.isValid = function(base) {
         base = typeof base !== 'undefined' ? base : false;
 
-        console.log('Validating...');
         var inputs = [];
         if (base) {
             $('form#baseForm[data-abide]').trigger('validate');
             inputs = $('form#baseForm[data-abide]').find('input[data-invalid], select[data-invalid], textarea[data-invalid]');
-            console.log('Invalid inputs:');
-            console.log(inputs.length);
         } else {
             $('form[data-abide]').trigger('validate');
             inputs = $('input[data-invalid]')
-            console.log('Invalid inputs:');
         }
 
         return inputs.length == 0 ? true : false;

@@ -176,6 +176,7 @@ a.icon-remove {
 	float: right;
 	padding: 15px 20px 15px 20px;
 	text-transform: uppercase;
+	border: none;
 }
 
 .icon-chevron-left {
@@ -235,6 +236,8 @@ a.icon-remove {
 	padding: 10px;
 }
 */
+
+/* registration error*/
 .errorlist {
 	margin-top: -15px;
 	border-top: 2px solid $red;
@@ -242,9 +245,46 @@ a.icon-remove {
 	li {
 		list-style: none;
 		color: $red;
+		font-size: 0.75em;
 		//padding-left: 10px;
 	}
 }
+
+/*abide error */
+.error {
+	label {
+		color: $grey;
+	}
+	input, .custom.dropdown ,textarea {
+		border: 1px solid #ccc !important;
+		border-bottom: 1px solid $red !important;
+		background-color: #fff !important;
+	}
+
+
+	small {
+		background-color: #fff !important;
+		color: $red !important;
+		border-top: 1px solid $red;
+		font-weight: normal !important;
+		padding-left: 0px !important;
+	}
+	/* placed important because abide is a pain in the ass to overwrite, can't find tem in settings either*/
+}
+
+/*
+.error input {
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+.error small {
+	background-color: #fff !important;
+	color: $red !important;
+	border-top: 2px solid $red;
+	font-weight: normal !important;
+}
+*/
 
 /*newer error declarations*/
 .messages, .a-error, .generic {
@@ -342,7 +382,7 @@ a.icon-remove {
 .login-pane:before {
 	content: '';
 	position: absolute;
-	width: 104px;
+	width: 113px;
 	height: 1px;
 	background-color: #fff;
 	top: -1px;
@@ -462,6 +502,11 @@ a.icon-remove {
 		margin-top: 40px;
 	}*/
 
+	h4 {
+		margin-bottom: 15px;
+	}
+
+
 	p {
 		color: $grey-lighter;
 	}
@@ -469,6 +514,8 @@ a.icon-remove {
 	form.custom .custom.dropdown.open ul {
 		border: 1px solid $grey-border;
 	}
+
+
 	input {
 		height: 38px;
 	}
@@ -609,7 +656,6 @@ a.icon-remove {
 #feedback {
 	position: fixed;
 	bottom: 0px;
-	right: 24%;
 	z-index: 5;
     //transform: rotate(90deg);
     //-ms-transform: rotate(90deg); /* IE 9 */
