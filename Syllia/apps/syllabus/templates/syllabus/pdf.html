@@ -74,6 +74,11 @@
                 </td>
                 <td>
                     <strong>ROOMS:</strong>
+                    <ul class="simple">
+                        {% for schedule in schedules %}
+                            <li>{{ schedule.venue }}</li>
+                        {% endfor %}
+                    </ul>
                 </td>
             </tr>
             <tr>
