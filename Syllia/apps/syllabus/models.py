@@ -76,6 +76,6 @@ class Syllabus(models.Model):
 
 class Feedback(models.Model):
     id = models.AutoField(primary_key=True)
-    fullname = models.CharField(max_length=50)
-    email = models.EmailField()
+    fullname = models.CharField(max_length=50, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
     feedback = models.TextField()
