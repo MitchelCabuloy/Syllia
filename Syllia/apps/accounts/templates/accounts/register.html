@@ -60,7 +60,7 @@
                 <select id="collegeSelect" name="college" data-bind="options: collegeList,optionsText: 'collegeName',optionsValue: 'pk',value: college,optionsCaption: 'Choose one...'">
                 </select>
                 {# {{ profile_form.college }} #}
-                {{ profile_form.college.errors }}
+                {{ form.college.errors }}
             </div>
         </div>
         <div class="row">
@@ -68,17 +68,17 @@
                 <label>Department</label>
                 <select id="departmentSelect" name="department" data-bind="options: departmentList,optionsText: 'departmentName',
                 optionsValue: 'pk',value: department,optionsCaption: 'Choose one...'">
-            </select>
-            {# {{ profile_form.department }} #}
-            {{ profile_form.department.errors }}
+                </select>
+                {# {{ profile_form.department }} #}
+                {{ form.department.errors }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-4 columns">
+                <input type="submit" value="Create account" id="register-button">
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="large-4 columns">
-            <input type="submit" value="Create account" id="register-button">
-        </div>
-    </div>
-</div>
 </form>
 {% endblock content %}
 {% block scripts %}
