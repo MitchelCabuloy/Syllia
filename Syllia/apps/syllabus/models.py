@@ -65,8 +65,7 @@ class Syllabus(models.Model):
     def save(self, *args, **kwargs):
         if self.id == None:
             super(Syllabus, self).save(*args, **kwargs)
-            self.json_data = self.json_data.replace(
-                '"pk":null', '"pk":%d' % self.id)
+            self.json_data['pk'] = self.id
 
         super(Syllabus, self).save(*args, **kwargs)
 

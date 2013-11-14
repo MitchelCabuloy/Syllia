@@ -27,6 +27,6 @@ class RegisterForm(ProfileForm):
 
         if not "@dlsu.edu.ph" in email and not "@delasalle.ph" in email:
             raise forms.ValidationError(
-                "You need to use a valid @dlu.edu.ph or @delasalle.ph email address to sign up for this service.")
+                "You need to use a valid @dlsu.edu.ph or @delasalle.ph email address to sign up for this service.")
 
         return email
