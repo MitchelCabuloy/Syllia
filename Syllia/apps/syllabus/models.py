@@ -15,8 +15,7 @@ class Rubric(models.Model):
     def save(self, *args, **kwargs):
         if self.id == None:
             super(Rubric, self).save(*args, **kwargs)
-            self.json_data = self.json_data.replace(
-                '"pk":null', '"pk":%d' % self.id)
+            self.json_data['pk'] = self.id
 
         super(Rubric, self).save(*args, **kwargs)
 
