@@ -226,7 +226,7 @@ var Dashboard = (function($, ko, jsonData) {
 
     return MODULE;
 
-})(Zepto, ko, jsonData);
+})(jQuery, ko, jsonData);
 
 $(document).ready(function() {
     Dashboard.init();

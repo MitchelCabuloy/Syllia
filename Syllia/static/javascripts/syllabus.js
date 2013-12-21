@@ -173,7 +173,7 @@ var SyllabusModule = (function($, ko, jsonData) {
             inputs = $('form#baseForm[data-abide]').find('input[data-invalid], select[data-invalid], textarea[data-invalid]');
         } else {
             $('form[data-abide]').trigger('validate');
-            inputs = $('input[data-invalid]')
+            inputs = $('input[data-invalid]');
         }
 
         return inputs.length == 0 ? true : false;
@@ -467,7 +467,7 @@ var SyllabusModule = (function($, ko, jsonData) {
     })(); // End models
 
     return MODULE;
-})(Zepto, ko, jsonData);
+})(jQuery, ko, jsonData);
 
 $(document).ready(function() {
     SyllabusModule.init();

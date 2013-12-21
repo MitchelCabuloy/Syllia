@@ -42,7 +42,7 @@ var RubricModule = (function($, ko) {
         var inputs = [];
 
         $('form[data-abide]').trigger('validate');
-        inputs = $('input[data-invalid]')
+        inputs = $('input[data-invalid]');
 
         return inputs.length == 0 ? true : false;
     };
@@ -84,7 +84,7 @@ var RubricModule = (function($, ko) {
 
     return MODULE;
 
-})(Zepto, ko);
+})(jQuery, ko);
 
 $(document).ready(function() {
     RubricModule.init();

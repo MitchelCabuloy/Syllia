@@ -44,7 +44,7 @@ var AjaxModule = (function($) {
     };
 
     return MODULE;
-})(Zepto);
+})(jQuery);
 
 $(document).ready(function() {
     AjaxModule.init();
