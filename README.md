@@ -4,6 +4,9 @@ Syllabus Generator Web App for De La Salle University
 
 Syllia is a project by the NetCentric Computing Laboratory in De La Salle University - Manila
 
+## Nightly
+- Download multiple syllabuses
+
 ## 0.2.0
 - Downloading syllabuses in PDF form works now
 - Client side validation on syllabus and rubric creation pages
