@@ -97,6 +97,38 @@ var Dashboard = (function($, ko, jsonData) {
                 $("#formDownload").submit();
             });
 
+            self.btnDownloadAll.click(function() {
+
+                var value = "";
+                $.each(self.selectedItems(), function(index, item) {
+                    value += item.pk + ",";
+                });
+
+                var form = $("<form/>", {
+                    "id": "multipleDownload",
+                    "action": "/pdf/mult/",
+                    "method": "POST",
+                    "style": "display:none;"
+                });
+
+                var input = $("<input>", {
+                    "type": "text",
+                    "name": "data",
+                    "value": value
+                }).appendTo(form);
+
+                var csrf = $("<input>", {
+                    "name": "csrfmiddlewaretoken",
+                    "value": $.cookie('csrftoken')
+                }).appendTo(form);
+
+                $("body").append(form);
+
+                form.submit().remove();
+
+                // $("#multipleDownload").submit().remove();
+            });
+
             self.btnDelete.click(function() {
                 self.btnDelete.hide();
                 self.btnSure.show();
@@ -226,7 +258,7 @@ var Dashboard = (function($, ko, jsonData) {
 
     return MODULE;
 
-})(Zepto, ko, jsonData);
+})(jQuery, ko, jsonData);
 
 $(document).ready(function() {
     Dashboard.init();

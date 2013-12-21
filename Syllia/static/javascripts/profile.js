@@ -1,16 +1,16 @@
 var Profile = (function($, ko) {
-    var MODULE = {}
+    var MODULE = {};
 
     MODULE.init = function() {
         var viewModel = new MODELS.DropdownModel();
-        ko.applyBindings(viewModel, $("[data-slug='user-profile']")[0])
+        ko.applyBindings(viewModel, $("[data-slug='user-profile']")[0]);
 
         Foundation.libs.forms.refresh_custom_select($('#collegeSelect'), true);
         Foundation.libs.forms.refresh_custom_select($('#departmentSelect'), true);
     };
 
     var MODELS = (function() {
-        var models = {}
+        var models = {};
         models.DropdownModel = function() {
             var self = this;
             self.college = ko.observable();
@@ -45,7 +45,7 @@ var Profile = (function($, ko) {
     })();
 
     return MODULE;
-})(Zepto, ko);
+})(jQuery, ko);
 
 $(document).ready(function() {
     Profile.init();

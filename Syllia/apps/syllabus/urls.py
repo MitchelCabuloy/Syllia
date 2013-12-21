@@ -12,5 +12,6 @@ urlpatterns = patterns('',
     url(r'^rubric/(\d+)/$', login_required(views.RubricView.as_view()), name='rubric'),
     url(r'^rubric/delete/$', views.delete_rubric, name='delete_rubric'),
     url(r'^pdf/$', pdf.return_a_pdf, name='pdf'),
+    url(r'^pdf/mult/$', pdf.return_a_zip),
     url(r'^feedback/$', login_required(views.FeedbackView.as_view()), name='feedback'),
 )
