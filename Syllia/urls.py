@@ -3,6 +3,9 @@ from django.views.generic.base import TemplateView
 
 from Syllia.apps.syllabus.views import DashboardView
 
+from django.contrib import admin
+admin.autodiscover()
+
 urlpatterns = patterns('',
    # url(r'^accounts/', include('accounts.urls', namespace="accounts")),
    # url(r'^$', TemplateView.as_view(template_name='home/index.html'), name='index'),
@@ -20,4 +23,7 @@ urlpatterns = patterns('',
    # Accounts and authentication
    url(r'^accounts/', include('authtools.urls', namespace='authtools')),
    url(r'^accounts/', include('Syllia.apps.accounts.urls', namespace='accounts')),
+
+   # Admin
+   url(r'^admin/', include(admin.site.urls)),
 )
